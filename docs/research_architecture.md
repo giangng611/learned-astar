@@ -2,11 +2,11 @@
 
 November 11, 2026
 
-This document describes how I plan to build the project. Nothing here has been implemented or tested yet. The [proposal](proposal.md) explains the research question and related papers.
+This document describes how I plan to build the project. As of November 13, the Python environment and configuration checks are ready. The search code, dataset, and model are still to come. The [proposal](proposal.md) explains the research question and related papers.
 
 ## Starting point
 
-The repository currently has a README and these planning documents. The computer's default Python version is 3.14.3. I still need to set up a project environment and check that PyTorch works with the chosen Python version.
+The project now has an installable Python package, a small configuration file, and tests for its settings. The local environment uses Python 3.14.3 and PyTorch 2.15.0. A small CPU convolution passed both the forward calculation and the gradient check. The exact installed package versions are saved in `requirements-lock.txt`.
 
 I will start with 32×32 grids and one small CNN. The first goal is to get a correct comparison working. Larger maps and extra model ideas can come after that.
 
