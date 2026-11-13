@@ -2,17 +2,17 @@
 
 November 11, 2026
 
-This document describes how I plan to build the project. As of November 13, the Python environment and configuration checks are ready. The search code, dataset, and model are still to come. The [proposal](proposal.md) explains the research question and related papers.
+This document describes the project design. As of November 13, phases 0 and 1 are complete: the environment, grid generator, ordinary search algorithms, tests, and small demo are working. The dataset, model, and full experiments are still to come. The [proposal](proposal.md) explains the research question and related papers.
 
 ## Starting point
 
-The project now has an installable Python package, a small configuration file, and tests for its settings. The local environment uses Python 3.14.3 and PyTorch 2.15.0. A small CPU convolution passed both the forward calculation and the gradient check. The exact installed package versions are saved in `requirements-lock.txt`.
+The project now has an installable Python package, a configuration file, tested baselines, and a command-line demo. The local environment uses Python 3.14.3 and PyTorch 2.15.0. A small CPU convolution passed both the forward calculation and the gradient check. The exact installed package versions are saved in `requirements-lock.txt`.
 
 I will start with 32×32 grids and one small CNN. The first goal is to get a correct comparison working. Larger maps and extra model ideas can come after that.
 
 ## Code organization
 
-I plan to put the Python code in `src/learned_astar/`. The `environments/` folder will describe the grids and generate maps. The `search/` folder will contain the search algorithms. Dijkstra, Manhattan A*, Weighted A*, and learned A* will share the same priority queue code so differences in implementation do not unfairly favor one method. BFS will use a separate ordinary queue.
+The Python code is in `src/learned_astar/`. The `environments/` folder describes the grids and generates maps. The `search/` folder contains the ordinary search algorithms. Dijkstra, Manhattan A*, and Weighted A* share the same priority queue code so differences in implementation do not unfairly favor one method. Learned A* will use that code too. BFS uses a separate ordinary queue.
 
 The `data/` folder will create exact distance labels and keep track of the training, validation, and test maps. The network will go in `models/`, and the training loop will go in `training/`. The `evaluation/` folder will run comparisons and save measurements. The `visualization/` folder will make plots from those saved results.
 
@@ -98,7 +98,7 @@ Prediction error will be measured on reachable cells using MAE, RMSE, and the fr
 
 The immediate deadline is the proposal on November 16. I plan to review the question and scope from November 11 to 13, then revise the proposal and prepare it for submission from November 14 to 16. The final report and presentation dates still need to be confirmed.
 
-After the proposal, I estimate two to three focused workdays for grid generation and ordinary search. Tests will cover empty grids, blocked grids, missing routes, equal start and goal, corridors, multiple shortest paths, boundaries, repeated runs, and reopening. BFS will provide an independent check on the priority queue algorithms.
+Grid generation and ordinary search were completed on November 13. Tests cover empty grids, blocked grids, missing routes, equal start and goal, corridors, multiple shortest paths, boundaries, repeated runs, and reopening. BFS provides an independent check on the priority queue algorithms. The [development log](development_log.md) records the checks, and the README explains how to run them.
 
 The data and model stage may take three to four workdays. I will check that splits do not overlap, labels are correct, and a saved model can be loaded. Connecting the model to search may take another one to two workdays. A small complete run must work before larger experiments start.
 
@@ -106,4 +106,4 @@ I estimate three to four workdays for experiments and analysis, plus the actual 
 
 The main concerns are slow model inference, incorrect distance predictions, missing difficult cases, and testing on maps too similar to the training data. The timing rules, path checks, full result records, and separate map groups are meant to address these concerns. If the learned method performs poorly, I will include that result and try to explain it.
 
-I will review each set of changes before committing and pushing. No large experiment should start until the smaller checks pass.
+Changes are grouped into small commits so I can review each part before pushing. No large experiment should start until the smaller checks pass.
