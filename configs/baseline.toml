@@ -1,0 +1,7 @@
+# This is a small demo, not the final experiment configuration.
+height = 32
+width = 32
+obstacle_fraction = 0.25
+seed = 4550
+weights = [1.25, 1.5, 2.0]
+cpu_threads = 1

@@ -10,53 +10,43 @@ Proposal deadline: November 16, 2026
 
 ## Research question
 
-Can a neural network that uses obstacle information help A* search fewer cells and finish faster than Manhattan A* and Weighted A*? How does it affect path length, and does it still work on maps that are different from the training maps?
+Can a neural network that uses obstacle information help A* search fewer cells and finish faster than Manhattan A* and Weighted A*? How does it affect path length, and does it work on maps different from the training maps?
 
 ## Research plan
 
 ### Project idea
 
-I want to study how the choice of heuristic affects A* search. A* uses the distance traveled so far and an estimate of the remaining distance to decide where to search next [1]. On a grid, Manhattan distance is a simple estimate based on the horizontal and vertical distance to the goal. However, it does not account for walls. Two cells can look close even when a wall forces a long detour.
+A* combines distance traveled with an estimate of the distance remaining [1]. Manhattan distance is simple to calculate on a grid, but it ignores walls that may force long detours. I will train a small neural network to predict remaining distances using obstacle information, then use those predictions in ordinary A*. The comparison will test whether reduced searching makes up for inference time and prediction errors.
 
-My idea is to train a small neural network to estimate the remaining distance using the map and the goal location. I expect this could help A* avoid some unnecessary searching. However, the network also takes time to run and can make incorrect predictions. I want to measure whether it helps overall, rather than assume that adding machine learning will make A* better.
-
-Other researchers have already studied related ideas. Pohl examined the effect of giving more weight to a heuristic [2]. Takahashi and colleagues used neural networks to learn heuristics for path planning [3]. Bhardwaj and colleagues learned which nodes to expand through imitation [4]. Yonetani and colleagues combined a neural network with a differentiable version of A* [5]. My project will use a simpler approach: train a network on exact distances and use its predictions in ordinary A*. The main contribution will be a comparison of when this approach helps and where it has problems.
+Related work includes weighted heuristic search [2], learned pathfinding heuristics [3], search decisions learned through imitation [4], and differentiable Neural A* [5]. My approach trains the distance predictor separately from search. The contribution will be an empirical comparison of when this simpler approach helps and where it fails.
 
 ### Maps and search algorithms
 
-I will begin with 32×32 grids. Each cell will be either free or blocked. Movement will be allowed up, down, left, and right, and every move will cost one. The whole map will be known before searching, and obstacles will not move.
+The main comparison uses fully known, static 32×32 grids with four movement directions and a cost of one per move. Every method receives the same map, start, and goal. Baselines are breadth first search (BFS), Dijkstra, Manhattan A*, and Weighted A* with weights of 1.25, 1.5, and 2.0.
 
-I will compare Dijkstra, breadth first search (BFS), A* with Manhattan distance, Weighted A*, and A* with the learned heuristic. BFS is useful here because all moves have the same cost. For Weighted A*, I will try weights of 1.25, 1.5, and 2.0. Every algorithm will receive the same maps, starting cells, and goals.
-
-Manhattan A* should return a shortest path under these movement rules. Weighted A* may return a longer path, but its weight gives a bound when the required search rules are followed. The learned heuristic has no such guarantee. I will check the paths it returns instead of assuming they are optimal.
+BFS, Dijkstra, and Manhattan A* provide shortest-path checks. Weighted A* can trade path length for speed within its weight bound when the required search rules are followed. Learned A* has no optimality guarantee, so returned paths and costs must be checked.
 
 ### Training the model
 
-I will generate the correct distances by running BFS backward from each goal. One search can find the distance from every cell that can reach that goal. Blocked cells and unreachable cells will be marked separately and left out of the training loss.
+Reverse BFS from each goal will give exact distances for all reachable cells. Blocked and unreachable cells will be marked separately and excluded from training loss. The starting dataset has 1,200 training maps, 200 validation maps, and 300 test maps. Each split is divided equally between 10% and 25% obstacles. Whole layouts stay in one split to avoid overlap between training and testing. A small pilot will check the planned counts.
 
-I plan to start with 1,200 training maps, 200 validation maps, and 300 test maps. Half of the maps in each group will have 10% obstacles, and half will have 25%. These are starting targets that I will check with a small trial run. I will split whole maps, so cells or goals from the same layout cannot appear in both training and testing.
-
-The model will be a small convolutional neural network, or CNN. Its inputs will describe the obstacles, the goal, each cell's position relative to the goal, and Manhattan distance. It will predict distances for the whole map at once. A* can then look up a prediction when it needs one. This avoids running the network again for every cell.
-
-I will use the validation maps to choose when to stop training and save the model. I will repeat training with three random seeds to see how much the results change. I will settle the model settings before looking at the final test results.
+A small convolutional neural network (CNN) will receive obstacles, a goal marker, signed row and column offsets from the goal, and Manhattan distance. It predicts the whole distance map once per query, allowing A* to look up values during search. Validation results will guide stopping and checkpoint selection. Training will use three random seeds, and settings will be fixed before final test evaluation.
 
 ### Measuring the results
 
-The two main measurements will be the number of cells expanded and the total time needed to return a path. Total time will include preparing the network input, running the network, searching, and reconstructing the path. Loading the model will be measured separately. Each timed search will generate its own predictions, even if another search used the same map before.
+The main measures are expanded cells and total query time, including input preparation, inference, search, and path reconstruction. Model loading is measured separately, and each timed query produces fresh predictions. I will report repeated timings using means and medians.
 
-I will also compare the returned path length with the shortest possible length. I will report how often each algorithm finds an optimal path and how often it succeeds on maps with a valid route. Maps with no route will be kept and reported separately. Cases where the start equals the goal will be checked in tests, but they will not be used to calculate a path length ratio because the shortest distance is zero.
+Path quality will be measured by returned cost divided by optimal cost, the fraction of optimal paths, and success rate on reachable queries. Unreachable cases are kept and reported separately. Start equal to goal is checked for correctness but excluded from cost ratios. Failed and limited searches remain in the results.
 
-For the network, I will measure average prediction error and how often it predicts a distance that is too large. I will compare these errors with search performance. A model with smaller distance errors may still guide the search poorly, so prediction error alone will not decide whether it works.
+Prediction error and the frequency and size of overestimates will be compared with search behavior. Lower prediction error alone does not establish better search. Bootstrap confidence intervals will estimate uncertainty by resampling whole maps, keeping their queries together. Results from all three training seeds will be shown.
 
-After the main comparison, I plan to test maps with 40% obstacles, maps with walls and corridors, and grids of size 16×16 and 64×64. I will change one condition at a time where possible. Each extra condition will initially have 150 maps. I will report how many maps have a route, since a map with more obstacles is not always a harder search problem.
-
-I will repeat timing measurements and report both means and medians. To estimate uncertainty, I will use bootstrap confidence intervals, which repeatedly sample the recorded maps to see how much the average difference changes. Searches from the same map will stay together during this process. Results from all three training seeds, failed searches, and time limits will remain in the report.
+Extra tests will cover 40% obstacles, walls and corridors, and 16×16 and 64×64 grids, starting with 150 maps per condition. I will change one condition at a time where possible and report route availability, since higher obstacle density does not always mean a harder query.
 
 ### Work plan and expected outcome
 
-I will first build and test the ordinary search algorithms. Then I will generate training data, train a small model, and connect it to A*. A small experiment must work correctly before I run the full comparison. If time is limited, I will finish the 32×32 comparison before adding more map types or model variants.
+The work proceeds from tested baselines to data generation, training, integration, and experiments. A small complete run must pass before the full comparison. The main 32×32 experiment takes priority if time is limited.
 
-The project will include the code, data generation steps, saved settings, model checkpoints, results, plots, a presentation, and a report of 2,000 to 4,000 words. I will record how AI tools helped with the work. Even if the learned heuristic is slower than Manhattan A*, that result would help explain when the extra model is useful and when it is unnecessary.
+Deliverables include code, data generation steps, settings, checkpoints, results, plots, a presentation, and a report of 2,000 to 4,000 words. A slower or less accurate learned heuristic is still a useful result if the analysis explains its costs and limitations.
 
 ## Annotated bibliography
 
