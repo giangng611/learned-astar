@@ -2,7 +2,7 @@
 
 This CSCI/ARTI 4550/6550 capstone project compares a learned heuristic with Manhattan A* and Weighted A* on grids with obstacles. The main questions are whether the model reduces the number of cells searched, whether it saves time after including inference, and how it affects path length. BFS and Dijkstra provide shortest-path checks.
 
-Phases 0 and 1 are complete: the environment, map generator, search baselines, tests, and demo are working. The dataset, model training, and full experiments are next. See the [proposal](docs/proposal.md) for the research question and references, and the [implementation plan](docs/research_architecture.md) for the planned methods.
+Phases 0 and 1 are complete: the environment, map generator, search baselines, tests, and demo are working. The dataset, model training, and full experiments are next. See the [proposal](docs/proposal.md) for the research question and references, and the [experiment architecture](docs/research_architecture.md) for the data flow, model, and evaluation design.
 
 ## Setup
 
