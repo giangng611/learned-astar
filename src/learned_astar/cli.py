@@ -1,4 +1,4 @@
-"""Run a small, repeatable comparison before building the full experiments."""
+"""Compare grid searches on generated maps or in an interactive terminal."""
 
 import argparse
 import json
@@ -139,8 +139,21 @@ def main(argv: list[str] | None = None) -> int:
     demo.add_argument(
         "--show-map", action="store_true", help="Print the map and Manhattan A* route"
     )
+    solve = commands.add_parser("solve", help="Compare methods on an ASCII map")
+    solve.add_argument("--map", type=Path, required=True)
+    solve.add_argument("--show-paths", action="store_true")
+    solve.add_argument("--output", type=Path)
+    shell = commands.add_parser("shell", help="Draw maps and compare methods interactively")
+    for command in (solve, shell):
+        command.add_argument("--checkpoints", type=Path, nargs="*")
+        command.add_argument("--max-expansions", type=int, default=1000000)
+        command.add_argument("--time-limit", type=float, default=5.0)
     args = parser.parse_args(argv)
     try:
+        if args.command in ("solve", "shell"):
+            from learned_astar.terminal import run_shell, run_solve
+
+            return run_shell(args) if args.command == "shell" else run_solve(args)
         config = load_config(args.config) if args.config else ExperimentConfig()
         if args.seed is not None:
             config = replace(config, seed=args.seed)
