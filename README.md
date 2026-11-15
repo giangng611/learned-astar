@@ -1,39 +1,75 @@
 # Learning Heuristics for A* Search with Obstacles
 
-This CSCI/ARTI 4550/6550 capstone project compares a learned heuristic with Manhattan A* and Weighted A* on grids with obstacles. The main questions are whether the model reduces the number of cells searched, whether it saves time after including inference, and how it affects path length. BFS and Dijkstra provide shortest-path checks.
+This CSCI/ARTI 4550/6550 capstone compares a learned distance heuristic with Manhattan A*, Weighted A*, BFS, and Dijkstra. It measures search effort, total query time including inference, and path quality on the same queries. The workflow covers dataset generation, training with three seeds, held-out evaluation, figures, and a terminal demonstration.
 
-Phases 0 and 1 are complete: the environment, map generator, search baselines, tests, and demo are working. The dataset, model training, and full experiments are next. See the [proposal](docs/proposal.md) for the research question and references, and the [experiment architecture](docs/research_architecture.md) for the data flow, model, and evaluation design.
+See the [report](docs/report.md) for findings, the [experiment architecture](docs/research_architecture.md) for the design, and the [submitted proposal](docs/proposal.md) for the original plan. The [presentation](presentation/learned_astar.pptx) includes speaker notes; the [recording guide](presentation/recording_guide.md) explains the demo and section handoffs.
 
 ## Setup
 
-Use Python 3.11 or newer. The local setup was checked with Python 3.14.3 and PyTorch 2.15.0 on an Apple Silicon Mac. From the project folder, run:
+Use Python 3.11 or newer. The recorded run used Python 3.14.3, PyTorch 2.15.0, and NumPy 2.5.4 on an Apple Silicon Mac, using CPU execution.
 
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -e '.[dev,ml]'
+python -m pip install -e '.[dev,ml,plots]'
 python scripts/check_environment.py
 ```
 
-The environment check runs a small CPU convolution and calculates its gradients. Baseline search only needs Python's standard library; install `'.[dev]'` to skip the model dependencies. PyTorch's [installation guide](https://pytorch.org/get-started/locally/) covers other platforms.
+To reuse the recorded versions on a matching setup, add `-c requirements-lock.txt` to the install command. Baseline search only needs Python's standard library; the learned demo needs the `ml` dependencies. Training uses four CPU threads and query evaluation uses one. Random seeds and settings are saved, but timings can differ across machines and system load.
 
-To reuse the recorded package versions on a matching setup, install with `python -m pip install -c requirements-lock.txt -e '.[dev,ml]'`. The map generator uses a separate seeded random generator. The model setup fixes the Python, NumPy, and PyTorch seeds and uses one CPU thread. Results and timings may still differ across machines.
+## Demonstration
 
-## Run the baselines
-
-```sh
-python -m learned_astar demo --config configs/baseline.toml --show-map --output outputs/demo.json
-```
-
-The default configuration uses a 32×32 grid, 25% obstacles, seed 4550, and Weighted A* weights of 1.25, 1.5, and 2.0. All six baseline settings receive the same map and endpoints. The demo checks returned paths, compares their costs with BFS, and saves the map, settings, paths, counts, and timings as JSON. `learned-astar demo` is an equivalent command after installation.
-
-The demo runs one query once, so its timings are only a quick check. Full experiments will use repeated measurements across many maps. Unreachable queries are kept, and searches that reach a limit are reported separately.
+The saved models are in `artifacts/checkpoints/`. Start the shell from the project folder:
 
 ```sh
-python -m learned_astar demo --seed 12
-python -m learned_astar demo --max-expansions 10
-python -m learned_astar demo --time-limit 0.01
+python -m learned_astar shell
 ```
+
+```text
+load examples/maps/detour.txt
+run
+path astar_manhattan
+path learned_seed_7
+```
+
+Use `draw` to enter a map with `S`, `G`, `#`, and `.`, then finish with `.end`. Use `help` for other commands. The [terminal guide](docs/terminal_demo.md) includes a short recording sequence and an unreachable example.
+
+To run one map and save all paths:
+
+```sh
+python -m learned_astar solve --map examples/maps/detour.txt --show-paths --output outputs/demo.json
+```
+
+The original baseline-only demo remains available:
+
+```sh
+python -m learned_astar demo --config configs/baseline.toml --show-map
+```
+
+Single-query timings explain the demo; use the full experiment to compare performance.
+
+## Reproduce the experiment
+
+Run the whole pipeline in a new directory:
+
+```sh
+python scripts/run_experiment.py --run-dir outputs/reproduction
+```
+
+This copies the configurations, generates and verifies 2,300 maps, trains three models, evaluates 3,600 queries, and saves summaries and figures. Existing directories are not overwritten. Training can take several minutes per seed on this machine; evaluation runs after training finishes.
+
+Individual stages are also available:
+
+```sh
+python -m learned_astar.data generate --config configs/dataset.toml --output datasets/main
+python -m learned_astar.data verify --output datasets/main
+python -m learned_astar.training.train --data datasets/main --config configs/training.toml --output checkpoints/main
+python -m learned_astar.evaluation.run --data datasets/main --checkpoints checkpoints/main/seed_7.pt checkpoints/main/seed_17.pt checkpoints/main/seed_27.pt --config configs/evaluation.toml --output outputs/evaluation
+python -m learned_astar.evaluation.summarize --input outputs/evaluation --output results/main
+python -m learned_astar.evaluation.plot --results results/main --training checkpoints/main --data datasets/main --checkpoints checkpoints/main --output results/figures
+```
+
+Use fresh output paths when rerunning a completed stage. The repository includes compact query summaries, aggregate results, figures, training histories, and the selected checkpoints. Generated NPZ datasets and all timing repetitions remain local; the generator and saved settings reproduce them. The [dataset](docs/dataset.md), [training](docs/training.md), and [evaluation](docs/evaluation.md) notes explain the methods and measurement rules.
 
 ## Checks and code layout
 
@@ -41,8 +77,9 @@ python -m learned_astar demo --time-limit 0.01
 python -m pytest -q
 python -m ruff check src tests scripts
 python -m ruff format --check src tests scripts
+python -m pip check
 ```
 
-Tests cover every 3×3 obstacle layout and every pair of different free endpoints, plus larger maps, detours, invalid inputs, repeated runs, reopening, and search limits.
+Tests cover every 3×3 obstacle layout and every pair of different free endpoints, larger maps, reopening, search limits, labels, split separation, checkpoints, inference timing, result summaries, and shell commands.
 
-Grid code is in `src/learned_astar/environments/`, search code in `src/learned_astar/search/`, and the demo in `src/learned_astar/cli.py`. The [baseline notes](docs/search_baselines.md) define search behavior and counts. The [development log](docs/development_log.md) records progress. Generated data, checkpoints, local environments, and demo outputs stay out of Git.
+The package separates `environments`, `search`, `data`, `models`, `training`, and `evaluation`. `terminal.py` implements the shell, while `scripts/run_experiment.py` connects the experiment stages. The [baseline notes](docs/search_baselines.md) define counts and tie rules, and the [development log](docs/development_log.md) records completed checks.

@@ -1,6 +1,6 @@
 # Experiment architecture
 
-The experiment compares search effort, total query time, and path quality on the same grid queries. Maps are fully known, movement is four-way, and every move costs one. Grid generation and baseline search are implemented; dataset preparation, training, and full evaluation are planned.
+The experiment compares search effort, total query time, and path quality on the same grid queries. Maps are fully known, movement is four-way, and every move costs one. The pipeline connects dataset preparation, CNN training, baseline and learned search, and held-out evaluation.
 
 ## Experiment flow
 
@@ -36,11 +36,11 @@ Validation selects the checkpoint; test maps do not affect training or model sel
 | Validation | 200 | Two free goals; the same label process. |
 | Test | 300 | One free goal and four different free starts, excluding the goal. |
 
-These initial targets use 32×32 grids, split equally between 10% and 25% obstacles. Generate exactly `round(p * H * W)` blocked cells. Keep all goals and any rotated copies of a layout in the same split. Record seeds, layout IDs, actual obstacle fraction, reachable-cell fraction, and optimal distances.
+These sets use 32×32 grids, split equally between 10% and 25% obstacles. Generate exactly `round(p * H * W)` blocked cells. Keep all goals and any rotated copies of a layout in the same split. Record seeds, layout IDs, actual obstacle fraction, reachable-cell fraction, and optimal distances.
 
-Reverse BFS marks blocked and unreachable cells separately. Sample endpoints without requiring a route; retain unreachable queries and record maps with too few free cells. Confirm dataset counts during a pilot before inspecting test results.
+Reverse BFS marks blocked and unreachable cells separately. Sample endpoints without requiring a route; retain unreachable queries and record maps with too few free cells. File checksums and independent label checks verify the generated dataset.
 
-Additional test sets start with 150 maps each: 32×32 at 40% obstacles, 16×16 and 64×64 at 25%, and 32×32 walls/corridors. Vary one condition at a time where possible.
+Additional test sets contain 150 maps each: 32×32 at 40% obstacles, 16×16 and 64×64 at 25%, and 32×32 walls/corridors. Wall layouts have a different structure and do not match the random-map density exactly.
 
 ## Distance model
 
@@ -57,7 +57,7 @@ flowchart LR
 | Scaling | Row/column offsets use `max(H - 1, 1)` / `max(W - 1, 1)`. Distances use `S = max(H + W - 2, 1)`. |
 | Targets | Exact BFS distances divided by `S`; do not clip at one, since detours can exceed `S`. |
 | Loss | Smooth L1 on reachable free cells, averaged per map-goal example and then per batch. |
-| Training | Adam, learning rate 0.001, batch size 16, at most 100 epochs; stop after 10 epochs without validation improvement. |
+| Training | Adam, learning rate 0.001, batch size 16, at most 40 epochs; stop after 10 epochs without validation improvement. |
 | Checkpoints | Best validation model for each of three random seeds. Fix settings before final testing. |
 
 Matching padding preserves the map size. The model has about 39,000 parameters and a 63×63 receptive field, which may miss distant obstacles on 64×64 maps. Blocked and unreachable cells are excluded from loss; their predictions do not determine which search cells are skipped.
