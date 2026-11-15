@@ -127,6 +127,33 @@ def paired_intervals(rows, rng, samples):
     return result
 
 
+def error_search_correlation(rows, map_rows, name):
+    baseline = {
+        (r["layout_id"], r["query"]): r
+        for r in rows
+        if r["method"] == "astar_manhattan" and r["completed"]
+    }
+    ratios = defaultdict(list)
+    for row in rows:
+        key = row["layout_id"], row["query"]
+        if row["method"] == name and row["completed"] and key in baseline:
+            ratios[row["layout_id"]].append(row["expanded"] / baseline[key]["expanded"])
+    pairs = [
+        (m["prediction_errors"][name]["mae"], np.mean(ratios[m["layout_id"]]))
+        for m in map_rows
+        if m["layout_id"] in ratios
+    ]
+    values = np.asarray(pairs)
+    correlation = None
+    if len(values) > 1 and np.all(values.std(axis=0) > 0):
+        correlation = float(np.corrcoef(values.T)[0, 1])
+    return {
+        "pearson_r": correlation,
+        "maps": len(pairs),
+        "variables": "Map MAE and mean expansion ratio relative to Manhattan A*",
+    }
+
+
 def summarize(directory, output):
     directory, output = Path(directory), Path(output)
     settings = json.loads((directory / "settings.json").read_text())
@@ -183,6 +210,10 @@ def summarize(directory, output):
             "methods": methods,
             "paired_95ci": paired_intervals(subset, rng, settings["config"]["bootstrap_samples"]),
             "prediction_errors": errors,
+            "error_search_correlation": {
+                name: error_search_correlation(subset, selected_maps, name)
+                for name in settings["checkpoints"]
+            },
             "oracle_ms": distribution(
                 [1000 * np.median(m["oracle_seconds"]) for m in selected_maps]
             ),

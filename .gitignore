@@ -11,3 +11,5 @@ dist/
 outputs/
 datasets/
 checkpoints/
+!artifacts/checkpoints/
+!artifacts/checkpoints/**

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "config": {
+    "seed": 4550,
+    "train_maps": 1200,
+    "validation_maps": 200,
+    "test_maps": 300,
+    "extra_maps": 150,
+    "size": 32,
+    "goals_per_map": 2,
+    "starts_per_map": 4
+  },
+  "split_counts": {
+    "train": 1200,
+    "validation": 200,
+    "test": 300,
+    "density_40": 150,
+    "size_16": 150,
+    "size_64": 150,
+    "walls": 150
+  },
+  "status_counts": {
+    "ready": 2300
+  },
+  "duplicates_rejected": 0,
+  "manifest_sha256": "a1240f86d36287eddeafa1c5d3e4ba5283cb4a42631877235ccc9dba2a3103cc",
+  "label_markers": {
+    "blocked": -2,
+    "unreachable": -1
+  }
+}
