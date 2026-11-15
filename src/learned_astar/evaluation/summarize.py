@@ -225,6 +225,9 @@ def summarize(directory, output):
     with gzip.open(output / "queries.jsonl.gz", "wt") as stream:
         for row in rows:
             stream.write(json.dumps(row, allow_nan=False) + "\n")
+    with gzip.open(output / "maps.jsonl.gz", "wt") as stream:
+        for row in map_rows:
+            stream.write(json.dumps(row, allow_nan=False) + "\n")
     return summary
 
 

@@ -54,7 +54,7 @@ def create_figures(results, training, data, checkpoints, output):
         ax.barh([LABELS[n] for n in names], values, color=COLORS)
         ax.invert_yaxis()
         ax.set_title(title)
-        ax.set_xlim(left=0)
+        ax.set_xlim(0, max(values) * 1.25)
         for index, value in enumerate(values):
             ax.text(
                 value,
@@ -63,7 +63,6 @@ def create_figures(results, training, data, checkpoints, output):
                 va="center",
                 fontsize=10,
             )
-        ax.margins(x=0.2)
     save_figure(fig, output, "main_comparison")
     fig, ax = plt.subplots(figsize=(8, 4.8), constrained_layout=True)
     for path in sorted(training.glob("history_*.json")):

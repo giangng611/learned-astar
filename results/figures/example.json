@@ -1,0 +1,16 @@
+{
+  "layout_id": "85de172f70923e8a1b5bd07bc7cbb9b94fd4f9c0149be69056b098d2b6cb0cec",
+  "query": 0,
+  "selection": "First main-test map, first start; seed 7 fixed in advance",
+  "seed": 7,
+  "start": [
+    10,
+    18
+  ],
+  "goal": [
+    11,
+    26
+  ],
+  "astar_cost": 11,
+  "learned_cost": 11
+}
