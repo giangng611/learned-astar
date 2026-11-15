@@ -16,6 +16,7 @@ learned-astar = "learned_astar.cli:main"
 [project.optional-dependencies]
 dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
 ml = ["numpy>=2,<3", "torch>=2.6,<3"]
+plots = ["matplotlib>=3.9,<4"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

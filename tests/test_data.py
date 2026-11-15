@@ -84,3 +84,15 @@ def test_invalid_dataset_configuration():
         replace(DatasetConfig(), train_maps=3)
     with pytest.raises(ValueError):
         replace(DatasetConfig(), starts_per_map=0)
+
+
+def test_maps_with_insufficient_free_cells_are_recorded_without_resampling(tmp_path):
+    config = DatasetConfig(
+        train_maps=2, validation_maps=0, test_maps=0, extra_maps=0, size=2, goals_per_map=5
+    )
+    metadata = generate_dataset(tmp_path / "small", config)
+    records = read_manifest(tmp_path / "small")
+    assert metadata["status_counts"] == {"insufficient_free_cells": 2}
+    assert len(records) == 2
+    assert all(record["file"] is None for record in records)
+    assert verify_dataset(tmp_path / "small")["verified_goal_maps"] == 0

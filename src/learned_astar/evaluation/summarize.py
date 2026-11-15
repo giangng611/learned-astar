@@ -138,6 +138,22 @@ def summarize(directory, output):
     rows = collapse_repetitions(
         (json.loads(line) for line in raw.splitlines()), settings["config"]["repetitions"]
     )
+    expected_methods = {
+        "bfs",
+        "dijkstra",
+        "astar_manhattan",
+        "weighted_astar_1.25",
+        "weighted_astar_1.5",
+        "weighted_astar_2.0",
+        *settings["checkpoints"],
+    }
+    query_methods = defaultdict(set)
+    for row in rows:
+        query_methods[(row["layout_id"], row["query"])].add(row["method"])
+    if len(query_methods) != settings["queries"] or any(
+        methods != expected_methods for methods in query_methods.values()
+    ):
+        raise ValueError("Missing query or method results")
     map_rows = [json.loads(line) for line in (directory / "maps.jsonl").read_text().splitlines()]
     rng = np.random.default_rng(settings["config"]["bootstrap_seed"])
     summary = {"settings": settings, "splits": {}}
