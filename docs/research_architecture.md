@@ -115,3 +115,22 @@ For 95% bootstrap intervals, resample whole maps with their queries and method r
 ## Follow-up experiment
 
 The [follow-up architecture](research_followup.md) adds a separate branch with mixed random and wall training maps, three controlled model variants, validation search selection, and a fresh test set. Its diagram shows where the branches meet. The original dataset, checkpoints, and results remain separate so the two experiments can be compared.
+
+## Learning search preferences
+
+The [third experiment](search_learning.md) keeps the same mixed training data and smaller CNN. It compares two learning objectives and two ways to use each output:
+
+```mermaid
+flowchart LR
+    L["BFS labels on the same maps"] --> D["Distance-only training"]
+    L --> R["Distance + good-move training"]
+    D --> P["Predicted distance field"]
+    R --> P
+    P --> H["Direct heuristic<br/>g + prediction"]
+    P --> T["Manhattan primary priority<br/>prediction orders equal priorities"]
+    H --> E["New validation and test maps<br/>effort, time, path cost"]
+    T --> E
+    M["Ordinary Manhattan A*"] --> E
+```
+
+The tie rule keeps Manhattan's primary ordering, so learned scores cannot sacrifice optimal path cost. Separate policy-validation maps select the learned tie family before another test set is generated. Exact test distances supply labels for evaluation and the explicitly marked oracle controls; they are never model inputs.

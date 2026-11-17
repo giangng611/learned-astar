@@ -61,6 +61,12 @@ The [follow-up results](docs/research_results.md) report five new training runs,
 presentation describes the first experiment; the follow-up report and figures provide
 the additional material for revising the presentation.
 
+The [search-learning experiment](docs/search_learning.md) keeps Manhattan as the baseline,
+adds training on useful neighboring moves, and compares direct heuristics with learned
+ordering of equal Manhattan priorities. Its [results](docs/search_learning_results.md)
+separate learning quality, optimal paths, search effort, and total time on another fresh
+test set. The terminal supports this search rule with `--heuristic-mode tie`.
+
 ## Reproduce the experiment
 
 Run the whole pipeline in a new directory:

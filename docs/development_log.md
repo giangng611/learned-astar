@@ -52,3 +52,22 @@ Validation completed:
 - Both submitted proposal files remain unchanged.
 
 The follow-up report distinguishes improved distance prediction from search quality. The existing presentation still covers the first experiment; the new report and figures are available for its next revision.
+
+## November 16, 2026: learning search preferences
+
+Added a comparison of distance-only training and distance-plus-move training. The new objective accepts all neighboring steps on a shortest route. Three new 10,033-parameter models reused the mixed training data and ran for 60 epochs each. Checkpoint validation selected epochs 60, 56, and 59; total training time was 8.57 minutes.
+
+Search now supports learned ordering of equal Manhattan priorities and an explicit FIFO control. A separate 240-map policy-validation set selected the route-trained tie family before another 600 test maps were generated. The comparison measured 19 methods, 3,360 validation and test queries, and five repetitions, totaling 319,200 timed runs.
+
+On fresh reachable queries, the selected rule reduced paired expansions by 7.2% on random 32×32 maps and 4.7% on wall maps. All learned tie methods kept optimal path cost. The selected method remained slower overall: 0.682 ms versus Manhattan's 0.087 ms on random maps, and 0.917 ms versus 0.307 ms on walls. The 64×64 expansion interval did not establish an improvement.
+
+Validation completed:
+
+- All 190 tests passed, including every 3×3 layout and endpoint pair with deliberately wrong secondary scores, move-loss checks, training, and rejection of leaked policy-validation maps.
+- Code style, formatting, and dependency checks passed.
+- All 840 new layouts and distance maps were verified and separated from the 4,340 earlier layout groups.
+- Every timed run completed with correct reachability; no search limits were reached. Evidence checks confirmed repetitions, medians, paired coverage, and checkpoint hashes.
+- Three checkpoints, training histories, compact measurements, four PNG/PDF figures, and a fixed wall example are retained. The terminal tie mode agrees with the recorded example.
+- Both submitted proposal files remain unchanged.
+
+The third report separates improved move preferences, optimal path cost, reduced search effort, and the remaining runtime gap. The presentation still describes the first experiment and has not yet incorporated the two later rounds.

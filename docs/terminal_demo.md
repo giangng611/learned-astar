@@ -55,3 +55,13 @@ python -m learned_astar shell --checkpoints artifacts/checkpoints/research_v2/di
 The first fresh wall example is saved at `results/research_v2_figures/example_map.txt`. Load it in the shell with `load results/research_v2_figures/example_map.txt`. It was selected by dataset order, not by a successful model result.
 
 Use `--heuristic-mode parity` only when demonstrating the rounding experiment. The table and saved output name the active mode. Raw predictions remain the default and are the selected setting for this follow-up.
+
+## Manhattan with learned tie ordering
+
+The third experiment uses a model trained on distance and useful neighboring moves. Start its shell with:
+
+```sh
+python -m learned_astar shell --heuristic-mode tie --checkpoints artifacts/checkpoints/research_v3/seed_7.pt artifacts/checkpoints/research_v3/seed_17.pt artifacts/checkpoints/research_v3/seed_27.pt
+```
+
+Then load `results/research_v3_figures/example_map.txt` and run the comparison. This is the first fresh wall query, chosen before looking at its outcome. Manhattan still controls the main priority; the model only orders cells with equal priority. Explain that this preserves optimal path cost, while fewer expansions and faster total time remain separate measurements. The [third report](search_learning_results.md) contains the full comparison.

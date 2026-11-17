@@ -53,3 +53,18 @@ Only the two learned tie-ordering families are selection candidates. Both must f
 After this choice, seed 34550 generates 600 new test maps: 200 random 32×32 and 100 each of wall 32×32, dense 32×32, 16×16, and 64×64. The generator excludes every earlier layout and the new policy-validation layouts. All predeclared methods are measured on the same queries, with five shuffled repetitions, fresh model inference per query, and one CPU thread. Confidence intervals resample whole maps. The first wall map and first query provide the illustration, regardless of the outcome.
 
 The primary question is whether useful learned ordering reduces search without losing optimality. A runtime claim additionally requires beating the total time of Manhattan A*, including model inference. No test result changes training or the selected search rule in this round.
+
+## Reproduction
+
+The [measured results](search_learning_results.md) and saved settings describe the completed run. The commands below use the existing second-experiment datasets and distance checkpoints listed in `configs/search_learning.toml`. Run the stages in order with a fresh output directory:
+
+```sh
+python scripts/run_search_learning.py prepare --run outputs/search_learning_reproduction
+python scripts/run_search_learning.py train --run outputs/search_learning_reproduction
+python scripts/run_search_learning.py select --run outputs/search_learning_reproduction
+python scripts/run_search_learning.py test --run outputs/search_learning_reproduction
+python scripts/archive_search_learning.py --run outputs/search_learning_reproduction --results results/search_learning_reproduction --models artifacts/checkpoints/search_learning_reproduction
+python scripts/plot_search_learning.py --run outputs/search_learning_reproduction --results results/search_learning_reproduction --models artifacts/checkpoints/search_learning_reproduction --output results/search_learning_reproduction_figures
+```
+
+The runner rejects changed settings, changed source manifests, and checkpoints changed after selection. The archive checks every repetition and stored median before retaining compact evidence. For the recorded default run, `python scripts/report_search_learning.py` rebuilds its report from the retained results.

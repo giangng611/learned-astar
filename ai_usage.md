@@ -19,3 +19,9 @@ Checks include 170 passing tests, verification of 2,300 layouts and 3,700 distan
 Codex was also used to implement mixed random and wall datasets, direct and residual model variants, the no-obstacle control, exact-distance comparisons, and distance rounding. Technical checks cover fresh-test separation, validation-only selection, local consistency diagnostics, timing summaries, and model provenance. Troubleshooting included making repeated CPU thread configuration safe when running several training jobs in one process. The completed model from the interrupted sequence was retained, and the remaining jobs resumed without changing their settings.
 
 The follow-up completed five training runs, verified 2,040 new layouts and 3,480 distance maps, and measured 276,000 validation and test runs. All 179 tests passed. Model files, training histories, and compact measurement evidence are retained for review and reproduction.
+
+## Search-learning implementation
+
+Codex was used to implement the neighboring-move objective, learned tie ordering with Manhattan priority, FIFO and exact-tie controls, separate policy-validation maps, paired objective comparisons, and terminal support. Technical checks covered optimality under incorrect secondary scores, masked gradients, multiple valid moves, frozen checkpoint checks, and data separation.
+
+This round completed three 60-epoch training runs and verified 840 new layouts. All 319,200 timed validation and test runs completed, and all 190 tests passed. Checkpoints, histories, compact evidence, and result figures are retained.
