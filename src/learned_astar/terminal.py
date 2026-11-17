@@ -68,13 +68,13 @@ def prepare_models(paths):
     return models
 
 
-def solve_query(grid, start, goal, models, limits):
+def solve_query(grid, start, goal, models, limits, *, heuristic_mode="raw"):
     from learned_astar.data import reverse_bfs
     from learned_astar.evaluation.run import check_result, methods_for_models
 
     optimal = int(reverse_bfs(grid, goal)[start])
     results = {}
-    for name, method in methods_for_models(models).items():
+    for name, method in methods_for_models(models, heuristic_mode=heuristic_mode).items():
         # A warm-up removes the first-call setup from the one-query demonstration.
         method(grid, start, goal, limits=limits)
         result = method(grid, start, goal, limits=limits)
@@ -86,12 +86,14 @@ def solve_query(grid, start, goal, models, limits):
         "start": start,
         "goal": goal,
         "optimal_cost": optimal if optimal >= 0 else None,
+        "heuristic_mode": heuristic_mode,
         "results": results,
     }
 
 
 def print_results(report):
     print("\nSame map and endpoints for every method. Times are one-query measurements.")
+    print(f"Learned heuristic mode: {report['heuristic_mode']}")
     print(f"{'method':<23} {'status':<16} {'cost':>5} {'ratio':>7} {'expanded':>9} {'ms':>10}")
     for name, result in report["results"].items():
         cost = result["cost"]
@@ -119,7 +121,12 @@ def run_solve(args):
     grid, start, goal = parse_map(args.map.read_text())
     models = prepare_models(args.checkpoints)
     report = solve_query(
-        grid, start, goal, models, SearchLimits(args.max_expansions, args.time_limit)
+        grid,
+        start,
+        goal,
+        models,
+        SearchLimits(args.max_expansions, args.time_limit),
+        heuristic_mode=args.heuristic_mode,
     )
     print(render_map(grid, start, goal))
     print_results(report)
@@ -190,7 +197,7 @@ def run_shell(args):
             elif name == "show" and not values and current:
                 print(render_map(*current))
             elif name == "run" and not values and current:
-                report = solve_query(*current, models, limits)
+                report = solve_query(*current, models, limits, heuristic_mode=args.heuristic_mode)
                 print_results(report)
             elif name == "path" and len(values) == 1 and report:
                 if values[0] not in report["results"]:

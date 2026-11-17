@@ -41,12 +41,12 @@ class EvaluationConfig:
             raise ValueError("Evaluation time limit must be positive")
 
 
-def methods_for_models(models):
+def methods_for_models(models, *, heuristic_mode="raw"):
     methods = {"bfs": bfs, "dijkstra": dijkstra, "astar_manhattan": astar}
     for weight in (1.25, 1.5, 2.0):
         methods[f"weighted_astar_{weight}"] = partial(weighted_astar, weight=weight)
     for name, model in models.items():
-        methods[name] = partial(learned_astar, model=model)
+        methods[name] = partial(learned_astar, model=model, heuristic_mode=heuristic_mode)
     return methods
 
 

@@ -13,6 +13,7 @@ from learned_astar.environments import Grid
 from learned_astar.models import DistanceCNN, encode_inputs, load_model
 from learned_astar.models.network import RESEARCH_ARCHITECTURE
 from learned_astar.research.experiment import (
+    error_metrics,
     execute_query,
     manhattan_field,
     parity_distances,
@@ -87,6 +88,16 @@ def test_rounding_preserves_manhattan_floor_and_grid_parity():
     assert rounded[0, 1] == lower[0, 1] + 2
 
 
+def test_neighbor_diagnostic_ignores_obstacles_and_detects_inconsistent_estimates():
+    labels = np.array([[2, 1, 0], [-2, -2, -2]])
+    lower = manhattan_field(labels.shape, (0, 2))
+    assert error_metrics(labels, labels, lower)["neighbor_violation_fraction"] == 0
+    prediction = np.array([[4, 1, 0], [999, 999, 999]])
+    metrics = error_metrics(prediction, labels, lower)
+    assert metrics["neighbor_violation_fraction"] == 0.5
+    assert metrics["mean_neighbor_violation"] == 1.0
+
+
 def test_exact_reference_requires_only_route_expansions_and_counts_preprocessing():
     grid = Grid(7, 7, frozenset((r, 3) for r in range(6)))
     goal, start = (0, 6), (0, 0)
@@ -97,6 +108,18 @@ def test_exact_reference_requires_only_route_expansions_and_counts_preprocessing
         )
         assert result.cost == result.stats.expanded == 18
         assert result.elapsed_seconds >= parts["prediction_seconds"] + parts["search_seconds"]
+
+
+def test_demo_rounding_recovers_an_exact_heuristic_with_small_prediction_errors(monkeypatch):
+    from learned_astar.search.learned import learned_astar
+
+    grid = Grid(5, 5, frozenset((r, 2) for r in range(4)))
+    start, goal = (0, 0), (0, 4)
+    labels = reverse_bfs(grid, goal)
+    prediction = np.maximum(labels, 0).astype(float) + 0.75
+    monkeypatch.setattr("learned_astar.search.learned.predict_distances", lambda *args: prediction)
+    result = learned_astar(grid, start, goal, None, heuristic_mode="parity")
+    assert result.cost == result.stats.expanded == 12
 
 
 def test_selection_uses_quality_gate_and_rejects_test_evidence(tmp_path):

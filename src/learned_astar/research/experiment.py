@@ -21,6 +21,7 @@ from learned_astar.evaluation.summarize import (
     distribution,
 )
 from learned_astar.models import load_model, predict_distances
+from learned_astar.models.transforms import manhattan_field, parity_distances
 from learned_astar.reproducibility import configure_torch
 from learned_astar.search import SearchLimits, SearchResult, SearchStats, SearchStatus
 from learned_astar.search.core import astar, best_first_search, weighted_astar
@@ -64,20 +65,15 @@ def specification(root, *, include_replicates):
     return {"models": models, "selection": selection}
 
 
-def manhattan_field(shape, goal):
-    rows, columns = np.indices(shape)
-    return np.abs(rows - goal[0]) + np.abs(columns - goal[1])
-
-
-def parity_distances(prediction, goal):
-    manhattan = manhattan_field(prediction.shape, goal)
-    return manhattan + 2 * np.rint(np.maximum(prediction - manhattan, 0) / 2)
-
-
 def error_metrics(prediction, labels, manhattan):
     mask = labels >= 0
     detour = mask & (labels > manhattan)
     errors = prediction[mask] - labels[mask]
+    neighbor_gaps = []
+    for first, second in ((np.s_[:-1, :], np.s_[1:, :]), (np.s_[:, :-1], np.s_[:, 1:])):
+        connected = mask[first] & mask[second]
+        neighbor_gaps.extend(np.abs(prediction[first] - prediction[second])[connected].tolist())
+    gaps = np.asarray(neighbor_gaps)
     return {
         "mae": float(np.abs(errors).mean()),
         "rmse": float(np.sqrt(np.square(errors).mean())),
@@ -86,6 +82,8 @@ def error_metrics(prediction, labels, manhattan):
         if detour.any()
         else None,
         "detour_fraction": float(detour.sum() / mask.sum()),
+        "neighbor_violation_fraction": float((gaps > 1 + 1e-6).mean()) if len(gaps) else None,
+        "mean_neighbor_violation": float(np.maximum(gaps - 1, 0).mean()) if len(gaps) else None,
     }
 
 
@@ -123,7 +121,7 @@ def field_search(grid, start, goal, make_field, limits):
             grid,
             start,
             goal,
-            lambda cell, _: float(max(field[cell], 0)),
+            lambda cell, _: float(field[cell]),
             limits=replace(limits, time_limit_seconds=remaining),
         )
     search_seconds = 0 if remaining <= 0 else result.elapsed_seconds
@@ -158,9 +156,9 @@ def execute_query(spec, grid, start, goal, labels, limits):
 
         def make_field():
             if mode == "oracle":
-                return labels
+                return np.maximum(labels, 0)
             if mode == "exact":
-                return reverse_bfs(grid, goal)
+                return np.maximum(reverse_bfs(grid, goal), 0)
             field = predict_distances(model, grid, goal)
             return parity_distances(field, goal) if mode == "parity" else field
 
@@ -297,6 +295,10 @@ def evaluate_research(directory, specification, output, config, *, validation, e
         },
         "timing": (
             "Fresh prediction and search per query. oracle_lookup excludes reference construction."
+        ),
+        "neighbor_diagnostic": (
+            "Fraction of undirected reachable neighbor pairs with |h(u)-h(v)| > 1. "
+            "Exploratory diagnostic added after validation; it does not change selection."
         ),
     }
     for name, values in (("runs", raw_rows), ("queries", rows), ("maps", map_rows)):

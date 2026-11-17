@@ -146,6 +146,7 @@ def main(argv: list[str] | None = None) -> int:
     shell = commands.add_parser("shell", help="Draw maps and compare methods interactively")
     for command in (solve, shell):
         command.add_argument("--checkpoints", type=Path, nargs="*")
+        command.add_argument("--heuristic-mode", choices=("raw", "parity"), default="raw")
         command.add_argument("--max-expansions", type=int, default=1000000)
         command.add_argument("--time-limit", type=float, default=5.0)
     args = parser.parse_args(argv)
