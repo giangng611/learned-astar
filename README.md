@@ -48,6 +48,19 @@ python -m learned_astar demo --config configs/baseline.toml --show-map
 
 Single-query timings explain the demo; use the full experiment to compare performance.
 
+## Follow-up research
+
+The [follow-up plan](docs/research_followup.md) compares new training data, direct distance
+prediction, a learned detour added to Manhattan, and an obstacle-input control. It selects
+the search settings on validation before creating a fresh test set. The original models
+and measurements are retained separately. The plan includes a numerical explanation of
+input and label scaling and commands for each experiment stage.
+
+The [follow-up results](docs/research_results.md) report five new training runs,
+600 fresh test maps, obstacle controls, and exact-distance references. The existing
+presentation describes the first experiment; the follow-up report and figures provide
+the additional material for revising the presentation.
+
 ## Reproduce the experiment
 
 Run the whole pipeline in a new directory:

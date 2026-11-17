@@ -33,3 +33,22 @@ Validation completed:
 - Both submitted proposal files match their original contents.
 
 The report and presentation describe the negative performance result, path-quality tradeoff, and limits of the tested model. The remaining group work is to rehearse, record, review, and submit the presentation.
+
+## November 16, 2026: follow-up research
+
+Added a fixed experiment plan and 1,440 new development maps. Training used 800 random and 400 wall maps; validation used 160 random and 80 wall maps. Five 60-epoch runs compared direct distance prediction, a learned detour, and a no-obstacle control, then repeated the selected direct architecture with two additional seeds. Each new model has 10,033 parameters.
+
+No candidate passed the validation path-quality gate. The predeclared fallback selected raw direct predictions for the final comparison. After freezing that choice, 600 fresh maps supplied 2,400 test queries and 204,000 timed method runs. A separate exploratory diagnostic measured local consistency without changing selection.
+
+The seed-7 direct model reduced wall-map distance error from Manhattan's 18.67 steps to 7.17. Hiding its obstacle inputs increased error to 18.03. However, the selected three-seed configuration averaged 0.936 ms per wall query versus 0.337 ms for Manhattan A*, with 65.2% optimal paths. Learning obstacle distances did not produce a better search method in this round.
+
+Validation completed:
+
+- All 179 tests passed; code style, formatting, and dependency checks passed.
+- The new datasets contain 2,040 verified layouts and 3,480 goal-distance maps, with no layout-group overlap with the original dataset.
+- All 276,000 validation and test runs completed. Every method correctly handled reachable and unreachable queries; no search limits were reached.
+- Evidence checks verified checkpoint hashes, paired query coverage, all timing repetitions, and the stored median summaries.
+- Four figures, compact evidence, all five new checkpoints, and an independently chosen wall example are retained.
+- Both submitted proposal files remain unchanged.
+
+The follow-up report distinguishes improved distance prediction from search quality. The existing presentation still covers the first experiment; the new report and figures are available for its next revision.

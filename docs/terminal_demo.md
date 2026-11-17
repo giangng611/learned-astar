@@ -43,3 +43,15 @@ python -m learned_astar solve --map examples/maps/detour.txt --show-paths --outp
 ```
 
 For the recording, enlarge the terminal font and use a small map. Explain the map and the expected detour, run the comparison, then show Manhattan A* and one learned path. Finish with the unreachable example to explain why `no_path` is a valid outcome. Keep the demo to about two minutes and use the saved map files if typing a map live would interrupt the explanation.
+
+## Follow-up models
+
+The follow-up selected the direct model with raw predictions. To demonstrate all three selected seeds, load their saved checkpoints explicitly:
+
+```sh
+python -m learned_astar shell --checkpoints artifacts/checkpoints/research_v2/direct/seed_7.pt artifacts/checkpoints/research_v2/replicates/seed_17.pt artifacts/checkpoints/research_v2/replicates/seed_27.pt
+```
+
+The first fresh wall example is saved at `results/research_v2_figures/example_map.txt`. Load it in the shell with `load results/research_v2_figures/example_map.txt`. It was selected by dataset order, not by a successful model result.
+
+Use `--heuristic-mode parity` only when demonstrating the rounding experiment. The table and saved output name the active mode. Raw predictions remain the default and are the selected setting for this follow-up.

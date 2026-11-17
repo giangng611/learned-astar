@@ -13,3 +13,5 @@ The fixed run uses seeds 7, 17, and 27, Adam at learning rate 0.001, batch size 
 The 40-epoch budget and four CPU threads were chosen after a small pilot and a CPU throughput check, before examining final test results. Query timing uses one CPU thread. Logs contain every training and validation loss, epoch duration, checkpoint choice, and total training time.
 
 During search, predictions are converted back to distances and the goal estimate is set to zero. The model cannot block cells or remove neighbors. A* still searches the original map and can reopen a cell when it finds a shorter route. Since the learned estimate can overestimate distance, its returned path is not guaranteed to be optimal.
+
+The [follow-up experiment](research_followup.md) adds controlled direct-distance and learned-detour variants, including a model trained without obstacle inputs. It also explains the scaling with a numerical example. Its settings and results are separate from this original training run.

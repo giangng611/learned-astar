@@ -111,3 +111,7 @@ Use fixed CPU thread settings, warm-up runs, varied method order, and five timed
 Report means, medians, the middle half of measurements, and slow cases. Compute path ratios only for successful queries with positive optimal cost; show failures and unreachable cases separately. A limited search is incomplete, and its elapsed time is not a completion time.
 
 For 95% bootstrap intervals, resample whole maps with their queries and method results kept together. Average the three models within each map for the main interval, and show each seed separately. This estimates variation across maps for those models; timing repetitions are not new independent samples. Summarize prediction errors per map and compare them with search performance without assuming causation.
+
+## Follow-up experiment
+
+The [follow-up architecture](research_followup.md) adds a separate branch with mixed random and wall training maps, three controlled model variants, validation search selection, and a fresh test set. Its diagram shows where the branches meet. The original dataset, checkpoints, and results remain separate so the two experiments can be compared.
