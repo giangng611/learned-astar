@@ -1,0 +1,10 @@
+[
+  {
+    "seed": 7,
+    "epochs": 60,
+    "best_validation_loss": 0.007381416672433261,
+    "best_epoch": 59,
+    "training_seconds": 162.6748189580003,
+    "parameters": 10033
+  }
+]

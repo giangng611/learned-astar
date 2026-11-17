@@ -1,0 +1,27 @@
+{
+  "architecture": "dilated-distance-configurable-v2",
+  "model_config": {
+    "channels": 16,
+    "residual": true,
+    "obstacles": false
+  },
+  "config": {
+    "seeds": [
+      7
+    ],
+    "epochs": 60,
+    "patience": 12,
+    "batch_size": 16,
+    "learning_rate": 0.001,
+    "cpu_threads": 4,
+    "channels": 16,
+    "residual": true,
+    "obstacles": false
+  },
+  "dataset_manifest_sha256": "e44fc2d7619c3a432d2d25a7c1246ccba391fdb2121fca52a4b15a01db5694c1",
+  "train_examples": 2400,
+  "validation_examples": 480,
+  "device": "cpu",
+  "python": "3.14.3",
+  "torch": "2.15.0"
+}
