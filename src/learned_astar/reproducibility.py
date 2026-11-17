@@ -11,7 +11,7 @@ def make_rng(seed: int) -> random.Random:
 
 
 def configure_torch(seed: int, cpu_threads: int = 1) -> None:
-    """Call once at process startup, before running any model operations."""
+    """Configure CPU work; repeated calls with the same thread count are safe."""
     import numpy as np
     import torch
 
@@ -23,5 +23,6 @@ def configure_torch(seed: int, cpu_threads: int = 1) -> None:
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.set_num_threads(cpu_threads)
-    torch.set_num_interop_threads(cpu_threads)
+    if torch.get_num_interop_threads() != cpu_threads:
+        torch.set_num_interop_threads(cpu_threads)
     torch.use_deterministic_algorithms(True)
