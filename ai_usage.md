@@ -25,3 +25,9 @@ The follow-up completed five training runs, verified 2,040 new layouts and 3,480
 Codex was used to implement the neighboring-move objective, learned tie ordering with Manhattan priority, FIFO and exact-tie controls, separate policy-validation maps, paired objective comparisons, and terminal support. Technical checks covered optimality under incorrect secondary scores, masked gradients, multiple valid moves, frozen checkpoint checks, and data separation.
 
 This round completed three 60-epoch training runs and verified 840 new layouts. All 319,200 timed validation and test runs completed, and all 190 tests passed. Checkpoints, histories, compact evidence, and result figures are retained.
+
+## Runtime implementation
+
+Codex was used to profile repeated search work, implement prepared A* and the reverse-BFS policy, and build the session benchmark. Technical checks covered frozen map-goal state, prediction reuse, exact agreement with reference paths and counters, source hashes, and independent timing summaries.
+
+The experiment verified 300 new layouts and completed 64,500 timed sessions containing 1,279,500 query executions. All 195 tests passed. The three trained model files were unchanged; compact evidence, diagnostic profiles, and figures are retained.

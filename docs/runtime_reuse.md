@@ -53,3 +53,5 @@ python scripts/report_runtime_reuse.py --run outputs/runtime_reproduction --outp
 ```
 
 The source datasets and three trained checkpoints listed in `configs/runtime_reuse.toml` must exist. The runner records hashes of settings, implementation, data, and model files, and rejects changes between preparation and evaluation. Generated map arrays stay local; compact measurements, manifests, verification, figures, and the final report are retained.
+
+The [completed results](runtime_results.md) include the comparison with both Manhattan implementations. `python scripts/profile_runtime.py` reproduces the separate diagnostic profile in a new `outputs/runtime_profile` directory; these instrumented times are not used in the benchmark tables.

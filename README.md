@@ -2,7 +2,7 @@
 
 This CSCI/ARTI 4550/6550 capstone compares a learned distance heuristic with Manhattan A*, Weighted A*, BFS, and Dijkstra. It measures search effort, total query time including inference, and path quality on the same queries. The workflow covers dataset generation, training with three seeds, held-out evaluation, figures, and a terminal demonstration.
 
-See the [report](docs/report.md) for findings, the [experiment architecture](docs/research_architecture.md) for the design, and the [submitted proposal](docs/proposal.md) for the original plan. The [presentation](presentation/learned_astar.pptx) includes speaker notes; the [recording guide](presentation/recording_guide.md) explains the demo and section handoffs.
+See the [original report](docs/report.md), [search-learning results](docs/search_learning_results.md), and [runtime results](docs/runtime_results.md) for findings. The [experiment architecture](docs/research_architecture.md) explains the design; the [submitted proposal](docs/proposal.md) retains the original plan. The updated [presentation](presentation/learned_astar_research.pptx) includes speaker notes, and the [recording guide](presentation/recording_guide.md) explains the demo and section handoffs.
 
 ## Setup
 
@@ -57,15 +57,21 @@ and measurements are retained separately. The plan includes a numerical explanat
 input and label scaling and commands for each experiment stage.
 
 The [follow-up results](docs/research_results.md) report five new training runs,
-600 fresh test maps, obstacle controls, and exact-distance references. The existing
-presentation describes the first experiment; the follow-up report and figures provide
-the additional material for revising the presentation.
+600 fresh test maps, obstacle controls, and exact-distance references. The original
+15-slide deck remains at `presentation/learned_astar.pptx`; the updated deck covers
+the later research as well.
 
 The [search-learning experiment](docs/search_learning.md) keeps Manhattan as the baseline,
 adds training on useful neighboring moves, and compares direct heuristics with learned
 ordering of equal Manhattan priorities. Its [results](docs/search_learning_results.md)
 separate learning quality, optimal paths, search effort, and total time on another fresh
 test set. The terminal supports this search rule with `--heuristic-mode tie`.
+
+The [runtime experiment](docs/runtime_reuse.md) freezes these models and tests 1–64 queries
+sharing a map and goal. It compares both original and prepared Manhattan, prediction
+reuse, exact A*, and a reverse-BFS policy, charging all preparation costs. Its
+[results](docs/runtime_results.md) show that shared implementation improvements account
+for most of the speedup; equally prepared Manhattan still beats the learned method.
 
 ## Reproduce the experiment
 

@@ -134,3 +134,7 @@ flowchart LR
 ```
 
 The tie rule keeps Manhattan's primary ordering, so learned scores cannot sacrifice optimal path cost. Separate policy-validation maps select the learned tie family before another test set is generated. Exact test distances supply labels for evaluation and the explicitly marked oracle controls; they are never model inputs.
+
+## Reusing a map and goal
+
+The [runtime architecture](runtime_reuse.md) adds a timed session around several queries. Its diagram separates map preparation, one shared prediction, repeated A*, and the reverse-BFS policy. The prepared Manhattan and learned branches use the same search implementation. Every session discards earlier prepared state, and a changed map or goal requires a new planner. The [results](runtime_results.md) include all setup costs.

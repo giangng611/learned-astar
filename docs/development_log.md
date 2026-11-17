@@ -71,3 +71,21 @@ Validation completed:
 - Both submitted proposal files remain unchanged.
 
 The third report separates improved move preferences, optimal path cost, reduced search effort, and the remaining runtime gap. The presentation still describes the first experiment and has not yet incorporated the two later rounds.
+
+## November 17, 2026: runtime and goal reuse
+
+Kept the three route-trained models fixed and profiled the original search on policy-validation maps. Added prepared search using integer cell IDs, stored neighbors, and score checks performed once per planner. Both Manhattan and learned ties receive the same implementation changes. A reverse-BFS policy stores next steps and returns actual paths for repeated starts.
+
+The fixed protocol generated 300 new maps after excluding all 5,180 earlier layout groups. Sessions used 1, 4, 16, or 64 distinct starts sharing one map and goal. All setup costs were included, with five shuffled repetitions on one CPU thread. The experiment completed 64,500 sessions and 1,279,500 query executions.
+
+At 64 queries per session, prepared learned search averaged 0.0473 ms per query on random 32×32 maps and 0.1508 ms on wall maps. It beat original Manhattan but remained slower than prepared Manhattan, which averaged 0.0402 and 0.1439 ms. Reverse BFS with stored next steps averaged 0.0127 and 0.0137 ms and was fastest among the measured methods in this workload. The small learned search-phase saving did not cover its extra setup cost.
+
+Validation completed:
+
+- All 195 tests passed. Exhaustive small-grid checks compare exact paths and every search counter between original and prepared implementations, including incorrect tie scores.
+- All measured methods returned optimal paths and correct reachability. Prepared searches matched their original counterparts on every measured query.
+- Independent checks recomputed medians and paired ratios, verified query coverage, and confirmed frozen code, data, and model hashes.
+- Code style, formatting, and dependency checks passed. Both proposal files remain unchanged.
+- The updated 18-slide presentation covers all four rounds, with editable tables and charts, speaker notes, and a revised recording guide. The original deck is retained separately.
+
+The latest report and figures explain both the implementation speedup and the remaining gap against equally optimized baselines. The terminal demo uses fresh predictions; the reused-session findings come from the recorded benchmark.
