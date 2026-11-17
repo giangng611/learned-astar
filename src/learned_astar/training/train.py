@@ -14,7 +14,7 @@ from torch.nn import functional as F
 from learned_astar.config import require_finite, require_int
 from learned_astar.data import load_record, read_manifest
 from learned_astar.models import DistanceCNN, distance_scale, encode_inputs
-from learned_astar.models.network import ARCHITECTURE
+from learned_astar.models.network import ARCHITECTURE, RESEARCH_ARCHITECTURE
 from learned_astar.reproducibility import configure_torch
 
 
@@ -26,9 +26,12 @@ class TrainingConfig:
     batch_size: int = 16
     learning_rate: float = 0.001
     cpu_threads: int = 4
+    channels: int = 32
+    residual: bool = False
+    obstacles: bool = True
 
     def __post_init__(self):
-        for key in ("epochs", "patience", "batch_size", "cpu_threads"):
+        for key in ("epochs", "patience", "batch_size", "cpu_threads", "channels"):
             require_int(getattr(self, key), key, minimum=1)
         require_finite(self.learning_rate, "learning_rate")
         if self.learning_rate == 0:
@@ -40,6 +43,8 @@ class TrainingConfig:
             if seed >= 2**32:
                 raise ValueError("Seed must be less than 2**32")
         object.__setattr__(self, "seeds", tuple(self.seeds))
+        if type(self.residual) is not bool or type(self.obstacles) is not bool:
+            raise ValueError("Residual and obstacles options must be booleans")
 
 
 def masked_loss(prediction, target, mask):
@@ -87,8 +92,15 @@ def train_models(directory, output, config: TrainingConfig):
     if set(train_groups) & set(validation_groups):
         raise ValueError("Training and validation layouts overlap")
     manifest_hash = hashlib.sha256((Path(directory) / "manifest.jsonl").read_bytes()).hexdigest()
+    model_config = {k: getattr(config, k) for k in ("channels", "residual", "obstacles")}
+    architecture = (
+        ARCHITECTURE
+        if model_config == {"channels": 32, "residual": False, "obstacles": True}
+        else RESEARCH_ARCHITECTURE
+    )
     metadata = {
-        "architecture": ARCHITECTURE,
+        "architecture": architecture,
+        "model_config": model_config,
         "config": asdict(config),
         "dataset_manifest_sha256": manifest_hash,
         "train_examples": len(train[0]),
@@ -102,7 +114,7 @@ def train_models(directory, output, config: TrainingConfig):
     for seed in config.seeds:
         torch.manual_seed(seed)
         np.random.seed(seed)
-        model = DistanceCNN()
+        model = DistanceCNN(**model_config)
         optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
         generator = torch.Generator().manual_seed(seed)
         best, stale, history = float("inf"), 0, []
@@ -134,7 +146,8 @@ def train_models(directory, output, config: TrainingConfig):
             if val < best:
                 best, stale = val, 0
                 checkpoint = {
-                    "architecture": ARCHITECTURE,
+                    "architecture": architecture,
+                    "model_config": model_config,
                     "state_dict": model.state_dict(),
                     "seed": seed,
                     "epoch": epoch,

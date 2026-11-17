@@ -25,9 +25,19 @@ class DatasetConfig:
     size: int = 32
     goals_per_map: int = 2
     starts_per_map: int = 4
+    train_wall_maps: int = 0
+    validation_wall_maps: int = 0
 
     def __post_init__(self):
-        for name in ("seed", "train_maps", "validation_maps", "test_maps", "extra_maps"):
+        for name in (
+            "seed",
+            "train_maps",
+            "validation_maps",
+            "test_maps",
+            "extra_maps",
+            "train_wall_maps",
+            "validation_wall_maps",
+        ):
             require_int(getattr(self, name), name)
         for name in ("size", "goals_per_map", "starts_per_map"):
             require_int(getattr(self, name), name, minimum=1)
@@ -35,7 +45,13 @@ class DatasetConfig:
             raise ValueError("Grid size is too large")
         if any(n % 2 for n in (self.train_maps, self.validation_maps, self.test_maps)):
             raise ValueError("Main split counts must be even for equal density groups")
-        if self.train_maps + self.validation_maps + self.test_maps == 0:
+        if (
+            self.train_maps
+            + self.validation_maps
+            + self.test_maps
+            + self.train_wall_maps
+            + self.validation_wall_maps
+        ) == 0:
             raise ValueError("At least one main split must contain maps")
 
 
@@ -73,6 +89,8 @@ def _specs(config):
     ]:
         for density in (0.1, 0.25):
             yield split, config.size, density, count // 2, "random"
+    yield "train", config.size, None, config.train_wall_maps, "walls"
+    yield "validation", config.size, None, config.validation_wall_maps, "walls"
     for split, size, density, kind in [
         ("density_40", config.size, 0.4, "random"),
         ("size_16", 16, 0.25, "random"),
@@ -82,12 +100,13 @@ def _specs(config):
         yield split, size, density, config.extra_maps, kind
 
 
-def generate_dataset(output: str | Path, config: DatasetConfig) -> dict:
+def generate_dataset(output: str | Path, config: DatasetConfig, *, exclude_groups=()) -> dict:
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
     (output / "maps").mkdir()
     rng = make_rng(config.seed)
-    seen = set()
+    seen = set(exclude_groups)
+    excluded_count = len(seen)
     records = []
     duplicates = 0
     for split, size, density, count, kind in _specs(config):
@@ -157,6 +176,7 @@ def generate_dataset(output: str | Path, config: DatasetConfig) -> dict:
         "split_counts": dict(Counter(r["split"] for r in records)),
         "status_counts": dict(Counter(r["status"] for r in records)),
         "duplicates_rejected": duplicates,
+        "excluded_layout_groups": excluded_count,
         "manifest_sha256": hashlib.sha256(manifest.encode()).hexdigest(),
         "label_markers": {"blocked": -2, "unreachable": -1},
     }

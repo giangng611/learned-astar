@@ -10,6 +10,7 @@ from learned_astar.data.dataset import occupancy
 from learned_astar.environments import Cell, Grid
 
 ARCHITECTURE = "dilated-cnn-32-1-2-4-8-16-v1"
+RESEARCH_ARCHITECTURE = "dilated-distance-configurable-v2"
 
 
 def distance_scale(height: int, width: int) -> int:
@@ -39,27 +40,44 @@ def encode_inputs(blocked: np.ndarray, goal: Cell) -> np.ndarray:
 
 
 class DistanceCNN(nn.Module):
-    def __init__(self):
+    def __init__(self, *, channels=32, residual=False, obstacles=True):
         super().__init__()
+        if type(channels) is not int or channels < 1:
+            raise ValueError("Channel width must be a positive integer")
+        self.model_config = {"channels": channels, "residual": residual, "obstacles": obstacles}
         layers = []
-        channels = 5
+        inputs = 5
         for dilation in (1, 2, 4, 8, 16):
             layers.extend(
-                [nn.Conv2d(channels, 32, 3, padding=dilation, dilation=dilation), nn.ReLU()]
+                [nn.Conv2d(inputs, channels, 3, padding=dilation, dilation=dilation), nn.ReLU()]
             )
-            channels = 32
-        layers.extend([nn.Conv2d(32, 1, 1), nn.Softplus()])
+            inputs = channels
+        output = nn.Conv2d(channels, 1, 1)
+        if residual:
+            nn.init.constant_(output.bias, -4.0)
+        layers.extend([output, nn.Softplus()])
         self.layers = nn.Sequential(*layers)
 
     def forward(self, inputs):
-        return self.layers(inputs).squeeze(1)
+        if not self.model_config["obstacles"]:
+            inputs = inputs.clone()
+            inputs[:, 0] = 0
+        prediction = self.layers(inputs).squeeze(1)
+        if self.model_config["residual"]:
+            prediction = prediction + inputs[:, 4]
+        return prediction
 
 
 def load_model(path: str | Path) -> tuple[DistanceCNN, dict]:
     checkpoint = torch.load(path, map_location="cpu", weights_only=True)
-    if checkpoint.get("architecture") != ARCHITECTURE:
+    architecture = checkpoint.get("architecture")
+    if architecture not in (ARCHITECTURE, RESEARCH_ARCHITECTURE):
         raise ValueError("Unsupported checkpoint architecture")
-    model = DistanceCNN()
+    model = (
+        DistanceCNN(**checkpoint["model_config"])
+        if architecture == RESEARCH_ARCHITECTURE
+        else DistanceCNN()
+    )
     model.load_state_dict(checkpoint["state_dict"])
     model.eval()
     return model, {k: v for k, v in checkpoint.items() if k != "state_dict"}
