@@ -92,3 +92,32 @@ def test_planner_copies_scores_and_does_not_reuse_state_across_queries_or_goals(
     again = planner.search((0, 0))
     assert (first.path, first.stats) == (again.path, again.stats)
     assert PreparedAStar(prepared, (0, 0)).search((2, 2)).path[-1] == (0, 0)
+
+
+def test_session_measurement_reuses_one_prediction_and_keeps_reference_behavior(monkeypatch):
+    from learned_astar.research.runtime import measure_session, methods, result_signature
+
+    calls = []
+    grid = Grid.from_ascii([".....", "####.", ".....", ".####", "....."])
+    field = np.maximum(reverse_bfs(grid, (4, 4)), 0).astype(float)
+    monkeypatch.setattr(
+        "learned_astar.research.runtime.predict_distances",
+        lambda *args: calls.append(1) or field.copy(),
+    )
+    limits = SearchLimits(time_limit_seconds=5)
+    starts = [(0, 0), (2, 0), (4, 0)]
+    expected = None
+    for name in ("cached_7", "prepared_7"):
+        timing, rows = measure_session(name, grid, (4, 4), starts, {7: None}, limits)
+        assert len(calls) == (1 if name == "cached_7" else 2)
+        signature = result_signature(rows)
+        if expected is None:
+            expected = signature
+        assert signature == expected
+        assert timing["total_seconds"] >= timing["setup_seconds"] + timing["search_seconds"]
+    for name in ("prepared_exact", "bfs_policy"):
+        timing, rows = measure_session(name, grid, (4, 4), starts, {}, limits)
+        assert timing["preprocess_expanded"] == len(tuple(grid.free_cells()))
+        assert [r["cost"] for r in rows] == [field[s] for s in starts]
+    assert len(methods([7, 17, 27], 1)) == 13
+    assert len(methods([7, 17, 27], 64)) == 10
