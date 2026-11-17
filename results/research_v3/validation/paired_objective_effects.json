@@ -1,0 +1,93 @@
+{
+  "comparison": "Route training versus distance-only training, matched query and seed. Ratios below one favor route training; positive move-accuracy differences favor it.",
+  "splits": {
+    "random": {
+      "raw_expansion_ratio": {
+        "mean": 0.9248951325068473,
+        "low": 0.8908184701991599,
+        "high": 0.9591817871093072,
+        "maps": 159
+      },
+      "raw_runtime_ratio": {
+        "mean": 0.9772612476144783,
+        "low": 0.9702482545641612,
+        "high": 0.9845613225089116,
+        "maps": 159
+      },
+      "tie_expansion_ratio": {
+        "mean": 0.955114107975071,
+        "low": 0.9432183572113214,
+        "high": 0.9668792724639673,
+        "maps": 159
+      },
+      "tie_runtime_ratio": {
+        "mean": 0.9949027442435047,
+        "low": 0.9926523532140674,
+        "high": 0.9971973375768171,
+        "maps": 159
+      },
+      "optimal_move_fraction_difference": {
+        "mean": 0.07346499912573319,
+        "low": 0.06885168225551698,
+        "high": 0.07808990833860784,
+        "maps": 159
+      },
+      "branch_move_fraction_difference": {
+        "mean": 0.08087704171900248,
+        "low": 0.07557403139030079,
+        "high": 0.08656041250458221,
+        "maps": 159
+      },
+      "mae_difference": {
+        "mean": -0.08656031615043475,
+        "low": -0.14624744321955194,
+        "high": -0.023733200752021125,
+        "maps": 160
+      }
+    },
+    "walls": {
+      "tie_expansion_ratio": {
+        "mean": 0.9621075049089928,
+        "low": 0.9525122060153287,
+        "high": 0.9705746431164451,
+        "maps": 80
+      },
+      "tie_runtime_ratio": {
+        "mean": 1.000459824765724,
+        "low": 0.9978957030676765,
+        "high": 1.0031311256541628,
+        "maps": 80
+      },
+      "raw_expansion_ratio": {
+        "mean": 0.7170137658988385,
+        "low": 0.6917444094189743,
+        "high": 0.7448730111750387,
+        "maps": 80
+      },
+      "raw_runtime_ratio": {
+        "mean": 0.9217036196699755,
+        "low": 0.9121272686357166,
+        "high": 0.9306065807320792,
+        "maps": 80
+      },
+      "optimal_move_fraction_difference": {
+        "mean": 0.21243565489834423,
+        "low": 0.2053945633986285,
+        "high": 0.21928988314532144,
+        "maps": 80
+      },
+      "branch_move_fraction_difference": {
+        "mean": 0.21564681306555872,
+        "low": 0.2084253044737813,
+        "high": 0.22300106690710847,
+        "maps": 80
+      },
+      "mae_difference": {
+        "mean": 0.8999347095699782,
+        "low": 0.7056217812605777,
+        "high": 1.1120719651686364,
+        "maps": 80
+      }
+    }
+  }
+}

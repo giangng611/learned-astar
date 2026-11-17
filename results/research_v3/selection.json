@@ -1,0 +1,20 @@
+{
+  "family": "route",
+  "quality_gate_passed": true,
+  "expansion_score": 0.9415212389222867,
+  "improves_expansions_on_validation": true,
+  "candidates": [
+    {
+      "family": "distance",
+      "quality_gate_passed": true,
+      "expansion_score": 0.999033878369371
+    },
+    {
+      "family": "route",
+      "quality_gate_passed": true,
+      "expansion_score": 0.9415212389222867
+    }
+  ],
+  "validation_summary_sha256": "474ac1dbd243910c7bca79eae585e4d59d56c7c0329de619cbe69f346f872603",
+  "protocol_sha256": "d3354d75863bb2bd1582a04c6e19f193d46217139ab4b426c09b5b2a04d810fc"
+}
