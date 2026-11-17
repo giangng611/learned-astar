@@ -1,26 +1,28 @@
 # Presentation and recording guide
 
-The deck is in English and is intended for a roughly 12–15 minute group presentation, including a short terminal demo. The PowerPoint file is editable and includes speaker notes. Add the group members' names if needed, and adjust the speaking time to the course requirement.
+Use `learned_astar_research.pptx`, the updated 18-slide deck covering all four research rounds. It is in English, remains editable, and includes speaker notes. Plan roughly 14–17 minutes including the terminal demo; use the references and appendix only when needed. Add the group members' names and adjust the length to the course requirement. The earlier deck is retained separately.
 
 ## Suggested section handoffs
 
 | Slides | Section | Approximate time |
 | --- | --- | --- |
-| 1–3 | Research question and search methods | 2 minutes |
-| 4–6 | Dataset, model, and fair timing | 3 minutes |
-| 7–11 | Training, results, generalization, and one example | 4–5 minutes |
-| 12 | Terminal demonstration | 2 minutes |
-| 13 | Conclusions and limitations | 1 minute |
-| 14–15 | References and seed details | Use when needed |
+| 1–4 | Research question, methods, and progression | 3 minutes |
+| 5–7 | Model, move objective, and data separation | 3 minutes |
+| 8–11 | Learning quality, search effort, and fresh-query time | 3–4 minutes |
+| 12–14 | Repeated queries and fair runtime comparisons | 2–3 minutes |
+| 15 | Terminal demonstration | 2 minutes |
+| 16 | Findings and limits | 1–2 minutes |
+| 17–18 | References and detailed intervals | Use when needed |
 
-Assign these sections to the available group members. The person presenting results should explain the distinction between expanding fewer cells and finishing faster. When discussing path quality, state that the learned heuristic has no optimality guarantee, even when a particular returned path is optimal.
+Assign these sections to the available group members. Explain the distinction between expanding fewer cells and finishing faster. Direct learned heuristics have no optimality guarantee; learned tie ordering keeps Manhattan primary and preserves optimal cost when search completes. For runtime, compare against equally prepared Manhattan as well as the original implementation. BFS with stored next steps is a strong alternative when the map and goal stay fixed.
 
 ## Demo sequence
 
 Before recording, activate the project environment and enlarge the terminal font. Keep the prepared map files available so the demo does not depend on typing a map correctly during the presentation.
 
 ```sh
-python -m learned_astar shell
+python -m learned_astar shell --heuristic-mode tie \
+  --checkpoints artifacts/checkpoints/research_v3/seed_7.pt
 ```
 
 ```text
@@ -33,7 +35,7 @@ run
 quit
 ```
 
-Explain `S`, `G`, `#`, and `.` before running the search. Show the cost, expanded cells, and time columns, then display the two routes. On the unreachable map, explain that `no_path` is the correct outcome. A single demo timing is an illustration; the recorded experiment supports the conclusions.
+Explain `S`, `G`, `#`, and `.` before running the search. Show cost, expansions, and time, then display the two routes. On the unreachable map, explain that `no_path` is correct. The shell makes fresh predictions and illustrates round 3. It does not measure the reused sessions from round 4; use those benchmark slides for reuse claims.
 
 If the group wants to draw a map live, use `draw`, paste equal-width rows, and end with `.end`. The [terminal guide](../docs/terminal_demo.md) has a small example. The demo supports all three trained models; it does not use pre-recorded routes.
 
