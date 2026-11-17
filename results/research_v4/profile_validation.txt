@@ -34,5 +34,3 @@
    207110    0.010    0.000    0.010    0.000 {built-in method builtins.abs}
      3200    0.001    0.000    0.009    0.000 functional.py:1766(relu)
      3200    0.007    0.000    0.007    0.000 {built-in method torch.relu}
-
-

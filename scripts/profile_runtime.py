@@ -44,7 +44,7 @@ def main():
     stream = io.StringIO()
     stats = pstats.Stats(profile, stream=stream).strip_dirs().sort_stats("cumulative")
     stats.print_stats(30)
-    (output / "profile.txt").write_text(stream.getvalue())
+    (output / "profile.txt").write_text(stream.getvalue().rstrip() + "\n")
     save_json(
         output / "profile.json",
         {

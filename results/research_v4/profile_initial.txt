@@ -29,5 +29,3 @@
    312585    0.013    0.000    0.013    0.000 {built-in method math.isfinite}
    102915    0.013    0.000    0.013    0.000 {built-in method _heapq.heappush}
    103555    0.012    0.000    0.012    0.000 experiment.py:135(score)
-
-
