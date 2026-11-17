@@ -124,3 +124,86 @@ assert meta["training_config"]["route_loss_weight"] == 0.02
 """)
     result = subprocess.run([sys.executable, str(script)], capture_output=True, text=True)
     assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_move_diagnostic_uses_legal_neighbors_and_accepts_all_optimal_directions():
+    from learned_astar.models.transforms import manhattan_field
+    from learned_astar.research.experiment import error_metrics
+
+    grid = Grid(4, 4, frozenset({(1, 1)}))
+    labels = reverse_bfs(grid, (3, 3))
+    lower = manhattan_field(labels.shape, (3, 3))
+    perfect = error_metrics(labels, labels, lower)
+    assert perfect["optimal_move_fraction"] == perfect["branch_move_fraction"] == 1
+    reversed_scores = error_metrics(10 - labels, labels, lower)
+    assert reversed_scores["optimal_move_fraction"] < 1
+
+
+def test_policy_evaluation_selection_and_strict_validation_holdout(tmp_path):
+    import subprocess
+    import sys
+
+    script = tmp_path / "evaluate_smoke.py"
+    script.write_text("""
+import json
+from pathlib import Path
+import torch
+from learned_astar.data import DatasetConfig, generate_dataset, read_manifest
+from learned_astar.models import DistanceCNN
+from learned_astar.models.network import RESEARCH_ARCHITECTURE
+from learned_astar.research.experiment import digest
+from learned_astar.research.search_learning import make_spec, evaluate_stage, choose_tie_family
+
+root = Path(__file__).parent
+development = root / "development"
+generate_dataset(development, DatasetConfig(train_maps=2, validation_maps=2,
+    test_maps=0, extra_maps=0, size=8))
+groups = [r["group_id"] for r in read_manifest(development)]
+old = root / "old"
+run = root / "run"
+for family in ("distance", "route", "no_obstacles"):
+    for seed in ((7,) if family=="no_obstacles" else (7,17,27)):
+        model = DistanceCNN(channels=4, obstacles=family!="no_obstacles")
+        label = "no_obstacles" if family=="no_obstacles" else "direct" if seed==7 else "replicates"
+        folder = run/"route" if family=="route" else old/label
+        folder.mkdir(parents=True, exist_ok=True)
+        torch.save({"architecture": RESEARCH_ARCHITECTURE, "model_config": model.model_config,
+            "state_dict": model.state_dict(), "seed": seed, "epoch": 1,
+            "validation_loss": 1.0, "development_layout_groups": groups,
+            "dataset_manifest_sha256": digest(development/"manifest.jsonl")},
+            folder/f"seed_{seed}.pt")
+config = {"sources": {"distance_models": str(old)}, "evaluation": {
+    "order_seed": 1, "cpu_threads": 1, "repetitions": 1, "max_expansions": 100000,
+    "time_limit_seconds": 5, "bootstrap_seed": 2, "bootstrap_samples": 20}}
+validation = run / "policy_validation"
+generate_dataset(validation, DatasetConfig(train_maps=0, validation_maps=2,
+    validation_wall_maps=2, test_maps=0, extra_maps=0, size=8, seed=567), exclude_groups=groups)
+spec = make_spec(run, config)
+summary = evaluate_stage(validation, spec, run/"validation", config, validation=True)
+assert summary["settings"]["raw_runs"] == 4*4*19
+for group in summary["splits"].values():
+    assert group["methods"]["route_tie_mean"]["optimal_fraction_of_found"] == 1
+selection = choose_tie_family(run/"validation/summary.json")
+assert selection["quality_gate_passed"]
+summary["settings"]["validation"] = False
+fake = run/"test_summary.json"
+fake.write_text(json.dumps(summary))
+try:
+    choose_tie_family(fake)
+except ValueError as error:
+    assert "not test" in str(error)
+else:
+    raise AssertionError("Selected using test evidence")
+path = Path(spec["models"]["distance_seed_7"])
+payload = torch.load(path, weights_only=True)
+payload["development_layout_groups"].append(read_manifest(validation)[0]["group_id"])
+torch.save(payload, path)
+try:
+    evaluate_stage(validation, spec, run/"bad", config, validation=True)
+except ValueError as error:
+    assert "overlaps model development" in str(error)
+else:
+    raise AssertionError("Accepted leaked policy-validation maps")
+""")
+    result = subprocess.run([sys.executable, str(script)], capture_output=True, text=True)
+    assert result.returncode == 0, result.stdout + result.stderr

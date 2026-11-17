@@ -24,7 +24,7 @@ from learned_astar.models import load_model, predict_distances
 from learned_astar.models.transforms import manhattan_field, parity_distances
 from learned_astar.reproducibility import configure_torch
 from learned_astar.search import SearchLimits, SearchResult, SearchStats, SearchStatus
-from learned_astar.search.core import astar, best_first_search, weighted_astar
+from learned_astar.search.core import astar, best_first_search, manhattan, weighted_astar
 
 
 def digest(path):
@@ -74,6 +74,18 @@ def error_metrics(prediction, labels, manhattan):
         connected = mask[first] & mask[second]
         neighbor_gaps.extend(np.abs(prediction[first] - prediction[second])[connected].tolist())
     gaps = np.asarray(neighbor_gaps)
+    padded_predictions = np.pad(prediction.astype(float), 1, constant_values=np.inf)
+    padded_labels = np.pad(labels, 1, constant_values=-2)
+    slices = (np.s_[:-2, 1:-1], np.s_[1:-1, 2:], np.s_[2:, 1:-1], np.s_[1:-1, :-2])
+    neighbor_labels = np.stack([padded_labels[s] for s in slices])
+    neighbor_predictions = np.stack([padded_predictions[s] for s in slices])
+    neighbor_predictions[neighbor_labels < 0] = np.inf
+    chosen = np.argmin(neighbor_predictions, axis=0)
+    chosen_labels = np.take_along_axis(neighbor_labels, chosen[None], axis=0)[0]
+    active = labels > 0
+    correct = chosen_labels == labels - 1
+    good = neighbor_labels == labels[None] - 1
+    branch = active & ((neighbor_labels >= 0).sum(0) > good.sum(0))
     return {
         "mae": float(np.abs(errors).mean()),
         "rmse": float(np.sqrt(np.square(errors).mean())),
@@ -84,6 +96,8 @@ def error_metrics(prediction, labels, manhattan):
         "detour_fraction": float(detour.sum() / mask.sum()),
         "neighbor_violation_fraction": float((gaps > 1 + 1e-6).mean()) if len(gaps) else None,
         "mean_neighbor_violation": float(np.maximum(gaps - 1, 0).mean()) if len(gaps) else None,
+        "optimal_move_fraction": float(correct[active].mean()) if active.any() else None,
+        "branch_move_fraction": float(correct[branch].mean()) if branch.any() else None,
     }
 
 
@@ -106,7 +120,7 @@ def map_predictions(models, grid, goal, labels):
     return errors
 
 
-def field_search(grid, start, goal, make_field, limits):
+def field_search(grid, start, goal, make_field, limits, *, tie=False):
     """Include prediction/preprocessing in the soft time limit and total timer."""
     tick = time.perf_counter()
     field = make_field()
@@ -117,12 +131,17 @@ def field_search(grid, start, goal, make_field, limits):
             SearchStatus.TIME_LIMIT, (), None, prediction_seconds, SearchStats(0, 0, 0, 0, 0, 0, 0)
         )
     else:
+
+        def score(cell, _):
+            return float(field[cell])
+
         result = best_first_search(
             grid,
             start,
             goal,
-            lambda cell, _: float(field[cell]),
+            manhattan if tie else score,
             limits=replace(limits, time_limit_seconds=remaining),
+            tie_breaker=score if tie else None,
         )
     search_seconds = 0 if remaining <= 0 else result.elapsed_seconds
     return replace(result, elapsed_seconds=time.perf_counter() - tick), {
@@ -131,7 +150,12 @@ def field_search(grid, start, goal, make_field, limits):
     }
 
 
-def query_methods(models, selection):
+def query_methods(models, selection, *, plan=None):
+    if plan is not None:
+        return {
+            name: (models[item["model"]] if item["model"] is not None else None, item["mode"])
+            for name, item in plan.items()
+        }
     methods = {"astar_manhattan": (None, "manhattan")}
     for weight in (1.25, 1.5, 2.0):
         methods[f"weighted_astar_{weight}"] = (None, weight)
@@ -150,19 +174,23 @@ def execute_query(spec, grid, start, goal, labels, limits):
     model, mode = spec
     if mode == "manhattan":
         result = astar(grid, start, goal, limits=limits)
+    elif mode == "fifo":
+        result = best_first_search(grid, start, goal, manhattan, limits=limits, tie_breaker="fifo")
     elif isinstance(mode, float):
         result = weighted_astar(grid, start, goal, mode, limits=limits)
     else:
 
         def make_field():
-            if mode == "oracle":
+            if mode in ("oracle", "oracle_tie"):
                 return np.maximum(labels, 0)
             if mode == "exact":
                 return np.maximum(reverse_bfs(grid, goal), 0)
             field = predict_distances(model, grid, goal)
             return parity_distances(field, goal) if mode == "parity" else field
 
-        return field_search(grid, start, goal, make_field, limits)
+        return field_search(
+            grid, start, goal, make_field, limits, tie=mode in ("tie", "oracle_tie")
+        )
     return result, {"prediction_seconds": 0.0, "search_seconds": result.elapsed_seconds}
 
 
@@ -193,8 +221,10 @@ def evaluate_research(directory, specification, output, config, *, validation, e
         model, meta = load_model(path)
         if "development_layout_groups" not in meta:
             raise ValueError("Checkpoint has no development provenance")
-        if not validation and held_out & set(meta["development_layout_groups"]):
-            raise ValueError("Test overlaps model development layouts")
+        if (not validation or specification.get("strict_holdout")) and held_out & set(
+            meta["development_layout_groups"]
+        ):
+            raise ValueError("Evaluation overlaps model development layouts")
         models[name] = model
         checkpoints[name] = {
             k: meta[k] for k in ("seed", "epoch", "validation_loss", "dataset_manifest_sha256")
@@ -202,7 +232,9 @@ def evaluate_research(directory, specification, output, config, *, validation, e
         checkpoints[name].update(
             file=path, sha256=digest(path), model_config=model.model_config.copy()
         )
-    methods = query_methods(models, specification["selection"])
+    methods = query_methods(
+        models, specification["selection"], plan=specification.get("search_plan")
+    )
     limits = SearchLimits(settings["max_expansions"], settings["time_limit_seconds"])
     for height, width in sorted({(r["height"], r["width"]) for r in records}):
         grid = Grid(height, width)
@@ -243,6 +275,12 @@ def evaluate_research(directory, specification, output, config, *, validation, e
                     if name in ("oracle_lookup", "exact_bfs_fresh") and optimal >= 0:
                         if result.cost != optimal or result.stats.expanded != optimal:
                             raise ValueError("Exact heuristic did not follow an optimal path")
+                    if methods[name][1] in ("tie", "oracle_tie", "fifo") and optimal >= 0:
+                        if (
+                            result.status in (SearchStatus.FOUND, SearchStatus.NO_PATH)
+                            and result.cost != optimal
+                        ):
+                            raise ValueError("Manhattan tie ordering lost optimality")
                     raw_rows.append(
                         {
                             "layout_id": record["layout_id"],
@@ -283,6 +321,8 @@ def evaluate_research(directory, specification, output, config, *, validation, e
         "dataset_manifest_sha256": digest(directory / "manifest.jsonl"),
         "checkpoints": checkpoints,
         "selection": specification["selection"],
+        "search_plan": specification.get("search_plan"),
+        "aggregates": specification.get("aggregates"),
         "maps": len(records),
         "raw_runs": len(raw_rows),
         "seconds": time.perf_counter() - started,
@@ -298,7 +338,11 @@ def evaluate_research(directory, specification, output, config, *, validation, e
         ),
         "neighbor_diagnostic": (
             "Fraction of undirected reachable neighbor pairs with |h(u)-h(v)| > 1. "
-            "Exploratory diagnostic added after validation; it does not change selection."
+            "This diagnostic does not change selection."
+        ),
+        "move_diagnostic": (
+            "Choose the lowest predicted-distance legal neighbor, ties N,E,S,W; "
+            "score whether BFS distance decreases by one."
         ),
     }
     for name, values in (("runs", raw_rows), ("queries", rows), ("maps", map_rows)):
@@ -321,9 +365,15 @@ def summarize_research(rows, map_rows, metadata):
             name: [r for r in subset if r["method"] == name]
             for name in sorted({r["method"] for r in subset})
         }
-        grouped["original_mean"] = [r for r in subset if r["method"].startswith("original_")]
+        if metadata.get("aggregates"):
+            for name, members in metadata["aggregates"].items():
+                if not set(members) <= set(grouped):
+                    raise ValueError("Aggregate names an unmeasured method")
+                grouped[name] = [r for r in subset if r["method"] in members]
+        else:
+            grouped["original_mean"] = [r for r in subset if r["method"].startswith("original_")]
         selection = metadata["selection"]
-        if selection:
+        if selection and not metadata.get("aggregates"):
             names = {
                 f"{selection['variant']}_seed_{seed}_{selection['mode']}" for seed in (7, 17, 27)
             }

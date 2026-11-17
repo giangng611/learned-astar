@@ -40,7 +40,13 @@ def verify_evidence(directory):
             if row[field] != float(np.median([r[field] for r in group])):
                 raise ValueError("Collapsed evidence differs from raw measurements")
         by_query[key[:2]].add(row["method"])
-    expected = set(query_methods(dict.fromkeys(settings["checkpoints"]), settings["selection"]))
+    expected = set(
+        query_methods(
+            dict.fromkeys(settings["checkpoints"]),
+            settings["selection"],
+            plan=settings.get("search_plan"),
+        )
+    )
     if any(names != expected for names in by_query.values()):
         raise ValueError("Methods are not paired on identical queries")
     for model in settings["checkpoints"].values():
