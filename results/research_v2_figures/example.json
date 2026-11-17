@@ -1,0 +1,18 @@
+{
+  "layout_id": "a5e4e19ff20d85d268eb2346c6342d786f2bae78377fa9f99fe9271ee03fad20",
+  "query": 0,
+  "start": [
+    6,
+    23
+  ],
+  "goal": [
+    17,
+    24
+  ],
+  "variant": "direct",
+  "mode": "raw",
+  "seed": 7,
+  "optimal_cost": 12,
+  "returned_cost": 12,
+  "expanded": 17
+}

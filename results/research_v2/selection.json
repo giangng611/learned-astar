@@ -1,0 +1,40 @@
+{
+  "variant": "direct",
+  "mode": "raw",
+  "eligible": false,
+  "expansion_score": 1.706058709318444,
+  "worst_mean_path_ratio": 1.0188496415087287,
+  "quality_gate_passed": false,
+  "candidates": [
+    {
+      "variant": "direct",
+      "mode": "raw",
+      "eligible": false,
+      "expansion_score": 1.706058709318444,
+      "worst_mean_path_ratio": 1.0188496415087287
+    },
+    {
+      "variant": "direct",
+      "mode": "parity",
+      "eligible": false,
+      "expansion_score": 1.3927725251495708,
+      "worst_mean_path_ratio": 1.035876074032855
+    },
+    {
+      "variant": "residual",
+      "mode": "raw",
+      "eligible": false,
+      "expansion_score": 1.3924328878493248,
+      "worst_mean_path_ratio": 1.0197336896358837
+    },
+    {
+      "variant": "residual",
+      "mode": "parity",
+      "eligible": false,
+      "expansion_score": 1.1557347708525643,
+      "worst_mean_path_ratio": 1.0316234824865536
+    }
+  ],
+  "validation_summary_sha256": "4797264fb0c2e362e9a54823216aaa038b6c1b86f44b9f52aceb08f08f22b2d1",
+  "protocol_sha256": "e0599a92a04eb365194ada221d2ea020329adda8a3acf4155670a6fc50eb83f8"
+}

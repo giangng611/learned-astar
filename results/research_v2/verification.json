@@ -1,0 +1,19 @@
+{
+  "validation": {
+    "maps": 240,
+    "queries": 960,
+    "query_method_records": 14400,
+    "raw_runs": 72000
+  },
+  "test": {
+    "maps": 600,
+    "queries": 2400,
+    "query_method_records": 40800,
+    "raw_runs": 204000
+  },
+  "disjoint_layout_groups": {
+    "original": 2300,
+    "development": 1440,
+    "fresh_test": 600
+  }
+}

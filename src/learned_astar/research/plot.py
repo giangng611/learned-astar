@@ -109,7 +109,7 @@ def plot_research(run, output):
         "residual_seed_7_hidden",
         "no_obstacles_seed_7",
     ]
-    ticks = ["Manhattan", "Direct", "Detour", "Detour,\nhidden walls", "No-obstacle\ntraining"]
+    ticks = ["Manhattan", "Direct", "Detour", "Detour\ninput hidden", "No-obstacle\ntraining"]
     for ax, split, title in zip(
         axes, ("test", "walls"), ("Random 32×32", "Walls 32×32"), strict=True
     ):
@@ -117,7 +117,7 @@ def plot_research(run, output):
         values = [errors[name]["mae"]["mean"] for name in names]
         bars = ax.bar(range(len(names)), values, color=COLORS)
         ax.bar_label(bars, fmt="%.2f", padding=3)
-        ax.set_xticks(range(len(names)), ticks, rotation=15)
+        ax.set_xticks(range(len(names)), ticks, fontsize=10)
         ax.set(
             ylabel="Mean absolute distance error (steps)", title=title, ylim=(0, max(values) * 1.23)
         )

@@ -11,6 +11,11 @@ def main():
     verified = json.loads((root / "verification.json").read_text())
     profile = json.loads((root / "data_profile.json").read_text())
     variant, mode = selection["variant"], selection["mode"]
+    wall = result["splits"]["walls"]
+    wall_new = wall["methods"]["selected_mean"]
+    wall_ref = wall["methods"]["astar_manhattan"]
+    direct_mae = wall["prediction_errors"]["direct_seed_7"]["mae"]["mean"]
+    manhattan_mae = wall["prediction_errors"]["manhattan"]["mae"]["mean"]
     names = {
         "astar_manhattan": "Manhattan A*",
         "weighted_astar_1.5": "Weighted A* (1.5)",
@@ -31,6 +36,16 @@ def main():
         "It keeps the [first experiment](report.md) as the original baseline and evaluates "
         "new models on newly generated maps. Results below come from the saved measurements, "
         "rather than from the single-query terminal demo.",
+        "",
+        "The network learned useful information about wall detours, but this round did not "
+        "produce a faster replacement for Manhattan A*. On fresh wall maps, the seed-7 direct "
+        f"model has mean distance error {direct_mae:.2f} steps, "
+        f"compared with {manhattan_mae:.2f} for Manhattan. "
+        "The selected three-seed configuration takes "
+        f"{wall_new['completion_ms']['mean']:.3f} ms per "
+        f"query versus {wall_ref['completion_ms']['mean']:.3f} ms for Manhattan A*, and returns "
+        f"an optimal path in {100 * wall_new['optimal_fraction_of_found']:.1f}% of wall queries. "
+        "It had already failed the validation quality gate.",
         "",
         "## What changed",
         "",
@@ -168,6 +183,9 @@ def main():
         "",
         "## Generalization and seed variation",
         "",
+        "Random and wall 32×32 maps are new layouts from the training families. "
+        "The different sizes and 40% density were not used in training.",
+        "",
         "| Fresh condition | Reachable / queries | Expansion ratio | "
         "Total-time ratio | Mean path ratio |",
         "| --- | ---: | ---: | ---: | ---: |",
@@ -211,6 +229,20 @@ def main():
         "and obstacle controls are the more focused comparisons. All runtime findings "
         "apply to this CPU and workload, with a fresh prediction per query. Rounded or "
         "residual predictions still have no optimality guarantee.",
+        "",
+        "The wall-query mean expansion count falls slightly, but the mean paired expansion "
+        "ratio rises above one. These weight queries differently: a small number of expensive "
+        "queries can dominate the unpaired mean. The paired result therefore does not support "
+        "a broad reduction in search effort. On random maps, even the no-obstacle control "
+        "reduces expansions despite its larger distance error. That finding cautions against "
+        "attributing every search improvement to learned obstacle reasoning.",
+        "",
+        "A useful next experiment would change how predictions affect search, rather than "
+        "only minimizing distance error. One option is to keep Manhattan as the main A* "
+        "priority and use learned estimates only to break ties. This preserves the primary "
+        "admissible priority, but whether it reduces work needs a new validation comparison. "
+        "The current fresh test is now observed and must not become a tuning set for a claim "
+        "of fresh-test performance.",
         "",
         "## Evidence and figures",
         "",
