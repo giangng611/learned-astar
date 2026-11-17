@@ -148,29 +148,41 @@ def best_first_search(
     *,
     weight: float = 1.0,
     limits: SearchLimits | None = None,
+    tie_breaker: Heuristic | str | None = None,
 ) -> SearchResult:
-    """Use (f, -g, insertion order), skip stale entries, and allow reopening."""
+    """Keep f primary; optionally order its ties by a score or FIFO."""
     grid.require_cell(start, free=True)
     grid.require_cell(goal, free=True)
     require_finite(weight, "weight", minimum=1.0)
+    if tie_breaker is not None and tie_breaker != "fifo" and not callable(tie_breaker):
+        raise ValueError("Tie breaker must be a callable, fifo, or None")
     run = _Run(start, limits or SearchLimits())
     if start == goal:
         return run.finish(SearchStatus.FOUND, goal)
 
-    def priority(cell: Cell, distance: int) -> float:
+    order = count()
+
+    def entry(cell: Cell, distance: int):
         estimate = heuristic(cell, goal)
         require_finite(estimate, "heuristic")
         value = distance + weight * estimate
         require_finite(value, "priority")
-        return value
+        if tie_breaker is None:
+            secondary = -distance
+        elif tie_breaker == "fifo":
+            secondary = 0
+        else:
+            score = tie_breaker(cell, goal)
+            require_finite(score, "tie-breaker")
+            secondary = (score, -distance)
+        return value, secondary, next(order), -distance, cell
 
-    order = count()
-    frontier = [(priority(start, 0), 0, next(order), start)]
+    frontier = [entry(start, 0)]
     best_g = {start: 0}
     while frontier:
         if run.timed_out():
             return run.finish(SearchStatus.TIME_LIMIT)
-        _, negative_g, _, cell = heapq.heappop(frontier)
+        _, _, _, negative_g, cell = heapq.heappop(frontier)
         distance = -negative_g
         if distance != best_g[cell]:
             run.stale_pops += 1
@@ -184,10 +196,10 @@ def best_first_search(
             run.generated += 1
             next_g = distance + 1
             if neighbor not in best_g or next_g < best_g[neighbor]:
-                entry = (priority(neighbor, next_g), -next_g, next(order), neighbor)
+                item = entry(neighbor, next_g)
                 best_g[neighbor] = next_g
                 run.parents[neighbor] = cell
-                heapq.heappush(frontier, entry)
+                heapq.heappush(frontier, item)
                 run.inserted(len(frontier))
     return run.finish(SearchStatus.NO_PATH)
 

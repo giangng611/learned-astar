@@ -11,12 +11,13 @@ from learned_astar.search.core import (
     SearchStats,
     SearchStatus,
     best_first_search,
+    manhattan,
 )
 
 
 def learned_astar(grid, start, goal, model, *, limits=None, heuristic_mode="raw"):
-    if heuristic_mode not in ("raw", "parity"):
-        raise ValueError("Heuristic mode must be raw or parity")
+    if heuristic_mode not in ("raw", "parity", "tie"):
+        raise ValueError("Heuristic mode must be raw, parity, or tie")
     grid.require_cell(start, free=True)
     grid.require_cell(goal, free=True)
     limits = limits or SearchLimits()
@@ -35,7 +36,16 @@ def learned_astar(grid, start, goal, model, *, limits=None, heuristic_mode="raw"
                 SearchStats(0, 0, 0, 0, 0, 0, 0),
             )
         limits = replace(limits, time_limit_seconds=remaining)
+
+    def learned_score(cell, _):
+        return float(distances[cell])
+
     result = best_first_search(
-        grid, start, goal, lambda cell, _: float(distances[cell]), limits=limits
+        grid,
+        start,
+        goal,
+        manhattan if heuristic_mode == "tie" else learned_score,
+        limits=limits,
+        tie_breaker=learned_score if heuristic_mode == "tie" else None,
     )
     return replace(result, elapsed_seconds=perf_counter() - started)

@@ -16,6 +16,7 @@ from learned_astar.data import load_record, read_manifest
 from learned_astar.models import DistanceCNN, distance_scale, encode_inputs
 from learned_astar.models.network import ARCHITECTURE, RESEARCH_ARCHITECTURE
 from learned_astar.reproducibility import configure_torch
+from learned_astar.training.routes import route_loss
 
 
 @dataclass(frozen=True)
@@ -29,11 +30,13 @@ class TrainingConfig:
     channels: int = 32
     residual: bool = False
     obstacles: bool = True
+    route_loss_weight: float = 0.0
 
     def __post_init__(self):
         for key in ("epochs", "patience", "batch_size", "cpu_threads", "channels"):
             require_int(getattr(self, key), key, minimum=1)
         require_finite(self.learning_rate, "learning_rate")
+        require_finite(self.route_loss_weight, "route_loss_weight")
         if self.learning_rate == 0:
             raise ValueError("Learning rate must be positive")
         if not self.seeds or len(set(self.seeds)) != len(self.seeds):
@@ -73,14 +76,26 @@ def load_training_tensors(directory, split):
     return tuple(torch.from_numpy(np.stack(x)) for x in (inputs, targets, masks)), groups
 
 
+def loss_components(prediction, target, mask, route_weight=0.0):
+    distance = masked_loss(prediction, target, mask)
+    route = route_loss(prediction, target, mask) if route_weight else distance.new_zeros(())
+    return distance + route_weight * route, distance, route
+
+
 @torch.inference_mode()
-def validation_loss(model, tensors, batch_size):
+def validation_components(model, tensors, batch_size, route_weight=0.0):
     model.eval()
-    total = 0.0
+    total = np.zeros(3)
     for begin in range(0, len(tensors[0]), batch_size):
         x, y, mask = [t[begin : begin + batch_size] for t in tensors]
-        total += float(masked_loss(model(x), y, mask)) * len(x)
+        total += np.array(
+            [float(v) for v in loss_components(model(x), y, mask, route_weight)]
+        ) * len(x)
     return total / len(tensors[0])
+
+
+def validation_loss(model, tensors, batch_size):
+    return float(validation_components(model, tensors, batch_size)[0])
 
 
 def train_models(directory, output, config: TrainingConfig):
@@ -123,23 +138,31 @@ def train_models(directory, output, config: TrainingConfig):
             epoch_started = time.perf_counter()
             model.train()
             order = torch.randperm(len(train[0]), generator=generator)
-            total = 0.0
+            total = np.zeros(3)
             for indices in order.split(config.batch_size):
                 x, y, mask = [t[indices] for t in train]
                 optimizer.zero_grad(set_to_none=True)
-                loss = masked_loss(model(x), y, mask)
+                components = loss_components(model(x), y, mask, config.route_loss_weight)
+                loss = components[0]
                 if not torch.isfinite(loss):
                     raise ValueError("Training produced a nonfinite loss")
                 loss.backward()
                 optimizer.step()
-                total += float(loss.detach()) * len(indices)
-            val = validation_loss(model, validation, config.batch_size)
+                total += np.array([float(v.detach()) for v in components]) * len(indices)
+            values = validation_components(
+                model, validation, config.batch_size, config.route_loss_weight
+            )
+            val = float(values[0])
             if not np.isfinite(val):
                 raise ValueError("Validation produced a nonfinite loss")
             row = {
                 "epoch": epoch,
-                "train_loss": total / len(train[0]),
+                "train_loss": float(total[0] / len(train[0])),
+                "train_distance_loss": float(total[1] / len(train[0])),
+                "train_route_loss": float(total[2] / len(train[0])),
                 "validation_loss": val,
+                "validation_distance_loss": float(values[1]),
+                "validation_route_loss": float(values[2]),
                 "seconds": time.perf_counter() - epoch_started,
             }
             history.append(row)
