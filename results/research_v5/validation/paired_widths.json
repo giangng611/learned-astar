@@ -1,0 +1,162 @@
+{
+  "random": {
+    "16": {
+      "elapsed_seconds_ratio": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0,
+        "maps": 60
+      },
+      "prediction_seconds_ratio": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0,
+        "maps": 60
+      },
+      "reachable_expansion_ratio": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0,
+        "maps": 60
+      },
+      "search_seconds_ratio": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0,
+        "maps": 60
+      }
+    },
+    "4": {
+      "elapsed_seconds_ratio": {
+        "mean": 0.479055212438712,
+        "low": 0.46964432727906014,
+        "high": 0.48838093082361467,
+        "maps": 60
+      },
+      "prediction_seconds_ratio": {
+        "mean": 0.39080777052375854,
+        "low": 0.3897610155707664,
+        "high": 0.39181077973410067,
+        "maps": 60
+      },
+      "reachable_expansion_ratio": {
+        "mean": 1.0778007998830312,
+        "low": 1.0573024745018615,
+        "high": 1.1024476758278297,
+        "maps": 60
+      },
+      "search_seconds_ratio": {
+        "mean": 1.0498912852346525,
+        "low": 1.0334832820746647,
+        "high": 1.0686835186491435,
+        "maps": 60
+      }
+    },
+    "8": {
+      "elapsed_seconds_ratio": {
+        "mean": 0.6527471817441602,
+        "low": 0.6469121911876712,
+        "high": 0.6589760145518513,
+        "maps": 60
+      },
+      "prediction_seconds_ratio": {
+        "mean": 0.5963222341021771,
+        "low": 0.595061675035741,
+        "high": 0.597469132255347,
+        "maps": 60
+      },
+      "reachable_expansion_ratio": {
+        "mean": 1.0312586418396958,
+        "low": 1.018509903042029,
+        "high": 1.043831898815269,
+        "maps": 60
+      },
+      "search_seconds_ratio": {
+        "mean": 1.02060639475318,
+        "low": 1.011101264138516,
+        "high": 1.0306145910166047,
+        "maps": 60
+      }
+    }
+  },
+  "walls": {
+    "16": {
+      "elapsed_seconds_ratio": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0,
+        "maps": 60
+      },
+      "prediction_seconds_ratio": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0,
+        "maps": 60
+      },
+      "reachable_expansion_ratio": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0,
+        "maps": 60
+      },
+      "search_seconds_ratio": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0,
+        "maps": 60
+      }
+    },
+    "4": {
+      "elapsed_seconds_ratio": {
+        "mean": 0.6130388428265258,
+        "low": 0.5878668987475756,
+        "high": 0.6370501548964081,
+        "maps": 60
+      },
+      "prediction_seconds_ratio": {
+        "mean": 0.3904416097072312,
+        "low": 0.38965000334684247,
+        "high": 0.39128466467306544,
+        "maps": 60
+      },
+      "reachable_expansion_ratio": {
+        "mean": 1.1068053602923904,
+        "low": 1.0677799857873629,
+        "high": 1.151985330591932,
+        "maps": 60
+      },
+      "search_seconds_ratio": {
+        "mean": 1.0939777096670424,
+        "low": 1.0607211914884211,
+        "high": 1.1316105942850565,
+        "maps": 60
+      }
+    },
+    "8": {
+      "elapsed_seconds_ratio": {
+        "mean": 0.737126040230507,
+        "low": 0.7205776082266837,
+        "high": 0.7540832553373098,
+        "maps": 60
+      },
+      "prediction_seconds_ratio": {
+        "mean": 0.596382570477521,
+        "low": 0.5953593776365769,
+        "high": 0.5973214359582132,
+        "maps": 60
+      },
+      "reachable_expansion_ratio": {
+        "mean": 1.0225447445236404,
+        "low": 1.0086818891743372,
+        "high": 1.0427436225608055,
+        "maps": 60
+      },
+      "search_seconds_ratio": {
+        "mean": 1.020414606825138,
+        "low": 1.0075311102658182,
+        "high": 1.0369205950617855,
+        "maps": 60
+      }
+    }
+  }
+}
