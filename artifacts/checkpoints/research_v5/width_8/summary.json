@@ -1,0 +1,26 @@
+[
+  {
+    "seed": 7,
+    "epochs": 60,
+    "best_validation_loss": 0.012505672142530481,
+    "best_epoch": 58,
+    "training_seconds": 209.72773733299982,
+    "parameters": 2713
+  },
+  {
+    "seed": 17,
+    "epochs": 60,
+    "best_validation_loss": 0.012832234411810835,
+    "best_epoch": 60,
+    "training_seconds": 198.99869116699847,
+    "parameters": 2713
+  },
+  {
+    "seed": 27,
+    "epochs": 60,
+    "best_validation_loss": 0.013112677059446772,
+    "best_epoch": 60,
+    "training_seconds": 179.3650524170007,
+    "parameters": 2713
+  }
+]
