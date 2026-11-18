@@ -1,0 +1,28 @@
+# Widths and workloads fixed before generating the new maps. No model selection.
+sources = ["datasets/main", "outputs/research_v2/development", "outputs/research_v2/fresh_test", "outputs/research_v3/policy_validation", "outputs/research_v3/fresh_test", "outputs/research_v4/fresh_test", "outputs/research_v5/policy_validation", "outputs/research_v5/fresh_test"]
+widths = [16, 8, 4]
+seeds = [7, 17, 27]
+batch_sizes = [1, 4, 16, 64, 128]
+primary_batch_size = 64
+repetitions = 5
+cpu_threads = 1
+order_seed = 58102
+bootstrap_seed = 58103
+bootstrap_samples = 2000
+time_limit_seconds = 5.0
+max_expansions = 1000000
+
+[models]
+16 = "artifacts/checkpoints/research_v3"
+8 = "artifacts/checkpoints/research_v5/width_8"
+4 = "artifacts/checkpoints/research_v5/width_4"
+
+[dataset]
+seed = 64550
+train_maps = 0
+validation_maps = 0
+test_maps = 60
+extra_maps = 60
+size = 32
+goals_per_map = 1
+starts_per_map = 128
