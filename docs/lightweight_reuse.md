@@ -38,6 +38,9 @@ The runner checks checkpoint identities, data separation, paths, optimal costs, 
 python scripts/run_lightweight_reuse.py prepare --run outputs/lightweight_reuse_reproduction
 python scripts/run_lightweight_reuse.py evaluate --run outputs/lightweight_reuse_reproduction
 python scripts/report_lightweight_reuse.py --run outputs/lightweight_reuse_reproduction --output results/lightweight_reuse_reproduction --report outputs/lightweight_reuse_reproduction.md
+python scripts/check_reuse_summary.py --results results/lightweight_reuse_reproduction
 ```
 
 The source datasets and nine checkpoints listed in `configs/lightweight_reuse.toml` must exist. Use new output directories. Generated map arrays remain local; measurements, manifests, provenance, summaries, and figures are retained.
+
+The final check independently recomputes session medians and paired runtime means from the retained raw measurements using Python's standard library. It does not reuse the report's aggregation functions.

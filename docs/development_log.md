@@ -107,3 +107,21 @@ Validation completed:
 - The six new checkpoints, training histories, raw measurements, report, and PNG/PDF comparison figure are retained. Both submitted proposal files remain unchanged.
 
 The result identifies a practical tradeoff: 8 channels retain more of the useful search ordering, while 4 channels minimize prediction cost among the tested widths. The formal validation selection remains 4 channels; no model is reselected using test results.
+
+## November 18, 2026: smaller models with shared predictions
+
+Combined the nine existing 16-, 8-, and 4-channel checkpoints with prepared search. No new training was needed. The fixed comparison used 300 new maps, excluding all 5,900 earlier layout groups, and sessions with 1, 4, 16, 64, or 128 distinct starts sharing a goal. All preparation costs were included. The run completed 97,500 sessions and 4,153,500 query executions in 8.57 minutes, including measurement checks and writing raw evidence.
+
+At 64 starts, every learned width remained slower than equally prepared Manhattan. The 8-channel model's paired time ratios were 1.099 on random 32×32 maps and 1.029 on wall maps. At 128 starts, its wall ratio was 1.001 with a 95% interval of 0.981–1.019, consistent with similar speed but not an established advantage. Reverse BFS with stored next steps had the lowest mean complete time in all five 64-start conditions.
+
+The 8-channel model still reduced paired reachable expansions by 5.9% on random 32×32 maps and 4.2% on walls at 64 starts. On 64×64 maps, 8 and 4 channels expanded 2.8% and 5.9% more cells. Smaller inference and reuse narrow the gap, but neither establishes an overall runtime win. The previous validation choice remains unchanged.
+
+Validation completed:
+
+- All 202 tests passed; code style, formatting, and dependency checks passed.
+- All timed methods returned optimal paths and correct reachability. Repeated paths and counters agreed, and original and prepared Manhattan matched exactly.
+- Evidence verification checked all methods, repetitions, endpoints, batch prefixes, model hashes, and data separation.
+- An independent check recomputed 19,500 session medians and 3,600 summary means from the raw records.
+- Raw evidence, per-seed summaries, and two PNG/PDF figures are retained. Both figures were visually checked, and both submitted proposal files remain unchanged.
+
+The next proposed step is a limited 8-channel training pilot using difficult and larger training layouts, after checking remaining tie-ordering headroom on validation. A validation improvement should be required before expanding to three seeds and another fresh test set.

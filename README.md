@@ -79,6 +79,12 @@ fresh-query time on separate validation maps while requiring useful search order
 The [results](docs/lightweight_results.md) separate prediction cost, search effort,
 move accuracy, and performance on new map sizes.
 
+The [smaller-model reuse experiment](docs/lightweight_reuse.md) combines those frozen
+checkpoints with prepared search. It compares 1–128 starts sharing a map and goal on
+300 new maps, including equally prepared Manhattan and reverse-BFS controls. Its
+[results](docs/lightweight_reuse_results.md) include setup time, per-seed evidence,
+and paired comparisons for every map condition.
+
 ## Reproduce the experiment
 
 Run the whole pipeline in a new directory:

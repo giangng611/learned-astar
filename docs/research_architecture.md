@@ -153,3 +153,19 @@ flowchart LR
 ```
 
 Only channel width changes. Depth, dilation, training data, loss, and search remain fixed. The [plan](lightweight_models.md) defines the selection rule, and the [results](lightweight_results.md) compare all three widths with Manhattan. This round measures a fresh prediction for every query.
+
+## Smaller models with reuse
+
+```mermaid
+flowchart LR
+    W["Nine frozen checkpoints<br/>16, 8, 4 channels × three seeds"] --> P["One prediction per map and goal"]
+    Q["300 new maps<br/>1–128 starts sharing a goal"] --> P
+    P --> L["Prepared A*<br/>Learned Manhattan tie ordering"]
+    Q --> M["Equally prepared Manhattan"]
+    Q --> B["Reverse BFS<br/>Exact A* or stored next steps"]
+    L --> C["Compare complete session cost<br/>Check paths and paired search effort"]
+    M --> C
+    B --> C
+```
+
+The [reuse comparison](lightweight_reuse.md) combines the previous two changes without retraining. All preparation is charged once per session, including CNN inference or reverse BFS. Whole-map comparisons show whether smaller predictions save enough time to offset their setup cost. Test results do not change the earlier validation choice.

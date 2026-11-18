@@ -37,3 +37,9 @@ The experiment verified 300 new layouts and completed 64,500 timed sessions cont
 Codex was used to implement the width-only experiment, runtime-based validation selection, matched seed comparisons, evidence checks, and checkpoint archiving. Technical checks cover unchanged training settings, correct optimal paths, map-level weighting, and rejection of selection using test results.
 
 Six new 60-epoch training runs completed. The experiment verified 420 new maps and 84,000 timed runs. All 198 tests passed, and both smaller widths loaded into the terminal demo. Raw measurements, all six checkpoints, and training histories are retained.
+
+## Smaller-model reuse implementation
+
+Codex was used to connect the frozen model widths to prepared search, prevent checkpoint collisions across seeds and widths, stream benchmark evidence, and implement paired runtime analysis and independent verification. Technical checks cover prediction reuse, complete query coverage, batch prefixes, raw checksums, and unchanged paths and counters.
+
+This round reused all nine checkpoints without retraining. It verified 300 new maps and 97,500 sessions containing 4,153,500 query executions. All 202 tests passed. An independent check recomputed 19,500 session medians and 3,600 summary means. Raw evidence, per-seed summaries, and figures are retained.
