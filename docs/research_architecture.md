@@ -2,6 +2,8 @@
 
 The experiment compares search effort, total query time, and path quality on the same grid queries. Maps are fully known, movement is four-way, and every move costs one. The pipeline connects dataset preparation, CNN training, baseline and learned search, and held-out evaluation.
 
+The sections below first describe the original experiment. The later sections show the follow-up changes: route training, Manhattan tie ordering, prepared search, and smaller model widths. Their linked plans and results contain the settings for each round.
+
 ## Experiment flow
 
 ```mermaid
@@ -138,3 +140,16 @@ The tie rule keeps Manhattan's primary ordering, so learned scores cannot sacrif
 ## Reusing a map and goal
 
 The [runtime architecture](runtime_reuse.md) adds a timed session around several queries. Its diagram separates map preparation, one shared prediction, repeated A*, and the reverse-BFS policy. The prepared Manhattan and learned branches use the same search implementation. Every session discards earlier prepared state, and a changed map or goal requires a new planner. The [results](runtime_results.md) include all setup costs.
+
+## Smaller route models
+
+```mermaid
+flowchart LR
+    I["Same inputs and BFS lessons"] --> C["Five convolution blocks<br/>16, 8, or 4 channels"]
+    C --> P["Predicted distance field"]
+    P --> A["Manhattan A*<br/>Prediction orders equal priorities"]
+    A --> V["Separate policy validation<br/>Choose by total query time<br/>Require optimal paths and fewer expansions"]
+    V --> T["Fresh test maps<br/>Time, search effort, move accuracy"]
+```
+
+Only channel width changes. Depth, dilation, training data, loss, and search remain fixed. The [plan](lightweight_models.md) defines the selection rule, and the [results](lightweight_results.md) compare all three widths with Manhattan. This round measures a fresh prediction for every query.

@@ -73,6 +73,12 @@ reuse, exact A*, and a reverse-BFS policy, charging all preparation costs. Its
 [results](docs/runtime_results.md) show that shared implementation improvements account
 for most of the speedup; equally prepared Manhattan still beats the learned method.
 
+The [smaller-model experiment](docs/lightweight_models.md) compares 16-, 8-, and 4-channel
+CNNs with the same route objective and Manhattan tie ordering. It selects a width by
+fresh-query time on separate validation maps while requiring useful search ordering.
+The [results](docs/lightweight_results.md) separate prediction cost, search effort,
+move accuracy, and performance on new map sizes.
+
 ## Reproduce the experiment
 
 Run the whole pipeline in a new directory:
@@ -94,7 +100,7 @@ python -m learned_astar.evaluation.summarize --input outputs/evaluation --output
 python -m learned_astar.evaluation.plot --results results/main --training checkpoints/main --data datasets/main --checkpoints checkpoints/main --output results/figures
 ```
 
-Use fresh output paths when rerunning a completed stage. The repository includes compact query summaries, aggregate results, figures, training histories, and the selected checkpoints. Generated NPZ datasets and all timing repetitions remain local; the generator and saved settings reproduce them. The [dataset](docs/dataset.md), [training](docs/training.md), and [evaluation](docs/evaluation.md) notes explain the methods and measurement rules.
+Use fresh output paths when rerunning a completed stage. The repository includes compact query summaries, aggregate results, figures, training histories, and the selected checkpoints. Generated NPZ datasets remain local; the generator and saved settings reproduce them. Recent runtime and smaller-model archives also retain the raw timing repetitions. The [dataset](docs/dataset.md), [training](docs/training.md), and [evaluation](docs/evaluation.md) notes explain the methods and measurement rules.
 
 ## Checks and code layout
 

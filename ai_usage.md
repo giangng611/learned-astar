@@ -31,3 +31,9 @@ This round completed three 60-epoch training runs and verified 840 new layouts. 
 Codex was used to profile repeated search work, implement prepared A* and the reverse-BFS policy, and build the session benchmark. Technical checks covered frozen map-goal state, prediction reuse, exact agreement with reference paths and counters, source hashes, and independent timing summaries.
 
 The experiment verified 300 new layouts and completed 64,500 timed sessions containing 1,279,500 query executions. All 195 tests passed. The three trained model files were unchanged; compact evidence, diagnostic profiles, and figures are retained.
+
+## Smaller-model implementation
+
+Codex was used to implement the width-only experiment, runtime-based validation selection, matched seed comparisons, evidence checks, and checkpoint archiving. Technical checks cover unchanged training settings, correct optimal paths, map-level weighting, and rejection of selection using test results.
+
+Six new 60-epoch training runs completed. The experiment verified 420 new maps and 84,000 timed runs. All 198 tests passed, and both smaller widths loaded into the terminal demo. Raw measurements, all six checkpoints, and training histories are retained.

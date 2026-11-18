@@ -89,3 +89,21 @@ Validation completed:
 - The updated 18-slide presentation covers all four rounds, with editable tables and charts, speaker notes, and a revised recording guide. The original deck is retained separately.
 
 The latest report and figures explain both the implementation speedup and the remaining gap against equally optimized baselines. The terminal demo uses fresh predictions; the reused-session findings come from the recorded benchmark.
+
+## November 18, 2026: smaller route models
+
+Trained 8- and 4-channel CNNs with three seeds each, keeping the five convolution blocks, receptive field, data, route objective, and search rule fixed. All six runs completed 60 epochs, taking 16.83 minutes in total. The existing 16-channel checkpoints remained unchanged and were remeasured as controls.
+
+The experiment generated 120 new policy-validation maps and 300 fresh test maps, excluding all 5,480 earlier layout groups. Validation selected 4 channels using complete query time, correct optimal paths, and mean expansion ratios below Manhattan in both map families. Its wall advantage on validation was very small. The selection was kept when the test did not confirm that advantage.
+
+On the new random and wall 32×32 test maps, the 8-channel model reduced mean time by 35.7% and 26.8% relative to the 16-channel control. It retained paired expansion reductions of 9.1% and 3.8% versus Manhattan. The 4-channel model reduced mean time by 51.0% and 37.2%, but showed no clear wall expansion improvement and expanded 5.2% more cells on 64×64 maps. Both smaller widths remained slower overall than Manhattan. These timings include a fresh prediction per query and are separate from the earlier reuse experiment.
+
+Validation completed:
+
+- All 198 tests passed, including selection safeguards, shared training controls, and map-level paired comparisons.
+- All 84,000 timed validation and test runs returned optimal paths and correct reachability. Repeated counters and query endpoints matched.
+- Evidence checks verified raw repetitions, medians, checkpoint hashes, separated layouts, and independent paired runtime means.
+- Both smaller widths loaded into the terminal and handled the detour and unreachable examples correctly.
+- The six new checkpoints, training histories, raw measurements, report, and PNG/PDF comparison figure are retained. Both submitted proposal files remain unchanged.
+
+The result identifies a practical tradeoff: 8 channels retain more of the useful search ordering, while 4 channels minimize prediction cost among the tested widths. The formal validation selection remains 4 channels; no model is reselected using test results.

@@ -29,3 +29,5 @@ python scripts/report_lightweight.py
 ```
 
 Use `--run` with a new directory to repeat the experiment. The runner freezes settings, source manifests, implementation files, and reference checkpoints. It checks trained checkpoints again before test generation. The final archive retains the six new checkpoints, histories, measurements, and dataset provenance.
+
+The [completed results](lightweight_results.md) show the speed and search-quality tradeoff for every width. The validation-selected width remains recorded even where its search advantage does not carry over to test maps.
