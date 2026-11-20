@@ -169,3 +169,22 @@ flowchart LR
 ```
 
 The [reuse comparison](lightweight_reuse.md) combines the previous two changes without retraining. All preparation is charged once per session, including CNN inference or reverse BFS. Whole-map comparisons show whether smaller predictions save enough time to offset their setup cost. Test results do not change the earlier validation choice.
+
+## Ordering ceiling and a training pilot
+
+```mermaid
+flowchart TD
+    V["Separate policy-validation maps"] --> O["Exact-label diagnostic<br/>Mandatory expansions + shortest final section"]
+    O --> H["Measure remaining ordering headroom"]
+    H --> S["Same saved 8-channel seed-7 checkpoint"]
+    S --> C["Continue on old training data"]
+    S --> N["Train on old data + new walls + larger maps"]
+    C --> K["Shared checkpoint-validation loss"]
+    N --> K
+    K --> P["Freeze weights<br/>Distance and detour tie rules"]
+    V --> E["Complete-time policy evaluation<br/>Prepared Manhattan and BFS controls"]
+    P --> E
+    E --> G["Fixed gate: stop or expand to more seeds"]
+```
+
+The [pilot plan](order_pilot.md) separates exact-information diagnostics from practical model timing. Exact distances do not enter model inputs. The two training branches receive the same number of updates and use the same network. The [results](order_pilot_results.md) report validation evidence and the gate outcome; existing test maps stay outside training and selection.

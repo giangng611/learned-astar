@@ -85,6 +85,13 @@ checkpoints with prepared search. It compares 1–128 starts sharing a map and g
 [results](docs/lightweight_reuse_results.md) include setup time, per-seed evidence,
 and paired comparisons for every map condition.
 
+The [ordering-limit pilot](docs/order_pilot.md) measures the minimum expansions possible
+while keeping Manhattan primary priority. It compares distance and detour tie scores,
+then continues one 8-channel seed on either the old data or a mixture with new wall and
+64×64 maps. Its [results](docs/order_pilot_results.md) distinguish the ordering ceiling,
+training effects, and the fixed validation gate for spending resources on more seeds.
+These are validation diagnostics, not another held-out test result.
+
 ## Reproduce the experiment
 
 Run the whole pipeline in a new directory:

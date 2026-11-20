@@ -43,3 +43,9 @@ Six new 60-epoch training runs completed. The experiment verified 420 new maps a
 Codex was used to connect the frozen model widths to prepared search, prevent checkpoint collisions across seeds and widths, stream benchmark evidence, and implement paired runtime analysis and independent verification. Technical checks cover prediction reuse, complete query coverage, batch prefixes, raw checksums, and unchanged paths and counters.
 
 This round reused all nine checkpoints without retraining. It verified 300 new maps and 97,500 sessions containing 4,153,500 query executions. All 202 tests passed. An independent check recomputed 19,500 session medians and 3,600 summary means. Raw evidence, per-seed summaries, and figures are retained.
+
+## Ordering-limit and training-pilot implementation
+
+Codex was used to implement the expansion-floor calculation, exact and learned detour ordering, matched continued-training branches, and a fixed runtime gate. Technical checks cover exhaustive small-grid cases, equivalent score ordering, data separation, checkpoint provenance, repeated path agreement, and whole-map runtime comparisons.
+
+The experiment verified 600 new maps and audited 1,920 validation queries. Two training branches completed 960 updates each in 41.5 seconds total. The runtime stage measured 16,200 sessions containing 1,042,200 query executions, and all 206 tests passed. Neither candidate passed the gate, so additional seeds and a new test were not run. Both checkpoints, training histories, raw measurements, and figures are retained.

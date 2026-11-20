@@ -125,3 +125,21 @@ Validation completed:
 - Raw evidence, per-seed summaries, and two PNG/PDF figures are retained. Both figures were visually checked, and both submitted proposal files remain unchanged.
 
 The next proposed step is a limited 8-channel training pilot using difficult and larger training layouts, after checking remaining tie-ordering headroom on validation. A validation improvement should be required before expanding to three seeds and another fresh test set.
+
+## November 20, 2026: ordering limits and a bounded training pilot
+
+Measured the minimum expansions attainable by changing tie order while keeping Manhattan primary priority. The exact-information reference reached the calculated floor on all 1,920 queries from 120 validation maps. Relative to ordinary Manhattan, the maximum paired expansion savings were 10.7% on random 32×32 maps, 5.3% on walls 32×32, 19.1% on random 64×64, and 4.3% on walls 64×64. These are count limits on the measured queries, not runtime gains. Exact detour scores also reached the floor, but subtracting Manhattan from learned predictions made ordering worse.
+
+Generated 600 new maps, separated from all 6,200 earlier layout groups. Two branches continued the same 8-channel seed-7 checkpoint for 960 updates each. The control used the original data; the candidate mixed original examples with new wall and larger maps. Training took 41.5 seconds in total. The candidate reduced the shared distance-and-route validation loss from the control's 0.07376 to 0.02848, but this did not translate into a clear search-time benefit.
+
+The runtime comparison completed 16,200 sessions and 1,042,200 query executions in about 3.4 minutes. At 128 starts per shared goal, the candidate's distance-tie time ratio to the frozen model was 0.999, with a 95% interval of 0.991–1.007. The learned detour rule was slower, with a ratio of 1.378. Neither passed the fixed validation gate. No additional seeds were trained, no new held-out test set was used, and the earlier model selection remains unchanged.
+
+Validation completed:
+
+- All 206 tests passed, including exhaustive 3×3 layout and endpoint checks for the expansion floor and safeguards for the runtime gate.
+- Every timed method returned optimal costs and correct reachability. Repeated paths and counters agreed.
+- Evidence checks verified complete repetitions, query prefixes, dataset separation, and frozen source and checkpoint hashes.
+- Code style, formatting, and dependency checks passed. Both submitted proposal files remain unchanged.
+- Both checkpoints, training histories, raw measurements, summaries, and the PNG/PDF comparison figure are retained.
+
+This pilot supports stopping further tie-only training under the current setup. A separate future experiment could change the primary priority or predict intermediate goals, with path quality measured explicitly. Repeated-goal workloads should retain reverse BFS as a practical comparison. The present findings are validation evidence from one model seed.
