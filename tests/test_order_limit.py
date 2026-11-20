@@ -1,3 +1,4 @@
+import copy
 import importlib.util
 from pathlib import Path
 
@@ -70,3 +71,46 @@ def test_learned_detour_preserves_score_order_and_distance_adapter_matches_refer
     raw = field - np.array([[2, 1], [1, 0]])
     assert transformed.min() == 0
     assert np.array_equal(np.argsort(transformed.ravel()), np.argsort(raw.ravel()))
+
+
+def test_pilot_gate_requires_manhattan_and_matched_control_gains(monkeypatch):
+    monkeypatch.syspath_prepend(str(Path(__file__).parents[1] / "scripts"))
+    from report_order_pilot import apply_gate
+    from run_order_pilot import FAMILIES
+
+    estimate = {"mean": 0.97, "low": 0.94, "high": 0.99}
+    config = {
+        "primary_batch_size": 128,
+        "gate": {"maximum_mean_time_ratio": 0.98, "maximum_group_regression": 1.03},
+    }
+    summary = {
+        "measurement": {"all_correct": True},
+        "overall": {},
+        "families": {f: {"128": {}} for f in FAMILIES},
+    }
+    for rule in ("distance", "detour"):
+        name = f"candidate_{rule}"
+        summary["overall"][name] = {
+            "ratio_to_frozen_distance": dict(estimate),
+            f"ratio_to_control_{rule}": dict(estimate),
+        }
+        for family in FAMILIES:
+            summary["families"][family]["128"][name] = {
+                key: dict(estimate)
+                for key in (
+                    "ratio_to_frozen_distance",
+                    "ratio_to_prepared_manhattan",
+                    "expansion_ratio_to_frozen",
+                )
+            }
+    assert apply_gate(summary, config)["expand_to_more_seeds"]
+    bad = copy.deepcopy(summary)
+    for rule in ("distance", "detour"):
+        bad["overall"][f"candidate_{rule}"][f"ratio_to_control_{rule}"]["high"] = 1.01
+    assert not apply_gate(bad, config)["expand_to_more_seeds"]
+    bad = copy.deepcopy(summary)
+    for rule in ("distance", "detour"):
+        bad["families"]["walls_32"]["128"][f"candidate_{rule}"]["ratio_to_prepared_manhattan"][
+            "high"
+        ] = 1.01
+    assert not apply_gate(bad, config)["expand_to_more_seeds"]
