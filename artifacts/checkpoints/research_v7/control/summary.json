@@ -1,0 +1,11 @@
+{
+  "branch": "control",
+  "seed": 7,
+  "epochs": 20,
+  "updates": 960,
+  "best_epoch": 15,
+  "training_seconds": 18.597814166991157,
+  "initial_checkpoint_sha256": "4be9bc2964bdb730eb60ccc1146e9c5e2a7e29aa75ff17928ede2d114b26d841",
+  "checkpoint_sha256": "b1fd70b2175f367566cab47fc159bdd61075bdf87aefba374a65d93b08becf2b",
+  "parameters": 2713
+}

@@ -1,0 +1,38 @@
+{
+  "maps": 120,
+  "sessions": 16200,
+  "query_records": 208440,
+  "timed_queries": 1042200,
+  "seconds": 206.1927087919903,
+  "all_correct": true,
+  "repeated_paths_and_counts_match": true,
+  "methods": [
+    "prepared_manhattan",
+    "prepared_exact",
+    "bfs_policy",
+    "frozen_distance",
+    "frozen_detour",
+    "control_distance",
+    "control_detour",
+    "candidate_distance",
+    "candidate_detour"
+  ],
+  "checkpoints": {
+    "frozen": {
+      "path": "artifacts/checkpoints/research_v5/width_8/seed_7.pt",
+      "sha256": "4be9bc2964bdb730eb60ccc1146e9c5e2a7e29aa75ff17928ede2d114b26d841"
+    },
+    "control": {
+      "path": "outputs/research_v7/control/seed_7.pt",
+      "sha256": "b1fd70b2175f367566cab47fc159bdd61075bdf87aefba374a65d93b08becf2b"
+    },
+    "candidate": {
+      "path": "outputs/research_v7/candidate/seed_7.pt",
+      "sha256": "eea0354e3b415b5476d47935c5d007819599d53139552e5d7ca0acf43da5dddd"
+    }
+  },
+  "sessions_sha256": "4bd0c3a1170a6ffd67dc9485d37c9f81ae787a6473c545404162dcfd71fad14e",
+  "queries_sha256": "588596a28595eba8bdf1a60d429cd8c23405658eaf806ea9f32e9d7248324d0f",
+  "torch": "2.15.0",
+  "cpu_threads": 1
+}
