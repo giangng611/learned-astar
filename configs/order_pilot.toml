@@ -1,0 +1,60 @@
+# Fixed before headroom analysis, continued training, and policy evaluation.
+sources = ["datasets/main", "outputs/research_v2/development", "outputs/research_v2/fresh_test", "outputs/research_v3/policy_validation", "outputs/research_v3/fresh_test", "outputs/research_v4/fresh_test", "outputs/research_v5/policy_validation", "outputs/research_v5/fresh_test", "outputs/research_v6/fresh_test"]
+development = "outputs/research_v2/development"
+policy_32 = "outputs/research_v3/policy_validation"
+models_8 = "artifacts/checkpoints/research_v5/width_8"
+model_16 = "artifacts/checkpoints/research_v3/seed_7.pt"
+pilot_seed = 7
+expansion_seeds = [17, 27]
+headroom_starts = 16
+session_starts = 128
+batch_sizes = [1, 64, 128]
+repetitions = 5
+order_seed = 68102
+bootstrap_seed = 68103
+bootstrap_samples = 2000
+primary_batch_size = 128
+
+[training]
+epochs = 20
+steps_per_epoch = 48
+batch_size = 16
+learning_rate = 0.0002
+cpu_threads = 4
+route_loss_weight = 0.02
+
+[gate]
+minimum_headroom = 0.05
+maximum_mean_time_ratio = 0.98
+maximum_group_regression = 1.03
+
+[hard_32]
+seed = 74551
+train_maps = 0
+train_wall_maps = 160
+validation_maps = 0
+test_maps = 0
+extra_maps = 0
+size = 32
+goals_per_map = 2
+
+[mixed_64]
+seed = 74552
+train_maps = 160
+train_wall_maps = 160
+validation_maps = 40
+validation_wall_maps = 40
+test_maps = 0
+extra_maps = 0
+size = 64
+goals_per_map = 2
+
+[policy_64]
+seed = 74553
+train_maps = 0
+validation_maps = 20
+validation_wall_maps = 20
+test_maps = 0
+extra_maps = 0
+size = 64
+goals_per_map = 1
