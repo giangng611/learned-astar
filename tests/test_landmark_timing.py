@@ -66,3 +66,34 @@ def test_timing_rejects_unknown_methods_and_missing_models(monkeypatch):
         measure("other", Grid(2, 2), (1, 1), [(0, 0)])
     with pytest.raises(ValueError, match="resident"):
         measure("landmark_cnn", Grid(2, 2), (1, 1), [(0, 0)])
+
+
+def test_median_retains_components_and_rejects_incomplete_or_unaccounted_time(monkeypatch):
+    monkeypatch.syspath_prepend(str(Path(__file__).parents[1] / "scripts"))
+    from report_landmark_timing import median_session
+    from run_landmark_timing import COMPONENTS
+
+    values = []
+    for rep, (total, setup) in enumerate(((9.0, 8.0), (5.0, 1.0), (7.0, 3.0))):
+        row = dict.fromkeys(COMPONENTS, 0.0)
+        row.update(
+            repetition=rep,
+            result_sha256="same",
+            preprocess_expanded=4,
+            total_seconds=total,
+            setup_seconds=setup,
+            search_seconds=total - setup,
+            graph_seconds=setup,
+        )
+        values.append(row)
+    selected = median_session(values, 3)
+    assert selected["total_seconds"] == 7 and selected["setup_seconds"] == 3
+    assert selected["setup_seconds"] + selected["search_seconds"] == selected["total_seconds"]
+    with pytest.raises(ValueError, match="repetitions"):
+        median_session(values[:2], 3)
+    with pytest.raises(ValueError, match="repetitions"):
+        median_session([values[0], values[0], values[2]], 3)
+    with pytest.raises(ValueError, match="Total time"):
+        median_session([dict(r, total_seconds=0.1) for r in values], 3)
+    with pytest.raises(ValueError, match="Setup time"):
+        median_session([dict(r, graph_seconds=100) for r in values], 3)
