@@ -151,3 +151,21 @@ Added a small classical landmark prototype using corner landmarks and exact BFS 
 All 210 tests passed, including exhaustive bound and path checks over every 3×3 obstacle layout and all 11,520 free endpoint pairs. Three hand-built illustrations retain maps, paths, source hashes, and preparation counts. On the wall example, search expansions fall from 25 to 14 with the same optimal 14-step path, but preparing the four landmarks requires 172 BFS visits. No runtime advantage is claimed.
 
 No model was trained, no dataset was generated, and no validation or test benchmark was run. Existing algorithms, checkpoints, and submitted proposals remain unchanged. The next step is a small validation comparison with complete setup time, including landmark-only and landmark-plus-frozen-model controls.
+
+## November 22, 2026: complete-time landmark validation
+
+Measured five prepared methods on 40 existing policy-validation maps, balanced across random/wall and 32×32/64×64 families. Sessions used 1, 16, 64, or 128 distinct starts sharing a goal. Seven shuffled repetitions completed 5,600 sessions and 292,600 query executions in 120.8 seconds, including checking and recording evidence. Each session paid for graph preparation, landmark BFS or reverse BFS, CNN prediction when applicable, and full path output. The separately observed one-time model load was 16.11 ms.
+
+At 128 starts, landmark-only paired runtime ratios to Manhattan were 1.246 on random 32, 0.480 on walls 32, 1.187 on random 64, and 0.371 on walls 64. The wall intervals were below one; random-map intervals were above one. The first measured workloads establishing a wall benefit were 64 starts for 32×32 and 16 starts for 64×64. Single-query landmark sessions remained roughly twice as slow as prepared Manhattan.
+
+Adding the frozen CNN to landmarks increased paired complete time by 6.6%, 10.1%, 7.2%, and 21.4% in the four families. It also increased reachable expansions on both wall groups. Reverse BFS had the lowest mean 128-start time in every family. The measured speed benefit therefore comes from the classical landmark bound, not the model. This pilot does not justify more training of the current tie model.
+
+Validation completed:
+
+- All 213 tests passed; code style, formatting, and dependency checks passed.
+- Every measured query returned an optimal cost or correct no-path result. All shorter sessions matched the corresponding saved 128-start path and counter prefixes.
+- Verification checked 800 session medians, raw repetitions, full paths, source and weight hashes, selected arrays, and BFS labels.
+- An independent checker recomputed 640 timing means and 240 paired ratio means from the raw sessions.
+- Raw evidence, full paths, median sessions, report, and a visually checked PNG/PDF figure are retained. Both submitted proposals remain unchanged.
+
+No model was trained and no fresh test set was used. Further work should distinguish fixed-goal reuse from changing-goal workloads before spending more training resources. These results cover only one model seed and 10 validation maps per family.

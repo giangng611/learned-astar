@@ -188,3 +188,21 @@ flowchart TD
 ```
 
 The [pilot plan](order_pilot.md) separates exact-information diagnostics from practical model timing. Exact distances do not enter model inputs. The two training branches receive the same number of updates and use the same network. The [results](order_pilot_results.md) report validation evidence and the gate outcome; existing test maps stay outside training and selection.
+
+## Safe primary estimates and measured preparation
+
+```mermaid
+flowchart LR
+    M["Map + fixed goal"] --> P["Prepared graph"]
+    P --> H["Manhattan primary"]
+    P --> L["Four landmark BFS runs<br/>Safe primary = max of bounds"]
+    P --> B["Reverse BFS<br/>Store next steps"]
+    M --> N["Frozen 8-channel CNN<br/>Optional secondary ordering"]
+    H --> A["A* with or without CNN ties"]
+    L --> A
+    N --> A
+    A --> R["1 / 16 / 64 / 128 starts<br/>Return full paths"]
+    B --> R
+```
+
+The [timing pilot](landmark_timing.md) charges every preparation step once per session and rebuilds state for each measurement. Model weights are resident; their one-time load cost is reported separately. Landmarks supply the stronger primary estimate, while the CNN remains a tie breaker. The [results](landmark_timing_results.md) separate the classical search improvement from the model's added cost. All methods retain optimal path costs.

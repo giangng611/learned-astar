@@ -53,3 +53,7 @@ The experiment verified 600 new maps and audited 1,920 validation queries. Two t
 ## Landmark correctness prototype
 
 Codex was used to implement a classical landmark lower-bound prototype, handle disconnected landmark distances, and add correctness checks against BFS. Tests verify admissibility, consistency, optimal paths, deterministic corner selection, and reuse across goals. The project passed 210 tests, including all 11,520 free endpoint pairs across 3×3 obstacle layouts. Three illustrative cases retain paths, source hashes, and preparation counts. This step involved no training or runtime benchmark.
+
+## Landmark timing implementation
+
+Codex was used to implement complete-session timing, fixed validation-map selection, path and prefix verification, map-level comparisons, and an independent summary checker. The run measured 5,600 sessions containing 292,600 query executions on 40 existing validation maps. Checks confirmed 800 session medians, 640 timing means, and 240 paired means. All 213 tests passed. No model was trained; model loading was measured separately from sessions using resident weights. Raw timings, full paths, source hashes, summaries, and figures are retained.

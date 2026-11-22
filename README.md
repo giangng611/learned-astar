@@ -94,8 +94,10 @@ These are validation diagnostics, not another held-out test result.
 
 The [next correctness step](docs/primary_heuristic_step1.md) tests a classical landmark
 estimate as a stronger primary heuristic while keeping optimal paths. Small examples
-and exhaustive checks establish correctness; complete-time validation and any added
-model benefit remain unmeasured.
+and exhaustive checks establish correctness. The [complete-time pilot](docs/landmark_timing.md)
+then measures all setup costs on 40 validation maps. Its [results](docs/landmark_timing_results.md)
+show a shared-goal speed benefit on wall maps from landmarks alone; adding the frozen
+CNN makes landmarks slower, and reverse BFS remains the fastest 128-start control.
 
 ## Reproduce the experiment
 
