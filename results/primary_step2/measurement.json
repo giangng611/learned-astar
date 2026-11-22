@@ -1,0 +1,16 @@
+{
+  "maps": 40,
+  "sessions": 5600,
+  "stored_queries": 25600,
+  "timed_queries": 292600,
+  "wall_seconds": 120.76594470799319,
+  "model_load_seconds": 0.016109958000015467,
+  "model_load_scope": "One observed resident-weight load; excludes Python and library startup",
+  "all_correct": true,
+  "repeated_paths_and_counts_match": true,
+  "labels_recomputed": true,
+  "cpu_threads": 1,
+  "torch": "2.15.0",
+  "sessions_sha256": "9865ec4fd9cb0470b550c7627d886cf371efce3249995fb9d6791774f351349b",
+  "queries_sha256": "c742a908f2d64f23cae60bffc1119761127f8b0a54370fbd39e2aca8d0374d8c"
+}

@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "median_sessions": 800,
+  "timing_means_checked": 640,
+  "paired_means_checked": 240,
+  "checker_sha256": "f233c6ee215107104e601a2c0bf2d87209742decc6f502c88cd3db480fc66337"
+}
