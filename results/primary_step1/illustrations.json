@@ -1,0 +1,341 @@
+{
+  "scope": "Three hand-built illustrations; not a validation or test benchmark",
+  "training_runs": 0,
+  "timing_claim": false,
+  "source_sha256": {
+    "scripts/landmark_probe.py": "77cc7b6b309b1d7c3f6a0423fa95e408ff06011947978cde52a53a5ecbfbd4b3",
+    "src/learned_astar/search/prepared.py": "cfca15b9bc6261572a8376d306bb8228077b930f54cc6d991c07d96ead7c5007",
+    "src/learned_astar/search/core.py": "946c8cdc6d5e2a4ddc1f186c44d30e1760ef9b0efc8557e30bfa1330af8ad2c8",
+    "src/learned_astar/environments/grid.py": "e515b1fd8186bb3c19f8cdfad82a807daef3f555f7ba28455d20d73443c24dbc"
+  },
+  "examples": [
+    {
+      "name": "open",
+      "rows": [
+        ".......",
+        ".......",
+        ".......",
+        ".......",
+        ".......",
+        ".......",
+        "......."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        1,
+        5
+      ],
+      "landmarks": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "landmark_bfs_expansions": 196,
+      "stored_distance_entries": 196,
+      "methods": {
+        "manhattan": {
+          "status": "found",
+          "cost": 4,
+          "expanded": 4,
+          "primary_at_start": 4,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ]
+        },
+        "landmark": {
+          "status": "found",
+          "cost": 4,
+          "expanded": 4,
+          "primary_at_start": 4.0,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "wall_detour",
+      "rows": [
+        "...#...",
+        "...#...",
+        "...#...",
+        "...#...",
+        "...#...",
+        "...#...",
+        "......."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        1,
+        5
+      ],
+      "landmarks": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "landmark_bfs_expansions": 172,
+      "stored_distance_entries": 196,
+      "methods": {
+        "manhattan": {
+          "status": "found",
+          "cost": 14,
+          "expanded": 25,
+          "primary_at_start": 4,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ]
+        },
+        "landmark": {
+          "status": "found",
+          "cost": 14,
+          "expanded": 14,
+          "primary_at_start": 14.0,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "disconnected",
+      "rows": [
+        "...",
+        "###",
+        "..."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "landmarks": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "landmark_bfs_expansions": 12,
+      "stored_distance_entries": 36,
+      "methods": {
+        "manhattan": {
+          "status": "no_path",
+          "cost": null,
+          "expanded": 3,
+          "primary_at_start": 4,
+          "path": []
+        },
+        "landmark": {
+          "status": "no_path",
+          "cost": null,
+          "expanded": 3,
+          "primary_at_start": 4.0,
+          "path": []
+        }
+      }
+    }
+  ]
+}
