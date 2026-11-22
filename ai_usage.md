@@ -49,3 +49,7 @@ This round reused all nine checkpoints without retraining. It verified 300 new m
 Codex was used to implement the expansion-floor calculation, exact and learned detour ordering, matched continued-training branches, and a fixed runtime gate. Technical checks cover exhaustive small-grid cases, equivalent score ordering, data separation, checkpoint provenance, repeated path agreement, and whole-map runtime comparisons.
 
 The experiment verified 600 new maps and audited 1,920 validation queries. Two training branches completed 960 updates each in 41.5 seconds total. The runtime stage measured 16,200 sessions containing 1,042,200 query executions, and all 206 tests passed. Neither candidate passed the gate, so additional seeds and a new test were not run. Both checkpoints, training histories, raw measurements, and figures are retained.
+
+## Landmark correctness prototype
+
+Codex was used to implement a classical landmark lower-bound prototype, handle disconnected landmark distances, and add correctness checks against BFS. Tests verify admissibility, consistency, optimal paths, deterministic corner selection, and reuse across goals. The project passed 210 tests, including all 11,520 free endpoint pairs across 3×3 obstacle layouts. Three illustrative cases retain paths, source hashes, and preparation counts. This step involved no training or runtime benchmark.

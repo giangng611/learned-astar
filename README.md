@@ -92,6 +92,11 @@ then continues one 8-channel seed on either the old data or a mixture with new w
 training effects, and the fixed validation gate for spending resources on more seeds.
 These are validation diagnostics, not another held-out test result.
 
+The [next correctness step](docs/primary_heuristic_step1.md) tests a classical landmark
+estimate as a stronger primary heuristic while keeping optimal paths. Small examples
+and exhaustive checks establish correctness; complete-time validation and any added
+model benefit remain unmeasured.
+
 ## Reproduce the experiment
 
 Run the whole pipeline in a new directory:

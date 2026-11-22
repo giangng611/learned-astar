@@ -143,3 +143,11 @@ Validation completed:
 - Both checkpoints, training histories, raw measurements, summaries, and the PNG/PDF comparison figure are retained.
 
 This pilot supports stopping further tie-only training under the current setup. A separate future experiment could change the primary priority or predict intermediate goals, with path quality measured explicitly. Repeated-goal workloads should retain reverse BFS as a practical comparison. The present findings are validation evidence from one model seed.
+
+## November 22, 2026: stronger primary heuristic, correctness step
+
+Added a small classical landmark prototype using corner landmarks and exact BFS distances. Taking the maximum of Manhattan and landmark lower bounds preserves admissibility and consistency on the project's undirected unit-cost grids. This changes primary search priorities without relying on unverified model predictions. It is a control method, not a learned improvement.
+
+All 210 tests passed, including exhaustive bound and path checks over every 3×3 obstacle layout and all 11,520 free endpoint pairs. Three hand-built illustrations retain maps, paths, source hashes, and preparation counts. On the wall example, search expansions fall from 25 to 14 with the same optimal 14-step path, but preparing the four landmarks requires 172 BFS visits. No runtime advantage is claimed.
+
+No model was trained, no dataset was generated, and no validation or test benchmark was run. Existing algorithms, checkpoints, and submitted proposals remain unchanged. The next step is a small validation comparison with complete setup time, including landmark-only and landmark-plus-frozen-model controls.
