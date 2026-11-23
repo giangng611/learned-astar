@@ -169,3 +169,21 @@ Validation completed:
 - Raw evidence, full paths, median sessions, report, and a visually checked PNG/PDF figure are retained. Both submitted proposals remain unchanged.
 
 No model was trained and no fresh test set was used. Further work should distinguish fixed-goal reuse from changing-goal workloads before spending more training resources. These results cover only one model seed and 10 validation maps per family.
+
+## November 23, 2026: changing goals and closing the experiment branch
+
+Kept the same 40 validation maps and frozen 8-channel model. Each session contained 128 queries, with 1, 8, or 128 distinct goals. All methods reused their prepared graph and cached goal-specific state; landmark methods built the four-landmark index once per session. New goals paid for new score fields, predictions, or reverse-BFS policies. Five shuffled repetitions completed 3,000 sessions and 384,000 query executions in 337.1 seconds, including checks and evidence output. The separately observed one-time model load was 16.94 ms.
+
+When every query had a different goal, landmark-only paired time ratios to Manhattan were 3.337 on random 32, 1.738 on walls 32, 3.506 on random 64, and 1.400 on walls 64. All intervals were above one. Adding the CNN made complete sessions 2.22–2.33 times as slow as landmark-only. Manhattan had the lowest mean time on random maps; reverse BFS had the lowest mean on walls. Landmarks still improved over Manhattan on walls with one or eight goals, but reverse BFS was faster there.
+
+The breakdown identifies full goal-specific score construction as the main remaining landmark cost. Reusing the index does not make this preparation free. The CNN also needs a new prediction per goal. These findings apply to the measured implementation; an on-demand landmark implementation was not tested. Changing goal counts also changes endpoints and difficulty, so only within-workload method comparisons are paired.
+
+Validation completed:
+
+- All 216 tests passed, including per-goal cache reuse, changes of goal, unreachable queries, deterministic endpoints, and rejection of altered labels.
+- Every path had optimal cost or a correct no-path result. Repeated paths and all search counters agreed.
+- Verification independently regenerated endpoints and BFS labels, checked 76,800 saved query outcomes and 600 session medians, and cross-checked 240 latency and paired-ratio means.
+- Code style, formatting, dependency, source-hash, and raw-evidence checks passed. The PNG/PDF comparison figure was visually checked.
+- Both submitted proposals and every existing checkpoint remain unchanged. No training or fresh-test evaluation was performed.
+
+This closes the bounded changing-goal diagnostic. With roughly one week remaining, the next work should consolidate the research conclusions, update the presentation, and rehearse the terminal demo rather than start another model sweep. Keep the learned-model findings separate from the classical landmark improvement.

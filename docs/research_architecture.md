@@ -206,3 +206,5 @@ flowchart LR
 ```
 
 The [timing pilot](landmark_timing.md) charges every preparation step once per session and rebuilds state for each measurement. Model weights are resident; their one-time load cost is reported separately. Landmarks supply the stronger primary estimate, while the CNN remains a tie breaker. The [results](landmark_timing_results.md) separate the classical search improvement from the model's added cost. All methods retain optimal path costs.
+
+The [changing-goal follow-up](changing_goals.md) reuses the graph and landmark index across 128 queries on one map. All methods keep their own per-goal cache. A new goal creates new score fields, a new CNN prediction where used, or a new reverse-BFS policy. Returning to a cached goal reuses that state. Each measured session starts with empty caches and pays all preparation costs. The [results](changing_goals_results.md) distinguish map reuse from goal reuse.

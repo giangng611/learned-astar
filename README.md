@@ -99,6 +99,12 @@ then measures all setup costs on 40 validation maps. Its [results](docs/landmark
 show a shared-goal speed benefit on wall maps from landmarks alone; adding the frozen
 CNN makes landmarks slower, and reverse BFS remains the fastest 128-start control.
 
+The [changing-goal follow-up](docs/changing_goals.md) keeps 128 queries per map while
+varying the number of goals. Its [results](docs/changing_goals_results.md) show that
+building full score fields for new goals removes the landmark speed advantage when
+every query has a different goal. The frozen CNN adds more cost. This bounded follow-up
+closes the current experiment branch before final report and presentation work.
+
 ## Reproduce the experiment
 
 Run the whole pipeline in a new directory:

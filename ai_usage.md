@@ -57,3 +57,7 @@ Codex was used to implement a classical landmark lower-bound prototype, handle d
 ## Landmark timing implementation
 
 Codex was used to implement complete-session timing, fixed validation-map selection, path and prefix verification, map-level comparisons, and an independent summary checker. The run measured 5,600 sessions containing 292,600 query executions on 40 existing validation maps. Checks confirmed 800 session medians, 640 timing means, and 240 paired means. All 213 tests passed. No model was trained; model loading was measured separately from sessions using resident weights. Raw timings, full paths, source hashes, summaries, and figures are retained.
+
+## Changing-goal implementation
+
+Codex was used to implement per-goal caches, deterministic changing-goal workloads, complete-session timing, and independent endpoint and BFS-label verification. The experiment reused 40 validation maps and measured 3,000 sessions containing 384,000 query executions. Checks covered 76,800 saved query outcomes, 600 session medians, and 240 cross-checked summary means. All 216 tests passed. No model was trained; existing checkpoints were unchanged. Raw timings, paths, workload labels, source hashes, and figures are retained.
