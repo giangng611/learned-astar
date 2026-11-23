@@ -1,0 +1,14 @@
+{
+  "maps": 40,
+  "sessions": 3000,
+  "stored_queries": 76800,
+  "timed_queries": 384000,
+  "wall_seconds": 337.1349640410044,
+  "model_load_seconds": 0.016942250018473715,
+  "all_correct": true,
+  "repeated_paths_and_counts_match": true,
+  "cpu_threads": 1,
+  "torch": "2.15.0",
+  "sessions_sha256": "c204ba4c5607f2ff0aee2f237b5cf6a3b793b2c089f74c40b942d35debd52740",
+  "queries_sha256": "1e40a17666779a2d27fb3acd929d6bc076131b503f2413b53cda45b14ba22925"
+}

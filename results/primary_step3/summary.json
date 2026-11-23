@@ -1,0 +1,5509 @@
+{
+  "config": {
+    "policy_manifest": "results/primary_step2/policy_manifest.json",
+    "checkpoint": "artifacts/checkpoints/research_v5/width_8/seed_7.pt",
+    "maps_per_family": 10,
+    "queries_per_session": 128,
+    "goal_counts": [
+      1,
+      8,
+      128
+    ],
+    "repetitions": 5,
+    "query_seed": 99301,
+    "order_seed": 99302,
+    "bootstrap_seed": 99303,
+    "bootstrap_samples": 2000,
+    "cpu_threads": 1,
+    "methods": [
+      "manhattan",
+      "manhattan_cnn",
+      "landmark",
+      "landmark_cnn",
+      "bfs_policy"
+    ]
+  },
+  "measurement": {
+    "maps": 40,
+    "sessions": 3000,
+    "stored_queries": 76800,
+    "timed_queries": 384000,
+    "wall_seconds": 337.1349640410044,
+    "model_load_seconds": 0.016942250018473715,
+    "all_correct": true,
+    "repeated_paths_and_counts_match": true,
+    "cpu_threads": 1,
+    "torch": "2.15.0",
+    "sessions_sha256": "c204ba4c5607f2ff0aee2f237b5cf6a3b793b2c089f74c40b942d35debd52740",
+    "queries_sha256": "1e40a17666779a2d27fb3acd929d6bc076131b503f2413b53cda45b14ba22925"
+  },
+  "families": {
+    "random_32": {
+      "1": {
+        "queries": 1280,
+        "unreachable": 6,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 0.07338460236496758,
+              "low": 0.05563709606235534,
+              "high": 0.0978909849789033,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.011179589773746557,
+              "low": 0.010266903742035538,
+              "high": 0.012609127091423034,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.061902452785034257,
+              "low": 0.044871268391943886,
+              "high": 0.08439194898357981,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010384243751104805,
+              "low": 0.009439757901645862,
+              "high": 0.011732283884384742,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0007953460226417519,
+              "low": 0.0007715803263863563,
+              "high": 0.0008225305589348864,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00030255980618676404,
+              "low": 0.00024364966577650193,
+              "high": 0.0003844874299829826,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.9507451242067069,
+              "low": 0.8120408315616108,
+              "high": 1.1368333988268646,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 4.889933465976907,
+              "low": 3.7091324469909264,
+              "high": 6.782967804258837,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.314560592165894,
+              "low": 1.123154228386214,
+              "high": 1.5601898218208174,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.0773152671627031,
+              "low": 0.060634724728743095,
+              "high": 0.1016894272868285,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.018401950842417136,
+              "low": 0.016947825066040423,
+              "high": 0.020941560569553985,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.05861193803866627,
+              "low": 0.04268980012739121,
+              "high": 0.08314044742292026,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010301560973857704,
+              "low": 0.009359014825349732,
+              "high": 0.01175281991720567,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.006152603145892499,
+              "low": 0.005622814697403555,
+              "high": 0.006986785281810626,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0019477867226669332,
+              "low": 0.0017476858045029076,
+              "high": 0.002323047674508416,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0003013782816196908,
+              "low": 0.00026362913047250913,
+              "high": 0.00035344512298252073,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0674126745586008,
+              "low": 1.023621680157556,
+              "high": 1.1177684458717292,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.008062676299349,
+              "low": 0.8798777826765931,
+              "high": 1.1893659489902277,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.179385474464505,
+              "low": 3.9919597154410624,
+              "high": 7.092829300544357,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.9526663040040863,
+              "low": 0.9047511485985128,
+              "high": 1.0098259274531338,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.2443911732466448,
+              "low": 1.0473640868609198,
+              "high": 1.5226039502656867,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 0.07481806565010629,
+              "low": 0.06633403986825215,
+              "high": 0.084700229263035,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.02451220861985348,
+              "low": 0.02220533603633612,
+              "high": 0.02755773373849024,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.05001447698305128,
+              "low": 0.042887509741262875,
+              "high": 0.058404720264206816,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010178874254052062,
+              "low": 0.009325686546048928,
+              "high": 0.011525087310246818,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.010410060144749878,
+              "low": 0.00920833195891646,
+              "high": 0.011976060853271514,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0039232742210515426,
+              "low": 0.0036793921401567786,
+              "high": 0.004180905886528308,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0002913800472015282,
+              "low": 0.00025580176156836387,
+              "high": 0.0003333632901103555,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3211.3,
+              "low": 2854.395,
+              "high": 3553.2,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.1127499032752657,
+              "low": 0.9674692531301963,
+              "high": 1.2352750180710341,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 4.955442197511361,
+              "low": 4.4263750199541665,
+              "high": 5.587902070710349,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.846374185921228,
+              "low": 0.7573727814129544,
+              "high": 0.9147313369142283,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.08338434220149793,
+              "low": 0.07126444205084681,
+              "high": 0.1007551790036132,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.03350696872530534,
+              "low": 0.029339647256279022,
+              "high": 0.03992924274598408,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.04951787122990936,
+              "low": 0.04038732756498575,
+              "high": 0.060854133568568614,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010593164074634842,
+              "low": 0.009391922785084716,
+              "high": 0.012559871228177144,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.010715724192777998,
+              "low": 0.009355672405035875,
+              "high": 0.012587002174768708,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.006885189873173658,
+              "low": 0.005907240870328678,
+              "high": 0.008478191949734537,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0053128905847188435,
+              "low": 0.004666873581982145,
+              "high": 0.006418183623395634,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0003595022462832276,
+              "low": 0.0002666531804607075,
+              "high": 0.0004823172724854884,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3211.3,
+              "low": 2859.79,
+              "high": 3556.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.2323743599398216,
+              "low": 1.0437863647862662,
+              "high": 1.3964678690476051,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.103889263509787,
+              "low": 1.0359035256716396,
+              "high": 1.1921764823890446,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.3779335675999365,
+              "low": 5.0454057424268886,
+              "high": 5.851801213989823,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.8218262723958654,
+              "low": 0.7195977145595868,
+              "high": 0.9156651186970951,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 0.9650232642847512,
+              "low": 0.9193086180899506,
+              "high": 1.0111580972235374,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.015593913258271641,
+              "low": 0.013669942676415303,
+              "high": 0.018930994993411332,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.012522688984972774,
+              "low": 0.010839076622914945,
+              "high": 0.015473970590846875,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.0028488084353739396,
+              "low": 0.002470881244107659,
+              "high": 0.003408589435025533,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010669432776921894,
+              "low": 0.009322091873400495,
+              "high": 0.012952135855925917,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0018532562080508796,
+              "low": 0.0015213639153444092,
+              "high": 0.00241360908603383,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00022241583792492747,
+              "low": 0.0001999105450067873,
+              "high": 0.0002602429918852067,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 840.8,
+              "low": 791.9,
+              "high": 889.4,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.23591317148672192,
+              "low": 0.19264494914808683,
+              "high": 0.272808198840086,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.2086756802989062,
+              "low": 0.18578189018732688,
+              "high": 0.23125377942216607,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      },
+      "8": {
+        "queries": 1280,
+        "unreachable": 22,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 0.09418583981641859,
+              "low": 0.07600111774934248,
+              "high": 0.11763779641569272,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.016198765592889686,
+              "low": 0.015300480799851357,
+              "high": 0.01763251259944809,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.07765708496663137,
+              "low": 0.060562782290389805,
+              "high": 0.10125580313228966,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010048731201095507,
+              "low": 0.009325471891088455,
+              "high": 0.011070917197457673,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.006150034391794179,
+              "low": 0.00592365492366298,
+              "high": 0.006543087232557809,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0003299892568975338,
+              "low": 0.00028995073648729885,
+              "high": 0.000387088861657503,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.7846236031880305,
+              "low": 0.6918333493228492,
+              "high": 0.8816690511049018,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 3.611487217589193,
+              "low": 2.7576152840917785,
+              "high": 4.659215407415314,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.3362429456654301,
+              "low": 1.18622586333943,
+              "high": 1.5061790494635936,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.14876285938498768,
+              "low": 0.12378765297057726,
+              "high": 0.17860423842080309,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.06978574283493799,
+              "low": 0.06368829152791022,
+              "high": 0.0802362794615874,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.07856283334604086,
+              "low": 0.05931529342490194,
+              "high": 0.10226687810586554,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010636068736857851,
+              "low": 0.009595722065114387,
+              "high": 0.012144869211283549,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.04393886717934947,
+              "low": 0.03978172936797364,
+              "high": 0.05068132024462102,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.015210806918730668,
+              "low": 0.013905188911849109,
+              "high": 0.017553987547671568,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0004142832040088251,
+              "low": 0.00035025971214963647,
+              "high": 0.0005153388116241331,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.6220095992778425,
+              "low": 1.4750796263641848,
+              "high": 1.807115307675897,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.2445551707929554,
+              "low": 1.1409750278856112,
+              "high": 1.3447692946312737,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.524297506076591,
+              "low": 4.6638345701730275,
+              "high": 6.495648344267671,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.9541227368314573,
+              "low": 0.9287898003450394,
+              "high": 0.9812692488689293,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.2625403825370314,
+              "low": 1.1139875539715474,
+              "high": 1.4295424335744482,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 0.12087630313999398,
+              "low": 0.10088687342772573,
+              "high": 0.14873434864739465,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.052788278298976365,
+              "low": 0.047699035907271536,
+              "high": 0.0607215785964854,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.0675681723123489,
+              "low": 0.051553440617908564,
+              "high": 0.09257720026312198,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010282357061441871,
+              "low": 0.009401480535302653,
+              "high": 0.011614224414415729,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.010393358593319135,
+              "low": 0.009141620564605546,
+              "high": 0.012022332966239446,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.03211256264421536,
+              "low": 0.02912561620462384,
+              "high": 0.037058751938729984,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0005198525286687072,
+              "low": 0.00030238891440603766,
+              "high": 0.0009296692286397956,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3211.3,
+              "low": 2856.575,
+              "high": 3544.62,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.320172718229244,
+              "low": 1.168590285774988,
+              "high": 1.4619899752006291,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 4.523625410644128,
+              "low": 3.818284258821589,
+              "high": 5.582285159766844,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.8447252126179512,
+              "low": 0.7820131086344697,
+              "high": 0.9020084505002895,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.17929736484347814,
+              "low": 0.15037631226789472,
+              "high": 0.21841987814184446,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.11019625769677077,
+              "low": 0.09828075173970774,
+              "high": 0.130854442280679,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.06861955876047432,
+              "low": 0.04992059002802307,
+              "high": 0.09414441846729457,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010405532771073922,
+              "low": 0.009346181346359117,
+              "high": 0.012105749263469079,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.010876660962821916,
+              "low": 0.009150195157872076,
+              "high": 0.013569194261435763,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.04622223664227931,
+              "low": 0.0415379888499956,
+              "high": 0.054142358231388237,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.04269182732059562,
+              "low": 0.03733933324440386,
+              "high": 0.050953782302940454,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00048154838623304386,
+              "low": 0.00040226488181360764,
+              "high": 0.000590131272133476,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3211.3,
+              "low": 2853.8,
+              "high": 3553.22,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.9881725011520235,
+              "low": 1.6964381219808256,
+              "high": 2.314590170546401,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.4958766444057656,
+              "low": 1.4046931914798138,
+              "high": 1.59516300764494,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 6.589175693293045,
+              "low": 5.891146034911277,
+              "high": 7.616556465636091,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.8240975549730314,
+              "low": 0.7560917518209112,
+              "high": 0.8840866847157884,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 0.9790364568741936,
+              "low": 0.956420838304898,
+              "high": 1.0030668006785521,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.027628191423900716,
+              "low": 0.024242705517849572,
+              "high": 0.03352303118049349,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.024217868894993444,
+              "low": 0.021201558398615816,
+              "high": 0.029327808251196075,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.003135222414130112,
+              "low": 0.0026968882900746394,
+              "high": 0.0038792998907410947,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010450423451402457,
+              "low": 0.009509659903983447,
+              "high": 0.012007017969608569,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.013767445443590987,
+              "low": 0.0116150985496688,
+              "high": 0.017259596537542166,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00027510011477716034,
+              "low": 0.00023476214948914276,
+              "high": 0.00034518557868068456,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 6634.4,
+              "low": 6270.4,
+              "high": 7024.0199999999995,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.3199498655126688,
+              "low": 0.25121142618694536,
+              "high": 0.3879816297741401,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.23750180455004904,
+              "low": 0.2034089186412977,
+              "high": 0.2652978844647854,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      },
+      "128": {
+        "queries": 1280,
+        "unreachable": 18,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 0.18657731093298935,
+              "low": 0.17083154457566252,
+              "high": 0.20592088018531737,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.11302527275347529,
+              "low": 0.10501204847059853,
+              "high": 0.12832686589433706,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.07300439247046597,
+              "low": 0.06357263293750748,
+              "high": 0.08254750196385884,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010260806220685481,
+              "low": 0.0096264951230296,
+              "high": 0.011177288654948825,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.10276446653278981,
+              "low": 0.09521465950001584,
+              "high": 0.11717393605977122,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0005476457090480835,
+              "low": 0.00047274380733597354,
+              "high": 0.0006682010433678441,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.30768763029159985,
+              "low": 0.27705400901833854,
+              "high": 0.33658731680197024,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 0.8636361915205596,
+              "low": 0.7712649852810908,
+              "high": 0.9560306122648573,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.3050572991751563,
+              "low": 1.1636939654156522,
+              "high": 1.449562502759945,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 1.0051788414102703,
+              "low": 0.9229309443588818,
+              "high": 1.134879241179192,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.928584850680636,
+              "low": 0.855450077324349,
+              "high": 1.0509596312959957,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.07516526225117559,
+              "low": 0.06481784791901646,
+              "high": 0.08687301660756928,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010291015587426955,
+              "low": 0.009484839650326649,
+              "high": 0.011500204191179364,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.6793146785867066,
+              "low": 0.624964947691069,
+              "high": 0.7696100656039562,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.23897915650650248,
+              "low": 0.22162917548655514,
+              "high": 0.2707320807138558,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0014287284784586518,
+              "low": 0.0010348188101261258,
+              "high": 0.0020881349416868034,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 5.387257270399208,
+              "low": 5.1593077574091115,
+              "high": 5.621935664295021,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.6406445145323238,
+              "low": 1.5375322285264554,
+              "high": 1.7387271264425956,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 4.606888710637453,
+              "low": 4.260641007644827,
+              "high": 4.954905885184048,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.9483919657983794,
+              "low": 0.9383553890969881,
+              "high": 0.9569180103170128,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.2282742982599695,
+              "low": 1.0972089762012287,
+              "high": 1.3781268335379069,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 0.626824479672905,
+              "low": 0.5495958968145942,
+              "high": 0.7586524817872942,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.5579812363748715,
+              "low": 0.4846167036140514,
+              "high": 0.678003087232355,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.06804538652431802,
+              "low": 0.0594772603437832,
+              "high": 0.07772487392628591,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.012937953852087958,
+              "low": 0.009433438874566491,
+              "high": 0.019557737701916267,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.011907063321814348,
+              "low": 0.009199907316315148,
+              "high": 0.016709351405097547,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.5331362192009692,
+              "low": 0.46428245756715114,
+              "high": 0.6477171877418186,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0007978567737154663,
+              "low": 0.0006077565609530211,
+              "high": 0.0011441544012313898,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3211.3,
+              "low": 2859.165,
+              "high": 3545.81,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 3.336646470998379,
+              "low": 3.026043311861037,
+              "high": 3.7049792354621336,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 2.818441581870274,
+              "low": 2.6347731944888464,
+              "high": 3.026576702457899,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.8576130065366666,
+              "low": 0.8010236015281379,
+              "high": 0.9148190328905663,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 1.4307945969221691,
+              "low": 1.306617497380671,
+              "high": 1.6187700937717864,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 1.3616608165648358,
+              "low": 1.2420295645807755,
+              "high": 1.5381728017979412,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.06775335723432363,
+              "low": 0.06029404285357032,
+              "high": 0.07586327499780054,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.01049339057317411,
+              "low": 0.00951420525609592,
+              "high": 0.011708432596151397,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.011293620286778605,
+              "low": 0.009230538349243034,
+              "high": 0.014747590855108681,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.6869827713217092,
+              "low": 0.6244798183763578,
+              "high": 0.7877653266177731,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.652891034383174,
+              "low": 0.5923534540175979,
+              "high": 0.7319276837790767,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0013804231230096775,
+              "low": 0.0010794497256938484,
+              "high": 0.0018233611183404719,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3211.3,
+              "low": 2856.39,
+              "high": 3545.5075,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 7.685174209133413,
+              "low": 7.205311555188898,
+              "high": 8.139817777203179,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 2.3299971082763533,
+              "low": 2.1964164063783644,
+              "high": 2.4399648686025412,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 6.541113664081573,
+              "low": 6.112515548564215,
+              "high": 7.017669550994525,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.8256262843983956,
+              "low": 0.7725411492417742,
+              "high": 0.8812944562565854,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 0.96654718279982,
+              "low": 0.9570932760469752,
+              "high": 0.9749785461159839,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.22010924371898,
+              "low": 0.19909651560965358,
+              "high": 0.24764007813416808,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.2154859920437957,
+              "low": 0.19433515972195892,
+              "high": 0.24299006125431788,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.00399121190639562,
+              "low": 0.00361089258035463,
+              "high": 0.004639841669700218,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.010423664070913219,
+              "low": 0.0095968349830855,
+              "high": 0.01157129721207184,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.20506232797288249,
+              "low": 0.1850072711778239,
+              "high": 0.23117503028004194,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0006320397687886725,
+              "low": 0.0005272403967637729,
+              "high": 0.0008122154014245097,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 106681.5,
+              "low": 100026.4925,
+              "high": 113403.9,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.1934221362293245,
+              "low": 1.0726889958476216,
+              "high": 1.3236175985128975,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.35915029241975516,
+              "low": 0.33519379563870483,
+              "high": 0.3803159174220504,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      }
+    },
+    "walls_32": {
+      "1": {
+        "queries": 1280,
+        "unreachable": 0,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 0.29999388277701655,
+              "low": 0.23549377474921585,
+              "high": 0.36630047261269283,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.010436850016048993,
+              "low": 0.010330591787806043,
+              "high": 0.01056669751960726,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.2891691323611667,
+              "low": 0.22714721471288613,
+              "high": 0.3524675957805812,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009646387456996308,
+              "low": 0.009544009178625856,
+              "high": 0.00976654236808372,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0007904625590526848,
+              "low": 0.0007702156585764897,
+              "high": 0.0008078821906565281,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00038790039980085567,
+              "low": 0.00035690411777977715,
+              "high": 0.0004160512423823093,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 2.694594214620534,
+              "low": 2.0846234416091405,
+              "high": 3.262181450207713,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 19.00394471391089,
+              "low": 15.44115563393457,
+              "high": 22.267077584559587,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 4.308409969758434,
+              "low": 3.234290598684461,
+              "high": 5.3069076725717625,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.30150243981097447,
+              "low": 0.24120171147501424,
+              "high": 0.3657308585729879,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.01799332894734107,
+              "low": 0.0174157562162236,
+              "high": 0.0186418371288255,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.28310613804478635,
+              "low": 0.22425767546280895,
+              "high": 0.343131655132538,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009680371090325934,
+              "low": 0.009520591554519342,
+              "high": 0.009860037235966956,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.006506674230877252,
+              "low": 0.005994111897962284,
+              "high": 0.007124952061872136,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0018062836261378834,
+              "low": 0.001776108549051969,
+              "high": 0.0018423827901870027,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00040297281884704717,
+              "low": 0.0003793051843103967,
+              "high": 0.0004277626698012682,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0089260869600023,
+              "low": 0.9977909400807177,
+              "high": 1.0207004258418484,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 2.714148689247383,
+              "low": 2.122750678085363,
+              "high": 3.3011461162742175,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 19.107184512006995,
+              "low": 15.566304501241905,
+              "high": 22.48639892879654,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.9831219009712067,
+              "low": 0.9449954131956773,
+              "high": 1.0281629051382857,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 4.237172423937671,
+              "low": 3.1695818146394807,
+              "high": 5.26397627406148,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 0.1159360679139354,
+              "low": 0.10043962780230231,
+              "high": 0.14076838996118113,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.023742544522065145,
+              "low": 0.023428768597568705,
+              "high": 0.024066430711400244,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.09186885142753454,
+              "low": 0.07657080793194382,
+              "high": 0.1161709856660309,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.00968922654465132,
+              "low": 0.0095155455414897,
+              "high": 0.009869995461713188,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.010166568017666577,
+              "low": 0.010034301248538213,
+              "high": 0.010293995406982503,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.003886749959747249,
+              "low": 0.0038286739646764545,
+              "high": 0.003947124933461055,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.000324671964335721,
+              "low": 0.0003007661081255719,
+              "high": 0.0003516875682407772,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3460.0,
+              "low": 3424.0,
+              "high": 3496.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.4315050117319589,
+              "low": 0.3320651461820526,
+              "high": 0.54550936356666,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 7.422692056283692,
+              "low": 6.5055054310062985,
+              "high": 8.923487471118346,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.44124533677349326,
+              "low": 0.3544788231077471,
+              "high": 0.5336363016893275,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.12130579455060797,
+              "low": 0.11247261646417428,
+              "high": 0.13085251956681532,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.030795934321758978,
+              "low": 0.030398006808241007,
+              "high": 0.031290158573824556,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.09017784327625122,
+              "low": 0.08089104600003338,
+              "high": 0.0996470934279614,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009671614020589914,
+              "low": 0.00956945001519216,
+              "high": 0.009790445157022987,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.010161849991163763,
+              "low": 0.009993945234896273,
+              "high": 0.010370596293682866,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.00609368671575794,
+              "low": 0.005779997655395164,
+              "high": 0.00648214271109282,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.004868783594247361,
+              "low": 0.004820018688178607,
+              "high": 0.004924540105548658,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.000332016952597769,
+              "low": 0.0003202107023980716,
+              "high": 0.0003431255009900269,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3460.0,
+              "low": 3424.0,
+              "high": 3496.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.45641735072165696,
+              "low": 0.35582631377590196,
+              "high": 0.5658827085624474,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0921167885643261,
+              "low": 0.9709709634644237,
+              "high": 1.1960466545039452,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 7.761187743988503,
+              "low": 7.269157211557827,
+              "high": 8.372247456084832,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.43796007631910017,
+              "low": 0.35193030850310403,
+              "high": 0.5295299257713783,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0641283137719146,
+              "low": 0.9495663857341601,
+              "high": 1.1773210684009714,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.015619760188201326,
+              "low": 0.015240910574902955,
+              "high": 0.016004534275566584,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.011275846122771327,
+              "low": 0.01120588647609111,
+              "high": 0.011348176622618666,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.004124518522985454,
+              "low": 0.0037877721428003497,
+              "high": 0.00446079503205965,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009660610953687865,
+              "low": 0.009587041345753278,
+              "high": 0.009743720503365694,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.001615235169083462,
+              "low": 0.0015989264710469797,
+              "high": 0.0016324547237900333,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00021939554244454484,
+              "low": 0.0002146204445807598,
+              "high": 0.00022413055262404669,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 865.0,
+              "low": 856.0,
+              "high": 874.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.058725705367168354,
+              "low": 0.04697887725281866,
+              "high": 0.07258528361385588,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.14205767919352288,
+              "low": 0.12408827259811465,
+              "high": 0.15460693551321572,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      },
+      "8": {
+        "queries": 1280,
+        "unreachable": 0,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 0.25665266875876114,
+              "low": 0.22542239417305154,
+              "high": 0.28565875070455604,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.015808661669325375,
+              "low": 0.015565977674896203,
+              "high": 0.016102500748047532,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.2404382645181613,
+              "low": 0.20926045947419425,
+              "high": 0.2679981852435276,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009741960207065858,
+              "low": 0.009570574648023467,
+              "high": 0.009933843831504419,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.006066701462259516,
+              "low": 0.00596044815949881,
+              "high": 0.006191118703782195,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0004057425712744589,
+              "low": 0.000384363761440909,
+              "high": 0.0004262381804664983,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.9104079401024958,
+              "low": 1.6984251091182456,
+              "high": 2.118694010140413,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 9.71753180071305,
+              "low": 8.566597563332136,
+              "high": 10.834457115090862,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 3.7429030041237423,
+              "low": 3.344410969838242,
+              "high": 4.10079677285644,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.30091494372754823,
+              "low": 0.2688315365634253,
+              "high": 0.3305370439301214,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.06476044668488612,
+              "low": 0.0641042887571075,
+              "high": 0.06543626942061564,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.23571558920139069,
+              "low": 0.20475730793691582,
+              "high": 0.2648214094830337,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009766373432285036,
+              "low": 0.009627724548977312,
+              "high": 0.009895027966422276,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.040961292074825906,
+              "low": 0.04023365165664927,
+              "high": 0.041667958755056134,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.014032781177775178,
+              "low": 0.01388849257750735,
+              "high": 0.014211809616426763,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0004389078412714298,
+              "low": 0.00042331221266067587,
+              "high": 0.000454248057053519,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.1799755052969263,
+              "low": 1.15488251469814,
+              "high": 1.2063871687298784,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 2.2418132913263507,
+              "low": 2.021741684445402,
+              "high": 2.4454517637766315,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 11.395463000440223,
+              "low": 10.240379751588309,
+              "high": 12.443049210515397,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.9793966516987508,
+              "low": 0.9484876263023552,
+              "high": 1.0106523785446115,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 3.644443833367533,
+              "low": 3.2029380870416984,
+              "high": 4.032750878030244,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 0.13428209767880617,
+              "low": 0.129338613101595,
+              "high": 0.14005162596788523,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.05031891171256575,
+              "low": 0.04987323591194581,
+              "high": 0.050770136288633694,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.08360673612060054,
+              "low": 0.07898476325976844,
+              "high": 0.08911833157071669,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009688247678241169,
+              "low": 0.009575246418194183,
+              "high": 0.009817873541919653,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.010195507002208615,
+              "low": 0.010113987985960193,
+              "high": 0.010279008023417191,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.030435157032115967,
+              "low": 0.030118554239493278,
+              "high": 0.030769882815775418,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00035644984563987236,
+              "low": 0.0003456278489011311,
+              "high": 0.0003673612667398629,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3460.0,
+              "low": 3424.0,
+              "high": 3496.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.5445806624553324,
+              "low": 0.47841421581903354,
+              "high": 0.6280739652641554,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.087318130277421,
+              "low": 4.896747517816308,
+              "high": 5.299424473644023,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.46758974249607094,
+              "low": 0.4253131103566075,
+              "high": 0.5196937941998576,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.18268108751726686,
+              "low": 0.17523354652325906,
+              "high": 0.19128033966694602,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.09946242894329771,
+              "low": 0.09868980213695977,
+              "high": 0.10034043081532218,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.08277229806026298,
+              "low": 0.07497831180216963,
+              "high": 0.09074500060648914,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009684992983238772,
+              "low": 0.00948955003195806,
+              "high": 0.009970199649274036,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.010074447618535487,
+              "low": 0.009979063776768271,
+              "high": 0.010164273251120903,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.041099052373283484,
+              "low": 0.04037090405006438,
+              "high": 0.041770219295926836,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.038603935968239966,
+              "low": 0.03824504064255052,
+              "high": 0.038959526721669135,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0004463605137061677,
+              "low": 0.0004045959940413013,
+              "high": 0.0005109385347168426,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3460.0,
+              "low": 3424.0,
+              "high": 3496.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.7353766327413236,
+              "low": 0.6646453386954547,
+              "high": 0.823008952186122,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.3629392312596238,
+              "low": 1.3053285663378744,
+              "high": 1.4151309671909311,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 6.918118540544937,
+              "low": 6.656879017550786,
+              "high": 7.212171252370429,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.46828157735235926,
+              "low": 0.42807671841558786,
+              "high": 0.5110341057709431,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0380812074999848,
+              "low": 0.9927193063879779,
+              "high": 1.0812194442689878,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.026398535146654467,
+              "low": 0.02615081547958198,
+              "high": 0.02664572499895712,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.022141018007459934,
+              "low": 0.021926180997979827,
+              "high": 0.022379233853939695,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.004011246255686274,
+              "low": 0.0037915120742582076,
+              "high": 0.004243066979938703,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009640430494073371,
+              "low": 0.009573172518457795,
+              "high": 0.009713652818277296,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.012500587513386563,
+              "low": 0.012304313571007697,
+              "high": 0.012747072671572823,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00024627088350825943,
+              "low": 0.0002385863456311199,
+              "high": 0.00025439606531563186,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 6920.0,
+              "low": 6848.0,
+              "high": 6992.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.10754674792274548,
+              "low": 0.09389029740252082,
+              "high": 0.12467905755659749,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.1973644806507801,
+              "low": 0.18921028673111745,
+              "high": 0.20439146075770728,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      },
+      "128": {
+        "queries": 1280,
+        "unreachable": 0,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 0.3453881515724788,
+              "low": 0.323876865191437,
+              "high": 0.3650733718814081,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.10549376850121917,
+              "low": 0.10522086714559009,
+              "high": 0.1058138523251273,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.23933490278977843,
+              "low": 0.21791301302357624,
+              "high": 0.25805906143261836,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009728028067002015,
+              "low": 0.00957571979711247,
+              "high": 0.00986481578195253,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.09576574043421715,
+              "low": 0.09554853654890394,
+              "high": 0.09603186314848244,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0005594802814812283,
+              "low": 0.0005412417982597617,
+              "high": 0.0005754352048370492,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.5813305856403409,
+              "low": 0.5436910187528624,
+              "high": 0.6178425076344063,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.618091530607117,
+              "low": 1.5131654943289752,
+              "high": 1.7127973375390877,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 3.716626095022985,
+              "low": 3.437286302236655,
+              "high": 3.976122814480083,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 1.1021929359230853,
+              "low": 1.0770446723137184,
+              "high": 1.1242772018039204,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.8608137192823051,
+              "low": 0.8546390876654186,
+              "high": 0.867543848747232,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.24030838894759654,
+              "low": 0.21733140694209396,
+              "high": 0.26025056875994323,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009655663257035485,
+              "low": 0.00955406383980062,
+              "high": 0.009769256098479673,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.6296593084925917,
+              "low": 0.624474815360827,
+              "high": 0.6358689861468747,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.22149874753267795,
+              "low": 0.22047492269791746,
+              "high": 0.22257427854810885,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0010708276931836735,
+              "low": 0.0010353683552466464,
+              "high": 0.0011050642621057705,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 3.2128724932477413,
+              "low": 3.090146492075964,
+              "high": 3.353744698453557,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.8551522854223208,
+              "low": 1.811710042193877,
+              "high": 1.897916019378837,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.162619969563279,
+              "low": 5.024374248386404,
+              "high": 5.300180363109147,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.978244902045595,
+              "low": 0.9597508305369519,
+              "high": 0.9947720654593434,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 3.6321001098375603,
+              "low": 3.3527675128808068,
+              "high": 3.890687620476965,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 0.5942691742347961,
+              "low": 0.5891462570161821,
+              "high": 0.5998143922215604,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.5076281569472485,
+              "low": 0.5029852990173822,
+              "high": 0.5131149467530349,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.0859957958027735,
+              "low": 0.08292172282665433,
+              "high": 0.08945195424075791,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.009649803087086184,
+              "low": 0.009508818737913316,
+              "high": 0.009820476728918948,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.01001940156584169,
+              "low": 0.009929392938374804,
+              "high": 0.010114000025964742,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.4879589522943206,
+              "low": 0.4832236497708209,
+              "high": 0.4932102949817363,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0006452214847740834,
+              "low": 0.0006137710414577668,
+              "high": 0.0006796061182967605,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3460.0,
+              "low": 3424.0,
+              "high": 3496.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.7384260777210674,
+              "low": 1.632860651192075,
+              "high": 1.853672448456151,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 2.7828975476574476,
+              "low": 2.7549547401020456,
+              "high": 2.813239723057832,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.4744170433699706,
+              "low": 0.4316845203058264,
+              "high": 0.5166580247220617,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 1.356057097655139,
+              "low": 1.3449670975950312,
+              "high": 1.3659349668586174,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 1.2636889065106516,
+              "low": 1.2560974339106679,
+              "high": 1.2712448467044624,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.09127747709953837,
+              "low": 0.08479035021309755,
+              "high": 0.09751084302138224,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.00967815783496917,
+              "low": 0.009559328411796741,
+              "high": 0.009803032984336824,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.010005662511503033,
+              "low": 0.009890166390391641,
+              "high": 0.010113515077705415,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.6316109285535276,
+              "low": 0.6253603865400237,
+              "high": 0.6378449141726605,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.6123941576106517,
+              "low": 0.6069302632340623,
+              "high": 0.6191704253922126,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0010907140449489816,
+              "low": 0.0010649662726791576,
+              "high": 0.001120568642818398,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3460.0,
+              "low": 3424.0,
+              "high": 3496.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 3.963329939454076,
+              "low": 3.748921788513647,
+              "high": 4.213808649338823,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 2.2822417121534597,
+              "low": 2.260672035013026,
+              "high": 2.3045993015930373,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 6.3508183508369145,
+              "low": 6.276720933086203,
+              "high": 6.438622021797986,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.4764305760013457,
+              "low": 0.43879841313886825,
+              "high": 0.5157994823948301,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0471788352620952,
+              "low": 1.0073737840568808,
+              "high": 1.0839009462988993,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.2135774733915241,
+              "low": 0.2115442097107234,
+              "high": 0.21552393147487692,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.20799781550522312,
+              "low": 0.20588318793045346,
+              "high": 0.20996249781944698,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.0050206944933961495,
+              "low": 0.004715917560815797,
+              "high": 0.005313656634484687,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.00975039060904237,
+              "low": 0.009595898422389837,
+              "high": 0.00991657199506335,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.19824742489618075,
+              "low": 0.19615617608053526,
+              "high": 0.20018994050303718,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0005589633929048432,
+              "low": 0.0005448948246566943,
+              "high": 0.0005754381021461086,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 110720.0,
+              "low": 109568.0,
+              "high": 111488.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.6250303864918181,
+              "low": 0.5845482962572892,
+              "high": 0.6716144180680929,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.3594461226231688,
+              "low": 0.35549148354820403,
+              "high": 0.3630729865186085,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      }
+    },
+    "random_64": {
+      "1": {
+        "queries": 1280,
+        "unreachable": 7,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 0.2349282882278203,
+              "low": 0.19241576872275346,
+              "high": 0.28342877238003433,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.0421694977376319,
+              "low": 0.040696516201137456,
+              "high": 0.043661581717628906,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.19240838910263847,
+              "low": 0.14626319825595147,
+              "high": 0.2458225339955788,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03914534531759273,
+              "low": 0.03767859288359432,
+              "high": 0.04061866014183124,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0030241524200391723,
+              "low": 0.00293392641083301,
+              "high": 0.003126609944388292,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00035040138754993677,
+              "low": 0.0003340910677707143,
+              "high": 0.00036587506258456415,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.9291152922170054,
+              "low": 0.7953171294513406,
+              "high": 1.0834906905561528,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 4.748208129112846,
+              "low": 3.757905874006056,
+              "high": 5.8676706893322645,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.4028793862171791,
+              "low": 1.1418569212738978,
+              "high": 1.6964416168821816,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.24919101638261054,
+              "low": 0.1989084980550615,
+              "high": 0.3051522864376466,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.06531904293751722,
+              "low": 0.06430799748216032,
+              "high": 0.0663881876545247,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.18349559700254758,
+              "low": 0.13138011237458613,
+              "high": 0.23908999386890173,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.039304037500187405,
+              "low": 0.03807235506712914,
+              "high": 0.04055282674755745,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.019183463246008614,
+              "low": 0.0184646001235933,
+              "high": 0.019807424322948464,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.006831542191321205,
+              "low": 0.006736342292583686,
+              "high": 0.006947224081272906,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0003763764425457339,
+              "low": 0.0003498912974464474,
+              "high": 0.00040027735337844206,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.056432256363638,
+              "low": 1.0103930685837303,
+              "high": 1.1057954027331416,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.9848296305501568,
+              "low": 0.8296726293944918,
+              "high": 1.1480878338339735,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.039622711450418,
+              "low": 3.9189183124391453,
+              "high": 6.248645240496518,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0044540792197285,
+              "low": 0.908617973313905,
+              "high": 1.0980696801371195,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.3789324836830257,
+              "low": 1.0780544957024585,
+              "high": 1.7190045734109172,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 0.25006611404023715,
+              "low": 0.2311375915996905,
+              "high": 0.27161165578434066,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.09203434369737806,
+              "low": 0.08724992222767014,
+              "high": 0.09661731166318077,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.15766830920256325,
+              "low": 0.1373902572265706,
+              "high": 0.1819028771643616,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03905566484263545,
+              "low": 0.03774257033228423,
+              "high": 0.04038975677303824,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.03841933669264108,
+              "low": 0.035466976915472515,
+              "high": 0.04113519782208641,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.01455934216210153,
+              "low": 0.01372123943895076,
+              "high": 0.015384090932002437,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00036346114029583987,
+              "low": 0.00034677458188525634,
+              "high": 0.0003789953291288839,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 12173.4,
+              "low": 10724.0875,
+              "high": 13665.720000000001,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.1367168274821693,
+              "low": 0.9813951947658154,
+              "high": 1.2795084614394931,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.008700800893744,
+              "low": 4.538171096247769,
+              "high": 5.542229215723583,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.8312461835481846,
+              "low": 0.7205546318029818,
+              "high": 0.9261818423758483,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.2656501624869634,
+              "low": 0.24491585151849904,
+              "high": 0.29124275637173014,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.11623655320818216,
+              "low": 0.1111075037840692,
+              "high": 0.12119740855041528,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.14902392911153584,
+              "low": 0.1251607246962294,
+              "high": 0.17618721882627142,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03999397813458927,
+              "low": 0.038372548432903386,
+              "high": 0.04169789386764933,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.03803886643254373,
+              "low": 0.035038983083381936,
+              "high": 0.04093847278340945,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.019690721137521905,
+              "low": 0.018886918784914997,
+              "high": 0.020479068031704628,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.018512987503527256,
+              "low": 0.017778345888928015,
+              "high": 0.01920059805343044,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00038968016724538757,
+              "low": 0.0003680819247620093,
+              "high": 0.00040925099710875656,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 12173.4,
+              "low": 10696.852499999999,
+              "high": 13668.6075,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.1976315450427686,
+              "low": 1.0489530825648588,
+              "high": 1.3272691206715115,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0646872587512612,
+              "low": 1.008273686315268,
+              "high": 1.1245570192186733,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.329114479494076,
+              "low": 4.761632786760463,
+              "high": 5.9500227319746,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.824573677847021,
+              "low": 0.7318895221122975,
+              "high": 0.9237255845733279,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 0.9980732751214086,
+              "low": 0.9111499948692685,
+              "high": 1.088128207175177,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.05020449382300285,
+              "low": 0.04878370299650214,
+              "high": 0.05166714160111496,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.04544101557257818,
+              "low": 0.04378072800136579,
+              "high": 0.04707161741350774,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.004513375051828916,
+              "low": 0.004236385902345319,
+              "high": 0.004770365970898638,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.038886296078999294,
+              "low": 0.03764510497603624,
+              "high": 0.040138540536531764,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.006554719493578887,
+              "low": 0.006182677910260281,
+              "high": 0.006940629958194222,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0002501031985957525,
+              "low": 0.00023066715414188366,
+              "high": 0.0002807954973604864,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3362.0,
+              "low": 3166.1,
+              "high": 3557.905,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.2367034857691038,
+              "low": 0.19124447409268816,
+              "high": 0.28317875833166767,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.2045109338815075,
+              "low": 0.1848619071135459,
+              "high": 0.22200724922892703,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      },
+      "8": {
+        "queries": 1280,
+        "unreachable": 7,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 0.2531713219013909,
+              "low": 0.21355033134170753,
+              "high": 0.30160172380249145,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.0625060891479734,
+              "low": 0.06116043156339401,
+              "high": 0.06385183385077653,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.19026968404887157,
+              "low": 0.15019527822971668,
+              "high": 0.23718810640502852,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.0392717788599839,
+              "low": 0.03784918091923828,
+              "high": 0.040694737307944706,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0232343102879895,
+              "low": 0.022984558391954124,
+              "high": 0.02355142419276035,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00039554870454594493,
+              "low": 0.0003754252361432009,
+              "high": 0.00041791898865994875,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.7204846341468877,
+              "low": 0.6166996546427578,
+              "high": 0.8295161454972649,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 2.7232071585226634,
+              "low": 2.1879103601889893,
+              "high": 3.3349701439244335,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.4414590574840473,
+              "low": 1.1663449235547902,
+              "high": 1.738572777196184,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.4181783203193845,
+              "low": 0.3750647666657869,
+              "high": 0.46509559000639905,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.2348257226685746,
+              "low": 0.23285973180747987,
+              "high": 0.2369265195409298,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.1828886019438869,
+              "low": 0.1404723088734272,
+              "high": 0.23359012989658365,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03926705778667383,
+              "low": 0.03804235946972767,
+              "high": 0.04053540800839528,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.14144759529699513,
+              "low": 0.13938165265415137,
+              "high": 0.14317553925081938,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.054111069584905636,
+              "low": 0.05373922308365309,
+              "high": 0.05452606561959783,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00046399570692301495,
+              "low": 0.00043982565330225043,
+              "high": 0.0004849764462733219,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.6907757255994418,
+              "low": 1.5957352686572273,
+              "high": 1.7789398032139858,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.193937852379093,
+              "low": 1.084561422608196,
+              "high": 1.3114611072435653,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 4.474114697188207,
+              "low": 3.8026142398831855,
+              "high": 5.199751773605773,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.001866779624619,
+              "low": 0.9554661430666986,
+              "high": 1.0444316357594867,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.4227930906836488,
+              "low": 1.1322426314830503,
+              "high": 1.784703870588155,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 0.34938515623252897,
+              "low": 0.3393315230994176,
+              "high": 0.3600935373037828,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.19455433132407052,
+              "low": 0.18568710809347522,
+              "high": 0.2034001578471134,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.15439175219853496,
+              "low": 0.14300592127199252,
+              "high": 0.1655435310709663,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03958714216878434,
+              "low": 0.038064418149588164,
+              "high": 0.041213129878769905,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.03856032035400858,
+              "low": 0.03538556633600365,
+              "high": 0.0414956038616765,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.1164068688012776,
+              "low": 0.11029950722445392,
+              "high": 0.12184439589020712,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0004390727099234937,
+              "low": 0.00041738261813861754,
+              "high": 0.00046125018343445845,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 12173.4,
+              "low": 10713.429999999998,
+              "high": 13614.2,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.4637812247262896,
+              "low": 1.2685831818957205,
+              "high": 1.6517470210019598,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 3.701105527199181,
+              "low": 3.4850009303585545,
+              "high": 3.9170584464332316,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.8343925452275993,
+              "low": 0.7469559947856246,
+              "high": 0.9182643696196482,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.5147480148025352,
+              "low": 0.5008078343570332,
+              "high": 0.5293168624336886,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.36837321174516546,
+              "low": 0.359410662693449,
+              "high": 0.376930210206865,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.14586802592475578,
+              "low": 0.12985336252199886,
+              "high": 0.1619886439851825,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03896051484844065,
+              "low": 0.037800974941433196,
+              "high": 0.0401141440693209,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.038040396066207904,
+              "low": 0.03512192572884487,
+              "high": 0.041078909279121945,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.1448871078537195,
+              "low": 0.1425518314385954,
+              "high": 0.14756424528968637,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.1464851929767974,
+              "low": 0.14011960561902015,
+              "high": 0.15262101640303172,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0005067771326139336,
+              "low": 0.00046152610480021394,
+              "high": 0.0005606754825748794,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 12173.4,
+              "low": 10731.3675,
+              "high": 13613.8025,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 2.1512927958856243,
+              "low": 1.863054737896309,
+              "high": 2.400465748292289,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.4741562493606717,
+              "low": 1.4490288326013476,
+              "high": 1.4982843327265742,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.459547336559485,
+              "low": 5.080721938054918,
+              "high": 5.813280012482528,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.8291240284388346,
+              "low": 0.7556249324511759,
+              "high": 0.8997072846703512,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0021899019900835,
+              "low": 0.9624423097132766,
+              "high": 1.041317046224248,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.09500973203557805,
+              "low": 0.09074029277144291,
+              "high": 0.0993214556865496,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.08988313986719731,
+              "low": 0.08558552196063829,
+              "high": 0.09424094820928985,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.004834770356865192,
+              "low": 0.004700513511011195,
+              "high": 0.00498449575786708,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.039033984421621426,
+              "low": 0.03762693795181349,
+              "high": 0.04040278508057327,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.05084915544557589,
+              "low": 0.04790852916244148,
+              "high": 0.05380681774909135,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00029182181151554687,
+              "low": 0.00028042926828675263,
+              "high": 0.0003019391709813135,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 26896.0,
+              "low": 25339.94,
+              "high": 28459.22,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.4068564286027767,
+              "low": 0.33171252693628583,
+              "high": 0.4788864856846347,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.27286060037740956,
+              "low": 0.25578778360281695,
+              "high": 0.289873494019399,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      },
+      "128": {
+        "queries": 1280,
+        "unreachable": 14,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 0.6088160484296168,
+              "low": 0.5698302590496951,
+              "high": 0.6500882709087819,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.4088553111159854,
+              "low": 0.4077979325876413,
+              "high": 0.4101060031882753,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.19938352438657603,
+              "low": 0.1595672130207504,
+              "high": 0.24219475493794101,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.0391440742305349,
+              "low": 0.03788996342166229,
+              "high": 0.040462068983515564,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.3697112368854505,
+              "low": 0.36857799663835067,
+              "high": 0.3707834230721119,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0005772129270553705,
+              "low": 0.0005611366634639126,
+              "high": 0.0005913033038495996,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.2919051029226688,
+              "low": 0.2651011047225931,
+              "high": 0.3209595020737642,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 0.721371840048036,
+              "low": 0.6343711986434178,
+              "high": 0.8138416631080764,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.3483659049269345,
+              "low": 1.2120905159248214,
+              "high": 1.4941970107819909,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 3.321182844570103,
+              "low": 3.256187374587398,
+              "high": 3.388131775525949,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 3.1148794238106348,
+              "low": 3.088534529566118,
+              "high": 3.145369077931832,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.2048766232746857,
+              "low": 0.16214882058363855,
+              "high": 0.24964589320404681,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.04303811717818462,
+              "low": 0.038353399525021814,
+              "high": 0.049432887180955724,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 2.209042898653024,
+              "low": 2.180939666478139,
+              "high": 2.2384240853568826,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.862798407979426,
+              "low": 0.8590646095302645,
+              "high": 0.86695406251863,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0014267974847825826,
+              "low": 0.0013295001048163613,
+              "high": 0.0015267759340531484,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 5.499228462445323,
+              "low": 5.255215413834424,
+              "high": 5.7487664007103865,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.5879028839765517,
+              "low": 1.5026972718007945,
+              "high": 1.6764730304119706,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 3.908843060482545,
+              "low": 3.6154748555409846,
+              "high": 4.212898976313452,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.9999956144496405,
+              "low": 0.9815529687489019,
+              "high": 1.0188612861642687,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.3300014199049621,
+              "low": 1.1924108269488773,
+              "high": 1.4806281851477525,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 2.102950422658978,
+              "low": 2.0186463246398034,
+              "high": 2.1807723594798745,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 1.9231486657645291,
+              "low": 1.8167200018797303,
+              "high": 2.023064367303391,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.17896851661589608,
+              "low": 0.15111565240545133,
+              "high": 0.21084621444458657,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.039512141438535764,
+              "low": 0.038480630730646226,
+              "high": 0.040457760493950445,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.037935254681542574,
+              "low": 0.035059781301924886,
+              "high": 0.040783954482890294,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 1.8457012696444508,
+              "low": 1.738137064033367,
+              "high": 1.942881989872376,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0008332402785526938,
+              "low": 0.0007571589412691537,
+              "high": 0.0009431119690361811,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 12173.4,
+              "low": 10613.0875,
+              "high": 13613.5275,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 3.5064828687340053,
+              "low": 3.18801671141111,
+              "high": 3.808642375463266,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 2.4616402230157393,
+              "low": 2.3321113025757185,
+              "high": 2.586128420663231,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.8521517406625744,
+              "low": 0.7920767316802875,
+              "high": 0.9092388596530062,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 4.8692763999724775,
+              "low": 4.794284381729881,
+              "high": 4.941014464534419,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 4.687403466255091,
+              "low": 4.592777385481099,
+              "high": 4.781449693279001,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.18009689970313048,
+              "low": 0.151364636242306,
+              "high": 0.21486013299352175,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.04074768905866222,
+              "low": 0.03849738626456656,
+              "high": 0.04342157722931006,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.03818160705577611,
+              "low": 0.03563889027930145,
+              "high": 0.04074162200936371,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 2.2735938803407407,
+              "low": 2.256512471053611,
+              "high": 2.2900052908465796,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 2.334880289799912,
+              "low": 2.2312980982059116,
+              "high": 2.4337668149814817,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0017760340142558562,
+              "low": 0.0017038009940506527,
+              "high": 0.0018484776347804655,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 12173.4,
+              "low": 10749.960000000001,
+              "high": 13614.630000000001,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 8.096512686582752,
+              "low": 7.50396324257653,
+              "high": 8.640959207881565,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 2.321605116967671,
+              "low": 2.265728808209921,
+              "high": 2.383807297213326,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.711761223996072,
+              "low": 5.38779468265407,
+              "high": 6.020405779738161,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.8515420018039588,
+              "low": 0.7979547583076378,
+              "high": 0.9072222060164882,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0061747453532228,
+              "low": 0.9860561953242988,
+              "high": 1.027757742817027,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.859535969539138,
+              "low": 0.8086465361782302,
+              "high": 0.9077815108111054,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.851669806411337,
+              "low": 0.8015992876272549,
+              "high": 0.900317097223251,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.007135556575121882,
+              "low": 0.0068988121432767,
+              "high": 0.0074087171020664755,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03972988281475409,
+              "low": 0.03827640924953357,
+              "high": 0.04113703124971835,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.811939923596583,
+              "low": 0.7620698073657195,
+              "high": 0.8597029904774445,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0007306065526790917,
+              "low": 0.0006615337133553112,
+              "high": 0.0008287604839551932,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 428223.5,
+              "low": 401352.1175,
+              "high": 454252.12999999995,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.4409211108510216,
+              "low": 1.2690665032301687,
+              "high": 1.6080083684434057,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.40940171228321454,
+              "low": 0.388103046836575,
+              "high": 0.43266903948709257,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      }
+    },
+    "walls_64": {
+      "1": {
+        "queries": 1280,
+        "unreachable": 0,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 1.426432909374853,
+              "low": 1.1598999511710417,
+              "high": 1.705248519695601,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.04338095470757253,
+              "low": 0.04136343091829531,
+              "high": 0.04672590591439984,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 1.382531350645877,
+              "low": 1.103692376689196,
+              "high": 1.648889703313898,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.040364549204241484,
+              "low": 0.03837701951113104,
+              "high": 0.04349111147007534,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0030164055033310433,
+              "low": 0.0029499327939674913,
+              "high": 0.003097282832413839,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0005206040214034147,
+              "low": 0.000492982420610133,
+              "high": 0.0005477894939076577,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 3.8522326272226346,
+              "low": 3.090425644052586,
+              "high": 4.591368267114406,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 25.788570397765625,
+              "low": 21.187129691387476,
+              "high": 30.585484559493914,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 7.018326090810487,
+              "low": 5.402125759095745,
+              "high": 8.576692806970202,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 1.4166190109563104,
+              "low": 1.1463466409082912,
+              "high": 1.6834464320169216,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.06707057182211429,
+              "low": 0.06552204056561095,
+              "high": 0.06903429116448478,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 1.3490265080918107,
+              "low": 1.0922503460062671,
+              "high": 1.6158131128867124,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.04005927733032877,
+              "low": 0.03849085823731002,
+              "high": 0.04211638975675669,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.020099380481042317,
+              "low": 0.019360982036005225,
+              "high": 0.02086741736775366,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.006911914010743203,
+              "low": 0.0068186607302322955,
+              "high": 0.007019897156510524,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.000521931042385404,
+              "low": 0.0004947953544842676,
+              "high": 0.0005492673244589241,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.9954627698149295,
+              "low": 0.9804391304520942,
+              "high": 1.0088930713525637,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 3.8230089189995597,
+              "low": 3.0778074241466196,
+              "high": 4.528547209244681,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 25.608678263337357,
+              "low": 21.16840822922103,
+              "high": 30.18212323938736,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.9834389809811113,
+              "low": 0.962147775175957,
+              "high": 1.00606333346698,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 6.930061594812065,
+              "low": 5.339143803932668,
+              "high": 8.488781549572657,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 0.37710462340783124,
+              "low": 0.33997798758491626,
+              "high": 0.4210114473909243,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.09395823678914894,
+              "low": 0.092927076669298,
+              "high": 0.09493235028173785,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.2827328178454991,
+              "low": 0.24673624453669163,
+              "high": 0.32592108090796046,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03888740232014243,
+              "low": 0.038285906774149225,
+              "high": 0.0394332678979481,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.039535547693958506,
+              "low": 0.039199933381723895,
+              "high": 0.03987071337633097,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.015535286775048007,
+              "low": 0.015233197635211582,
+              "high": 0.01585494655216735,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00041356877318321494,
+              "low": 0.00038886235472546105,
+              "high": 0.0004391536941739105,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 13606.4,
+              "low": 13482.4,
+              "high": 13730.4,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.2913114166090577,
+              "low": 0.231004755538478,
+              "high": 0.35417322450259997,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 6.843345483489863,
+              "low": 6.256581203511465,
+              "high": 7.554123461738176,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.28859293907883377,
+              "low": 0.21578738523045424,
+              "high": 0.3665956450011196,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.515294337492378,
+              "low": 0.45894906212879505,
+              "high": 0.58022475770656,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.11881012269441271,
+              "low": 0.11706356789034089,
+              "high": 0.12102903778611562,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.3960175346264805,
+              "low": 0.33820917326522704,
+              "high": 0.46046338050530256,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03898870311331848,
+              "low": 0.03820389653583334,
+              "high": 0.03988846194829421,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.04022519453883433,
+              "low": 0.03954043431406262,
+              "high": 0.04100070809954559,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.020264096087885264,
+              "low": 0.019039598680592462,
+              "high": 0.02150635408895596,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.01933212895437464,
+              "low": 0.019082857856460578,
+              "high": 0.01955894720026663,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0004666801714847679,
+              "low": 0.0004482698722085843,
+              "high": 0.000486746844217123,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 13606.4,
+              "low": 13506.58,
+              "high": 13730.4,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.3878845924563118,
+              "low": 0.32651897030066623,
+              "high": 0.45685112412136153,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.3719894057158806,
+              "low": 1.2702220734515945,
+              "high": 1.4531284897801586,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 9.33151393291448,
+              "low": 8.50413562473952,
+              "high": 10.320244699362416,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.3326212293151342,
+              "low": 0.2636281637030945,
+              "high": 0.40542878681639316,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.3821709435108285,
+              "low": 1.2538347924677125,
+              "high": 1.4948851649047539,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.05496377109466266,
+              "low": 0.053821225195633815,
+              "high": 0.05610916546629596,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.04490423282277334,
+              "low": 0.0443162456662094,
+              "high": 0.04542968473117526,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.00977748691184388,
+              "low": 0.008766811703821986,
+              "high": 0.01071192615313521,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03856054684092669,
+              "low": 0.03802489172358037,
+              "high": 0.03906467983483708,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.006343685981846647,
+              "low": 0.006266234793201875,
+              "high": 0.006433668871181908,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0002820513600454433,
+              "low": 0.00026926577447738964,
+              "high": 0.0002962999525379928,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 3401.6,
+              "low": 3370.6,
+              "high": 3432.6,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.04255695545376924,
+              "low": 0.03475911569674788,
+              "high": 0.05091999069512896,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.14926949772514925,
+              "low": 0.13592014142884093,
+              "high": 0.16124194760515573,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      },
+      "8": {
+        "queries": 1280,
+        "unreachable": 0,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 1.2123084320137423,
+              "low": 1.1040003773297258,
+              "high": 1.3168077207870965,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.062269986642604636,
+              "low": 0.06122050765497988,
+              "high": 0.06328962725490328,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 1.1495017758761605,
+              "low": 1.0411739062561765,
+              "high": 1.2651495587999761,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.038839648436805874,
+              "low": 0.03809891622267969,
+              "high": 0.039568154062976646,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.023430338205798762,
+              "low": 0.02296987101999548,
+              "high": 0.023985332146594374,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0005366694949771045,
+              "low": 0.0005153168086735604,
+              "high": 0.0005561798946018826,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 2.480054671459759,
+              "low": 2.2304428767160385,
+              "high": 2.7068812282520054,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 12.268678876741973,
+              "low": 11.23671865578314,
+              "high": 13.273243888184853,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 5.998830803691172,
+              "low": 5.319882092471612,
+              "high": 6.574235208532631,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 1.3651629218429662,
+              "low": 1.2606865499594733,
+              "high": 1.4692740190179165,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.23583671943470108,
+              "low": 0.2321273125062362,
+              "high": 0.23986829220859818,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 1.1286963183692933,
+              "low": 1.0229620312560428,
+              "high": 1.225972710925589,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03861556017454859,
+              "low": 0.03797426562698547,
+              "high": 0.03923675483918032,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.14262044524002704,
+              "low": 0.13931192310394636,
+              "high": 0.146091716814567,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.05460071402012545,
+              "low": 0.05415668687078323,
+              "high": 0.05508164530340309,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0006298840389717952,
+              "low": 0.0006194172675577647,
+              "high": 0.0006417654827828301,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.130157361968858,
+              "low": 1.110976838105262,
+              "high": 1.1485462657538765,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 2.793150362104505,
+              "low": 2.544962166942845,
+              "high": 3.013228927186141,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 13.818537840949258,
+              "low": 12.822780007568092,
+              "high": 14.76590525591369,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.9831400178775727,
+              "low": 0.9637423848690081,
+              "high": 1.0036841318415055,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 5.892968339097687,
+              "low": 5.177733750108088,
+              "high": 6.489806144345249,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 0.49212122423796245,
+              "low": 0.465263121100179,
+              "high": 0.5211871036982529,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.20190927421026572,
+              "low": 0.19883023376792153,
+              "high": 0.20560542752718902,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.28973174598831974,
+              "low": 0.2634243820557458,
+              "high": 0.3151648096684312,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.0394550460669052,
+              "low": 0.038361350273703465,
+              "high": 0.04084537263679522,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.04002600937837997,
+              "low": 0.03956721251711315,
+              "high": 0.04047855276212431,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.12242821876498056,
+              "low": 0.12038272691540897,
+              "high": 0.12470488537132951,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00048020403937698575,
+              "low": 0.000456447571082208,
+              "high": 0.0004983821656878717,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 13606.4,
+              "low": 13507.2,
+              "high": 13730.4,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.41478164159591974,
+              "low": 0.3733156232439616,
+              "high": 0.4643019558953368,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 4.9853279391469005,
+              "low": 4.723742970281459,
+              "high": 5.26863649490895,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.32605652704962507,
+              "low": 0.290497869535019,
+              "high": 0.3653656925560462,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 0.7415210617409684,
+              "low": 0.7118570408124469,
+              "high": 0.7692251887527846,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.37647405770258047,
+              "low": 0.37198690303853255,
+              "high": 0.3820184590415465,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.3645029929884913,
+              "low": 0.33565400868440065,
+              "high": 0.391303232008795,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03872161407798558,
+              "low": 0.03819371471877275,
+              "high": 0.039329381793891116,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.03974528046910564,
+              "low": 0.03933151609999186,
+              "high": 0.040180764642627764,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.14498375928724272,
+              "low": 0.14171661816646974,
+              "high": 0.14888944149504368,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.15302340386824653,
+              "low": 0.15147209850454146,
+              "high": 0.1546743078245072,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0005440110498966533,
+              "low": 0.000530108127350104,
+              "high": 0.0005574549368247972,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 13606.4,
+              "low": 13507.2,
+              "high": 13730.4,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.6207543960795816,
+              "low": 0.5791526329390396,
+              "high": 0.6643985336102334,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.5151332825325685,
+              "low": 1.4323687135033962,
+              "high": 1.5841315378760727,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 7.509797076385061,
+              "low": 7.250973657693042,
+              "high": 7.757001594560478,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.36097537799671536,
+              "low": 0.3326730190955096,
+              "high": 0.3892509544815832,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.302697877537638,
+              "low": 1.2045322410397155,
+              "high": 1.3836540811174998,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.09872041014205024,
+              "low": 0.09776120518267817,
+              "high": 0.09971869280263945,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.08879065553628607,
+              "low": 0.08799054967653319,
+              "high": 0.08958212635775453,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.009567425831846776,
+              "low": 0.009064654523172067,
+              "high": 0.010122281135522826,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.03904348832293181,
+              "low": 0.03839459210212226,
+              "high": 0.03968984306254697,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.04974716721335426,
+              "low": 0.0491914741240862,
+              "high": 0.050390422721307004,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0003623287739173975,
+              "low": 0.00031179031338979257,
+              "high": 0.00044721776532696817,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 27212.8,
+              "low": 27014.4,
+              "high": 27460.8,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.0831084405994416,
+              "low": 0.0758714643004273,
+              "high": 0.09008917111031403,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.20213328481345116,
+              "low": 0.19092211501057316,
+              "high": 0.2127645445478533,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      },
+      "128": {
+        "queries": 1280,
+        "unreachable": 0,
+        "methods": {
+          "manhattan": {
+            "total_ms_per_query": {
+              "mean": 1.7147158859643241,
+              "low": 1.6500331307150873,
+              "high": 1.7896003210319122,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.4110658840090764,
+              "low": 0.4100358083229594,
+              "high": 0.41216429482801686,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 1.3028971110315979,
+              "low": 1.2417742133857246,
+              "high": 1.373036594941368,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.038827962498544366,
+              "low": 0.0384436693718726,
+              "high": 0.03928504775331021,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.37223792151053203,
+              "low": 0.3713995953791027,
+              "high": 0.3730403880808808,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0007528909236498293,
+              "low": 0.0007313467210678937,
+              "high": 0.0007728446007604362,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.7179800351194123,
+              "low": 0.6890317469539491,
+              "high": 0.7527918644688765,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 2.017807525932555,
+              "low": 1.9492837855754934,
+              "high": 2.0941102144823502,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 6.183136360542329,
+              "low": 5.798129988686308,
+              "high": 6.596742615224784,
+              "maps": 10
+            }
+          },
+          "manhattan_cnn": {
+            "total_ms_per_query": {
+              "mean": 4.440121647621709,
+              "low": 4.370738162369321,
+              "high": 4.511354524925082,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 3.1342539032493733,
+              "low": 3.1204713939780504,
+              "high": 3.1451173659729648,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 1.3042016280905955,
+              "low": 1.240513106095591,
+              "high": 1.370678875831004,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.039420118719135644,
+              "low": 0.038309989316189785,
+              "high": 0.040745559989545654,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 2.2264089281406996,
+              "low": 2.2129570071950866,
+              "high": 2.2377848027355185,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.868424856389538,
+              "low": 0.8666549682351388,
+              "high": 0.8702003672289038,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.00166611628173996,
+              "low": 0.0016109558379184818,
+              "high": 0.0017193411343896514,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 2.595785686088097,
+              "low": 2.5342269214148647,
+              "high": 2.660361168805022,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.859334107349803,
+              "low": 1.8116487281696816,
+              "high": 1.9092401016523977,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 5.226805294320117,
+              "low": 5.160955381598723,
+              "high": 5.299416882436278,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.9831743604161925,
+              "low": 0.976321219343942,
+              "high": 0.9905283977011083,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 6.104515044204514,
+              "low": 5.705356747231992,
+              "high": 6.535834283296769,
+              "maps": 10
+            }
+          },
+          "landmark": {
+            "total_ms_per_query": {
+              "mean": 2.3913763679502154,
+              "low": 2.3335965220013577,
+              "high": 2.451633916780338,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 2.036907670913024,
+              "low": 2.004089097678161,
+              "high": 2.0734904578279156,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.35359184826120327,
+              "low": 0.32542440004647233,
+              "high": 0.3833624881212927,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.04035878989725461,
+              "low": 0.03875641852403078,
+              "high": 0.042653054515540134,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.040016764091888035,
+              "low": 0.039485822561573514,
+              "high": 0.040623006169084874,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 1.9565321169238814,
+              "low": 1.923377759000573,
+              "high": 1.9930945187633142,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0008768487759880372,
+              "low": 0.0008236553054530305,
+              "high": 0.0009402417919091022,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 13606.4,
+              "low": 13506.58,
+              "high": 13705.6,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 1.3996762921739656,
+              "low": 1.3378047179381258,
+              "high": 1.4570335331543698,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 2.8152406379038704,
+              "low": 2.745629846738462,
+              "high": 2.8859523471384456,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.2978620010897922,
+              "low": 0.27405587455466524,
+              "high": 0.3203257817053994,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          },
+          "landmark_cnn": {
+            "total_ms_per_query": {
+              "mean": 5.296152703135704,
+              "low": 5.238565753232933,
+              "high": 5.371736035687604,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 4.846598329254448,
+              "low": 4.791207154728454,
+              "high": 4.916852106895817,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.4475566172914114,
+              "low": 0.43014102271342836,
+              "high": 0.46258192250888897,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.04202477266517235,
+              "low": 0.03885431993410293,
+              "high": 0.047389681095069136,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.03990917814462591,
+              "low": 0.03948519569007658,
+              "high": 0.04033189891231359,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 2.3052163211104926,
+              "low": 2.269916038954989,
+              "high": 2.3448855042374817,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 2.459448057334157,
+              "low": 2.423616972665741,
+              "high": 2.499543103648989,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0019977565898443572,
+              "low": 0.001838764919739333,
+              "high": 0.0021746750087459077,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 13606.4,
+              "low": 13507.2,
+              "high": 13730.4,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 3.101099364793818,
+              "low": 2.971803000069367,
+              "high": 3.2335232590720917,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 2.2173810709227286,
+              "low": 2.1678094995670394,
+              "high": 2.2637220003646767,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 6.235017661998763,
+              "low": 6.154550798735134,
+              "high": 6.315317675380253,
+              "maps": 10
+            },
+            "expansion_ratio_to_manhattan": {
+              "mean": 0.3352474717806916,
+              "low": 0.31880354096677843,
+              "high": 0.3504694490189607,
+              "maps": 10
+            },
+            "expansion_ratio_to_landmark": {
+              "mean": 1.3110239401523478,
+              "low": 1.23580051979366,
+              "high": 1.3865350164831551,
+              "maps": 10
+            }
+          },
+          "bfs_policy": {
+            "total_ms_per_query": {
+              "mean": 0.8495139655906314,
+              "low": 0.8418262961100709,
+              "high": 0.8572379239052452,
+              "maps": 10
+            },
+            "setup_ms_per_query": {
+              "mean": 0.8362481403537458,
+              "low": 0.8285238144719642,
+              "high": 0.8439820821826061,
+              "maps": 10
+            },
+            "search_ms_per_query": {
+              "mean": 0.012558901312331727,
+              "low": 0.012023170688735263,
+              "high": 0.013051841654601049,
+              "maps": 10
+            },
+            "graph_ms_per_query": {
+              "mean": 0.040032617152974126,
+              "low": 0.03810122562981633,
+              "high": 0.043123449596578205,
+              "maps": 10
+            },
+            "landmark_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "prediction_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "planner_ms_per_query": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "maps": 10
+            },
+            "reference_ms_per_query": {
+              "mean": 0.7962155232007717,
+              "low": 0.7900511710676028,
+              "high": 0.8027118417174961,
+              "maps": 10
+            },
+            "other_ms_per_query": {
+              "mean": 0.0007069239245538483,
+              "low": 0.0006780775959214225,
+              "high": 0.0007348239347493291,
+              "maps": 10
+            },
+            "preprocess_visits_per_session": {
+              "mean": 435404.8,
+              "low": 432230.4,
+              "high": 439372.8,
+              "maps": 10
+            },
+            "ratio_to_manhattan": {
+              "mean": 0.4971390889492577,
+              "low": 0.4807274576053521,
+              "high": 0.514233545894269,
+              "maps": 10
+            },
+            "ratio_to_landmark": {
+              "mean": 0.3557683043410846,
+              "low": 0.34670288288442064,
+              "high": 0.3639388991889486,
+              "maps": 10
+            },
+            "ratio_to_bfs_policy": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "maps": 10
+            }
+          }
+        }
+      }
+    }
+  },
+  "verification": {
+    "passed": true,
+    "median_sessions": 600,
+    "labels_independently_recomputed": true,
+    "all_paths_and_signatures_verified": true,
+    "point_estimates_cross_checked": 240
+  },
+  "analysis_sha256": {
+    "scripts/report_changing_goals.py": "552d570651d6791f98bb9b4e7dcb8ea9bc2d8412ed2e2c54624c82426c372c66",
+    "scripts/report_landmark_timing.py": "8a3d6d8ca51e0c4b25e80fa1ce50c9b83d888a0965acbbe355d034acb9a676b7"
+  }
+}
