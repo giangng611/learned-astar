@@ -2,6 +2,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import numpy as np
+import pytest
 
 from learned_astar.environments import Grid, validate_path
 from learned_astar.search import bfs
@@ -89,3 +90,25 @@ def test_workloads_keep_starts_fixed_and_balance_goals_with_exact_labels(monkeyp
         for query in workload["queries"]:
             expected = bfs(grid, query["start"], query["goal"])
             assert query["optimal_cost"] == (expected.cost if expected.cost is not None else -1)
+
+
+def test_workload_verifier_rejects_changed_labels_and_duplicate_cases(monkeypatch):
+    import copy
+    import json
+
+    monkeypatch.syspath_prepend(str(Path(__file__).parents[1] / "scripts"))
+    import report_changing_goals as report
+    from run_changing_goals import queries_for
+
+    grid = Grid(4, 4)
+    record = {"layout_id": "example", "kind": "random", "map_seed": 3}
+    config = {"query_seed": 4, "queries_per_session": 4, "goal_counts": [1, 2, 4]}
+    workloads = json.loads(json.dumps(queries_for(grid, record, config)))
+    monkeypatch.setattr(report, "grid_for", lambda record: grid)
+    assert len(report.verify_workloads([record], config, workloads)[0]) == 3
+    bad = copy.deepcopy(workloads)
+    bad[0]["queries"][0]["optimal_cost"] += 1
+    with pytest.raises(ValueError, match="BFS-label"):
+        report.verify_workloads([record], config, bad)
+    with pytest.raises(ValueError, match="coverage"):
+        report.verify_workloads([record], config, workloads + workloads[:1])
