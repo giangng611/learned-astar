@@ -1,5 +1,7 @@
 # Learning Heuristics for A* Search with Obstacles
 
+This report records the original experiment. The [research synthesis](final_report.md) covers the later training, reuse, and landmark studies; the future-work suggestions below reflect the original stage.
+
 CSCI/ARTI 4550/6550 · University of Georgia
 
 ## 1. Research question

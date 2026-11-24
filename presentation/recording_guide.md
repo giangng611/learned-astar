@@ -1,6 +1,8 @@
 # Presentation and recording guide
 
-Use `learned_astar_research.pptx`, the updated 18-slide deck covering all four research rounds. It is in English, remains editable, and includes speaker notes. Plan roughly 14–17 minutes including the terminal demo; use the references and appendix only when needed. Add the group members' names and adjust the length to the course requirement. The earlier deck is retained separately.
+The current `learned_astar_research.pptx` is an editable 18-slide English deck with speaker notes covering the original experiment through the runtime/reuse round (v4). It does not yet include the smaller-model, ordering-limit, or landmark studies. Use the [research synthesis](../docs/final_report.md) and [discussion guide](../docs/discussion_guide.md) when updating it.
+
+The timings and handoffs below describe that existing deck. Allow roughly 14–17 minutes including its terminal demo, then adjust to the course requirement and updated content. Add the group members' names before recording. The earlier deck is retained separately.
 
 ## Suggested section handoffs
 

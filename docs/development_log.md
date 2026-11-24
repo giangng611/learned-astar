@@ -187,3 +187,20 @@ Validation completed:
 - Both submitted proposals and every existing checkpoint remain unchanged. No training or fresh-test evaluation was performed.
 
 This closes the bounded changing-goal diagnostic. With roughly one week remaining, the next work should consolidate the research conclusions, update the presentation, and rehearse the terminal demo rather than start another model sweep. Keep the learned-model findings separate from the classical landmark improvement.
+
+## November 23, 2026: research consolidation, days 1–2
+
+Added a research synthesis covering the learning task, search methods, fair timing, fresh-test findings, and later validation diagnostics. It separates useful learned ordering from complete-time performance and attributes the landmark benefit to the classical method. The original report remains available with a scope note; both submitted proposal files are unchanged.
+
+Added a discussion guide explaining model inputs, training labels, hidden channels, optimal paths, runtime overhead, and the limits of additional tie training. It connects the main explanations to existing figures and records which comparisons support each conclusion. README navigation now starts with the synthesis and correctly identifies the reproduction command as the original v1 pipeline. The recording guide explicitly states that the current slide deck covers through v4 and needs the later findings added.
+
+Checks completed:
+
+- Compared 26 numerical expressions in the synthesis with archived JSON summaries and training histories, including paired intervals, width timings, the ordering floor, and landmark cost components.
+- Checked all 57 local link targets in the five report and navigation files, plus Markdown whitespace.
+- Confirmed both proposal hashes and the frozen 8-channel pilot checkpoint hash against their recorded values.
+- Confirmed the edited report and guide files contain no AI attribution. No experiment data, source code, checkpoints, or slide files changed.
+
+This was a documentation consolidation, so the algorithm test suite and benchmarks were not rerun. The latest implementation validation remains the 216 passing tests recorded for the changing-goal step. No new training, data generation, or held-out evaluation was needed.
+
+The next planned deliverable is an updated presentation and a rehearsed terminal demonstration. Further research remains optional: start with a specific hypothesis, a matched control, and a bounded validation pilot. On-demand landmark scoring targets an observed preparation cost; learning to rank actual tied search cells would require a separate objective and would still face the measured tie-ordering limit. Neither is reported as implemented or successful.

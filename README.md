@@ -2,7 +2,9 @@
 
 This CSCI/ARTI 4550/6550 capstone compares a learned distance heuristic with Manhattan A*, Weighted A*, BFS, and Dijkstra. It measures search effort, total query time including inference, and path quality on the same queries. The workflow covers dataset generation, training with three seeds, held-out evaluation, figures, and a terminal demonstration.
 
-See the [original report](docs/report.md), [search-learning results](docs/search_learning_results.md), and [runtime results](docs/runtime_results.md) for findings. The [experiment architecture](docs/research_architecture.md) explains the design; the [submitted proposal](docs/proposal.md) retains the original plan. The updated [presentation](presentation/learned_astar_research.pptx) includes speaker notes, and the [recording guide](presentation/recording_guide.md) explains the demo and section handoffs.
+Start with the [research synthesis](docs/final_report.md) for the complete findings and the [discussion guide](docs/discussion_guide.md) for a plain-language explanation. Learned tie ordering reduces some search work, but has not established a reliable complete-time win over equally prepared Manhattan. Later landmark gains are classical validation results and depend on the workload.
+
+The [experiment architecture](docs/research_architecture.md) explains the design; the [submitted proposal](docs/proposal.md) retains the original plan. The [original report](docs/report.md) covers the first experiment. The [18-slide presentation](presentation/learned_astar_research.pptx) and [recording guide](presentation/recording_guide.md) cover research through v4 and still need the later findings added.
 
 ## Setup
 
@@ -58,8 +60,8 @@ input and label scaling and commands for each experiment stage.
 
 The [follow-up results](docs/research_results.md) report five new training runs,
 600 fresh test maps, obstacle controls, and exact-distance references. The original
-15-slide deck remains at `presentation/learned_astar.pptx`; the updated deck covers
-the later research as well.
+15-slide deck remains at `presentation/learned_astar.pptx`; the 18-slide research deck
+covers the follow-ups through v4, not the subsequent smaller-model and landmark studies.
 
 The [search-learning experiment](docs/search_learning.md) keeps Manhattan as the baseline,
 adds training on useful neighboring moves, and compares direct heuristics with learned
@@ -103,17 +105,18 @@ The [changing-goal follow-up](docs/changing_goals.md) keeps 128 queries per map 
 varying the number of goals. Its [results](docs/changing_goals_results.md) show that
 building full score fields for new goals removes the landmark speed advantage when
 every query has a different goal. The frozen CNN adds more cost. This bounded follow-up
-closes the current experiment branch before final report and presentation work.
+completes the changing-goal diagnostic. The [synthesis](docs/final_report.md#limitations-and-next-decisions)
+sets out the remaining limitations and conditions for a further bounded experiment.
 
 ## Reproduce the experiment
 
-Run the whole pipeline in a new directory:
+Run the original v1 pipeline in a new directory:
 
 ```sh
 python scripts/run_experiment.py --run-dir outputs/reproduction
 ```
 
-This copies the configurations, generates and verifies 2,300 maps, trains three models, evaluates 3,600 queries, and saves summaries and figures. Existing directories are not overwritten. Training can take several minutes per seed on this machine; evaluation runs after training finishes.
+This copies the configurations, generates and verifies 2,300 maps, trains three models, evaluates 3,600 queries, and saves summaries and figures. It does not rerun the later research rounds; their linked protocols above provide separate commands. Existing directories are not overwritten. Training can take several minutes per seed on this machine; evaluation runs after training finishes.
 
 Individual stages are also available:
 
