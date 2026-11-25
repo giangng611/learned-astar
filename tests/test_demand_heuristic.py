@@ -137,3 +137,85 @@ def test_test_expansion_gate_requires_both_wall_groups_and_correct_paths(monkeyp
         assert not gate_passed(bad)
     summary["measurement"]["all_correct"] = False
     assert not gate_passed(summary)
+
+
+def test_portable_archive_check_rejects_changed_means_and_raw_evidence(monkeypatch, tmp_path):
+    import gzip
+    import json
+
+    monkeypatch.syspath_prepend(str(Path(__file__).parents[1] / "scripts"))
+    from check_demand_archive import check, digest
+
+    (tmp_path / "maps").mkdir()
+    (tmp_path / "maps/example.npz").write_bytes(b"hash-only fixture")
+    record = {
+        "layout_id": "example",
+        "kind": "random",
+        "width": 32,
+        "file": "maps/example.npz",
+        "sha256": digest(tmp_path / "maps/example.npz"),
+    }
+    (tmp_path / "policy_manifest.json").write_text(json.dumps([record]))
+    methods = {"manhattan": 2.0, "landmark_demand": 1.0}
+    with gzip.open(tmp_path / "sessions.jsonl.gz", "wt") as stream:
+        for method, median in methods.items():
+            for rep, factor in enumerate((0.5, 1, 1.5)):
+                stream.write(
+                    json.dumps(
+                        {
+                            "layout_id": "example",
+                            "family": "random_32",
+                            "goal_count": 1,
+                            "method": method,
+                            "repetition": rep,
+                            "total_seconds": median * factor,
+                            "result_sha256": "same-results",
+                        }
+                    )
+                    + "\n"
+                )
+    with gzip.open(tmp_path / "queries.jsonl.gz", "wt") as stream:
+        stream.write("{}\n")
+    measurement = {
+        "sessions": 6,
+        **{
+            f"{name}_sha256": digest(tmp_path / f"{name}.jsonl.gz")
+            for name in ("sessions", "queries")
+        },
+    }
+    (tmp_path / "measurement.json").write_text(json.dumps(measurement))
+    summary = {
+        "measurement": measurement,
+        "config": {
+            "repetitions": 3,
+            "queries_per_session": 2,
+            "goal_counts": [1],
+            "methods": list(methods),
+        },
+        "families": {
+            "random_32": {
+                "1": {
+                    "methods": {
+                        name: {
+                            "total_ms_per_query": {"mean": value * 500},
+                            "ratio_to_manhattan": {"mean": value / 2},
+                        }
+                        for name, value in methods.items()
+                    }
+                }
+            }
+        },
+    }
+    path = tmp_path / "summary.json"
+    path.write_text(json.dumps(summary))
+    assert check(tmp_path) == {"maps": 1, "median_sessions": 2, "checked_means": 4}
+    summary["families"]["random_32"]["1"]["methods"]["landmark_demand"]["ratio_to_manhattan"][
+        "mean"
+    ] = 0.4
+    path.write_text(json.dumps(summary))
+    with pytest.raises(ValueError, match="Incorrect summary mean"):
+        check(tmp_path)
+    with (tmp_path / "queries.jsonl.gz").open("ab") as stream:
+        stream.write(b"changed")
+    with pytest.raises(ValueError, match="Raw evidence checksum"):
+        check(tmp_path)
