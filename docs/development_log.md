@@ -226,3 +226,11 @@ Checks completed:
 The results and synthesis now distinguish this fresh-test confirmation from the earlier validation pilots. The measured timer includes preparation and query processing, but excludes final cache disposal and application startup. Peak memory and vectorized full-field controls remain unmeasured. Both submitted proposals and the existing checkpoints remain unchanged.
 
 A next learning experiment could choose among the three methods from map features and the known query workload. It should use separate training data, charge feature and prediction costs, and compare against a simple hand-written selector. No such selector has been trained or evaluated yet. The presentation still needs the later research added.
+
+## November 25, 2026: local method-selection pilot commands
+
+Added a separate data pipeline for 48 training and 24 validation maps. It excludes all 6,920 earlier layout groups, including rotations, and collects three repeated timings for each optimal method on batches with 1, 8, or 128 goals. Completed maps can be retained after an interruption. Raw timings, full first-repetition paths, counters, input hashes, and map-level splits are saved for later checks.
+
+Added a 99-parameter network that predicts the three log runtimes from map and workload features. Normalization uses training rows only. One seed and at most 200 updates keep the initial run small; validation loss selects the saved checkpoint. The comparison includes the three fixed methods, a training-selected fixed method, a predeclared hand-written rule, and an oracle reference. Initial selector costs combine measured feature and inference times with method medians, so they are explicitly reported as development estimates rather than live end-to-end test results.
+
+Six new tests cover rotated exclusions, separate layouts, reproducible workloads, interrupted-run recovery, altered evidence, path checks, normalization, checkpoint reloads, and timing-cost addition. The full suite passed 228 tests, and code style and formatting checks passed. The submitted proposal files remain unchanged. Only tiny test runs were executed; full data collection and training are left for the local PyCharm run.

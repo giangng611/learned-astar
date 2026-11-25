@@ -6,6 +6,8 @@ Start with the [research synthesis](docs/final_report.md) for the complete findi
 
 The [experiment architecture](docs/research_architecture.md) explains the design; the [submitted proposal](docs/proposal.md) retains the original plan. The [original report](docs/report.md) covers the first experiment. The [18-slide presentation](presentation/learned_astar_research.pptx) and [recording guide](presentation/recording_guide.md) cover research through v4 and still need the later findings added.
 
+The next [method-selection pilot](docs/selector_pilot.md) provides local commands to generate separate development maps, measure three optimal search methods, and train a 99-parameter runtime predictor. Its full pilot has not run yet. The initial comparison uses validation data and a fixed selection rule; it is not a new test result.
+
 ## Setup
 
 Use Python 3.11 or newer. The recorded run used Python 3.14.3, PyTorch 2.15.0, and NumPy 2.5.4 on an Apple Silicon Mac, using CPU execution.
