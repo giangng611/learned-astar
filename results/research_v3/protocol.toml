@@ -1,0 +1,48 @@
+# Third experiment: freeze these settings before policy validation and new test generation.
+[sources]
+original = "datasets/main"
+development = "outputs/research_v2/development"
+previous_test = "outputs/research_v2/fresh_test"
+distance_models = "artifacts/checkpoints/research_v2"
+
+[training]
+seeds = [7, 17, 27]
+epochs = 60
+patience = 12
+batch_size = 16
+learning_rate = 0.001
+cpu_threads = 4
+channels = 16
+residual = false
+obstacles = true
+route_loss_weight = 0.02
+
+[policy_validation]
+seed = 34549
+train_maps = 0
+validation_maps = 160
+validation_wall_maps = 80
+test_maps = 0
+extra_maps = 0
+size = 32
+goals_per_map = 1
+starts_per_map = 4
+
+[fresh_test]
+seed = 34550
+train_maps = 0
+validation_maps = 0
+test_maps = 200
+extra_maps = 100
+size = 32
+goals_per_map = 1
+starts_per_map = 4
+
+[evaluation]
+repetitions = 5
+order_seed = 28102
+bootstrap_seed = 28103
+bootstrap_samples = 2000
+cpu_threads = 1
+max_expansions = 1000000
+time_limit_seconds = 5.0

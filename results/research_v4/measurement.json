@@ -1,0 +1,17 @@
+{
+  "maps": 300,
+  "sessions": 64500,
+  "timed_queries": 1279500,
+  "query_records": 255900,
+  "seconds": 245.99217858400152,
+  "sessions_sha256": "394cc67a1922f309736b852634ddf14943442724edfd8d45da77b7309de009ff",
+  "queries_sha256": "7499e5051920eaf60dafa939129109314eb165f7fe31442cf81b0a8c08732bbc",
+  "dataset_manifest_sha256": "4d51a60dbbd301c3a73df184112ac749b4bc8df9fa38584113ae1f8ae734db73",
+  "all_optimal_and_correct_reachability": true,
+  "all_prepared_paths_and_counts_match_reference": true,
+  "environment": {
+    "torch": "2.15.0",
+    "numpy": "2.5.4",
+    "device": "cpu"
+  }
+}

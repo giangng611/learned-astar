@@ -1,0 +1,12 @@
+policy_manifest = "results/primary_step2/policy_manifest.json"
+checkpoint = "artifacts/checkpoints/research_v5/width_8/seed_7.pt"
+maps_per_family = 10
+queries_per_session = 128
+goal_counts = [1, 8, 128]
+repetitions = 5
+query_seed = 99301
+order_seed = 99302
+bootstrap_seed = 99303
+bootstrap_samples = 2000
+cpu_threads = 1
+methods = ["manhattan", "manhattan_cnn", "landmark", "landmark_cnn", "bfs_policy"]

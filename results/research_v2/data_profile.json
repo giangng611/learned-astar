@@ -1,0 +1,27 @@
+{
+  "original": {
+    "random": {
+      "goal_maps": 2400,
+      "mean_detour": 1.4722519594892851,
+      "detour_fraction": 0.33489096007721614,
+      "max_detour": 56,
+      "max_distance": 75
+    }
+  },
+  "mixed": {
+    "random": {
+      "goal_maps": 1600,
+      "mean_detour": 1.557752700839222,
+      "detour_fraction": 0.3420497214522348,
+      "max_detour": 76,
+      "max_distance": 83
+    },
+    "walls": {
+      "goal_maps": 800,
+      "mean_detour": 18.48841608409004,
+      "detour_fraction": 0.6709560469788431,
+      "max_detour": 122,
+      "max_distance": 162
+    }
+  }
+}

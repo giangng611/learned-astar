@@ -1,0 +1,7 @@
+{
+  "maps": 300,
+  "verified_goal_maps": 300,
+  "unique_layout_groups": 300,
+  "excluded_groups": 5600,
+  "disjoint": true
+}

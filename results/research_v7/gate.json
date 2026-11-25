@@ -1,0 +1,35 @@
+{
+  "expand_to_more_seeds": false,
+  "selected_rule": null,
+  "candidates": [
+    {
+      "rule": "distance",
+      "checks": {
+        "all_paths_correct": true,
+        "mean_gain_at_least_two_percent": false,
+        "runtime_interval_below_frozen": false,
+        "runtime_interval_below_matched_control": false,
+        "no_family_runtime_regression_over_three_percent": true,
+        "walls_32_interval_below_manhattan": false,
+        "no_32_expansion_regression_over_three_percent": true
+      },
+      "eligible": false,
+      "runtime_ratio": 0.9992018013066306
+    },
+    {
+      "rule": "detour",
+      "checks": {
+        "all_paths_correct": true,
+        "mean_gain_at_least_two_percent": false,
+        "runtime_interval_below_frozen": false,
+        "runtime_interval_below_matched_control": false,
+        "no_family_runtime_regression_over_three_percent": false,
+        "walls_32_interval_below_manhattan": false,
+        "no_32_expansion_regression_over_three_percent": false
+      },
+      "eligible": false,
+      "runtime_ratio": 1.3776435186854825
+    }
+  ],
+  "evidence": "policy validation only; no new test results"
+}

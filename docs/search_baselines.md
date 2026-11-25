@@ -8,7 +8,7 @@ BFS uses an ordinary queue. Dijkstra uses a heuristic of zero, Manhattan A* uses
 
 A shorter route updates the cell's distance and parent and adds a new queue entry, even if the cell was expanded before. Old entries are skipped when their distance no longer matches the best one. Search succeeds when the goal is removed from the queue, not when first discovered. Cost is the number of moves in the returned path.
 
-The shared loop accepts a custom heuristic for the later model stage. Its values must be finite and nonnegative, but those checks do not guarantee optimal paths. No learned model is connected yet.
+The shared loop accepts a custom heuristic whose values must be finite and nonnegative; those checks alone do not guarantee optimal paths. Learned models can supply the heuristic directly or only order equal Manhattan priorities. The second option preserves optimal path cost when search completes. An explicit FIFO tie rule is also available as a control.
 
 ## Results and limits
 
@@ -35,10 +35,12 @@ An expansion budget counts cells whose neighbors are checked; removing the goal 
 | `reexpanded` | Expansions beyond each cell's first. |
 | `max_frontier` | Largest queue size, including stale entries still waiting. |
 
-Timing includes queue setup, search, and path reconstruction. Input validation, map generation, path checks, and file writing are outside it. Learned-search evaluation will also include input preparation and model inference.
+Timing includes queue setup, search, and path reconstruction. Input validation, map generation, path checks, and file writing are outside it. Learned-search evaluation also includes input preparation and model inference.
 
 ## Maps and validation
 
 Map generation selects exactly `round(obstacle_fraction * height * width)` distinct blocked cells. It samples different free endpoints without requiring a route. Fewer than two free cells produces a clear demo error; the dataset stage will record such cases.
 
 Tests compare Dijkstra and Manhattan A* with BFS and check the Weighted A* bound of `weight * optimal_cost`. They cover all 3×3 layouts and ordered pairs of different free endpoints, random maps up to 64×64, detours, ties, reopening, stale entries, limits, and invalid inputs. The demo also checks endpoints, obstacles, adjacent moves, and path cost, and retains failed and unreachable queries.
+
+The [runtime experiment](runtime_reuse.md) adds prepared search for repeated queries. It stores neighbors as integer cell IDs and validates frozen score fields once per planner. Original and prepared searches must return identical paths and counters. Manhattan receives the same implementation changes as learned ties. A separate reverse-BFS policy stores next steps and includes preprocessing in its session time.

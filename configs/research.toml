@@ -1,0 +1,45 @@
+# Fixed before training or creating the new test set.
+[development]
+seed = 14550
+train_maps = 800
+train_wall_maps = 400
+validation_maps = 160
+validation_wall_maps = 80
+test_maps = 0
+extra_maps = 0
+size = 32
+goals_per_map = 2
+starts_per_map = 4
+
+[fresh_test]
+seed = 24550
+train_maps = 0
+validation_maps = 0
+test_maps = 200
+extra_maps = 100
+size = 32
+goals_per_map = 1
+starts_per_map = 4
+
+[training]
+seeds = [7]
+epochs = 60
+patience = 12
+batch_size = 16
+learning_rate = 0.001
+cpu_threads = 4
+channels = 16
+
+[evaluation]
+repetitions = 5
+order_seed = 18102
+bootstrap_seed = 18103
+bootstrap_samples = 2000
+cpu_threads = 1
+max_expansions = 1000000
+time_limit_seconds = 5.0
+
+[selection]
+additional_seeds = [17, 27]
+maximum_mean_path_ratio = 1.02
+minimum_optimal_fraction = 0.90

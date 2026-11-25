@@ -1,0 +1,28 @@
+{
+  "validation": {
+    "maps": 120,
+    "queries": 480,
+    "query_method_records": 4800,
+    "raw_runs": 24000,
+    "all_optimal_and_correct": true,
+    "all_counters_repeat": true,
+    "all_methods_share_endpoints": true,
+    "independent_paired_runtime_means": true
+  },
+  "test": {
+    "maps": 300,
+    "queries": 1200,
+    "query_method_records": 12000,
+    "raw_runs": 60000,
+    "all_optimal_and_correct": true,
+    "all_counters_repeat": true,
+    "all_methods_share_endpoints": true,
+    "independent_paired_runtime_means": true
+  },
+  "disjoint_layout_groups": {
+    "earlier": 5480,
+    "validation": 120,
+    "test": 300
+  },
+  "frozen_sources_and_checkpoints": true
+}

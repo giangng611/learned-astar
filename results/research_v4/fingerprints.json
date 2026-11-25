@@ -1,0 +1,16 @@
+{
+  "src/learned_astar/search/core.py": "946c8cdc6d5e2a4ddc1f186c44d30e1760ef9b0efc8557e30bfa1330af8ad2c8",
+  "src/learned_astar/search/prepared.py": "cfca15b9bc6261572a8376d306bb8228077b930f54cc6d991c07d96ead7c5007",
+  "src/learned_astar/search/learned.py": "b97cf40f85d5a8d729df33b01d3c4b3c2a769b859669be3bf4ae3263fb11179c",
+  "src/learned_astar/models/network.py": "131188f3f64ae1fb33917f771250aba2de0217e2b395284bb743e6f72e7ab722",
+  "src/learned_astar/research/runtime.py": "c2f9d2bf6c70dee3ecdb56a16fa0fdb21c820f0e4db3d0c27bef1f072bda7f49",
+  "scripts/run_runtime_reuse.py": "769144b97a2af28e5dc6ee78b126332b503898b42806a9c3c1ca5b367dcebe53",
+  "datasets/main/manifest.jsonl": "a1240f86d36287eddeafa1c5d3e4ba5283cb4a42631877235ccc9dba2a3103cc",
+  "outputs/research_v2/development/manifest.jsonl": "e44fc2d7619c3a432d2d25a7c1246ccba391fdb2121fca52a4b15a01db5694c1",
+  "outputs/research_v2/fresh_test/manifest.jsonl": "f4e2654be8bfe5d50ee68dbf990b0bdd9356c51566d5dec13a79ae2a08a7b4c9",
+  "outputs/research_v3/policy_validation/manifest.jsonl": "6f1630fc6a24162dae02645112235b58a52377dbac98867230cf00d131cd893c",
+  "outputs/research_v3/fresh_test/manifest.jsonl": "2e1f95e4499eb28f43aeb5ca7543450808fe6e07186b4e22aefec63cc06c68c1",
+  "artifacts/checkpoints/research_v3/seed_7.pt": "5468c9240835fba1d149f4327daa299927bbda5ae5a0fabead501e925460c3c8",
+  "artifacts/checkpoints/research_v3/seed_17.pt": "786f40a75cf629c536fd0ca708c06c735049e42d4c9475962884c93605e40388",
+  "artifacts/checkpoints/research_v3/seed_27.pt": "539d1fe2a13ac5bdfe079c523466d761e0f287ebdd7702c3979c23ebfa1a0374"
+}

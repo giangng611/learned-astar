@@ -1,0 +1,22 @@
+# Frozen weights and methods; no selection on this experiment's test maps.
+sources = ["datasets/main", "outputs/research_v2/development", "outputs/research_v2/fresh_test", "outputs/research_v3/policy_validation", "outputs/research_v3/fresh_test"]
+models = "artifacts/checkpoints/research_v3"
+seeds = [7, 17, 27]
+batch_sizes = [1, 4, 16, 64]
+repetitions = 5
+cpu_threads = 1
+order_seed = 38102
+bootstrap_seed = 38103
+bootstrap_samples = 2000
+time_limit_seconds = 5.0
+max_expansions = 1000000
+
+[dataset]
+seed = 44550
+train_maps = 0
+validation_maps = 0
+test_maps = 60
+extra_maps = 60
+size = 32
+goals_per_map = 1
+starts_per_map = 64

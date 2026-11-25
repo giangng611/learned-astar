@@ -1,0 +1,22 @@
+{
+  "random": {
+    "oracle_primary": {
+      "mean_paired_expansion_ratio": 0.7211766311293092,
+      "eligible_maps": 159
+    },
+    "oracle_tie": {
+      "mean_paired_expansion_ratio": 0.8756656662647047,
+      "eligible_maps": 159
+    }
+  },
+  "walls": {
+    "oracle_primary": {
+      "mean_paired_expansion_ratio": 0.44269203201057505,
+      "eligible_maps": 80
+    },
+    "oracle_tie": {
+      "mean_paired_expansion_ratio": 0.9393062997785299,
+      "eligible_maps": 80
+    }
+  }
+}

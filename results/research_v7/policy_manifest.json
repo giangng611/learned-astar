@@ -1,0 +1,2162 @@
+[
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/ea28ec32a70e53ed492aed6c1958e33d5b0c38527d8fe2e11494170b05c95fb7.npz",
+    "group_id": "32ee6e5ea3fc01edad510980f6214f37a7bd4a96b25374361b071add470fb925",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "ea28ec32a70e53ed492aed6c1958e33d5b0c38527d8fe2e11494170b05c95fb7",
+    "map_seed": 2170821501,
+    "reachable_fractions": [
+      0.9989154013015185
+    ],
+    "requested_density": 0.1,
+    "sha256": "3e692ea001443a8e3a50af91bd7c41ae25b00cea540644f9b44fb6b201ca60dc",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/ec6a593d959bf64a9971bb71e8de6879f3072d5fc70e0341649b8cf501388289.npz",
+    "group_id": "63ce11eadbffc8f90c1bf6f2529d9db2061c1ec062cef692492ecf39c5e0b3d7",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "ec6a593d959bf64a9971bb71e8de6879f3072d5fc70e0341649b8cf501388289",
+    "map_seed": 2843627066,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "102e6e5debe26ac2ff0351033175f45bd3bc05eead7de85ff8787ac5d89c6753",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/d6496b910b11ed0e8f9c93377edb454b8595fe4c75ac7cbef9fe18cd0008a264.npz",
+    "group_id": "2358527aa9d051cdaba8da8d936446945c2f3d33bc746a11604d5ac012f86939",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "d6496b910b11ed0e8f9c93377edb454b8595fe4c75ac7cbef9fe18cd0008a264",
+    "map_seed": 819003446,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "096370f26cfde298cfc334cc91bbe7df6cb678ce30b7c07cf9ef6570b6fc9a98",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/ff080db7e7109a6c2a3c51a8a00c0e64e3926f17c344594139b0690bb9667400.npz",
+    "group_id": "ff080db7e7109a6c2a3c51a8a00c0e64e3926f17c344594139b0690bb9667400",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "ff080db7e7109a6c2a3c51a8a00c0e64e3926f17c344594139b0690bb9667400",
+    "map_seed": 3369412118,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "5e19c8cfc569674e5243b803df31911d105d81628361681161b568f9ab5547a2",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/c877a196fbd730079ccedeae09a0fefbb508ac69786ea632c82ef986e7ae8758.npz",
+    "group_id": "b0027a886ec42a6d66979c7741e1b69bc29ada35f9eec489141210edf37efb93",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "c877a196fbd730079ccedeae09a0fefbb508ac69786ea632c82ef986e7ae8758",
+    "map_seed": 2223687264,
+    "reachable_fractions": [
+      0.9967462039045553
+    ],
+    "requested_density": 0.1,
+    "sha256": "8055e8c3019963c96a5fd15737e52bafa9b4696044a6bcc1b4e5541701da4d20",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/dceb7abb557c2773c37ad7e0119f9eed588ad4955b42224ce1f4eedc3bd03a76.npz",
+    "group_id": "dceb7abb557c2773c37ad7e0119f9eed588ad4955b42224ce1f4eedc3bd03a76",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "dceb7abb557c2773c37ad7e0119f9eed588ad4955b42224ce1f4eedc3bd03a76",
+    "map_seed": 3945119370,
+    "reachable_fractions": [
+      0.9989154013015185
+    ],
+    "requested_density": 0.1,
+    "sha256": "d71de111cf49f787d2b55acc8d0ca50b68ae90127c9339f965ae1173a89e763d",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/7032491913a60108ff6d3008276aa67b15641b705e8fccb904c027f9d8fdedad.npz",
+    "group_id": "7032491913a60108ff6d3008276aa67b15641b705e8fccb904c027f9d8fdedad",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "7032491913a60108ff6d3008276aa67b15641b705e8fccb904c027f9d8fdedad",
+    "map_seed": 2603282616,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "962df20d8c5a43e506a3c30f72857981ced3ed283b4a3fb7e79194caedcbf245",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/62318e143be048ab5e3781917402ddc3b4de181fcdffba7a7e6fbb889158619d.npz",
+    "group_id": "a78f9ffe07fe3dd771e53800b2b5b1c3d5b67a037080bfe5c24ed74b619184ec",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "62318e143be048ab5e3781917402ddc3b4de181fcdffba7a7e6fbb889158619d",
+    "map_seed": 2073302714,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "b0f284215f114f349bb63bada2edd3cae674a2608e0cd3729aec2c9a46bda07d",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/2257e536a9726f34700387b1bfeb14c2f9627d5f33b1c1bd35d1f5bba950cdf0.npz",
+    "group_id": "f5693d37a929adc74f8afe76b728c2f94d6e341302bdf527bce4952d14288b02",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "2257e536a9726f34700387b1bfeb14c2f9627d5f33b1c1bd35d1f5bba950cdf0",
+    "map_seed": 2502515439,
+    "reachable_fractions": [
+      0.9989154013015185
+    ],
+    "requested_density": 0.1,
+    "sha256": "a7cf8ce0908698d24fdd81aec696e359ccec2752be2db41f2b5827bd3aea996e",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/6be32c460d2b3b0a5b0682306a6fc2067815da5f4843cbfed558599e5ab89861.npz",
+    "group_id": "4a5fe1db63f9448104611f533a1257f18988c12ada3e66b7dc8e7c327e24c6c0",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "6be32c460d2b3b0a5b0682306a6fc2067815da5f4843cbfed558599e5ab89861",
+    "map_seed": 2368229024,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "8358295b18736de0f2b7e3aae4e36866857359f1ae55ea0b59c4a1b5932fd68d",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/8d70039fbcae6b9a60815871f1a5da8a83e386a72f88f70466b5fe025b973f45.npz",
+    "group_id": "c6bbb11683a3ef5257b79a8793961b3277b5257680165cb5a3d7cea2421b578a",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "8d70039fbcae6b9a60815871f1a5da8a83e386a72f88f70466b5fe025b973f45",
+    "map_seed": 2457324802,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "1e1382eca46f89779e29356693b7dc39b58eccf07c765fe3830fb88271917f10",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/d9ca27905803fd41d9dc0e68415be62eedf3e8d8a570addb479613efa2e78d74.npz",
+    "group_id": "f1101fea17ab2a8fb861001116c558c858a5e0688c9a25d2900bd5f00b03ce6a",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "d9ca27905803fd41d9dc0e68415be62eedf3e8d8a570addb479613efa2e78d74",
+    "map_seed": 3311705019,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "27770bba8c30def3414e66f118c60b98e047b156b3dffe83a315c7224f9e1b3d",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/b88d2153472418dd05f193b1a72ee22c0edb4053539230def130f434af3397b4.npz",
+    "group_id": "afc8bdeb2131d55d37162c6b3651e643298c2091a87107c20129b99296093699",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "b88d2153472418dd05f193b1a72ee22c0edb4053539230def130f434af3397b4",
+    "map_seed": 3249516520,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "b3e97ec5494165108270bf9c9bafcaff1cf8f73f3bfd31038a2b68ed8f09f77b",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/31856b07a1f4afc57175263098653a992cfc9fe9f332aa25310217814bba24ca.npz",
+    "group_id": "96f7c3f346bd6d6e09e3df7bc1fce3cd6b8ed581baa18a8dc2bdd3da7f57cb45",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "31856b07a1f4afc57175263098653a992cfc9fe9f332aa25310217814bba24ca",
+    "map_seed": 1175638793,
+    "reachable_fractions": [
+      0.9989154013015185
+    ],
+    "requested_density": 0.1,
+    "sha256": "5abb2cef5a092963aa475abf11560bc54be261377b7366b78015cf3324c996d0",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/389364a29fa2bd49e09ec17f228298d29b7d0355d9129fd04ee2e72737a4b1f3.npz",
+    "group_id": "7a519b386b095ae193f74b99a6056739da606465495bb2488f4583d10a80701c",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "389364a29fa2bd49e09ec17f228298d29b7d0355d9129fd04ee2e72737a4b1f3",
+    "map_seed": 1787129435,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "71148ff0cefbb6d80f6e7893dc1ea1876581093827b5d01433aca9a70a8b6f7d",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/5152910a81d64290b6f081873d47f82935beb69d02c0c8559ec9e2160a75d600.npz",
+    "group_id": "933272c09566b493a286bb3fe44c3d536c106df637fbf1ff1459a50c51cd6bc8",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "5152910a81d64290b6f081873d47f82935beb69d02c0c8559ec9e2160a75d600",
+    "map_seed": 2682783957,
+    "reachable_fractions": [
+      0.9989154013015185
+    ],
+    "requested_density": 0.1,
+    "sha256": "361534385a9aafb61ea4f67627e9c3cc7b0c1d896ec38a308f828a6ffc2464d9",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/7fcdb631d0a2158e4f70d6a794b63be379af7144b9d927155fd27104197ddbc0.npz",
+    "group_id": "dd10173d25a0dc5455f1eb62df89f570a03a95414e75ac43193681d7df770229",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "7fcdb631d0a2158e4f70d6a794b63be379af7144b9d927155fd27104197ddbc0",
+    "map_seed": 4238838546,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "1d0b15b4323d7ae5ce163cec17862eeb3ec56daf5d27e9f9b90845d27f4ced09",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/10ae5f7d977a5b8e654ca72132bc3ada7e1a019fea2c96c866b8d1565ea5f0b7.npz",
+    "group_id": "75baf8e25928454274149d90ea57abd794415d25edd2633bbe1bef18a9a9ca31",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "10ae5f7d977a5b8e654ca72132bc3ada7e1a019fea2c96c866b8d1565ea5f0b7",
+    "map_seed": 287521489,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "c7ebdbc75f32992341fd7c662a1a3264706fed2f9a7ddf9ba9dc238c37672d4e",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/9aa8182dafa1b359b98e5a5d4edf18f302a178d7038c918fa2db439caf6d36c0.npz",
+    "group_id": "2b6320333e50e2047b445d2bd0948569f0757b967d3c97e465140fd0b96d3e74",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "9aa8182dafa1b359b98e5a5d4edf18f302a178d7038c918fa2db439caf6d36c0",
+    "map_seed": 3189999409,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "b345863f7e583d15cfb5c59776c08a76b12e2119f3343f2f276282121e8b3f37",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.099609375,
+    "file": "maps/3a136d8cd3d082d0ba24d678463548647f15fc45c5540247105d2c88d69cfa04.npz",
+    "group_id": "af2ca8f56cef5b8e4c8faa6f27c4e4f86a9719b4e3d28e3a6a9476f94720e4dd",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "3a136d8cd3d082d0ba24d678463548647f15fc45c5540247105d2c88d69cfa04",
+    "map_seed": 4141350787,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "00a837ada0978f7276ce9e3bafde9a0f6860c3e4f373337add57231ce992c2db",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/21fab59b4d7bb3e92711a1a607c2270e5dbe179d132792697cae6f982f06be7a.npz",
+    "group_id": "d5b3c0e0d537ded19777d863834c1647557c485f5603b59723913e9160929ea7",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "21fab59b4d7bb3e92711a1a607c2270e5dbe179d132792697cae6f982f06be7a",
+    "map_seed": 801930557,
+    "reachable_fractions": [
+      0.9908854166666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "9522c112d16b59faef14c9eae82e49af045508cf58dd1ee44f8e829086a1bdce",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/cc294fd6278e5e934d7af1db11dbce439f6dac0d175a820d32fba0a38dbf8712.npz",
+    "group_id": "f9c6eb700ae901a00307b935c6b462eb6c35411e55c840bb605019f832f43758",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "cc294fd6278e5e934d7af1db11dbce439f6dac0d175a820d32fba0a38dbf8712",
+    "map_seed": 1876804984,
+    "reachable_fractions": [
+      0.9895833333333334
+    ],
+    "requested_density": 0.25,
+    "sha256": "b61a84e4d5f38d69142f8ac0745d71b2e32c488003aa16717222a0141352e08c",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/1466d6d9256044280a1f339e072fa75c277d6145f2a74a2385156b22389ae337.npz",
+    "group_id": "1466d6d9256044280a1f339e072fa75c277d6145f2a74a2385156b22389ae337",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "1466d6d9256044280a1f339e072fa75c277d6145f2a74a2385156b22389ae337",
+    "map_seed": 1217842085,
+    "reachable_fractions": [
+      0.98828125
+    ],
+    "requested_density": 0.25,
+    "sha256": "cf9f79c666a99b69e710e758d1a398aaba8d4d4fde61c9e6dd2cb84de1d38662",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/cd77b3f0035e08659cb23400d295b0fb82f4704173061dd07dae5ba57baba738.npz",
+    "group_id": "40a2cffbdd2fa1f81c9bb55819ef73ad3132393a2156469a359f6fd4e86d0f89",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "cd77b3f0035e08659cb23400d295b0fb82f4704173061dd07dae5ba57baba738",
+    "map_seed": 2557560361,
+    "reachable_fractions": [
+      0.9869791666666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "06172d260bae5760122dfbd14c6de3d6424d2a66171f491db7178b5bbf0bf339",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/4da24f360b846a8472341437313bcf4a792446c367314e93afcceb7b159b7619.npz",
+    "group_id": "845bc27af27e84a86c96d33647623900734abe2867acac44e1754e269600f2d4",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "4da24f360b846a8472341437313bcf4a792446c367314e93afcceb7b159b7619",
+    "map_seed": 1670014725,
+    "reachable_fractions": [
+      0.98828125
+    ],
+    "requested_density": 0.25,
+    "sha256": "8b66d9ca1966ad615dd7307ae4e3756d0988ed0364fd3470deab2d7593b679f1",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/18d87a0414800c45e5577edb5e28683cef9d17ac48e8bfce4fb5ddd18de7bcba.npz",
+    "group_id": "4353679d988f747f2af1f769417ff4358ed5d2b8ef6bd08af4183eb42dabe7f0",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "18d87a0414800c45e5577edb5e28683cef9d17ac48e8bfce4fb5ddd18de7bcba",
+    "map_seed": 2783464844,
+    "reachable_fractions": [
+      0.9947916666666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "677ecb1bf88eb20699e814f5ec39a6ff9e1cf6cc6b050f4459e14f2dce1366eb",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/ab7023509e114a509ceb25b9386c2eaaf7c3f2291d2192824bebb0f3b67b17f7.npz",
+    "group_id": "b6116cc19d322c2e2204e3b4ef3d1c05103cd7bd306a2aa368186bf6564179a3",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "ab7023509e114a509ceb25b9386c2eaaf7c3f2291d2192824bebb0f3b67b17f7",
+    "map_seed": 1023315996,
+    "reachable_fractions": [
+      0.9986979166666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "2c89464a50be3323317ea7685f9e621e7a06b03b0632876de01ca9f822b3b430",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/d4b2332c770d414cb643049d25255b36966a4e8f28d7cb3bae98b862c16fc0df.npz",
+    "group_id": "fe5a4712781382fd76fa35abc0bdc296be125485db60d03c82e3ab1052b57b07",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "d4b2332c770d414cb643049d25255b36966a4e8f28d7cb3bae98b862c16fc0df",
+    "map_seed": 2748108183,
+    "reachable_fractions": [
+      0.9908854166666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "caf40d670e82c18e832027864d5cb0207ca09f7a610bffcbc865aefc976ce035",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/0f62d6cac679c1139f0c5e8951e89100767d519079223e317c23831d1b63483c.npz",
+    "group_id": "706365c98f030358a11bb4d80ea33d1692dc05a097dfc2ad1f5f06e3bc81eb79",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "0f62d6cac679c1139f0c5e8951e89100767d519079223e317c23831d1b63483c",
+    "map_seed": 3782812389,
+    "reachable_fractions": [
+      0.9921875
+    ],
+    "requested_density": 0.25,
+    "sha256": "8168572804ab7d24067920c97d02d45b01f3a35b3f80534ee0e25b21097a5c17",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/ae7126b7318f18d18a844711a703d77329453e53b4b516eeb2d04dc4b496d61c.npz",
+    "group_id": "368516447cb7e11f2ccc8ba4274994c06fa92c884903894aef8200dde3decd41",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "ae7126b7318f18d18a844711a703d77329453e53b4b516eeb2d04dc4b496d61c",
+    "map_seed": 210265820,
+    "reachable_fractions": [
+      0.9895833333333334
+    ],
+    "requested_density": 0.25,
+    "sha256": "4b22d896344c36cf37dfb508c8d2b483ad27515e8c9011950a47cc0466c5ca8a",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/a0de8a5ffef05d982c570a9c7eb78d726d6f09aaf96e621b35a3ef0569c9b558.npz",
+    "group_id": "becbd77bb5d2b28e1d4760ad04f4c72afbfaa4507738ac356e6c004cbaa289a3",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "a0de8a5ffef05d982c570a9c7eb78d726d6f09aaf96e621b35a3ef0569c9b558",
+    "map_seed": 3393356885,
+    "reachable_fractions": [
+      0.9361979166666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "2a6a7eef0ebcc5f4fb1f7d1fdb9dc62be4ef3d51aaf48e9cb3ac3826a2717853",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/bee34e93958dcad5126ebae618bff22d15d6e6017d42369f23c6e0e388728a8e.npz",
+    "group_id": "bee34e93958dcad5126ebae618bff22d15d6e6017d42369f23c6e0e388728a8e",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "bee34e93958dcad5126ebae618bff22d15d6e6017d42369f23c6e0e388728a8e",
+    "map_seed": 1397024898,
+    "reachable_fractions": [
+      0.9934895833333334
+    ],
+    "requested_density": 0.25,
+    "sha256": "10a786bfb90c93f558bfe12763f231f0d1703e1535bdce0013f6cb79155f8fb1",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/34e178ee9350a1d38687421f04853941fa65b3e46e81184c90bdd6bc0e34243f.npz",
+    "group_id": "34e178ee9350a1d38687421f04853941fa65b3e46e81184c90bdd6bc0e34243f",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "34e178ee9350a1d38687421f04853941fa65b3e46e81184c90bdd6bc0e34243f",
+    "map_seed": 338998276,
+    "reachable_fractions": [
+      0.9921875
+    ],
+    "requested_density": 0.25,
+    "sha256": "bf2dc9e0681a6b322c5950d62f13b545ef8915e1394a6b423127225beeb25ab9",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/c9f5a69517314814401c9468936adbd014f708fa624db1aa21c97fd63a89516d.npz",
+    "group_id": "c9f5a69517314814401c9468936adbd014f708fa624db1aa21c97fd63a89516d",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "c9f5a69517314814401c9468936adbd014f708fa624db1aa21c97fd63a89516d",
+    "map_seed": 2958488342,
+    "reachable_fractions": [
+      0.9947916666666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "e809dad997f8bee5863ba69f097292316aecc2660e91e94a79efaab82904511e",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/6009f4a2e8a19a7abbb116ee760e958afd907e709cb109227164c5f245dd2a6b.npz",
+    "group_id": "02ef1f91de90f009aeb4ae7031b723c1f673557cab760b42d00a61e25784876a",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "6009f4a2e8a19a7abbb116ee760e958afd907e709cb109227164c5f245dd2a6b",
+    "map_seed": 409673714,
+    "reachable_fractions": [
+      0.9830729166666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "8ef5da29c1c3441e4428449a9914f2fd2c2aa714068dd494c7f547346f775738",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/e9d74628fc5a95d7629fbcc84b606648d3423961540e465adab3efdc2f2b6e15.npz",
+    "group_id": "303dbeff4806b60330fb47d1d585c04259923d7c58030dffbc06945b5a94c466",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "e9d74628fc5a95d7629fbcc84b606648d3423961540e465adab3efdc2f2b6e15",
+    "map_seed": 314447311,
+    "reachable_fractions": [
+      0.9895833333333334
+    ],
+    "requested_density": 0.25,
+    "sha256": "2359108b448f2892cb23499c91a72d51efa1612cf5b4c8383d6f3d0e9119b153",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/0cd323adb3b18d5b4b459a715751a4d148ce456df49ae6d77a94dccd2858d605.npz",
+    "group_id": "0cd323adb3b18d5b4b459a715751a4d148ce456df49ae6d77a94dccd2858d605",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "0cd323adb3b18d5b4b459a715751a4d148ce456df49ae6d77a94dccd2858d605",
+    "map_seed": 1205029655,
+    "reachable_fractions": [
+      0.984375
+    ],
+    "requested_density": 0.25,
+    "sha256": "6476663517b3c41e04ee4a3cdb4ad06d752f550fdb2ceb2795bfcf1c58ece491",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/2542fd4da5ca956f6bbb5e698e09600ff2111823dddf6b5e4dc7480aa24e8c40.npz",
+    "group_id": "17016b0988afaa4bf292646e6f999128b117a4485a8155e019ff4dafcbb9906d",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "2542fd4da5ca956f6bbb5e698e09600ff2111823dddf6b5e4dc7480aa24e8c40",
+    "map_seed": 4121292839,
+    "reachable_fractions": [
+      0.99609375
+    ],
+    "requested_density": 0.25,
+    "sha256": "4fe27bdec12b680f3e66574739c70bc6d7fea1f4a35b8bb97d6ece086df91001",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/4ddcd08cf6a011739c7dbce25904fd59ef7b93fafd5b501de09907092a9d418b.npz",
+    "group_id": "49bda9f4fd01973fce07c26d507525c6370ef721e60781828ce6fb1a0caf22c1",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "4ddcd08cf6a011739c7dbce25904fd59ef7b93fafd5b501de09907092a9d418b",
+    "map_seed": 4182699058,
+    "reachable_fractions": [
+      0.9947916666666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "2553522966f15a075b36a22e5cf1c40f0a59f3fa70fb60fc47cf188eec5c3158",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.25,
+    "file": "maps/0f24c852d3b71daf2acc32aa402917fc733ec4691965116ae68b6cfe7bd16765.npz",
+    "group_id": "98422814452e9ef374be7274d6d9662599a65da8bab87922ff999df87ce76175",
+    "height": 32,
+    "kind": "random",
+    "layout_id": "0f24c852d3b71daf2acc32aa402917fc733ec4691965116ae68b6cfe7bd16765",
+    "map_seed": 1726411917,
+    "reachable_fractions": [
+      0.98828125
+    ],
+    "requested_density": 0.25,
+    "sha256": "b91c4d001b4dca8a6f63ec4efbdc2963d70c62d69d68814096a152b3bcac4c7e",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/cf040409924df7f32df762124afc8de1eb6adf624db7790629e76e009c084357.npz",
+    "group_id": "cf040409924df7f32df762124afc8de1eb6adf624db7790629e76e009c084357",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "cf040409924df7f32df762124afc8de1eb6adf624db7790629e76e009c084357",
+    "map_seed": 2718293042,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "5ed00a8686f79bacaf05a285db8709c72ecb6f5121fae3bc329d178f5322b49c",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/e160082b2cf62b1bd96c5ef51daf25bb0c535e45b1dab246524b66e4f7de805c.npz",
+    "group_id": "aad0edb9df798da19638884b49fc51dc793fef9d1a2307a3cc6a95d060523492",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "e160082b2cf62b1bd96c5ef51daf25bb0c535e45b1dab246524b66e4f7de805c",
+    "map_seed": 4001175802,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "ab281138cbdf315f6134a47e98a8218afea1a37023d38b791c7f9e53fa62e4d5",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/2e3e10f1cda8498f99d403c415df51ee7d9e2c52fbfcbb2d72863588d98d808e.npz",
+    "group_id": "bf6cc1c63810443c4799d9f4fe19415a2f7b01c37be9c64f082dcea7a5a3d323",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "2e3e10f1cda8498f99d403c415df51ee7d9e2c52fbfcbb2d72863588d98d808e",
+    "map_seed": 3125804538,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "a5a5ed2449774f40a2a95d84288e67af5ede1b4e039ba26bf633746ca69dd59d",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/97bf12d50ac0befedf23b72dc79c9666e539be2259e1d1a9527ed4c385e52495.npz",
+    "group_id": "ddac722bc5816ebe92eb6b7553599fccee61577060fccc431d6d26be61525101",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "97bf12d50ac0befedf23b72dc79c9666e539be2259e1d1a9527ed4c385e52495",
+    "map_seed": 2056150131,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "625a83ee05ac59976fa2920eb5b5fd4b9d7bb9fc76ad54a0518851d170d709d0",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.17578125,
+    "file": "maps/1222b9e33c19295999cbec14372648f8fdc602f3a23692456befadf43aa1d2fe.npz",
+    "group_id": "832c488a66987baf0c5252cd8f68f6fc1656468d8f85f3106cb1e15d8aa8c97e",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "1222b9e33c19295999cbec14372648f8fdc602f3a23692456befadf43aa1d2fe",
+    "map_seed": 1826073538,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "80a1ab485738628a995b8bb444891af40fb47b49154d93f3e492744bd3ec323a",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/1bb84cd1cc4ee5adaf45bebc08d1064730ac381d16770db35f6c790cf0c2b77b.npz",
+    "group_id": "b8226f170b36d72aae9a0c08e0f826c44800c76d83d828e8723ebce3221b5ba0",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "1bb84cd1cc4ee5adaf45bebc08d1064730ac381d16770db35f6c790cf0c2b77b",
+    "map_seed": 3146916490,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "7c61097cd542693a9e34cb939a00b51976ce5453193957d99cafcc46daa53512",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/dd4ec0e8ea43896a9d0e345c27253b394fb5921894e7f113ae9de0c005ae588d.npz",
+    "group_id": "95b8127ce50653516c447de2d87e6b2e5ce528e76a9049684b376f1706cff94e",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "dd4ec0e8ea43896a9d0e345c27253b394fb5921894e7f113ae9de0c005ae588d",
+    "map_seed": 1158412803,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "4d87f5980cb5273801c8a5d83fa55bca3f238d8a044edd8d02507b8b0e8e8636",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.17578125,
+    "file": "maps/3ed9d39e47f88924965936f39b55259f46c1996050c3517db136f1273e15dbf4.npz",
+    "group_id": "3ed9d39e47f88924965936f39b55259f46c1996050c3517db136f1273e15dbf4",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "3ed9d39e47f88924965936f39b55259f46c1996050c3517db136f1273e15dbf4",
+    "map_seed": 3483085575,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "bbd1fb74c369eea74b71bcfa1d69a61e51f1061d03c726c104736315971c71c7",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/c394c780047d41ae20494aaf6c4424a8419593f607891ca02b175639ceccaaf1.npz",
+    "group_id": "c394c780047d41ae20494aaf6c4424a8419593f607891ca02b175639ceccaaf1",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "c394c780047d41ae20494aaf6c4424a8419593f607891ca02b175639ceccaaf1",
+    "map_seed": 3677186468,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "2c12096db8ce5eb52f962769d95d118fae288d59efb53aa369e1e4ff800f764f",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/2e5999e9782c19d53bc313aa7f7f14063277a3662408ab508a1a9c8146ca612d.npz",
+    "group_id": "44a732c4e49d363ad655f575dec66ba827962879798a3a1d2a701c87387ab429",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "2e5999e9782c19d53bc313aa7f7f14063277a3662408ab508a1a9c8146ca612d",
+    "map_seed": 3210899611,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "72186d516dab5066643eb137a29fff804ea795b93b70fa1579c45c8354d6657f",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.1171875,
+    "file": "maps/5fafdc02ecc9bd5126fab4bef1326d91f6d571b7477cfd4af5bf2c18141b9e47.npz",
+    "group_id": "254e97b40b225c2f9815e5554281566b8c8f23de5fdc87cd22ffffc549477629",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "5fafdc02ecc9bd5126fab4bef1326d91f6d571b7477cfd4af5bf2c18141b9e47",
+    "map_seed": 2742360799,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "26676beb05b01436e8e52a435631cb6481d4016229cafdd1765675fb13dcdd23",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/0a15eb615a832530f951e120860d0011ace861cf8245de1e141cfb86fd115037.npz",
+    "group_id": "d3212cb9b724277ec1cca87688842e55ee10aaa965a83dbf9b21290b6464af16",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "0a15eb615a832530f951e120860d0011ace861cf8245de1e141cfb86fd115037",
+    "map_seed": 1884821333,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "5c2c30040c3c7842a203ed7986204e74190e4bd4fdba3f766cc74d44195db15f",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/dcd5e06a80ee8570868c78b04c15611fc0e8f275883b5a045351731c34cd2288.npz",
+    "group_id": "6f51ed27121761486d5fe33399e3d8c80714d16f0f0666f41e464739eb67c133",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "dcd5e06a80ee8570868c78b04c15611fc0e8f275883b5a045351731c34cd2288",
+    "map_seed": 2859274032,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "753550bc9652f3a476164237f2dc5989a672db13b1c80376ff2594fb2118f27c",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/8df4544488c03609563d6f2dc2a25ff9af369bb8524e28cb044749974d0c936a.npz",
+    "group_id": "ccdc9427f773beeac84934b99a6a70618ec7fcfe24c36ab4edc885910fdb1f9b",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "8df4544488c03609563d6f2dc2a25ff9af369bb8524e28cb044749974d0c936a",
+    "map_seed": 2091676129,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "f20c9fd1c94b1772c287692c4448bb6f3c27ebfb93d9e3f9ee41820de5b71b12",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/7689f4266ffefe896fe2487d3fd50cf44872137a9e89bc3103d3c195c98afdef.npz",
+    "group_id": "7689f4266ffefe896fe2487d3fd50cf44872137a9e89bc3103d3c195c98afdef",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "7689f4266ffefe896fe2487d3fd50cf44872137a9e89bc3103d3c195c98afdef",
+    "map_seed": 3297691388,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "9c73dae99a7f3c089dec3648a82354d9fe081a92891010ba465bec9f68818f9d",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.17578125,
+    "file": "maps/9946156244c7f79db545f4f8b447c9193e5eebaafcf752b44bd6a549a7475eb4.npz",
+    "group_id": "779ba210589216a17e7fe4c50ca3387233447211ae400b9483b79575659002f8",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "9946156244c7f79db545f4f8b447c9193e5eebaafcf752b44bd6a549a7475eb4",
+    "map_seed": 619714808,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "95c666c6fd7109d0957f89d475b1c588990d3af13bb9571ded38cbbe71de6808",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/5e3d480a860b716d77147ddbb2d853147c81ea2ef4c441ef154ed8aa2126e206.npz",
+    "group_id": "56dfd444a806d3697d3704e4a598e81ae6c182126a74df63a5eb4cea489cdb73",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "5e3d480a860b716d77147ddbb2d853147c81ea2ef4c441ef154ed8aa2126e206",
+    "map_seed": 349718423,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "b8c75317fa4edea27e8bd0ede6f60ebb99172b68eb34e74b77b437aa3af674ff",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.17578125,
+    "file": "maps/f7623ae83140f17aa3595c19f7d5732a58b356762fdd19b2cf9220029d545b86.npz",
+    "group_id": "3054e7bcc5f91b4bb03c29eaa912cec557fb4fccaf095984f980a60004860f95",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "f7623ae83140f17aa3595c19f7d5732a58b356762fdd19b2cf9220029d545b86",
+    "map_seed": 3514777839,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "b043f8f873e8b62113fd941bce9c1f4a53fae3b7236819984dbe7b52cf125725",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/784f3b7a0e643a58a55eab519059055cac8dc3b7d49250d3947bcd92a1658ad1.npz",
+    "group_id": "fccb5cb4508efbdb48d7255864b44aba998fcacdfe8046cb122d8aa5dd1f3167",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "784f3b7a0e643a58a55eab519059055cac8dc3b7d49250d3947bcd92a1658ad1",
+    "map_seed": 4229896090,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "593bd697a86d96394de03bde5149b6fc6f7d6d1cb0aab417b975edef85d994ea",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/faff880f1269dc4812d4ee81df22e6ac9d8c51b782ae3c5da87b05903c0f8b93.npz",
+    "group_id": "a0ac9e033946540c68429a59d08a3bbc6c6ab7853274246292b38f5108f3070a",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "faff880f1269dc4812d4ee81df22e6ac9d8c51b782ae3c5da87b05903c0f8b93",
+    "map_seed": 2694139029,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "cc1896b8f962880aed0f69daeb04a4c40742b5832a49f4b490cdd5a89abbcb56",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/e769d38285eeb8bf1be76f94f528ff4c814d24f82ee7b65a08f2a4ffb622249e.npz",
+    "group_id": "78f7a4adc1774b732c7f8c95d899b133c5ef7bc74209a471b41dca28bf409cc2",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "e769d38285eeb8bf1be76f94f528ff4c814d24f82ee7b65a08f2a4ffb622249e",
+    "map_seed": 4038797358,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "ac037a4934383e793a64be3b32e7197fe22cd1f77b3b04071e3384a9219434e1",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/55430cd1ab3b3f8674dad5c7dc978f4cf6573438c26a96b8133d237118c013cf.npz",
+    "group_id": "3ce9b0e5cb89d8a3a218c41e73677ca5d2e14adcca4ec0911d379491f6975522",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "55430cd1ab3b3f8674dad5c7dc978f4cf6573438c26a96b8133d237118c013cf",
+    "map_seed": 1066422400,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "39917c3ee670cfe9500436859bb2e6067abfc7263c51983d5e96f4067ad17832",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.17578125,
+    "file": "maps/52b04fda358215f7d00d894d420ef0c69e9f4f20fadcc806fa66066f2e372d93.npz",
+    "group_id": "5696bf22fc1cb64f87b044b95b5a2354654334df0963f132d662e82a96e5ecef",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "52b04fda358215f7d00d894d420ef0c69e9f4f20fadcc806fa66066f2e372d93",
+    "map_seed": 3432708349,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "dc54cbd6b207797efd019bf67fffdd127ff36ddc4fc909870b8f2cecba8f2f89",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/4d50ee8e057d63a38ab21f1522290a1168f699791c6604a2edb25e3c073f46f0.npz",
+    "group_id": "efa328c10e2fecb140dc8f411994eaa17ca34c517e850c68df601534bb7346b4",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "4d50ee8e057d63a38ab21f1522290a1168f699791c6604a2edb25e3c073f46f0",
+    "map_seed": 902547305,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "d3be544de11ac438bef1b0c06990394ab1dd3ab42f699d164a0f8b5c51091df7",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.17578125,
+    "file": "maps/129b4621d4e689cff8b9cf654020bd81e666f450c351c60be54b0d3a3fe75f0a.npz",
+    "group_id": "62f7f9962a68c6f3d6bc185484e82b1564f81c215d01063d6050df1cfaa0edb5",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "129b4621d4e689cff8b9cf654020bd81e666f450c351c60be54b0d3a3fe75f0a",
+    "map_seed": 2348786423,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "bbd9c99aada2eef1d6602deea4a438cf12d53c63913606cc072abfb48f2e0872",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/5329a330a4f5f567511ef4fa8e92c454ceb0626dc71f30b4b2683d5087da50a9.npz",
+    "group_id": "93fbe3bc2ced8a64bc1421c06f197fa60a474fb2148e92c85aa61872597893b6",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "5329a330a4f5f567511ef4fa8e92c454ceb0626dc71f30b4b2683d5087da50a9",
+    "map_seed": 2167978361,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "2678670313d0f4e050806b30887b6799c396941ecea806fddfe019bc2e0f6f79",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/8b07f45910df1364351d7651c1b258da33e854726d05acf0054c662bdca818ff.npz",
+    "group_id": "8b07f45910df1364351d7651c1b258da33e854726d05acf0054c662bdca818ff",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "8b07f45910df1364351d7651c1b258da33e854726d05acf0054c662bdca818ff",
+    "map_seed": 3801626765,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "bb86554591aec0c77c74f01c571fa82c6ca33ba65fbf42225884af37c40eafd7",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/8aed5dcd10810c270151e52f96cb39d7474cf03f6a3b7c08e7ee3b193dba3f17.npz",
+    "group_id": "8aed5dcd10810c270151e52f96cb39d7474cf03f6a3b7c08e7ee3b193dba3f17",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "8aed5dcd10810c270151e52f96cb39d7474cf03f6a3b7c08e7ee3b193dba3f17",
+    "map_seed": 2127167289,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "87f83d62250b4e60b155fac64259858f895096e01182f6f577f2d02e757e80af",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.1171875,
+    "file": "maps/be42e875fc276faec1e56e90a52087b4d4ebb462e82c2bdeed7c62bdafc69f5c.npz",
+    "group_id": "24a4c6604226f07935ebf9dfc1abcf8b4e62f7b9e53d3d907e4a06065c69a8b9",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "be42e875fc276faec1e56e90a52087b4d4ebb462e82c2bdeed7c62bdafc69f5c",
+    "map_seed": 876490478,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "1f9fe175552a8350b54ed56c543e0d2db8c5eadf8ab53e44b1088c15e33e8b28",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/2746be5459b8bb7b9d60689a86c7dac2903cc9450bf8cde8a0695c70c69a79c6.npz",
+    "group_id": "2746be5459b8bb7b9d60689a86c7dac2903cc9450bf8cde8a0695c70c69a79c6",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "2746be5459b8bb7b9d60689a86c7dac2903cc9450bf8cde8a0695c70c69a79c6",
+    "map_seed": 998448795,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "a06c1fca5e17f5262e8ec596c63ddf47fb36a25eb62b1187acf18eacd592ba97",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/b4d9d7130d89880e1301be7683466aefa48df4b1f5eb3f490447e84721a8eb48.npz",
+    "group_id": "b4d9d7130d89880e1301be7683466aefa48df4b1f5eb3f490447e84721a8eb48",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "b4d9d7130d89880e1301be7683466aefa48df4b1f5eb3f490447e84721a8eb48",
+    "map_seed": 1444746735,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "dcf553ca3c1bb9978ddf6a752ea77086226a06c475287083dbeb179c880f6bea",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/799688ce3f651372881d9387e0c058dd2f9d0c4ac73508544e9f92999690c803.npz",
+    "group_id": "d78a757e944e805600df8dfb438e87fe97fc72a04bf6492628cf84eecf27f295",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "799688ce3f651372881d9387e0c058dd2f9d0c4ac73508544e9f92999690c803",
+    "map_seed": 2412364845,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "8dcc8161c927bb6521435dacca9b997f880bcc87dd121a9a76d4a4597fd238cb",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/3f30046df5a40c81f4880e25a0effafd67ce6fe36ac974d3d069dcbfac5b9b3d.npz",
+    "group_id": "a7a7ff2f757cd36bec962a236740d1f7ea099d16e44d736f77333e9bc93ffa0a",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "3f30046df5a40c81f4880e25a0effafd67ce6fe36ac974d3d069dcbfac5b9b3d",
+    "map_seed": 428571565,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "889f79270814228ed662302812ee0ac81272b24583bcbb80980ef5c337370a32",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/5e7c0b3a87f7c0ce42a99ef998ee7a1da5227497133051e1e9595dd56f7d625f.npz",
+    "group_id": "aed270fce7e1de0395cf5529e8b336a62de3757d165f101bc466dfe4890fb818",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "5e7c0b3a87f7c0ce42a99ef998ee7a1da5227497133051e1e9595dd56f7d625f",
+    "map_seed": 3925583897,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "84309df417bbde12d43d4513e8cfbfc41716b572c2a029921f9f68b502f0c064",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/c47f6212078297c1f4539247421fd0577a6ff958c55544456894dba3e51698da.npz",
+    "group_id": "6ae694a8688e7995bc9f1a7de3a1de3230c453b45ee87393b22c8ab6dab79d74",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "c47f6212078297c1f4539247421fd0577a6ff958c55544456894dba3e51698da",
+    "map_seed": 1418488500,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "e968397529a83ef2c8ad37b13f473c0d9dc2f8bce8ec3aa87261df272249e69f",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.17578125,
+    "file": "maps/128d6a2658074e8063f2235bb8414b51b7c799c88fc441e54bb79a27d764b13a.npz",
+    "group_id": "942d09856cccaea27a9f269359756f4a40c66e00382be2e2d485646cef0a0e67",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "128d6a2658074e8063f2235bb8414b51b7c799c88fc441e54bb79a27d764b13a",
+    "map_seed": 990186486,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "00bb1afa6829d1330c64b3cba16c996b6df124e4569c156713f7699aacc1d7f9",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/09c1294007bfed2aab03e876d47060bc52f6a73da09ed1a1d768840332c68fa3.npz",
+    "group_id": "09c1294007bfed2aab03e876d47060bc52f6a73da09ed1a1d768840332c68fa3",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "09c1294007bfed2aab03e876d47060bc52f6a73da09ed1a1d768840332c68fa3",
+    "map_seed": 2244733739,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "3fa9638b953e5cff8c01a863ff630adb393d68f9ae2efbe994dc9985d55eab92",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/770be54a29168172fbeb7f17127e57a8f6b21d8a5752ad77cca5d13342214e56.npz",
+    "group_id": "770be54a29168172fbeb7f17127e57a8f6b21d8a5752ad77cca5d13342214e56",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "770be54a29168172fbeb7f17127e57a8f6b21d8a5752ad77cca5d13342214e56",
+    "map_seed": 2970478772,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "3f4640e774a0957cfb48907d85d7f6830a74db9ffe0b3c5a2b34a45372abbedc",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.17578125,
+    "file": "maps/eb7eb54c9dd1bd33235807da19c5f04496a02480ed38e0bc69bdbf9955a6bd24.npz",
+    "group_id": "70ca87e84bdaffe4f56b050da1f6f2db9ac6a7d0bccbab93739b93edbe7bcf79",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "eb7eb54c9dd1bd33235807da19c5f04496a02480ed38e0bc69bdbf9955a6bd24",
+    "map_seed": 4068308354,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "79cb3500481f7c3d3618b417fc8ef3c454fcb8261bc33adf6c7f7ce7db7f3918",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v3/policy_validation",
+    "actual_density": 0.146484375,
+    "file": "maps/2e68d2bb43c10fdd4ac58a5873db35011405a6eb083e358561984ed0f5860e4b.npz",
+    "group_id": "2e68d2bb43c10fdd4ac58a5873db35011405a6eb083e358561984ed0f5860e4b",
+    "height": 32,
+    "kind": "walls",
+    "layout_id": "2e68d2bb43c10fdd4ac58a5873db35011405a6eb083e358561984ed0f5860e4b",
+    "map_seed": 953468843,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "504faa5774e88201a2d4783da06bfa1d35dc902460fa403dc5d7975b210fa60c",
+    "split": "validation",
+    "status": "ready",
+    "width": 32
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.10009765625,
+    "file": "maps/f30c96c337c37ca9250b73113aded873e6426ce6e952a7d6f4cbd87ee2179218.npz",
+    "group_id": "9a6b07c5b1cad4e9a384e468b3f97238f362e4ed11f28c57cdd4a24f6085fe24",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "f30c96c337c37ca9250b73113aded873e6426ce6e952a7d6f4cbd87ee2179218",
+    "map_seed": 3760705781,
+    "reachable_fractions": [
+      0.9997287032013022
+    ],
+    "requested_density": 0.1,
+    "sha256": "1e2eb44653440981f3fd7ba3da977470049567478447ad5cc7aa4241b3755b08",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.10009765625,
+    "file": "maps/5d36d50775f17f95e15da0857c8994d224822565b29b4b9f3b6984fe2a9fd67d.npz",
+    "group_id": "5d36d50775f17f95e15da0857c8994d224822565b29b4b9f3b6984fe2a9fd67d",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "5d36d50775f17f95e15da0857c8994d224822565b29b4b9f3b6984fe2a9fd67d",
+    "map_seed": 2839246118,
+    "reachable_fractions": [
+      0.9997287032013022
+    ],
+    "requested_density": 0.1,
+    "sha256": "5898f7b1b174fb615ababb8573d4d18380b1bc5c69e782b5a78ffd695b4da09e",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.10009765625,
+    "file": "maps/64c15049b539828df63e59292b7475e6bc5191a3b334f9b0dca7e909d63e1b58.npz",
+    "group_id": "64c15049b539828df63e59292b7475e6bc5191a3b334f9b0dca7e909d63e1b58",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "64c15049b539828df63e59292b7475e6bc5191a3b334f9b0dca7e909d63e1b58",
+    "map_seed": 2593248287,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "e3528e5806e88ea9ad53cce021d61765e8841a20338224a83f93686c2ad0352e",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.10009765625,
+    "file": "maps/a2ad45363e3a087d24ac2327a87b86f985557f605a4bd5381a8a4d02587be6e1.npz",
+    "group_id": "9bb0669b2e20c06d0d8282601b23241ada0b354b7e75e340f7836b7f5de51a6f",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "a2ad45363e3a087d24ac2327a87b86f985557f605a4bd5381a8a4d02587be6e1",
+    "map_seed": 3426090903,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "741d49622a599c228c8df95b66ad463b4f32952563a0f9771334b46c622c0068",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.10009765625,
+    "file": "maps/c20c61b90e0268266c97952b1980dedc7689cd909306cf1f382b5d31d9e77461.npz",
+    "group_id": "82d91286d34a3a0a05222c15b60710f3dab1cc2c257f7a2c47a66d029936bc1e",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "c20c61b90e0268266c97952b1980dedc7689cd909306cf1f382b5d31d9e77461",
+    "map_seed": 102654087,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "c4eda7edcb9e84b030aae2c7b33aa04c54af788949b71ebac92c853682a37f77",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.10009765625,
+    "file": "maps/96c4ca02da7e8bf54f5aa86dcd3264b2fab41b9e500a315234c84533071f990e.npz",
+    "group_id": "dcb1bec496f85675994a391b07887852c52da66e1190f3205d27a722b06288e4",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "96c4ca02da7e8bf54f5aa86dcd3264b2fab41b9e500a315234c84533071f990e",
+    "map_seed": 1794758233,
+    "reachable_fractions": [
+      0.9989148128052089
+    ],
+    "requested_density": 0.1,
+    "sha256": "c0a5a4bd6a101fe5fd8a39395de7c9faf38c8a93ea42d85ce71e102549bfca5b",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.10009765625,
+    "file": "maps/260b3a5515d400fa5850e5f48502edf1294d30b5cd07649f338c5229c2d9a28c.npz",
+    "group_id": "46cf49202e2ee2763a54d75cae5ebaba4076ea67343c5a342f5f8e3c9ee9fb53",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "260b3a5515d400fa5850e5f48502edf1294d30b5cd07649f338c5229c2d9a28c",
+    "map_seed": 3713093297,
+    "reachable_fractions": [
+      0.9991861096039066
+    ],
+    "requested_density": 0.1,
+    "sha256": "6bf99dd60646a3b891fbc300e59dbdedd0fba1591582dc5c3363894d20404689",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.10009765625,
+    "file": "maps/bd7dd56b594da3e752291c6f5b0d746df9958ade2aeb4f3bf02595da6551782b.npz",
+    "group_id": "bd7dd56b594da3e752291c6f5b0d746df9958ade2aeb4f3bf02595da6551782b",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "bd7dd56b594da3e752291c6f5b0d746df9958ade2aeb4f3bf02595da6551782b",
+    "map_seed": 2299655355,
+    "reachable_fractions": [
+      0.9997287032013022
+    ],
+    "requested_density": 0.1,
+    "sha256": "ae00fef9e096808573273ac3a007b8d08c096392d0f2c7af7c525ea16a448a01",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.10009765625,
+    "file": "maps/9873533d35d58f90af415856bbe1c7c055917216bdb40901f9485a389673f1e3.npz",
+    "group_id": "061214543c3958a46c2dc76c8f3a4b898023987d0378745a16a79c52ac1ba834",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "9873533d35d58f90af415856bbe1c7c055917216bdb40901f9485a389673f1e3",
+    "map_seed": 2344677284,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": 0.1,
+    "sha256": "f9f1a702f1728291bc21c90d777dece855ac4d935697a7e5478c436ba3eff4e1",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.10009765625,
+    "file": "maps/e815bdc4012150b7109cbe800a3c82d642d027f445cced4d4846b99d86d716d8.npz",
+    "group_id": "8a6040fbb85a0d70c65f720b3be48461194c20d48860d31cbbae75b997d6baf1",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "e815bdc4012150b7109cbe800a3c82d642d027f445cced4d4846b99d86d716d8",
+    "map_seed": 1457987147,
+    "reachable_fractions": [
+      0.9997287032013022
+    ],
+    "requested_density": 0.1,
+    "sha256": "81e3e80a9802c03205a6e8e94f2227f86e19842066bb02d574145af644ca41ac",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.25,
+    "file": "maps/eeaf7696a823bd8809ecae0a32ce57d9fbb3ae54d478e6e01fe72dc266678076.npz",
+    "group_id": "85a3fc882304d6027d7790b2a3e8812ae6b576e65abf823455ccb317e79a6707",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "eeaf7696a823bd8809ecae0a32ce57d9fbb3ae54d478e6e01fe72dc266678076",
+    "map_seed": 2667782902,
+    "reachable_fractions": [
+      0.9915364583333334
+    ],
+    "requested_density": 0.25,
+    "sha256": "87ad1e89967f4ff2b6b3fbe3f78f0be1d5c6a47c5fb78b45863d1b02876478eb",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.25,
+    "file": "maps/50c03c19de904150a8f9cdafd7e1b52d3080351b81fefa6d650e49d073f2298d.npz",
+    "group_id": "c0694833c906013622b5786392e107422dea7ad70e6de6c946b976fa23b321b7",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "50c03c19de904150a8f9cdafd7e1b52d3080351b81fefa6d650e49d073f2298d",
+    "map_seed": 3155596417,
+    "reachable_fractions": [
+      0.9830729166666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "069286734cf1bbd24ed068153a3282a1de1ad55e823aac07ca9605d02c7abc75",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.25,
+    "file": "maps/fbcc249763c114fbc76a4f68b155039a36a47245c543cc1722f8b0fc0be76176.npz",
+    "group_id": "2ad86a60ea6d541b2f940ed7bcbffe4772b66afb98de15a70f7089829c2a7042",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "fbcc249763c114fbc76a4f68b155039a36a47245c543cc1722f8b0fc0be76176",
+    "map_seed": 567206979,
+    "reachable_fractions": [
+      0.9921875
+    ],
+    "requested_density": 0.25,
+    "sha256": "f91158a541a9a96c070c966e4a6a05ef3f3dda1a88031846ec27b67bfe78ef85",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.25,
+    "file": "maps/987a42e1b21f3422bd954dcbdbce3e31a70dad59295b4af874849732e3b6e6bf.npz",
+    "group_id": "d329bcd31296a5ffc13022416d81c7eff08edd76388049023b6e8acc4b7fc060",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "987a42e1b21f3422bd954dcbdbce3e31a70dad59295b4af874849732e3b6e6bf",
+    "map_seed": 682227540,
+    "reachable_fractions": [
+      0.9908854166666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "045162e9432a6b395e2183eca179f1c809359ec22ce0f05779ab9ccd35a78da1",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.25,
+    "file": "maps/cca968619dcbf6a74db2efb1e0d4547864e776556cdd72151c696d7cfe4e74ef.npz",
+    "group_id": "94ef0c11a77eeb950114d8deb3749b6bf367f1caaaf60d1c00e2b51d973d0722",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "cca968619dcbf6a74db2efb1e0d4547864e776556cdd72151c696d7cfe4e74ef",
+    "map_seed": 467914884,
+    "reachable_fractions": [
+      0.9899088541666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "5b399999aae752490916f132af22c229701049e59bb876d34e017376dbe09d0c",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.25,
+    "file": "maps/2aa7c1bdd933ae9998ad27a4b2e6672c578a6095edc43f878beb4d39cde060b7.npz",
+    "group_id": "691a3efc63c657a873c26f6c43926a7c56d1b8e58c1542e8d947074876a1a959",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "2aa7c1bdd933ae9998ad27a4b2e6672c578a6095edc43f878beb4d39cde060b7",
+    "map_seed": 3367916458,
+    "reachable_fractions": [
+      0.9925130208333334
+    ],
+    "requested_density": 0.25,
+    "sha256": "b41dfe75e85a3419d8d1696b7d3b7cc468d30ed9c504c720105dbec515acec5f",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.25,
+    "file": "maps/64a074976c04539cffd431742ecfef7cce3ce8d6279ce657e0ed10de013097a8.npz",
+    "group_id": "64a074976c04539cffd431742ecfef7cce3ce8d6279ce657e0ed10de013097a8",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "64a074976c04539cffd431742ecfef7cce3ce8d6279ce657e0ed10de013097a8",
+    "map_seed": 3502173293,
+    "reachable_fractions": [
+      0.9944661458333334
+    ],
+    "requested_density": 0.25,
+    "sha256": "1f20fa45bc7200725d5d9da170ada09d3a2ae6e29ad1deae0b162401bf2ce0dd",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.25,
+    "file": "maps/2cea7fb1f5d2624714faa2dd1af81143d0d9e6ee53b14715018cd5720f59d326.npz",
+    "group_id": "ef2899ae462d505211e8751e5316bf4ce34c9b2b19b9ebd45f69ccdba68067f1",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "2cea7fb1f5d2624714faa2dd1af81143d0d9e6ee53b14715018cd5720f59d326",
+    "map_seed": 4163517587,
+    "reachable_fractions": [
+      0.9947916666666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "a5254d7c87ca372f6576e41dd786c744eef0b4430c936ceebd0299a8377d7cd6",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.25,
+    "file": "maps/4ebc7e5b8644ca91bcd815ddcc3a66b5759688ef1b15826521e87b1e25783556.npz",
+    "group_id": "82302ebdcefa079a03a98d2c3eda8cf3af23b2a640b9837f5152e57f12f3ec3d",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "4ebc7e5b8644ca91bcd815ddcc3a66b5759688ef1b15826521e87b1e25783556",
+    "map_seed": 2437604484,
+    "reachable_fractions": [
+      0.982421875
+    ],
+    "requested_density": 0.25,
+    "sha256": "9968cc346cc19d944e6ee85b80e3d6f619f4ad1f571006955f0a426fae4847d6",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.25,
+    "file": "maps/de78c1100246a8ef6856e4eb71356ff540a925f99e46660c1f5eaa73edf5f8b5.npz",
+    "group_id": "de78c1100246a8ef6856e4eb71356ff540a925f99e46660c1f5eaa73edf5f8b5",
+    "height": 64,
+    "kind": "random",
+    "layout_id": "de78c1100246a8ef6856e4eb71356ff540a925f99e46660c1f5eaa73edf5f8b5",
+    "map_seed": 797526072,
+    "reachable_fractions": [
+      0.9889322916666666
+    ],
+    "requested_density": 0.25,
+    "sha256": "dd061c78a5cd0e086d3c7966957dbe86819251d62b6ac6be0a8f31bed0d5645e",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/b3b2ba6ccab51c2c790270c16ff46efca90d5f37f99c89c22f5f3b239e835b54.npz",
+    "group_id": "44ee9b042c7e387d843e740a6d420919b0b7c6b907e0d3768ac027a9f95ec8c3",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "b3b2ba6ccab51c2c790270c16ff46efca90d5f37f99c89c22f5f3b239e835b54",
+    "map_seed": 2964429793,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "69145b14632bff273a7e0659290fddcccde87f93dd5296d69e8467f5de2cb978",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.181640625,
+    "file": "maps/0095589ceab0b1dedd830c7e5f8c9369235bdb4b67a6fb636dbdb1009ecbe4b1.npz",
+    "group_id": "0095589ceab0b1dedd830c7e5f8c9369235bdb4b67a6fb636dbdb1009ecbe4b1",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "0095589ceab0b1dedd830c7e5f8c9369235bdb4b67a6fb636dbdb1009ecbe4b1",
+    "map_seed": 1329701770,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "5842d1e4236e050b8e9280a4e6180d86678081a65e3e50774c38cfd623ee0fb4",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.181640625,
+    "file": "maps/28e4333ed9c71b8e160f01335280b83f2e8acd488a61bcce6fa29a3fa44588e4.npz",
+    "group_id": "28aa34577894ce0fb4a91f0e3f3299cf8fb52644ef858f08446e64862dd726ec",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "28e4333ed9c71b8e160f01335280b83f2e8acd488a61bcce6fa29a3fa44588e4",
+    "map_seed": 2551437163,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "a3915ee14f463030ded1d98849197c97e573a78def8e571dac46d7f4842754d9",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/b8c60a5b9324152640af11432e1674bc9de436a52374051f5ab1e3757ca5d6a0.npz",
+    "group_id": "7e4c97aeae18d7d7b5121420e8ebbe9e5595aa15fe774b6cc089e8f88ffafce4",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "b8c60a5b9324152640af11432e1674bc9de436a52374051f5ab1e3757ca5d6a0",
+    "map_seed": 1391604777,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "822ac80f959e00bd210cad3f614e1668457ca949a6ec5048071c2d7e4199b093",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/1e4fac501e1ddcd79e949c729ba09fb653f8f73cf263bb50cf3815885237a6fa.npz",
+    "group_id": "17c46f7dc3ebb0a3f9793ad92ffe08e2ae84073d9cbb90afe70ec891c7d53015",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "1e4fac501e1ddcd79e949c729ba09fb653f8f73cf263bb50cf3815885237a6fa",
+    "map_seed": 3980055996,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "852342e1758f7d8a8af93aa227d20b9e1ecbfc3f6011af8c99ae48f1da51c17b",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/d87673fd19881ab70d46b1e40db0aa65df76c7676f4e030afe529c2052e4fae3.npz",
+    "group_id": "d87673fd19881ab70d46b1e40db0aa65df76c7676f4e030afe529c2052e4fae3",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "d87673fd19881ab70d46b1e40db0aa65df76c7676f4e030afe529c2052e4fae3",
+    "map_seed": 3178490493,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "942e4ef9e3a5477d368349f7f3de644d491ba299bce00c65e659e75562e08fe1",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/5d268aed9946e1ff8cb80d2c48a819b60a6c96d57cc3f54ed3bd2e8ee4a8ca68.npz",
+    "group_id": "5d268aed9946e1ff8cb80d2c48a819b60a6c96d57cc3f54ed3bd2e8ee4a8ca68",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "5d268aed9946e1ff8cb80d2c48a819b60a6c96d57cc3f54ed3bd2e8ee4a8ca68",
+    "map_seed": 2324008128,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "285cc5627fc6a834e6fb6aebe8eeeee6070f49429615c86cda56a50210296386",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/eb8514d8983dd9fd80d20b123fcd2c40656e2bc05eca52add1918f8badc81f83.npz",
+    "group_id": "e86bc3b1a90b19924e6aa43426d0d60a129c044ea52bc5a873f44f2fa0d60b3a",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "eb8514d8983dd9fd80d20b123fcd2c40656e2bc05eca52add1918f8badc81f83",
+    "map_seed": 1849245382,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "8d2f95def2304b8edf24a99e8a38ca48a62efedc27d7be593e7c7a4fe64abc2d",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/d3bec171f188034ddaad6c286277fa6f99e377eaa4ae9fbba57edb243ceed54a.npz",
+    "group_id": "877b8aadd2806618583526c33a7f5d4b48b8202708718cccf26c7b30309a2759",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "d3bec171f188034ddaad6c286277fa6f99e377eaa4ae9fbba57edb243ceed54a",
+    "map_seed": 1350263784,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "5253203abbd2fd296a6d5042bc5c0a9d2fc063be3f282a3f62f378877d50aa41",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.181640625,
+    "file": "maps/9858b23d9ec5d7266df046e04a1ce60a2de21725562fba1e5316bafb6939a62c.npz",
+    "group_id": "3c90d8ed9561d79a9127a0b736441c0cd1c59f95ea758266f09bdf25e61993a2",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "9858b23d9ec5d7266df046e04a1ce60a2de21725562fba1e5316bafb6939a62c",
+    "map_seed": 351903483,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "02aa77a15cddf28cabb15a1db66ee7ea06e771d77203edf9ba9cce771de59d09",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.1513671875,
+    "file": "maps/044eb361d715f93e0db27021f2ab13763e1c815fe1662f4af15e7da9b450b124.npz",
+    "group_id": "044eb361d715f93e0db27021f2ab13763e1c815fe1662f4af15e7da9b450b124",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "044eb361d715f93e0db27021f2ab13763e1c815fe1662f4af15e7da9b450b124",
+    "map_seed": 2387475791,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "8d80b8f90c091f3257d58e97389ff5c8bd7b7a7a34f71b1e0a62c773d9adb44c",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/ea35f40d5bfdc809344e2a41cb339aa3499f7bc51303b825b2fac3e0e8184a51.npz",
+    "group_id": "99a325f03e988b0c743528f8bd220f15896b5ae9ffd5c231cea1da882ae2cff2",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "ea35f40d5bfdc809344e2a41cb339aa3499f7bc51303b825b2fac3e0e8184a51",
+    "map_seed": 459058185,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "e1c701e26eab30d2fbff710bee588c1ef09ae767fddf87ab427075f23db7b9ff",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/294c924ff8cf275ff9ee5d5e7dced315fd225e351de67d89070c4f9ebaf0774b.npz",
+    "group_id": "ea6dd5e1b0b3eea2416b6e32a1dc7928c800d4eb35215fd5c87d2b2dadac75b8",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "294c924ff8cf275ff9ee5d5e7dced315fd225e351de67d89070c4f9ebaf0774b",
+    "map_seed": 2169016502,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "b8113a20d336284c2c0a69688dea8a9910b8a126fd2ab297cf8d9d5c2f3c9cb1",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.181640625,
+    "file": "maps/63ca5c0653df2ae1977e923d6ceb5cb3343f635a01f91458f34b3f6b2ae7695f.npz",
+    "group_id": "63ca5c0653df2ae1977e923d6ceb5cb3343f635a01f91458f34b3f6b2ae7695f",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "63ca5c0653df2ae1977e923d6ceb5cb3343f635a01f91458f34b3f6b2ae7695f",
+    "map_seed": 14675469,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "fb4b0f67d5e8d53f0ddaef3ab1ed40cea58515e7406ef041280f9c84925edb1a",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.181640625,
+    "file": "maps/7d4596b6907913c58feb05cd409495b1e682d6b674e64dcf9a13e08c06d6c6ba.npz",
+    "group_id": "f0503a385992a633027f87727c02474d650b3edbc6d515459fd22ba57d6b4592",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "7d4596b6907913c58feb05cd409495b1e682d6b674e64dcf9a13e08c06d6c6ba",
+    "map_seed": 133718414,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "7301a33774367c038b83c4d57698c15b5f6d50f4ff8f2e8cb37c722b53f1b9d2",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/9711eb654ac78a9d0030f87db2cda697b6dfa56d59b714d3c32f948a398b6b56.npz",
+    "group_id": "bce3b2049d3440331f94dd2adc5b76d20fca95ffcbdeb3f5f96c07697208e828",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "9711eb654ac78a9d0030f87db2cda697b6dfa56d59b714d3c32f948a398b6b56",
+    "map_seed": 4256189281,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "5f1ff33e4bb13f56c9d75463ece58957d9a1f431e1cfc97a322475c00ef062b2",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.1513671875,
+    "file": "maps/1f163f390dc18350785ccb695f4ad50a059f9a2dd288b1185be93d84948f2e01.npz",
+    "group_id": "4251362bd4e2a165f8f106af3aecf5c77fd875665de9f053cf885bca134b1597",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "1f163f390dc18350785ccb695f4ad50a059f9a2dd288b1185be93d84948f2e01",
+    "map_seed": 869223097,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "2c323a5ab0611f00d9eb86afec93138e1aefc439e7dac4f4b01720bd003dd14b",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/9a65c3a0f3aeb2b21d3f75a660213043780257828e5df041ff94dd618bd50a27.npz",
+    "group_id": "9fa9ada428ee7746ccf5784a5c73411c0e770ad4350b4fb51de5fd6887263283",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "9a65c3a0f3aeb2b21d3f75a660213043780257828e5df041ff94dd618bd50a27",
+    "map_seed": 1551057682,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "780027ea42785d7de38e7ee5598ab56817a0c0361d3e6c1f25fe524b806fa1c8",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/a4eec6557a6630f9b91dac69a44ec6d92627404ab76028b04d617f1bd6903d3c.npz",
+    "group_id": "105a5c43f02126e58f8ff07fd2e32bb6b3ed1b4696f8512abf0d823b67c9a5e8",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "a4eec6557a6630f9b91dac69a44ec6d92627404ab76028b04d617f1bd6903d3c",
+    "map_seed": 4272205627,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "d959a1b71563796fddb31e35bcc9e6b645ff5b088e0ca02d48d1dbbdf61167ee",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  },
+  {
+    "directory": "outputs/research_v7/policy_64",
+    "actual_density": 0.16650390625,
+    "file": "maps/9a3209df8c16e31a294e02c71cef793a6f1e23c21a1e08c1589ab9538f2ce0d7.npz",
+    "group_id": "a8a3f4f3b934a57afd2bc21deaaf68280cb29a5b0334d1962d545de098d879a4",
+    "height": 64,
+    "kind": "walls",
+    "layout_id": "9a3209df8c16e31a294e02c71cef793a6f1e23c21a1e08c1589ab9538f2ce0d7",
+    "map_seed": 3996247204,
+    "reachable_fractions": [
+      1.0
+    ],
+    "requested_density": null,
+    "sha256": "064faf7b0470257ac2b19bd461380ebd5b65f2452b69fe212ffff751a494890f",
+    "split": "validation",
+    "status": "ready",
+    "width": 64
+  }
+]

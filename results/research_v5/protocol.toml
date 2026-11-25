@@ -1,0 +1,47 @@
+# Width-only comparison, fixed before training or generating new evaluation maps.
+widths = [16, 8, 4]
+reference_width = 16
+development = "outputs/research_v2/development"
+reference_models = "artifacts/checkpoints/research_v3"
+sources = ["datasets/main", "outputs/research_v2/development", "outputs/research_v2/fresh_test", "outputs/research_v3/policy_validation", "outputs/research_v3/fresh_test", "outputs/research_v4/fresh_test"]
+
+[training]
+seeds = [7, 17, 27]
+epochs = 60
+patience = 12
+batch_size = 16
+learning_rate = 0.001
+cpu_threads = 4
+residual = false
+obstacles = true
+route_loss_weight = 0.02
+
+[policy_validation]
+seed = 54549
+train_maps = 0
+validation_maps = 60
+validation_wall_maps = 60
+test_maps = 0
+extra_maps = 0
+size = 32
+goals_per_map = 1
+starts_per_map = 4
+
+[fresh_test]
+seed = 54550
+train_maps = 0
+validation_maps = 0
+test_maps = 60
+extra_maps = 60
+size = 32
+goals_per_map = 1
+starts_per_map = 4
+
+[evaluation]
+repetitions = 5
+order_seed = 48102
+bootstrap_seed = 48103
+bootstrap_samples = 2000
+cpu_threads = 1
+max_expansions = 1000000
+time_limit_seconds = 5.0

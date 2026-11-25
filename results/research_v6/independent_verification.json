@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "median_sessions": 19500,
+  "recomputed_summary_means": 3600,
+  "raw_checksums_match": true,
+  "summary_sha256": "4d1cd47c16c4aff29b3556ce0425fc1b3ed29347e38efa39feb3c418aa7cb26a",
+  "checker_sha256": "99cb6103a7f62c6f8d0a384d9dab3e86677de4c17ea74ecf21304da5a05c078c"
+}

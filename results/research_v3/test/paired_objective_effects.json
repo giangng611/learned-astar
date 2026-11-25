@@ -1,0 +1,225 @@
+{
+  "comparison": "Route training versus distance-only training, matched query and seed. Ratios below one favor route training; positive move-accuracy differences favor it.",
+  "splits": {
+    "density_40": {
+      "tie_expansion_ratio": {
+        "mean": 0.9647480333130928,
+        "low": 0.9471998842682272,
+        "high": 0.9845056928773264,
+        "maps": 67
+      },
+      "tie_runtime_ratio": {
+        "mean": 0.9947655027857538,
+        "low": 0.9907582972886232,
+        "high": 0.9982971314098664,
+        "maps": 67
+      },
+      "raw_expansion_ratio": {
+        "mean": 0.7945825624892322,
+        "low": 0.7599641286823786,
+        "high": 0.837556817107718,
+        "maps": 67
+      },
+      "raw_runtime_ratio": {
+        "mean": 0.9690444646002023,
+        "low": 0.9606305430539394,
+        "high": 0.9793078275467444,
+        "maps": 67
+      },
+      "optimal_move_fraction_difference": {
+        "mean": 0.12392205478719319,
+        "low": 0.11296994147448353,
+        "high": 0.13487463902676386,
+        "maps": 99
+      },
+      "branch_move_fraction_difference": {
+        "mean": 0.16422822465054857,
+        "low": 0.1481569432431755,
+        "high": 0.18242579169154352,
+        "maps": 97
+      },
+      "mae_difference": {
+        "mean": -1.4444133434559643,
+        "low": -1.7685440716924008,
+        "high": -1.129670874429216,
+        "maps": 100
+      }
+    },
+    "size_16": {
+      "raw_expansion_ratio": {
+        "mean": 0.9147129322750276,
+        "low": 0.8699749356823558,
+        "high": 0.9601427073314165,
+        "maps": 99
+      },
+      "raw_runtime_ratio": {
+        "mean": 0.9655768846101839,
+        "low": 0.9579229145374369,
+        "high": 0.9730985932010185,
+        "maps": 99
+      },
+      "tie_expansion_ratio": {
+        "mean": 0.9363521942508702,
+        "low": 0.9221929955408907,
+        "high": 0.9511228501232746,
+        "maps": 99
+      },
+      "tie_runtime_ratio": {
+        "mean": 0.9930908016432457,
+        "low": 0.9900516543531223,
+        "high": 0.9963389939688408,
+        "maps": 99
+      },
+      "optimal_move_fraction_difference": {
+        "mean": 0.15393514830282043,
+        "low": 0.14614013111004456,
+        "high": 0.16152108896532422,
+        "maps": 100
+      },
+      "branch_move_fraction_difference": {
+        "mean": 0.17791425546415823,
+        "low": 0.1686845682984227,
+        "high": 0.18689968658072395,
+        "maps": 100
+      },
+      "mae_difference": {
+        "mean": -0.5615132825303144,
+        "low": -0.7027118402346766,
+        "high": -0.41522605386799677,
+        "maps": 100
+      }
+    },
+    "size_64": {
+      "raw_expansion_ratio": {
+        "mean": 0.8240737839337872,
+        "low": 0.7913259045966902,
+        "high": 0.8579302450438673,
+        "maps": 98
+      },
+      "raw_runtime_ratio": {
+        "mean": 0.9615107213085206,
+        "low": 0.9537404072488751,
+        "high": 0.9687571603641455,
+        "maps": 98
+      },
+      "tie_expansion_ratio": {
+        "mean": 0.9631544013608859,
+        "low": 0.9474200209681392,
+        "high": 0.9804097617450763,
+        "maps": 98
+      },
+      "tie_runtime_ratio": {
+        "mean": 0.9963652233381497,
+        "low": 0.9940296201153523,
+        "high": 0.9984995550307372,
+        "maps": 98
+      },
+      "optimal_move_fraction_difference": {
+        "mean": 0.10779136553865251,
+        "low": 0.10377198537761967,
+        "high": 0.11109860437166842,
+        "maps": 100
+      },
+      "branch_move_fraction_difference": {
+        "mean": 0.12131388458189538,
+        "low": 0.11692701553128125,
+        "high": 0.12521486566748227,
+        "maps": 100
+      },
+      "mae_difference": {
+        "mean": 1.6943704772654615,
+        "low": 1.2396430477279348,
+        "high": 2.1583861067817405,
+        "maps": 100
+      }
+    },
+    "test": {
+      "raw_expansion_ratio": {
+        "mean": 0.9434362132061228,
+        "low": 0.9116487155813349,
+        "high": 0.977679381339686,
+        "maps": 198
+      },
+      "raw_runtime_ratio": {
+        "mean": 0.9833735392400402,
+        "low": 0.9768506273565546,
+        "high": 0.989687869324518,
+        "maps": 198
+      },
+      "tie_expansion_ratio": {
+        "mean": 0.9525167154025168,
+        "low": 0.9426106861460165,
+        "high": 0.9623123449381185,
+        "maps": 198
+      },
+      "tie_runtime_ratio": {
+        "mean": 0.9977393118174134,
+        "low": 0.9938751124932114,
+        "high": 1.0024582042823795,
+        "maps": 198
+      },
+      "optimal_move_fraction_difference": {
+        "mean": 0.0757700855777164,
+        "low": 0.07114429143881634,
+        "high": 0.0805010561109183,
+        "maps": 200
+      },
+      "branch_move_fraction_difference": {
+        "mean": 0.08415850531515964,
+        "low": 0.07834159343780443,
+        "high": 0.09027081006392233,
+        "maps": 200
+      },
+      "mae_difference": {
+        "mean": -0.10578207342337782,
+        "low": -0.16088311367053712,
+        "high": -0.049732179296277185,
+        "maps": 200
+      }
+    },
+    "walls": {
+      "tie_expansion_ratio": {
+        "mean": 0.9664199942837038,
+        "low": 0.9576638472484301,
+        "high": 0.9742690225208039,
+        "maps": 100
+      },
+      "tie_runtime_ratio": {
+        "mean": 1.0005712783843945,
+        "low": 0.9983349433264839,
+        "high": 1.0028100305387417,
+        "maps": 100
+      },
+      "raw_expansion_ratio": {
+        "mean": 0.7123502734063634,
+        "low": 0.688846064489668,
+        "high": 0.7350974944894856,
+        "maps": 100
+      },
+      "raw_runtime_ratio": {
+        "mean": 0.9264222104671868,
+        "low": 0.9196839058429845,
+        "high": 0.9330143497245351,
+        "maps": 100
+      },
+      "optimal_move_fraction_difference": {
+        "mean": 0.21022260692296382,
+        "low": 0.20422742408111355,
+        "high": 0.21580351183117297,
+        "maps": 100
+      },
+      "branch_move_fraction_difference": {
+        "mean": 0.21339664541078307,
+        "low": 0.20744064067258655,
+        "high": 0.21934101771336784,
+        "maps": 100
+      },
+      "mae_difference": {
+        "mean": 1.0604446949595887,
+        "low": 0.8155232082426579,
+        "high": 1.297773005564486,
+        "maps": 100
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "architecture": "dilated-cnn-32-1-2-4-8-16-v1",
+  "config": {
+    "seeds": [
+      7,
+      17,
+      27
+    ],
+    "epochs": 40,
+    "patience": 10,
+    "batch_size": 16,
+    "learning_rate": 0.001,
+    "cpu_threads": 4
+  },
+  "dataset_manifest_sha256": "a1240f86d36287eddeafa1c5d3e4ba5283cb4a42631877235ccc9dba2a3103cc",
+  "train_examples": 2400,
+  "validation_examples": 400,
+  "device": "cpu",
+  "python": "3.14.3",
+  "torch": "2.15.0"
+}

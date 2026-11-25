@@ -1,0 +1,7 @@
+repetitions = 5
+order_seed = 8102
+bootstrap_seed = 8103
+bootstrap_samples = 2000
+cpu_threads = 1
+max_expansions = 1000000
+time_limit_seconds = 5.0

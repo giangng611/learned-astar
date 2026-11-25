@@ -1,0 +1,11 @@
+# Step 2: fixed validation pilot, with no training or fresh-test claims.
+policy_manifest = "results/research_v7/policy_manifest.json"
+checkpoint = "artifacts/checkpoints/research_v5/width_8/seed_7.pt"
+maps_per_family = 10
+batch_sizes = [1, 16, 64, 128]
+repetitions = 7
+order_seed = 88201
+bootstrap_seed = 88202
+bootstrap_samples = 2000
+cpu_threads = 1
+methods = ["manhattan", "manhattan_cnn", "landmark", "landmark_cnn", "bfs_policy"]

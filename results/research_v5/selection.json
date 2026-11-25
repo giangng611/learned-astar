@@ -1,0 +1,32 @@
+{
+  "width": 4,
+  "smaller_model_selected": true,
+  "candidates": [
+    {
+      "width": 8,
+      "all_correct": true,
+      "expansion_ratios_to_manhattan": {
+        "random": 0.942535444410508,
+        "walls": 0.9501208592505271
+      },
+      "retains_search_gain": true,
+      "runtime_ratio_to_reference": 0.6949366109873336,
+      "eligible": true
+    },
+    {
+      "width": 4,
+      "all_correct": true,
+      "expansion_ratios_to_manhattan": {
+        "random": 0.9842366905029037,
+        "walls": 0.999471116525142
+      },
+      "retains_search_gain": true,
+      "runtime_ratio_to_reference": 0.5460470276326189,
+      "eligible": true
+    }
+  ],
+  "criterion": "Equal random/wall mean paired total-time ratio to the fixed 16-channel control, with correct optimal paths and fewer expansions than Manhattan in both groups.",
+  "protocol_sha256": "c257f0629a034c90f6ef8ea234bccac13c316f970d5966b09ac84a53f3736cd5",
+  "validation_summary_sha256": "27fbbfae2a7a00edd4dfce4d8c9f5ed7224393c8a2d025d434d5913da4c2157b",
+  "validation_pairs_sha256": "5d86318e032e93983d96a67f43e3bc679078f50e3cb687dad6ad3b439e454c74"
+}

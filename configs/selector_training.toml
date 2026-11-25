@@ -1,0 +1,8 @@
+# One bounded pilot; select a checkpoint using validation loss only.
+seed = 7
+hidden_channels = 8
+epochs = 200
+patience = 30
+learning_rate = 0.01
+cpu_threads = 1
+inference_repetitions = 31

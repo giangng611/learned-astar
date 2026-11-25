@@ -1,0 +1,6 @@
+seeds = [7, 17, 27]
+epochs = 40
+patience = 10
+batch_size = 16
+learning_rate = 0.001
+cpu_threads = 4

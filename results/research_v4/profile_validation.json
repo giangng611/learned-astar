@@ -1,0 +1,312 @@
+{
+  "purpose": "Instrumented validation diagnosis; not a runtime benchmark.",
+  "layouts": [
+    "ea28ec32a70e53ed492aed6c1958e33d5b0c38527d8fe2e11494170b05c95fb7",
+    "ec6a593d959bf64a9971bb71e8de6879f3072d5fc70e0341649b8cf501388289",
+    "d6496b910b11ed0e8f9c93377edb454b8595fe4c75ac7cbef9fe18cd0008a264",
+    "ff080db7e7109a6c2a3c51a8a00c0e64e3926f17c344594139b0690bb9667400",
+    "c877a196fbd730079ccedeae09a0fefbb508ac69786ea632c82ef986e7ae8758",
+    "dceb7abb557c2773c37ad7e0119f9eed588ad4955b42224ce1f4eedc3bd03a76",
+    "7032491913a60108ff6d3008276aa67b15641b705e8fccb904c027f9d8fdedad",
+    "62318e143be048ab5e3781917402ddc3b4de181fcdffba7a7e6fbb889158619d",
+    "2257e536a9726f34700387b1bfeb14c2f9627d5f33b1c1bd35d1f5bba950cdf0",
+    "6be32c460d2b3b0a5b0682306a6fc2067815da5f4843cbfed558599e5ab89861",
+    "8d70039fbcae6b9a60815871f1a5da8a83e386a72f88f70466b5fe025b973f45",
+    "d9ca27905803fd41d9dc0e68415be62eedf3e8d8a570addb479613efa2e78d74",
+    "b88d2153472418dd05f193b1a72ee22c0edb4053539230def130f434af3397b4",
+    "31856b07a1f4afc57175263098653a992cfc9fe9f332aa25310217814bba24ca",
+    "389364a29fa2bd49e09ec17f228298d29b7d0355d9129fd04ee2e72737a4b1f3",
+    "5152910a81d64290b6f081873d47f82935beb69d02c0c8559ec9e2160a75d600",
+    "cf040409924df7f32df762124afc8de1eb6adf624db7790629e76e009c084357",
+    "e160082b2cf62b1bd96c5ef51daf25bb0c535e45b1dab246524b66e4f7de805c",
+    "2e3e10f1cda8498f99d403c415df51ee7d9e2c52fbfcbb2d72863588d98d808e",
+    "97bf12d50ac0befedf23b72dc79c9666e539be2259e1d1a9527ed4c385e52495",
+    "1222b9e33c19295999cbec14372648f8fdc602f3a23692456befadf43aa1d2fe",
+    "1bb84cd1cc4ee5adaf45bebc08d1064730ac381d16770db35f6c790cf0c2b77b",
+    "dd4ec0e8ea43896a9d0e345c27253b394fb5921894e7f113ae9de0c005ae588d",
+    "3ed9d39e47f88924965936f39b55259f46c1996050c3517db136f1273e15dbf4",
+    "c394c780047d41ae20494aaf6c4424a8419593f607891ca02b175639ceccaaf1",
+    "2e5999e9782c19d53bc313aa7f7f14063277a3662408ab508a1a9c8146ca612d",
+    "5fafdc02ecc9bd5126fab4bef1326d91f6d571b7477cfd4af5bf2c18141b9e47",
+    "0a15eb615a832530f951e120860d0011ace861cf8245de1e141cfb86fd115037",
+    "dcd5e06a80ee8570868c78b04c15611fc0e8f275883b5a045351731c34cd2288",
+    "8df4544488c03609563d6f2dc2a25ff9af369bb8524e28cb044749974d0c936a",
+    "7689f4266ffefe896fe2487d3fd50cf44872137a9e89bc3103d3c195c98afdef",
+    "9946156244c7f79db545f4f8b447c9193e5eebaafcf752b44bd6a549a7475eb4"
+  ],
+  "seed": 7,
+  "queries": 128,
+  "repetitions": 5,
+  "functions": [
+    {
+      "file": "experiment.py",
+      "line": 173,
+      "function": "execute_query",
+      "primitive_calls": 640,
+      "total_calls": 640,
+      "self_seconds": 0.000707231,
+      "cumulative_seconds": 0.898173671
+    },
+    {
+      "file": "experiment.py",
+      "line": 123,
+      "function": "field_search",
+      "primitive_calls": 640,
+      "total_calls": 640,
+      "self_seconds": 0.00384293,
+      "cumulative_seconds": 0.897426331
+    },
+    {
+      "file": "core.py",
+      "line": 143,
+      "function": "best_first_search",
+      "primitive_calls": 640,
+      "total_calls": 640,
+      "self_seconds": 0.138244282,
+      "cumulative_seconds": 0.525599464
+    },
+    {
+      "file": "experiment.py",
+      "line": 183,
+      "function": "make_field",
+      "primitive_calls": 640,
+      "total_calls": 640,
+      "self_seconds": 0.000342967,
+      "cumulative_seconds": 0.36286567000000003
+    },
+    {
+      "file": "_contextlib.py",
+      "line": 154,
+      "function": "inference_mode",
+      "primitive_calls": 640,
+      "total_calls": 640,
+      "self_seconds": 0.001238931,
+      "cumulative_seconds": 0.362522703
+    },
+    {
+      "file": "network.py",
+      "line": 86,
+      "function": "predict_distances",
+      "primitive_calls": 640,
+      "total_calls": 640,
+      "self_seconds": 0.005019283,
+      "cumulative_seconds": 0.35843025900000003
+    },
+    {
+      "file": "module.py",
+      "line": 1783,
+      "function": "_wrapped_call_impl",
+      "primitive_calls": 640,
+      "total_calls": 8960,
+      "self_seconds": 0.004459483,
+      "cumulative_seconds": 0.327730262
+    },
+    {
+      "file": "module.py",
+      "line": 1791,
+      "function": "_call_impl",
+      "primitive_calls": 640,
+      "total_calls": 8960,
+      "self_seconds": 0.00642938,
+      "cumulative_seconds": 0.327308637
+    },
+    {
+      "file": "network.py",
+      "line": 61,
+      "function": "forward",
+      "primitive_calls": 640,
+      "total_calls": 640,
+      "self_seconds": 0.0007637540000000001,
+      "cumulative_seconds": 0.326625524
+    },
+    {
+      "file": "container.py",
+      "line": 254,
+      "function": "forward",
+      "primitive_calls": 640,
+      "total_calls": 640,
+      "self_seconds": 0.004020713,
+      "cumulative_seconds": 0.324243783
+    },
+    {
+      "file": "conv.py",
+      "line": 564,
+      "function": "forward",
+      "primitive_calls": 3840,
+      "total_calls": 3840,
+      "self_seconds": 0.0021302440000000003,
+      "cumulative_seconds": 0.29623812600000005
+    },
+    {
+      "file": "conv.py",
+      "line": 546,
+      "function": "_conv_forward",
+      "primitive_calls": 3840,
+      "total_calls": 3840,
+      "self_seconds": 0.001528959,
+      "cumulative_seconds": 0.29277304800000004
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.conv2d>",
+      "primitive_calls": 3840,
+      "total_calls": 3840,
+      "self_seconds": 0.29124408900000004,
+      "cumulative_seconds": 0.29124408900000004
+    },
+    {
+      "file": "core.py",
+      "line": 165,
+      "function": "entry",
+      "primitive_calls": 103555,
+      "total_calls": 103555,
+      "self_seconds": 0.069684035,
+      "cumulative_seconds": 0.242298584
+    },
+    {
+      "file": "config.py",
+      "line": 14,
+      "function": "require_finite",
+      "primitive_calls": 312585,
+      "total_calls": 312585,
+      "self_seconds": 0.077319908,
+      "cumulative_seconds": 0.122697543
+    },
+    {
+      "file": "grid.py",
+      "line": 39,
+      "function": "neighbors",
+      "primitive_calls": 324630,
+      "total_calls": 324630,
+      "self_seconds": 0.039418393,
+      "cumulative_seconds": 0.039418393
+    },
+    {
+      "file": "core.py",
+      "line": 114,
+      "function": "manhattan",
+      "primitive_calls": 103555,
+      "total_calls": 103555,
+      "self_seconds": 0.021238871000000003,
+      "cumulative_seconds": 0.031147212
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.isinstance>",
+      "primitive_calls": 628370,
+      "total_calls": 628370,
+      "self_seconds": 0.030794234,
+      "cumulative_seconds": 0.030794234
+    },
+    {
+      "file": "core.py",
+      "line": 82,
+      "function": "inserted",
+      "primitive_calls": 102915,
+      "total_calls": 102915,
+      "self_seconds": 0.014083021000000001,
+      "cumulative_seconds": 0.020215771
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _heapq.heappop>",
+      "primitive_calls": 81085,
+      "total_calls": 81085,
+      "self_seconds": 0.019079276000000003,
+      "cumulative_seconds": 0.019079276000000003
+    },
+    {
+      "file": "core.py",
+      "line": 70,
+      "function": "timed_out",
+      "primitive_calls": 81085,
+      "total_calls": 81085,
+      "self_seconds": 0.01157148,
+      "cumulative_seconds": 0.017095858000000002
+    },
+    {
+      "file": "core.py",
+      "line": 78,
+      "function": "expand",
+      "primitive_calls": 71465,
+      "total_calls": 71465,
+      "self_seconds": 0.010447928,
+      "cumulative_seconds": 0.016200588000000002
+    },
+    {
+      "file": "network.py",
+      "line": 20,
+      "function": "encode_inputs",
+      "primitive_calls": 640,
+      "total_calls": 640,
+      "self_seconds": 0.006281167000000001,
+      "cumulative_seconds": 0.014908068000000002
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method math.isfinite>",
+      "primitive_calls": 312585,
+      "total_calls": 312585,
+      "self_seconds": 0.014772079,
+      "cumulative_seconds": 0.014772079
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _heapq.heappush>",
+      "primitive_calls": 102915,
+      "total_calls": 102915,
+      "self_seconds": 0.013968227000000001,
+      "cumulative_seconds": 0.013968227000000001
+    },
+    {
+      "file": "experiment.py",
+      "line": 135,
+      "function": "score",
+      "primitive_calls": 103555,
+      "total_calls": 103555,
+      "self_seconds": 0.013745791,
+      "cumulative_seconds": 0.013745791
+    },
+    {
+      "file": "activation.py",
+      "line": 139,
+      "function": "forward",
+      "primitive_calls": 3200,
+      "total_calls": 3200,
+      "self_seconds": 0.001044166,
+      "cumulative_seconds": 0.010089636
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.abs>",
+      "primitive_calls": 207110,
+      "total_calls": 207110,
+      "self_seconds": 0.009908341000000001,
+      "cumulative_seconds": 0.009908341000000001
+    },
+    {
+      "file": "functional.py",
+      "line": 1766,
+      "function": "relu",
+      "primitive_calls": 3200,
+      "total_calls": 3200,
+      "self_seconds": 0.001248986,
+      "cumulative_seconds": 0.00904547
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.relu>",
+      "primitive_calls": 3200,
+      "total_calls": 3200,
+      "self_seconds": 0.0074303600000000004,
+      "cumulative_seconds": 0.0074303600000000004
+    }
+  ]
+}

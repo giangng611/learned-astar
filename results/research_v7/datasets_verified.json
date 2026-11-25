@@ -1,0 +1,21 @@
+{
+  "earlier_groups": 6200,
+  "hard_32": {
+    "maps": 160,
+    "verified_goal_maps": 320,
+    "unique_layout_groups": 160,
+    "manifest_sha256": "db21e4804872c3d76c48cfbe3eb2e4e878ce0d9ca34fa9cf7a7fb7900680e80c"
+  },
+  "mixed_64": {
+    "maps": 400,
+    "verified_goal_maps": 800,
+    "unique_layout_groups": 400,
+    "manifest_sha256": "2425c193aad8db9ce35b457b24f75914be9694c98425e3c4db7d0ceb0edaadcb"
+  },
+  "policy_64": {
+    "maps": 40,
+    "verified_goal_maps": 40,
+    "unique_layout_groups": 40,
+    "manifest_sha256": "6e441749af7dd0ea866a743bb37f3ffa05fbd8acd0587d0921419f990c96fddd"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "maps": 300,
+  "sessions": 97500,
+  "timed_queries": 4153500,
+  "query_records": 830700,
+  "seconds": 513.9380332500004,
+  "sessions_sha256": "de0623f8d5180cbee538247521e78e7ea497556bdf2570af6825dc63d0ca113d",
+  "queries_sha256": "7819a1598beeb968b2896afae91844eed39086a6493dbc8f89b7c98e0ac4d927",
+  "dataset_manifest_sha256": "c83ec34c5e31d9e8939ff1fb6d0a7424cda29ee06a664bebf60828cd46f33481",
+  "all_optimal_and_correct_reachability": true,
+  "all_repeated_paths_and_counts_match": true,
+  "prepared_manhattan_matches_original": true,
+  "environment": {
+    "python": "3.14.3",
+    "platform": "macOS-15.7.3-arm64-arm-64bit-Mach-O",
+    "torch": "2.15.0",
+    "numpy": "2.5.4",
+    "cpu_threads": 1,
+    "device": "cpu"
+  }
+}

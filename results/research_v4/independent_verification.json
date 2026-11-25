@@ -1,0 +1,7 @@
+{
+  "independent_medians_and_paired_ratios": true,
+  "all_query_methods_share_endpoints": true,
+  "frozen_source_and_model_hashes_match": true,
+  "timed_sessions": 64500,
+  "timed_queries": 1279500
+}

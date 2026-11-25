@@ -1,0 +1,8 @@
+seed = 4550
+train_maps = 1200
+validation_maps = 200
+test_maps = 300
+extra_maps = 150
+size = 32
+goals_per_map = 2
+starts_per_map = 4

@@ -1,0 +1,36 @@
+         3221321 function calls (3204681 primitive calls) in 0.898 seconds
+
+   Ordered by: cumulative time
+   List reduced from 94 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      640    0.001    0.000    0.898    0.001 experiment.py:173(execute_query)
+      640    0.004    0.000    0.897    0.001 experiment.py:123(field_search)
+      640    0.138    0.000    0.526    0.001 core.py:143(best_first_search)
+      640    0.000    0.000    0.363    0.001 experiment.py:183(make_field)
+      640    0.001    0.000    0.363    0.001 _contextlib.py:154(inference_mode)
+      640    0.005    0.000    0.358    0.001 network.py:86(predict_distances)
+ 8960/640    0.004    0.000    0.328    0.001 module.py:1783(_wrapped_call_impl)
+ 8960/640    0.006    0.000    0.327    0.001 module.py:1791(_call_impl)
+      640    0.001    0.000    0.327    0.001 network.py:61(forward)
+      640    0.004    0.000    0.324    0.001 container.py:254(forward)
+     3840    0.002    0.000    0.296    0.000 conv.py:564(forward)
+     3840    0.002    0.000    0.293    0.000 conv.py:546(_conv_forward)
+     3840    0.291    0.000    0.291    0.000 {built-in method torch.conv2d}
+   103555    0.070    0.000    0.242    0.000 core.py:165(entry)
+   312585    0.077    0.000    0.123    0.000 config.py:14(require_finite)
+   324630    0.039    0.000    0.039    0.000 grid.py:39(neighbors)
+   103555    0.021    0.000    0.031    0.000 core.py:114(manhattan)
+   628370    0.031    0.000    0.031    0.000 {built-in method builtins.isinstance}
+   102915    0.014    0.000    0.020    0.000 core.py:82(inserted)
+    81085    0.019    0.000    0.019    0.000 {built-in method _heapq.heappop}
+    81085    0.012    0.000    0.017    0.000 core.py:70(timed_out)
+    71465    0.010    0.000    0.016    0.000 core.py:78(expand)
+      640    0.006    0.000    0.015    0.000 network.py:20(encode_inputs)
+   312585    0.015    0.000    0.015    0.000 {built-in method math.isfinite}
+   102915    0.014    0.000    0.014    0.000 {built-in method _heapq.heappush}
+   103555    0.014    0.000    0.014    0.000 experiment.py:135(score)
+     3200    0.001    0.000    0.010    0.000 activation.py:139(forward)
+   207110    0.010    0.000    0.010    0.000 {built-in method builtins.abs}
+     3200    0.001    0.000    0.009    0.000 functional.py:1766(relu)
+     3200    0.007    0.000    0.007    0.000 {built-in method torch.relu}
