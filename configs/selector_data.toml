@@ -1,0 +1,12 @@
+# Development data only. A later test must use new layouts and frozen selectors.
+seed = 119501
+query_seed = 119502
+order_seed = 119503
+sizes = [32, 64]
+train_per_family = 12
+validation_per_family = 6
+queries_per_session = 128
+goal_counts = [1, 8, 128]
+repetitions = 3
+cpu_threads = 1
+exclusion_archive = "results/demand_heuristic/test"
