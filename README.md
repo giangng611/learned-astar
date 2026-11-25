@@ -6,7 +6,9 @@ Start with the [research synthesis](docs/final_report.md) for the complete findi
 
 The [experiment architecture](docs/research_architecture.md) explains the design; the [submitted proposal](docs/proposal.md) retains the original plan. The [original report](docs/report.md) covers the first experiment. The [18-slide presentation](presentation/learned_astar_research.pptx) and [recording guide](presentation/recording_guide.md) cover research through v4 and still need the later findings added.
 
-The [method-selection pilot](docs/selector_pilot.md) provides local commands to generate separate development maps, measure three optimal search methods, and train a 99-parameter runtime predictor. The local validation run remains close to the fixed selection rule. A follow-up command probes intermediate goal counts with the saved model; neither stage is a final test result.
+The current [frontier-learning pilot](docs/frontier_pilot.md) returns to the proposal's main question. It compares two matched continuations of the distance CNN, adding supervision from cells waiting in A*'s queue to one branch. Commands cover data preparation, training, and a development comparison that measures paths, search effort, and total query time.
+
+The [method-selection pilot](docs/selector_pilot.md) is a separate extension. It trains a 99-parameter model to choose a search method and probes intermediate goal counts with the saved model. These development results do not replace the main learned-heuristic question.
 
 ## Setup
 

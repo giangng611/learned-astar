@@ -4,6 +4,8 @@ The experiment compares search effort, total query time, and path quality on the
 
 The sections below first describe the original experiment. The later sections show the follow-up changes: route training, Manhattan tie ordering, prepared search, and smaller model widths. Their linked plans and results contain the settings for each round.
 
+The current [frontier-learning pilot](frontier_pilot.md) returns to direct distance prediction. Its diagram shows how exact BFS distances label comparisons between queued cells and how the trained CNN supplies A*'s primary heuristic. Method selection is a separate extension, not a replacement for this architecture.
+
 ## Experiment flow
 
 ```mermaid
