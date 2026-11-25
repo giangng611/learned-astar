@@ -234,3 +234,9 @@ Added a separate data pipeline for 48 training and 24 validation maps. It exclud
 Added a 99-parameter network that predicts the three log runtimes from map and workload features. Normalization uses training rows only. One seed and at most 200 updates keep the initial run small; validation loss selects the saved checkpoint. The comparison includes the three fixed methods, a training-selected fixed method, a predeclared hand-written rule, and an oracle reference. Initial selector costs combine measured feature and inference times with method medians, so they are explicitly reported as development estimates rather than live end-to-end test results.
 
 Six new tests cover rotated exclusions, separate layouts, reproducible workloads, interrupted-run recovery, altered evidence, path checks, normalization, checkpoint reloads, and timing-cost addition. The full suite passed 228 tests, and code style and formatting checks passed. The submitted proposal files remain unchanged. Only tiny test runs were executed; full data collection and training are left for the local PyCharm run.
+
+## November 25, 2026: intermediate-goal diagnostic
+
+The local pilot completed and selected epoch 188. Its recombined mean validation session estimates were 9.527 ms for the learned selector and 9.506 ms for the fixed rule. Added commands to probe 16, 32, and 64 goals on 24 new development maps while retaining the checkpoint and original rule. The new layouts exclude all 6,992 earlier groups. Results are grouped by goal count, and no fitting occurs in this diagnostic.
+
+All seven selector tests passed, including a small complete diagnostic that checks layout separation, unchanged checkpoint bytes, saved results, and rejection of altered inputs. Style and formatting checks passed. The full diagnostic remains pending local execution; previous experiment scripts and model files were not changed.

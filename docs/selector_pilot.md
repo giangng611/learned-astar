@@ -38,4 +38,16 @@ Preparation refuses to overwrite an existing run. If measurement is interrupted,
 
 Data and raw evidence are saved under `outputs/selector_pilot`. Training saves `model.pt`, `history.json`, `validation_predictions.json`, and `summary.json` under `outputs/selector_model`. The summary printed at the end is enough for an initial review. A ratio below one favors the learned selector; a ratio above one favors its comparison method. These ratios alone do not establish a reliable improvement.
 
-The implementation was checked using tiny generated maps and a short training run. The full 72-map pilot is intended to run locally; its result is not yet reported here.
+The local 72-map pilot completed with checkpoint epoch 188. Its mean validation batch estimate was 9.527 ms for the learned selector and 9.506 ms for the fixed rule. This supports useful selection relative to fixed methods, but does not establish a benefit over the rule.
+
+## Intermediate-goal diagnostic
+
+The next probe freezes that checkpoint and measures 16, 32, and 64 distinct goals on 24 new maps. It excludes all 6,992 earlier groups, including the first selector pilot. All 24 maps are used for this development diagnostic; inherited train/validation labels are retained only for possible later work. No model is fitted or selected in this step. The original rule is unchanged, so a benefit over it would still need comparison with a rule tuned using training data before a final test.
+
+```bash
+.venv/bin/python scripts/run_selector_transition.py prepare
+.venv/bin/python scripts/run_selector_transition.py measure
+.venv/bin/python scripts/run_selector_transition.py evaluate
+```
+
+The measurement stage can resume. Preparation snapshots the checkpoint before timing and rejects changed sources or inputs. Evaluation saves the overall and per-goal-count results in `outputs/selector_transition/selector_evaluation.json`. These remain recombined timing estimates, not a live end-to-end test. The full probe is left for local execution.

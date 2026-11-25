@@ -71,3 +71,5 @@ The validation and test runs completed 12,000 sessions and 1,536,000 timed query
 ## Method-selector implementation
 
 Codex was used to implement separate selector development maps, repeated runtime labels, map-level measurement recovery, and a small runtime-prediction network. Troubleshooting and tests cover layout exclusions, saved paths, evidence checks, training-only normalization, checkpoint reloads, and feature and prediction costs. A tiny end-to-end test checks the commands without running the full pilot. The 72-map data collection and main training run remain pending local execution.
+
+The local pilot subsequently completed. Codex was used to implement a follow-up diagnostic with new layout exclusions, intermediate goal counts, a frozen checkpoint, and grouped timing summaries. Tiny end-to-end checks verify checkpoint preservation and reject changed inputs; the full diagnostic remains pending local execution.
