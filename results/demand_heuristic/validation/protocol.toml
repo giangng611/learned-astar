@@ -1,0 +1,24 @@
+# Freeze before validation. Generate fresh test only after the validation gate passes.
+policy_manifest = "results/primary_step2/policy_manifest.json"
+maps_per_family = 10
+queries_per_session = 128
+goal_counts = [1, 8, 128]
+repetitions = 5
+query_seed = 99301
+order_seed = 109302
+bootstrap_seed = 109303
+bootstrap_samples = 2000
+cpu_threads = 1
+methods = ["manhattan", "manhattan_demand", "landmark", "landmark_demand", "bfs_policy"]
+
+[gate]
+goals = 128
+maximum_mean_ratio_to_eager = 0.95
+families = ["walls_32", "walls_64"]
+
+[fresh_test]
+seed = 109304
+sizes = [32, 64, 128]
+maps_per_family = 20
+exclusion_config = "configs/order_pilot.toml"
+additional_sources = ["outputs/research_v7/hard_32", "outputs/research_v7/mixed_64", "outputs/research_v7/policy_64"]
