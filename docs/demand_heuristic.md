@@ -6,6 +6,10 @@ The changing-goal study found that constructing a full score field for every new
 
 Compare full-field Manhattan, on-demand Manhattan, full-field landmarks, on-demand landmarks, and reverse BFS. Both on-demand methods use the unchanged prepared A* loop and cache a score after its first request. Every cache belongs to one map and goal. The landmark index is built once per session; new goals retain the map index but receive separate score caches. All preparation, cache misses, dictionary lookups, and returned paths are timed.
 
+The existing full-field landmark planner converts scores to floats during validation; on-demand bounds remain integers. Both represent the same exact values on these grids. The comparison therefore includes score storage and conversion costs, not only the number of evaluated cells. It is an implementation comparison rather than a separate measurement of each cost. No claim of a novel landmark algorithm is intended.
+
+The session timer ends after the query loop and score-entry count. Final cache disposal, program startup, dataset loading, warm-up, correctness checks, and evidence writing are outside it for every method. Thus complete time here means setup plus query processing and path construction within that boundary, not the entire lifetime of an application request.
+
 The full-field and on-demand variants must return identical paths and all search counters for each query. Exact BFS checks optimal cost and reachability independently. Exhaustive 3×3 tests cover disconnected maps, equal endpoints, and cache reuse. Separate tests cover larger sparse caches and search limits. Computing the same consistent bound later cannot change its value; this experiment does not introduce learned primary scores.
 
 ## Fixed validation and test sequence

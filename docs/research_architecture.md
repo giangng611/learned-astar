@@ -208,3 +208,22 @@ flowchart LR
 The [timing pilot](landmark_timing.md) charges every preparation step once per session and rebuilds state for each measurement. Model weights are resident; their one-time load cost is reported separately. Landmarks supply the stronger primary estimate, while the CNN remains a tie breaker. The [results](landmark_timing_results.md) separate the classical search improvement from the model's added cost. All methods retain optimal path costs.
 
 The [changing-goal follow-up](changing_goals.md) reuses the graph and landmark index across 128 queries on one map. All methods keep their own per-goal cache. A new goal creates new score fields, a new CNN prediction where used, or a new reverse-BFS policy. Returning to a cached goal reuses that state. Each measured session starts with empty caches and pays all preparation costs. The [results](changing_goals_results.md) distinguish map reuse from goal reuse.
+
+## Computing scores during search
+
+```mermaid
+flowchart TD
+    M["Static map"] --> G["Build graph once per session"]
+    G --> L["Landmark branch only:<br/>build four BFS distance fields"]
+    G --> Q["New goal:<br/>create empty score cache"]
+    L --> Q
+    Q --> A["Unchanged A* search loop"]
+    A --> C{"Requested cell<br/>already scored for this goal?"}
+    C -->|Yes| R["Read cached score"]
+    C -->|No| H["Compute Manhattan or landmark bound<br/>for this cell and store it"]
+    H --> R
+    R --> A
+    A --> P["Return full path"]
+```
+
+The [on-demand experiment](demand_heuristic.md) compares this branch with full-field construction for both Manhattan and landmarks. Each cell receives the same score as before, so paths and search counters must match exactly. Cache misses move some work from goal preparation into search; the complete timer includes both. A fixed validation gate controls expansion to fresh test maps, including 128×128 grids. This branch uses no neural predictions and does not change existing checkpoints.

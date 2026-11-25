@@ -61,3 +61,9 @@ Codex was used to implement complete-session timing, fixed validation-map select
 ## Changing-goal implementation
 
 Codex was used to implement per-goal caches, deterministic changing-goal workloads, complete-session timing, and independent endpoint and BFS-label verification. The experiment reused 40 validation maps and measured 3,000 sessions containing 384,000 query executions. Checks covered 76,800 saved query outcomes, 600 session medians, and 240 cross-checked summary means. All 216 tests passed. No model was trained; existing checkpoints were unchanged. Raw timings, paths, workload labels, source hashes, and figures are retained.
+
+## On-demand heuristic implementation
+
+Codex was used to implement per-goal sparse heuristic caches, full-field/on-demand comparisons, a validation gate, and fresh-map generation with layout exclusions. Technical checks compare complete paths and every search counter, verify BFS costs independently, retain timing components and score-entry counts, and check paired summaries. The implementation reuses the existing A* search loop. All 222 tests passed, including exhaustive small-grid cases and rejection of altered archive means or raw evidence. No neural weights were changed.
+
+The validation and test runs completed 12,000 sessions and 1,536,000 timed query executions on 40 existing validation maps and 120 fresh maps. Fresh layouts exclude all 6,800 earlier groups. Checks covered 307,200 saved query outcomes, 2,400 median sessions, and 750 timing means and ratios. A separate standard-library checker verifies archived map and raw-evidence hashes and timing arithmetic without the original dataset directories.

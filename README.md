@@ -2,7 +2,7 @@
 
 This CSCI/ARTI 4550/6550 capstone compares a learned distance heuristic with Manhattan A*, Weighted A*, BFS, and Dijkstra. It measures search effort, total query time including inference, and path quality on the same queries. The workflow covers dataset generation, training with three seeds, held-out evaluation, figures, and a terminal demonstration.
 
-Start with the [research synthesis](docs/final_report.md) for the complete findings and the [discussion guide](docs/discussion_guide.md) for a plain-language explanation. Learned tie ordering reduces some search work, but has not established a reliable complete-time win over equally prepared Manhattan. Later landmark gains are classical validation results and depend on the workload.
+Start with the [research synthesis](docs/final_report.md) for the complete findings and the [discussion guide](docs/discussion_guide.md) for a plain-language explanation. Learned tie ordering reduces some search work, but has not established a reliable complete-time win over equally prepared Manhattan. The latest classical landmark implementation has a fresh-test speed benefit on changing-goal wall workloads; this is separate from the learned results.
 
 The [experiment architecture](docs/research_architecture.md) explains the design; the [submitted proposal](docs/proposal.md) retains the original plan. The [original report](docs/report.md) covers the first experiment. The [18-slide presentation](presentation/learned_astar_research.pptx) and [recording guide](presentation/recording_guide.md) cover research through v4 and still need the later findings added.
 
@@ -107,6 +107,15 @@ building full score fields for new goals removes the landmark speed advantage wh
 every query has a different goal. The frozen CNN adds more cost. This bounded follow-up
 completes the changing-goal diagnostic. The [synthesis](docs/final_report.md#limitations-and-next-decisions)
 sets out the remaining limitations and conditions for a further bounded experiment.
+
+The [on-demand heuristic study](docs/demand_heuristic.md) computes scores only at cells
+requested by search, applying the same change to Manhattan. After a fixed validation
+gate, it tests 120 fresh maps at sizes 32, 64, and 128. Its
+[results](docs/demand_heuristic_results.md) show a landmark advantage over both Manhattan
+variants on wall maps with 128 distinct goals. On-demand Manhattan wins on random maps
+at that workload; reverse BFS has the lowest mean time with one or eight shared goals.
+Paths and search counters are unchanged by on-demand evaluation. The
+[archive](results/demand_heuristic/) includes all map arrays and an independent timing checker.
 
 ## Reproduce the experiment
 

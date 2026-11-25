@@ -204,3 +204,25 @@ Checks completed:
 This was a documentation consolidation, so the algorithm test suite and benchmarks were not rerun. The latest implementation validation remains the 216 passing tests recorded for the changing-goal step. No new training, data generation, or held-out evaluation was needed.
 
 The next planned deliverable is an updated presentation and a rehearsed terminal demonstration. Further research remains optional: start with a specific hypothesis, a matched control, and a bounded validation pilot. On-demand landmark scoring targets an observed preparation cost; learning to rank actual tied search cells would require a separate objective and would still face the measured tie-ordering limit. Neither is reported as implemented or successful.
+
+## November 24, 2026: on-demand scores and a fresh larger-map test
+
+Implemented per-goal score caches for Manhattan and landmark heuristics using the unchanged prepared A* search loop. Exhaustive 3×3 checks verify identical paths, costs, and all search counters against full-field evaluation. Additional tests cover larger sparse caches, goal separation, disconnected components, search limits, the validation gate, and archive corruption. Full-field landmark scores use floats and on-demand scores use integers; the study includes representation and lookup costs as well as avoided score evaluation.
+
+The fixed validation study reused 40 maps and the previous changing-goal endpoints. It completed 3,000 sessions and 384,000 timed query executions in 198.9 seconds. At 128 distinct goals, on-demand landmark/full-field landmark ratios were 0.273 [0.264, 0.282] on walls 32 and 0.258 [0.248, 0.269] on walls 64. Both passed the predeclared gate before fresh-test generation.
+
+The frozen implementation then evaluated 120 fresh maps: 20 random and 20 wall layouts at each of 32×32, 64×64, and 128×128. All 6,800 earlier layout groups and their rotations were excluded. Five shuffled repetitions completed 9,000 sessions and 1,152,000 timed query executions in 1,687.9 seconds, including checking and evidence writing in the stage wall time. No model was trained, and test outcomes did not change the methods or settings.
+
+At 128 distinct goals, on-demand landmark time divided by on-demand Manhattan time was 0.516 [0.496, 0.535], 0.376 [0.351, 0.401], and 0.327 [0.305, 0.348] on the three wall sizes. Landmarks also beat full-field Manhattan and reverse BFS there. On random maps at that workload, on-demand Manhattan remained faster. With one or eight shared goals, reverse BFS had the lowest mean time in all six families. This is a classical implementation benefit, not a learned improvement.
+
+Checks completed:
+
+- All 222 tests passed in 20.24 seconds. Code style, formatting, and dependency checks passed.
+- Every measured path had optimal cost or correct reachability. Full-field/on-demand pairs and repeated executions matched in complete paths and search counters.
+- Full verification checked 307,200 saved outcomes, regenerated endpoints and BFS labels, verified source and raw-evidence hashes, and checked 2,400 median sessions.
+- Independent arithmetic checked 300 validation and 450 test timing means and ratios. A separate standard-library checker also reproduced these values directly from the archives without local generated datasets.
+- Both archives retain map arrays, workload labels, raw repetitions, full paths, source hashes, summaries, tables, and visually checked PNG/PDF figures.
+
+The results and synthesis now distinguish this fresh-test confirmation from the earlier validation pilots. The measured timer includes preparation and query processing, but excludes final cache disposal and application startup. Peak memory and vectorized full-field controls remain unmeasured. Both submitted proposals and the existing checkpoints remain unchanged.
+
+A next learning experiment could choose among the three methods from map features and the known query workload. It should use separate training data, charge feature and prediction costs, and compare against a simple hand-written selector. No such selector has been trained or evaluated yet. The presentation still needs the later research added.
