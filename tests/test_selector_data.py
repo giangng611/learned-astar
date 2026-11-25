@@ -179,3 +179,60 @@ def test_hand_rule_and_scaler_constant_features(pilot):
     mean, scale = training.fit_scaler(np.asarray([[1, 0], [1, 4]], dtype=np.float32))
     np.testing.assert_equal(mean, [1, 2])
     np.testing.assert_equal(scale, [1, 2])
+
+
+def test_transition_keeps_checkpoint_and_excludes_previous_maps(pilot, tmp_path, monkeypatch):
+    import torch
+
+    module, previous, _, _ = pilot
+    module.collect(previous)
+    training = importlib.import_module("train_selector")
+    probe = importlib.import_module("run_selector_transition")
+    model_root = tmp_path / "original_model"
+    model_root.mkdir()
+    model = training.RuntimeSelector(8)
+    checkpoint = model_root / "model.pt"
+    torch.save(
+        {
+            "state_dict": model.state_dict(),
+            "hidden_channels": 8,
+            "features": list(training.FEATURES),
+            "methods": list(module.METHODS),
+            "mean": [0.0] * 8,
+            "scale": [1.0] * 8,
+            "dataset_sha256": module.digest(previous / "dataset.json"),
+        },
+        checkpoint,
+    )
+    original_sha = module.digest(checkpoint)
+    original_prepare = probe.prepare
+
+    def small_prepare(root, config):
+        text = config.read_text().replace("sizes = [32, 64]", "sizes = [16]")
+        text = text.replace("train_per_family = 4", "train_per_family = 2")
+        text = text.replace("queries_per_session = 128", "queries_per_session = 16")
+        text = text.replace("goal_counts = [16, 32, 64]", "goal_counts = [4, 8, 16]")
+        config.write_text(text)
+        original_prepare(root, config)
+
+    monkeypatch.setattr(probe, "prepare", small_prepare)
+    root = tmp_path / "probe"
+    probe.prepare_probe(root, previous, model_root)
+    prior_groups = {r["group_id"] for r in json.loads((previous / "manifest.json").read_text())}
+    records = json.loads((root / "manifest.json").read_text())
+    assert prior_groups.isdisjoint(r["group_id"] for r in records)
+    excluded = json.loads((root / "separation.json").read_text())["excluded_groups"]
+    assert prior_groups.issubset(excluded)
+    module.collect(root)
+    probe.evaluate(root)
+    result = json.loads((root / "selector_evaluation.json").read_text())
+    assert result["maps"] == 8 and result["overall"]["rows"] == 24
+    assert result["trained"] is False
+    assert set(result["by_goal_count"]) == {"4", "8", "16"}
+    assert result["model_sha256"] == original_sha == module.digest(checkpoint)
+    with pytest.raises(FileExistsError):
+        probe.evaluate(root)
+    copy = root.with_name(root.name + "_inputs") / "model.pt"
+    copy.write_bytes(b"changed")
+    with pytest.raises(ValueError, match="Frozen inputs"):
+        module.verify_inputs(root)
