@@ -264,3 +264,11 @@ The broader local run completed. On wall queries the frontier model returned 96/
 Added a separate profiling command that reuses the checkpoint and all 192 policy queries. Five shuffled repetitions compare Manhattan, unchanged learned A*, and an instrumented wrapper. The wrapper separates input preparation, CNN forward computation, output processing, search with reconstruction, and remaining overhead. It uses the existing A* loop and compares every path and counter against the unchanged learned function. External call boundaries are identical across methods; the reference comparison reports possible instrumentation overhead. Component summaries use the same median-total repetition so their sums remain meaningful.
 
 Seven relevant tests passed, including a small complete profile, prediction equality, no-path cases, limits, changed-checkpoint rejection, repetition coverage, and component arithmetic. Style and formatting checks passed. Read-only checks verified the actual source checkpoint and the 48-map policy set; the full profile remains for local execution. Existing experiment scripts, model weights, and submitted proposals were unchanged.
+
+## November 26, 2026: completed runtime diagnosis
+
+The local profile completed 2,880 timed executions on 48 development maps. Verification checked all saved input fingerprints, the raw checksum, row count, component sums, and exact agreement between recomputed and saved family summaries. Instrumented and unchanged learned searches matched in paths and counters.
+
+On walls, mean unchanged learned time was 0.6296 ms versus Manhattan's 0.3459 ms. Search and reconstruction took 0.2963 ms, leaving 0.0495 ms for all remaining work. Keeping other components fixed would require reducing the 0.2965 ms CNN forward pass to about 0.0103 ms merely to match Manhattan. On random maps, learned search alone already exceeded Manhattan's complete time. Further training may improve search quality but does not directly remove inference cost.
+
+Recorded the completed measurements and their limits in the frontier pilot notes. No new training or benchmark was launched, and code, model weights, and submitted proposals were unchanged. The next proposed diagnostic examines wall queries with the largest expansion regressions against BFS labels before selecting another training change.

@@ -83,7 +83,7 @@ Run these commands in order:
 .venv/bin/python scripts/run_frontier_pilot.py evaluate --run outputs/frontier_diversity
 ```
 
-Results are saved separately under `outputs/frontier_diversity`. Compare the new frontier model with its new control first, then examine changes from the earlier run. Timing comparisons across runs should also consider their remeasured baselines because machine load can change. Expansions, path quality, and reachable-query success remain separate outcomes. This is another development check, not a final test; the full run remains pending local execution.
+Results are saved separately under `outputs/frontier_diversity`. Compare the new frontier model with its new control first, then examine changes from the earlier run. Timing comparisons across runs should also consider their remeasured baselines because machine load can change. Expansions, path quality, and reachable-query success remain separate outcomes. This completed run is another development check, not a final test.
 
 ## Profile the frozen model before further changes
 
@@ -101,4 +101,29 @@ For each query and method, the report retains the repetition with median total t
 
 `remaining_time_budget_ms` is Manhattan's mean total time minus the profiled learned search time. It estimates the budget available for all non-search work if that search time stays fixed. A negative value means even that measured search portion exceeds Manhattan's total; it is not an error or a promise that removing one component would achieve the calculated saving. The two other useful outputs are the uninstrumented learned/Manhattan ratio and the search-only/Manhattan ratio.
 
-Results and raw repetitions are saved separately in `outputs/frontier_profile`. The command refuses to overwrite an existing output or accept a changed checkpoint. Send the final `summary.json` output for review before choosing the next optimization. Only small profiling checks have run during implementation; the full measurement remains for local execution.
+Results and raw repetitions are saved separately in `outputs/frontier_profile`. The command refuses to overwrite an existing output or accept a changed checkpoint.
+
+## Completed runtime profile
+
+The local profile completed all 2,880 timed executions on the same 48 development maps without retraining. The instrumented and unchanged learned functions returned identical paths and search counters. Saved input fingerprints, the raw checksum, and the recomputed timing summaries were verified after the run.
+
+| Mean time per query (ms) | Random maps | Wall maps |
+| --- | ---: | ---: |
+| Manhattan, complete query | 0.1257 | 0.3459 |
+| Learned, unchanged complete query | 0.5230 | 0.6296 |
+| Learned, profiled complete query | 0.5256 | 0.6321 |
+| Input preparation | 0.0236 | 0.0233 |
+| CNN forward pass | 0.3017 | 0.2965 |
+| Output processing | 0.0070 | 0.0072 |
+| Search and path reconstruction | 0.1847 | 0.2963 |
+| Other overhead | 0.0086 | 0.0087 |
+
+The mean map-paired profiled/reference ratios were 1.006 for random maps and 1.004 for walls. Their 95% whole-map bootstrap intervals were [0.993, 1.018] and [0.996, 1.012]. These results show little measured instrumentation overhead, although the component times remain diagnostic estimates.
+
+On walls, the learned search portion took 14.3% less time than Manhattan's complete query, but the unchanged learned method was still 1.82 times slower overall. The measured search saving leaves only 0.0495 ms for all non-search work. If input preparation, output processing, and other costs stay fixed, the CNN would have about 0.0103 ms available instead of 0.2965 ms: roughly a 28.9-fold forward-pass speedup just to match Manhattan. This is a conditional budget calculation, not a prediction that such a speedup is achievable. Reducing CNN time alone to 0.0495 ms would not be enough.
+
+On random maps, the search portion alone was 1.47 times Manhattan's complete time; the unchanged learned method was 4.16 times slower overall. Removing neural overhead alone would therefore not close that gap under the measured search behavior.
+
+These findings separate two problems: inference cost on walls and search effort as well as inference cost on random maps. Another training run should target a specific search-quality weakness rather than be presented as a runtime fix. Before spending more training time, a useful next diagnostic is to inspect wall queries with the largest expansion regressions and compare their learned distances and frontier choices with BFS labels. All current results remain development evidence; a stronger general claim still needs frozen settings and fresh test maps.
+
+The model SHA-256 is `828a44d35fc4b0f40e413547762b5433c7d0e60d35aa084719656acf7eaf1e59`; the compressed raw-evidence SHA-256 is `f755b03e7f504305e9be979e8d161e09fdb2ab7261e6b8da61acc073e002846d`.
