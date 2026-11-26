@@ -127,3 +127,15 @@ On random maps, the search portion alone was 1.47 times Manhattan's complete tim
 These findings separate two problems: inference cost on walls and search effort as well as inference cost on random maps. Another training run should target a specific search-quality weakness rather than be presented as a runtime fix. Before spending more training time, a useful next diagnostic is to inspect wall queries with the largest expansion regressions and compare their learned distances and frontier choices with BFS labels. All current results remain development evidence; a stronger general claim still needs frozen settings and fresh test maps.
 
 The model SHA-256 is `828a44d35fc4b0f40e413547762b5433c7d0e60d35aa084719656acf7eaf1e59`; the compressed raw-evidence SHA-256 is `f755b03e7f504305e9be979e8d161e09fdb2ab7261e6b8da61acc073e002846d`.
+
+## Inspect wall-map regressions
+
+```bash
+.venv/bin/python scripts/diagnose_frontier.py
+```
+
+This command ranks the existing wall queries by learned expansions minus Manhattan expansions. It reports how many improved, tied, or regressed, then inspects up to five positive regressions from different maps. It verifies saved fingerprints, repeated outcomes, and raw checksums before replaying the selected learned searches against their saved paths and counters. No training or new timing comparison is performed.
+
+For each selected case, BFS supplies exact distances. The diagnostic reports prediction errors for reachable cells, separating cells that require a detour beyond Manhattan distance. It also checks neighboring predictions: on a unit-cost edge, a consistent heuristic should satisfy `h(u) <= 1 + h(v)`. These checks identify possible weaknesses; they do not prove why a particular expansion occurred. Errors along the returned path are not a trace of frontier decisions.
+
+Outputs go to `outputs/frontier_diagnosis`: `summary.json`, the full wall-query `ranking.json`, and per-case error records, prediction/label arrays, and text maps showing both returned paths. Existing outputs are not overwritten. Send the printed summary first. These deliberately selected failures are development diagnostics, not representative performance estimates or a final test.
