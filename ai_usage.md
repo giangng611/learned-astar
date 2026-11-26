@@ -73,3 +73,9 @@ The validation and test runs completed 12,000 sessions and 1,536,000 timed query
 Codex was used to implement separate selector development maps, repeated runtime labels, map-level measurement recovery, and a small runtime-prediction network. Troubleshooting and tests cover layout exclusions, saved paths, evidence checks, training-only normalization, checkpoint reloads, and feature and prediction costs. A tiny end-to-end test checks the commands without running the full pilot. The 72-map data collection and main training run remain pending local execution.
 
 The local pilot subsequently completed. Codex was used to implement a follow-up diagnostic with new layout exclusions, intermediate goal counts, a frozen checkpoint, and grouped timing summaries. Tiny end-to-end checks verify checkpoint preservation and reject changed inputs; the full diagnostic remains pending local execution.
+
+## Frontier-learning implementation
+
+Codex was used to implement active-frontier sampling, queued-cost comparison labels, masked pair-ordering loss, and matched CNN continuation. Troubleshooting and tests check agreement with Manhattan search, teacher ordering, goal-score handling, gradients, checkpoint provenance, and complete-query evaluation. The selector diagnostic subsequently completed locally. Full frontier training and measurement remain pending local execution; only small correctness tests have run.
+
+Both frontier continuation runs subsequently completed locally. Codex was used to implement component timing for the frozen model, an uninstrumented timing control, path and counter equivalence checks, and summaries whose component times add to the selected total. Small tests cover unreachable queries, limits, changed checkpoints, and complete profile output. The full profiling run remains pending local execution.

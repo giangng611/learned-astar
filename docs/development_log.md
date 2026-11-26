@@ -240,3 +240,27 @@ Six new tests cover rotated exclusions, separate layouts, reproducible workloads
 The local pilot completed and selected epoch 188. Its recombined mean validation session estimates were 9.527 ms for the learned selector and 9.506 ms for the fixed rule. Added commands to probe 16, 32, and 64 goals on 24 new development maps while retaining the checkpoint and original rule. The new layouts exclude all 6,992 earlier groups. Results are grouped by goal count, and no fitting occurs in this diagnostic.
 
 All seven selector tests passed, including a small complete diagnostic that checks layout separation, unchanged checkpoint bytes, saved results, and rejection of altered inputs. Style and formatting checks passed. The full diagnostic remains pending local execution; previous experiment scripts and model files were not changed.
+
+## Return to the learned-heuristic question: frontier pilot
+
+The method-selection diagnostic completed locally and remains a separate extension. The next pilot returns to obstacle-aware distance prediction inside A*, following the submitted proposal. Added active-frontier sampling and an ordering loss based on queued path cost plus exact BFS distance. Equal teacher scores and unreachable cells are excluded. The labels rank route cost, not the number of expansions needed to finish the search.
+
+The control and candidate start from the same saved eight-channel CNN and receive the same 128 training maps, batches, and 20 epochs. Only the candidate receives the additional frontier loss. Another 32 validation maps provide diagnostics; both branches retain their final epoch rather than selecting different checkpoints. The development comparison uses 48 separate 32×32 selector maps, one new goal and four starts per map, fresh inference on every query, and three repetitions. Baselines include Manhattan, BFS, three Weighted A* settings, and the unchanged parent CNN. These maps are development evidence, not a final test set.
+
+All 233 tests passed. New checks cover every free endpoint pair on 3×3 layouts, strict teacher comparisons, stale-entry handling through agreement with ordinary A*, masked gradients, zero goal scores, reproducible sampling, and a complete small training/evaluation run. Source checks and proposal hashes passed, and a read-only check confirmed the default map counts and separation from the parent CNN's development groups. No existing experiment script, submitted proposal, or model weight file was changed. The full pilot remains pending local execution in PyCharm.
+
+## November 26, 2026: broader continuation data
+
+The first frontier pilot completed locally. On wall maps, the added objective did not establish a reduction in search effort or total time relative to the continued control. Training ordering accuracy improved while validation accuracy did not, motivating a bounded data-diversity check.
+
+Added a separate configuration that expands continuation data from 128 to 512 maps while keeping the wall/random balance and both random densities unchanged. Reducing 20 epochs to five preserves 160 updates and 2,560 processed map-goal examples per branch. Both branches restart from the original checkpoint. The existing runner, loss, sampling settings, validation maps, and policy queries remain unchanged; output goes to a new directory.
+
+Read-only checks verify the nested training subsets, identical validation records and policy endpoints, split separation, equal update budgets, and unchanged prior-run inputs. This configuration-only change does not rerun the algorithm suite; the latest full result remains 233 passing tests. The broader training and evaluation run is left for local execution.
+
+## November 26, 2026: component timing for the frozen frontier model
+
+The broader local run completed. On wall queries the frontier model returned 96/96 shortest paths, expanded 166.4 cells on average, and took 0.663 ms versus Manhattan's 210.9 cells and 0.360 ms. These observations motivate measuring runtime components before further training.
+
+Added a separate profiling command that reuses the checkpoint and all 192 policy queries. Five shuffled repetitions compare Manhattan, unchanged learned A*, and an instrumented wrapper. The wrapper separates input preparation, CNN forward computation, output processing, search with reconstruction, and remaining overhead. It uses the existing A* loop and compares every path and counter against the unchanged learned function. External call boundaries are identical across methods; the reference comparison reports possible instrumentation overhead. Component summaries use the same median-total repetition so their sums remain meaningful.
+
+Seven relevant tests passed, including a small complete profile, prediction equality, no-path cases, limits, changed-checkpoint rejection, repetition coverage, and component arithmetic. Style and formatting checks passed. Read-only checks verified the actual source checkpoint and the 48-map policy set; the full profile remains for local execution. Existing experiment scripts, model weights, and submitted proposals were unchanged.
