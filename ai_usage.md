@@ -77,3 +77,5 @@ The local pilot subsequently completed. Codex was used to implement a follow-up 
 ## Frontier-learning implementation
 
 Codex was used to implement active-frontier sampling, queued-cost comparison labels, masked pair-ordering loss, and matched CNN continuation. Troubleshooting and tests check agreement with Manhattan search, teacher ordering, goal-score handling, gradients, checkpoint provenance, and complete-query evaluation. The selector diagnostic subsequently completed locally. Full frontier training and measurement remain pending local execution; only small correctness tests have run.
+
+Both frontier continuation runs subsequently completed locally. Codex was used to implement component timing for the frozen model, an uninstrumented timing control, path and counter equivalence checks, and summaries whose component times add to the selected total. Small tests cover unreachable queries, limits, changed checkpoints, and complete profile output. The full profiling run remains pending local execution.

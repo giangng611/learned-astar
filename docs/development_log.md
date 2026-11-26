@@ -256,3 +256,11 @@ The first frontier pilot completed locally. On wall maps, the added objective di
 Added a separate configuration that expands continuation data from 128 to 512 maps while keeping the wall/random balance and both random densities unchanged. Reducing 20 epochs to five preserves 160 updates and 2,560 processed map-goal examples per branch. Both branches restart from the original checkpoint. The existing runner, loss, sampling settings, validation maps, and policy queries remain unchanged; output goes to a new directory.
 
 Read-only checks verify the nested training subsets, identical validation records and policy endpoints, split separation, equal update budgets, and unchanged prior-run inputs. This configuration-only change does not rerun the algorithm suite; the latest full result remains 233 passing tests. The broader training and evaluation run is left for local execution.
+
+## November 26, 2026: component timing for the frozen frontier model
+
+The broader local run completed. On wall queries the frontier model returned 96/96 shortest paths, expanded 166.4 cells on average, and took 0.663 ms versus Manhattan's 210.9 cells and 0.360 ms. These observations motivate measuring runtime components before further training.
+
+Added a separate profiling command that reuses the checkpoint and all 192 policy queries. Five shuffled repetitions compare Manhattan, unchanged learned A*, and an instrumented wrapper. The wrapper separates input preparation, CNN forward computation, output processing, search with reconstruction, and remaining overhead. It uses the existing A* loop and compares every path and counter against the unchanged learned function. External call boundaries are identical across methods; the reference comparison reports possible instrumentation overhead. Component summaries use the same median-total repetition so their sums remain meaningful.
+
+Seven relevant tests passed, including a small complete profile, prediction equality, no-path cases, limits, changed-checkpoint rejection, repetition coverage, and component arithmetic. Style and formatting checks passed. Read-only checks verified the actual source checkpoint and the 48-map policy set; the full profile remains for local execution. Existing experiment scripts, model weights, and submitted proposals were unchanged.

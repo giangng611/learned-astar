@@ -84,3 +84,21 @@ Run these commands in order:
 ```
 
 Results are saved separately under `outputs/frontier_diversity`. Compare the new frontier model with its new control first, then examine changes from the earlier run. Timing comparisons across runs should also consider their remeasured baselines because machine load can change. Expansions, path quality, and reachable-query success remain separate outcomes. This is another development check, not a final test; the full run remains pending local execution.
+
+## Profile the frozen model before further changes
+
+The broader local run completed. Its frontier model returned optimal paths on all 96 wall queries and expanded 166.4 cells on average versus Manhattan's 210.9. Mean complete-query time was 0.663 ms versus 0.360 ms. This is an observed development result, not an optimality guarantee. The next step measures where the time goes without training again.
+
+```bash
+.venv/bin/python scripts/profile_frontier.py
+```
+
+This command uses the saved frontier model in `outputs/frontier_diversity` and the same 48 maps and 192 queries. It measures Manhattan, the unchanged learned-search function, and an instrumented copy of the learned wrapper in shuffled order for five repetitions: 2,880 timed executions. All methods use external call boundaries and one CPU thread. Model loading, warm-up, map-file reads, reference BFS labels, correctness checks, and evidence writing are outside query timing. Every learned execution rebuilds the input and runs the CNN.
+
+The instrumented wrapper retains the existing network operations and shared A* search loop. It separates occupancy/input encoding, the CNN forward pass, output conversion and checks, and search including path reconstruction. Remaining wrapper and timer costs are reported as `other`. Tests and the run itself compare complete paths, costs, statuses, and all search counters with the unchanged implementation. The profile also handles no-path cases; incomplete queries stop the diagnostic rather than silently disappearing from its averages.
+
+For each query and method, the report retains the repetition with median total time and all components from that same repetition. Components therefore add to the reported total; they are not independently selected component medians. Queries are averaged within maps, then maps within each family. `profile_over_reference_map_ratio` and its whole-map bootstrap interval show whether instrumentation measurably changes runtime. Component percentages are approximate diagnostic allocations, not untouched production timings or pure hardware kernel timings.
+
+`remaining_time_budget_ms` is Manhattan's mean total time minus the profiled learned search time. It estimates the budget available for all non-search work if that search time stays fixed. A negative value means even that measured search portion exceeds Manhattan's total; it is not an error or a promise that removing one component would achieve the calculated saving. The two other useful outputs are the uninstrumented learned/Manhattan ratio and the search-only/Manhattan ratio.
+
+Results and raw repetitions are saved separately in `outputs/frontier_profile`. The command refuses to overwrite an existing output or accept a changed checkpoint. Send the final `summary.json` output for review before choosing the next optimization. Only small profiling checks have run during implementation; the full measurement remains for local execution.
