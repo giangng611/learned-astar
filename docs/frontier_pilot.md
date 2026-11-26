@@ -56,4 +56,31 @@ Run from the project folder, waiting for each stage to finish:
 .venv/bin/python scripts/run_frontier_pilot.py evaluate
 ```
 
-Outputs are saved under `outputs/frontier_pilot`. The training stage prints diagnostics for both branches; evaluation prints the search comparison and saves `summary.json` plus compressed raw evidence. Existing runs and model files are not overwritten. Keep the source and configuration unchanged between stages. The full pilot is left for local execution; only small correctness and command checks have run so far.
+Outputs are saved under `outputs/frontier_pilot`. The training stage prints diagnostics for both branches; evaluation prints the search comparison and saves `summary.json` plus compressed raw evidence. Existing runs and model files are not overwritten. Keep the source and configuration unchanged between stages.
+
+## Broader training data at the same update budget
+
+The first local pilot completed. On wall maps, the frontier model expanded 161.5 cells per query compared with 161.0 for the continued control and 210.9 for Manhattan. Total times were 1.166, 1.175, and 0.664 ms respectively. The added objective did not establish an improvement over the matched control. For wall-map comparisons, frontier ordering accuracy increased from 86.5% to 89.9% on the training data, while validation accuracy changed from 82.1% to 81.9%. This motivates checking whether broader continuation data helps; it does not prove that dataset size caused the result.
+
+The next configuration expands the subset from 64 to 256 wall maps and from 64 to 256 random maps. Random maps increase too, so the wall/random balance stays at 50/50 and both random densities remain equally represented. This tests diversity of the mixed continuation set, not the isolated effect of adding wall maps alone. All added maps come from the existing training split, and the parent CNN has already seen that development set. They are additional continuation examples, not a new map generator or unseen wall distribution.
+
+| Setting | First pilot | Diversity pilot |
+| --- | ---: | ---: |
+| Training maps | 128 | 512 |
+| Maps with walls | 64 | 256 |
+| Epochs | 20 | 5 |
+| Batch size | 16 | 16 |
+| Updates per branch | 160 | 160 |
+| Map-goal examples processed per branch | 2,560 | 2,560 |
+
+Both branches restart from the same original eight-channel checkpoint, not from the first pilot's continued weights. Network size, learning rate, objectives, trace sampling, seed, 32 validation maps, 48 policy maps, and policy endpoints stay unchanged. The larger subset contains every map in the smaller subset. More unique examples replace repeated exposure to the same examples; equal update counts do not imply equal preparation time or total wall-clock time.
+
+Run these commands in order:
+
+```bash
+.venv/bin/python scripts/run_frontier_pilot.py prepare --config configs/frontier_diversity.toml --run outputs/frontier_diversity
+.venv/bin/python scripts/run_frontier_pilot.py train --run outputs/frontier_diversity
+.venv/bin/python scripts/run_frontier_pilot.py evaluate --run outputs/frontier_diversity
+```
+
+Results are saved separately under `outputs/frontier_diversity`. Compare the new frontier model with its new control first, then examine changes from the earlier run. Timing comparisons across runs should also consider their remeasured baselines because machine load can change. Expansions, path quality, and reachable-query success remain separate outcomes. This is another development check, not a final test; the full run remains pending local execution.
