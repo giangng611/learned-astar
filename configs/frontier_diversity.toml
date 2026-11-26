@@ -1,0 +1,19 @@
+# Broader continuation data, with the same 160 optimizer updates per branch.
+source = "outputs/research_v2/development"
+checkpoint = "artifacts/checkpoints/research_v5/width_8/seed_7.pt"
+policy_sources = ["outputs/selector_pilot", "outputs/selector_transition"]
+train_per_kind = 256
+validation_per_kind = 16
+seed = 7
+query_seed = 149501
+trace_starts = 2
+snapshots = 8
+negatives = 8
+epochs = 5
+batch_size = 16
+learning_rate = 0.0002
+route_weight = 0.02
+frontier_weight = 0.02
+cpu_threads = 4
+evaluation_starts = 4
+repetitions = 3
