@@ -188,3 +188,20 @@ A single follow-up lowers only the consistency weight from 0.02 to 0.002. Both b
 ```
 
 The original run remains unchanged in `outputs/consistency_pilot`. Repeated use of these policy maps makes the follow-up development evidence, not a fresh final test.
+
+### Lower-weight result and decision
+
+The 0.002 run completed all 2,880 timed executions. Source fingerprints, checkpoint hashes, the raw checksum, repetition coverage, stable outcomes, and recomputed summaries passed verification. The two runs' control models have identical parameter tensors; their checkpoint file hashes differ because the saved training configurations differ.
+
+| Wall-query mean, same measurement run | Frozen parent | Continued control | Weight 0.002 |
+| --- | ---: | ---: | ---: |
+| Complete time (ms) | 0.6631 | 0.6621 | 0.6633 |
+| Expansions | 166.42 | 166.10 | 171.33 |
+| Repeated expansions | 6.05 | 6.59 | 4.88 |
+| Optimal returned paths | 96/96 | 93/96 | 96/96 |
+
+Relative to the matched control, wall repeated expansions decreased by 26.1%, but total expansions increased by 3.15%. The paired expansion difference was +5.23, with a 95% whole-map bootstrap interval of [+1.96, +8.49]. The time difference was +0.0012 ms, with an interval of [-0.0118, +0.0131], so this run does not establish a runtime improvement. The frozen parent returned the same number of optimal wall paths with fewer expansions. Neither model has a general optimality guarantee.
+
+On random maps, the candidate reduced expansions by 6.42% and mean time by 2.06% versus the control. Optimal paths remained 89/91 for the candidate versus 90/91 for the control. Validation consistency loss decreased to 1.3278 from 1.7210, but the lower penalty did not produce a wall-search improvement.
+
+Stop this consistency-weight check as planned and retain the frozen diversity checkpoint as the current wall-search candidate. This does not rule out every possible consistency objective; it records the outcome of these two bounded settings. The useful finding is that reducing repeated expansions alone did not reduce total search effort here. The next proposed step is a separate evaluation with settings frozen and previously unused maps, rather than selecting another weight using the same policy cases. The broader claim remains limited: the current candidate reduced wall expansions on the development set but did not beat Manhattan in complete-query time.
