@@ -205,3 +205,23 @@ Relative to the matched control, wall repeated expansions decreased by 26.1%, bu
 On random maps, the candidate reduced expansions by 6.42% and mean time by 2.06% versus the control. Optimal paths remained 89/91 for the candidate versus 90/91 for the control. Validation consistency loss decreased to 1.3278 from 1.7210, but the lower penalty did not produce a wall-search improvement.
 
 Stop this consistency-weight check as planned and retain the frozen diversity checkpoint as the current wall-search candidate. This does not rule out every possible consistency objective; it records the outcome of these two bounded settings. The useful finding is that reducing repeated expansions alone did not reduce total search effort here. The next proposed step is a separate evaluation with settings frozen and previously unused maps, rather than selecting another weight using the same policy cases. The broader claim remains limited: the current candidate reduced wall expansions on the development set but did not beat Manhattan in complete-query time.
+
+## Frozen-model test on new maps
+
+The next run fixes the diversity frontier checkpoint, search settings, map counts, and random seeds before generating test maps. No model is trained or selected in this run. Its main comparison is learned versus Manhattan expansions on 32×32 wall maps, considered alongside path quality and complete-query time. Random maps and the 64×64 size check are reported separately. This evaluates one selected training seed; it does not measure variation across training seeds or establish that the obstacle input alone caused an improvement.
+
+The test contains 30 maps for each of random-32, walls-32, random-64, and walls-64: 120 maps total. Each random family contains 15 maps at obstacle density 0.10 and 15 at 0.25. Generation uses the existing random and wall generators, so these are new layouts from familiar families, not new obstacle types. All 7,016 earlier layout groups are excluded, including rotations. Four starts and one goal are sampled independently of reachability on each map, giving 480 queries. Unreachable queries are retained.
+
+Manhattan A*, Weighted A* at 1.5, ordinary per-query BFS, and the frozen learned A* receive identical queries. Five shuffled repetitions produce 9,600 timed executions. Every learned query rebuilds features and runs the CNN; neither predictions nor BFS policies are cached between queries. External call timing includes search and path reconstruction. Model loading, warm-up, map loading, reference BFS labels, checks, and output writing are outside timing. This measures resident-model query time, not application startup.
+
+The runner checks saved paths against the map and BFS costs, verifies exact-baseline optimality and the weighted bound, and requires repeated outcomes and counters to agree. Incomplete queries stop the run with partial evidence retained; they cannot become apparent speedups. For each query, the median-total repetition supplies the measurements. Family means average queries within maps and then maps equally. Learned-minus-Manhattan differences have whole-map bootstrap intervals; negative values favor the learned method. These intervals concern sampled maps, not all possible layouts or model seeds.
+
+Run each command after the previous one succeeds:
+
+```bash
+.venv/bin/python scripts/run_frontier_fresh_test.py prepare
+.venv/bin/python scripts/run_frontier_fresh_test.py evaluate
+.venv/bin/python scripts/run_frontier_fresh_test.py verify
+```
+
+Outputs are stored in `outputs/frontier_fresh_test`, including the frozen model copy, protocol, map manifest, exclusion list, environment details, full raw outcomes, and `summary.json`. Existing outputs are not overwritten. The verification command regenerates maps and endpoints from their seeds, checks exclusions and evidence hashes, validates every saved path and repetition, and recomputes the summary without inference or new timing. Send the evaluation summary and verification output. Once inspected, these maps must not be reused to tune the method while still being described as an untouched test.
