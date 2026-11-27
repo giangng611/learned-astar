@@ -272,3 +272,11 @@ The local profile completed 2,880 timed executions on 48 development maps. Verif
 On walls, mean unchanged learned time was 0.6296 ms versus Manhattan's 0.3459 ms. Search and reconstruction took 0.2963 ms, leaving 0.0495 ms for all remaining work. Keeping other components fixed would require reducing the 0.2965 ms CNN forward pass to about 0.0103 ms merely to match Manhattan. On random maps, learned search alone already exceeded Manhattan's complete time. Further training may improve search quality but does not directly remove inference cost.
 
 Recorded the completed measurements and their limits in the frontier pilot notes. No new training or benchmark was launched, and code, model weights, and submitted proposals were unchanged. The next proposed diagnostic examines wall queries with the largest expansion regressions against BFS labels before selecting another training change.
+
+## November 26, 2026: matched consistency continuation
+
+The wall diagnostic completed locally: 62 queries improved in expansions, five tied, and 29 regressed. The five selected failures had about 30–34% inconsistent directed reachable edges, motivating a bounded consistency-training pilot rather than a causal claim.
+
+Added a separate runner and configuration. Both branches continue the same frozen frontier checkpoint on all 512 existing training maps for 160 updates. The candidate adds a squared adjacent-score consistency penalty to the control's existing distance, route, and frontier objectives. Evaluation retains all 48 development policy maps and compares five methods with fresh inference, external timing, complete path checks, repeated-expansion counts, and whole-map paired differences. Existing experiment scripts and submitted proposals are unchanged.
+
+Thirteen relevant tests passed, including a small complete preparation/training/evaluation run, exact-label consistency, blocked and disconnected masks, goal handling, gradients, zero-edge cases, evidence checks, and map-weighted summaries. Read-only checks verified the actual parent checkpoint and the 512/32/48 training, validation, and policy map counts. The full training and evaluation are left for local execution.

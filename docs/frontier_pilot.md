@@ -139,3 +139,27 @@ This command ranks the existing wall queries by learned expansions minus Manhatt
 For each selected case, BFS supplies exact distances. The diagnostic reports prediction errors for reachable cells, separating cells that require a detour beyond Manhattan distance. It also checks neighboring predictions: on a unit-cost edge, a consistent heuristic should satisfy `h(u) <= 1 + h(v)`. These checks identify possible weaknesses; they do not prove why a particular expansion occurred. Errors along the returned path are not a trace of frontier decisions.
 
 Outputs go to `outputs/frontier_diagnosis`: `summary.json`, the full wall-query `ranking.json`, and per-case error records, prediction/label arrays, and text maps showing both returned paths. Existing outputs are not overwritten. Send the printed summary first. These deliberately selected failures are development diagnostics, not representative performance estimates or a final test.
+
+## Consistency training pilot
+
+The completed wall diagnostic found fewer expansions in 62 of 96 queries, equal expansions in five, and more expansions in 29. In the five selected failures, about 30–34% of directed reachable edges violated the consistency inequality. The worst selected query included 151 repeated expansions. This motivates a controlled training check, but the selected cases alone do not establish that inconsistency caused the regressions.
+
+Both new branches start from the completed diversity pilot's frontier checkpoint. They reuse all 512 continuation maps, the same 32 diagnostic validation maps, and the same 48 policy maps and endpoints. The five inspected failures are not added to training. Each branch runs five epochs with batch size 16, Adam at 0.0002, seed 7, and the same shuffled batch order: 160 updates per branch. Both retain the final epoch; no checkpoint is selected using the policy results.
+
+The control keeps distance loss, route loss weighted by 0.02, and frontier loss weighted by 0.02. The candidate adds consistency loss weighted by 0.02. Predictions are converted back to grid steps and the goal prediction is set to zero, matching search. For each horizontal or vertical edge between reachable free cells, the penalty is `max(0, abs(h(u) - h(v)) - 1)^2`. Edges are counted once, averaged within each map, then averaged across the batch. Blocked and unreachable cells are excluded. The weight is a fixed pilot choice, not a tuned optimum.
+
+This penalty encourages adjacent predictions to agree with a one-step move; it does not guarantee consistency on new maps or optimal returned paths. A low penalty alone is insufficient: a constant zero heuristic is consistent but provides little search guidance. Keeping the other objectives and measuring actual search behavior addresses this tradeoff. Network size and inference operations are unchanged, so the experiment targets search effort rather than directly reducing CNN computation.
+
+Run each stage after the previous one finishes:
+
+```bash
+.venv/bin/python scripts/run_consistency_pilot.py prepare
+.venv/bin/python scripts/run_consistency_pilot.py train
+.venv/bin/python scripts/run_consistency_pilot.py evaluate
+```
+
+The new directory is `outputs/consistency_pilot`; existing runs are preserved. Preparation checks the parent checkpoint and source fingerprints. Evaluation compares Manhattan, Weighted A* at 1.5, the frozen parent, the continued control, and the consistency candidate on all 192 queries. Three shuffled repetitions give 2,880 timed executions. Timing uses external call boundaries with fresh input preparation and CNN inference for every learned query. Loading, warm-up, BFS labels, path checks, and evidence writing are excluded. Incomplete queries stop the evaluation instead of being counted as a speedup.
+
+The printed summary separates walls and random maps and reports total time, expansions, repeated expansions, and path quality. Candidate-minus-control differences use per-map averages and 95% whole-map bootstrap intervals; negative differences favor the candidate. These intervals describe variation across the current maps, not training-seed uncertainty. Path ratios exclude zero-length queries, while optimal-path fractions include them. Raw paths and all search counters are saved and checked across repetitions.
+
+The next decision uses the candidate versus its matched control: did repeated expansions and total expansions decrease without worse path quality, and did that affect complete-query time? A lower validation penalty without a search improvement is not a successful result. This remains a one-seed development pilot, with additional seeds and fresh maps reserved for a promising result.
