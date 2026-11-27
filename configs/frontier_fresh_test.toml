@@ -1,0 +1,14 @@
+# Frozen before generating or evaluating the new maps. No training in this run.
+source_run = "outputs/frontier_diversity"
+checkpoint_sha256 = "828a44d35fc4b0f40e413547762b5433c7d0e60d35aa084719656acf7eaf1e59"
+exclusion_run = "outputs/selector_transition"
+sizes = [32, 64]
+maps_per_family = 30
+starts_per_map = 4
+repetitions = 5
+map_seed = 199501
+query_seed = 199502
+order_seed = 199503
+bootstrap_seed = 199504
+max_expansions = 1000000
+time_limit_seconds = 5.0
