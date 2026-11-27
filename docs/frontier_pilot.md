@@ -163,3 +163,28 @@ The new directory is `outputs/consistency_pilot`; existing runs are preserved. P
 The printed summary separates walls and random maps and reports total time, expansions, repeated expansions, and path quality. Candidate-minus-control differences use per-map averages and 95% whole-map bootstrap intervals; negative differences favor the candidate. These intervals describe variation across the current maps, not training-seed uncertainty. Path ratios exclude zero-length queries, while optimal-path fractions include them. Raw paths and all search counters are saved and checked across repetitions.
 
 The next decision uses the candidate versus its matched control: did repeated expansions and total expansions decrease without worse path quality, and did that affect complete-query time? A lower validation penalty without a search improvement is not a successful result. This remains a one-seed development pilot, with additional seeds and fresh maps reserved for a promising result.
+
+### Completed consistency result and one lower-weight check
+
+The local run completed all 2,880 timed executions. Saved fingerprints, model hashes, raw checksum, repeated outcomes, and recomputed summaries were verified. Validation consistency loss fell from the control's 1.7210 to 0.6421, but distance loss increased from 0.01103 to 0.01276 and route loss from 0.2187 to 0.2492.
+
+| Wall-query mean | Frozen parent | Continued control | Consistency candidate |
+| --- | ---: | ---: | ---: |
+| Complete time (ms) | 0.6360 | 0.6327 | 0.6692 |
+| Expansions | 166.42 | 166.10 | 196.01 |
+| Repeated expansions | 6.05 | 6.59 | 1.86 |
+| Optimal returned paths | 96/96 | 93/96 | 96/96 |
+
+On walls, the candidate reduced repeated expansions by 71.7% versus its control but increased total expansions by 18.0% and time by 5.8%. It expanded 34.64 more distinct cells per query on average. The paired time difference was +0.0365 ms, with a whole-map 95% bootstrap interval of [+0.0191, +0.0543]. The frozen parent also retained 96/96 optimal paths with fewer expansions and lower mean time, so the candidate did not improve the main wall-search result.
+
+On random maps, expansions fell by 17.5% and time by 6.3% versus the control, but optimal paths fell from 90/91 to 89/91. Mean time remained 0.4842 ms versus Manhattan's 0.1293 ms. These are development observations from one training seed; the wall and random tradeoffs should remain separate.
+
+A single follow-up lowers only the consistency weight from 0.02 to 0.002. Both branches restart from the same frozen diversity checkpoint, not from the newly trained candidate. Data, batch order, 160-update budgets, final-epoch selection, and evaluation stay unchanged. The hypothesis is that a lighter penalty may reduce repeated expansions while preserving useful distance differences. This weight is a bounded follow-up choice, not an established optimum. If it also fails against its matched control on wall search, retain the frozen parent and stop this weight check before expanding to more seeds.
+
+```bash
+.venv/bin/python scripts/run_consistency_pilot.py prepare --config configs/consistency_light.toml --run outputs/consistency_light
+.venv/bin/python scripts/run_consistency_pilot.py train --run outputs/consistency_light
+.venv/bin/python scripts/run_consistency_pilot.py evaluate --run outputs/consistency_light
+```
+
+The original run remains unchanged in `outputs/consistency_pilot`. Repeated use of these policy maps makes the follow-up development evidence, not a fresh final test.
