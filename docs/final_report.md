@@ -6,6 +6,8 @@ Can a small neural network use obstacle information to help A* find shortest pat
 
 The model learned useful search preferences. With predictions used only to order equal Manhattan priorities, it reduced expansions on fresh random and wall 32×32 maps while preserving shortest paths. However, prediction and preparation costs outweighed these savings. Smaller networks and prediction reuse narrowed the gap without establishing a reliable runtime win over equally prepared Manhattan A*.
 
+A later return to direct learned priorities added frontier comparisons during training. After development checks, one frozen eight-channel model was tested on 120 new maps. It reduced wall-map expansions by 24.9% at size 32 and 25.6% at size 64, but remained slower than Manhattan and returned some longer paths. Random-map performance was worse in both expansions and time. The fresh result supports a wall-search effort reduction, not an overall speedup or a shortest-path guarantee.
+
 Later diagnostics explain part of this result. Changing only tie order leaves little room on the measured wall maps. A classical landmark heuristic can change the main search priority, but adding the frozen CNN did not improve it. The initial landmark diagnostics use validation maps. A subsequent on-demand implementation study adds 120 fresh test maps and confirms a classical speed benefit on changing-goal wall workloads. This benefit is separate from the learned-model findings.
 
 The contribution is a controlled empirical study of where learned guidance helps and where its costs dominate. It is not a new shortest-path algorithm or a claim that learned search cannot outperform A* in other settings. The [original report](report.md) describes the first experiment; this synthesis covers the subsequent research as well.
@@ -114,12 +116,29 @@ On walls 64 with every goal distinct, full-field landmark setup takes 1.9593 ms/
 
 The [test archive](../results/demand_heuristic/test/summary.json) retains all methods and workloads. Session timing includes preparation and path construction, but excludes final cache disposal, startup, data I/O, and verification. Thus the result describes the measured processing boundary rather than full application-lifecycle latency.
 
+### Fresh test: direct frontier-trained guidance
+
+This experiment returns to the main learned-heuristic question. Training compares queued cells using their known path cost plus exact BFS distance, in addition to the existing distance and route objectives. The model then supplies the primary `g + predicted distance` priority. Two bounded consistency-loss follow-ups reduced repeated expansions without improving wall search overall; they were not selected for the fresh test. Full controls and development results are recorded in the [frontier pilot](frontier_pilot.md).
+
+The selected eight-channel model was frozen before generating 120 fresh maps, excluding all 7,016 earlier layout groups and rotations. Each of four families had 30 maps with four starts per map. Five shuffled repetitions compared the learned method, Manhattan, Weighted A* at 1.5, and ordinary BFS: 9,600 timed executions. Every learned query included fresh features and inference. Evidence verification checked all saved paths and recomputed the summaries.
+
+| Family | Change in expansions versus Manhattan | Learned / Manhattan time | Learned optimal paths |
+| --- | ---: | ---: | ---: |
+| Random 32×32 | +56.3% | 5.77× | 119/119 |
+| Random 64×64 | +101.7% | 6.62× | 92/119 |
+| Walls 32×32 | -24.9% | 1.90× | 116/120 |
+| Walls 64×64 | -25.6% | 1.58× | 79/120 |
+
+Changes and time ratios use family means. The wall expansion differences had whole-map 95% bootstrap intervals entirely below zero: [-74.00, -34.02] cells at size 32 and [-354.63, -155.96] at size 64. Mean excess path length was 0.145% and 1.129%, respectively, with worst cases of 7.41% and 12.24%. These are not equal-quality comparisons: Manhattan returned shortest paths for every reachable query. All methods agreed on reachability, and all three classical controls had lower mean time than the learned method in every family.
+
+The result shows that fewer expansions can transfer to new wall layouts without producing a runtime win. The path-quality drop on larger maps also limits generalization. The test covers one trained seed and familiar map generators; it neither establishes a universal result nor isolates which input features caused the reduction. These inspected test maps are now reserved as completed evidence, not a new tuning set.
+
 ## Limitations and next decisions
 
 The evidence covers synthetic static grids on one CPU setup. It does not establish performance on real navigation maps, moving obstacles, weighted terrain, or GPU deployment. The initial landmark pilots have ten maps per family and one model seed; the on-demand fresh test has 20 maps per family and no model. Intervals are pointwise. Caching many goals also consumes memory, which has not been benchmarked in bytes. Vectorized full-field implementations were not compared. The finite CNN receptive field and training-size mismatch are possible contributors to larger-map behavior, not isolated causal findings.
 
 The current results support three distinct conclusions: the model learns useful preferences; safe ties preserve path quality but constrain its influence; complete runtime depends on both search savings and the cost of obtaining guidance. The original aim of a reliable learned runtime advantage over Manhattan remains unmet.
 
-Further learning work can target the different strengths of the measured methods. A small model could select Manhattan, landmarks, or reverse BFS from map features and the known query workload. It would require separate training data, a simple hand-written selection rule as a control, and charged feature-extraction and prediction time. This is a hypothesis, not a demonstrated learned improvement. Learning to rank actual equal-priority search groups remains another possibility, but it would still face the measured tie ceiling.
+A separate [selector pilot](selector_pilot.md) examined choosing Manhattan, landmarks, or reverse BFS from map features and the known query workload. Its development results are a side extension, not evidence that the distance CNN itself searches faster. The later frontier and consistency experiments returned to the main learned-heuristic objective; the completed fresh test above supplies the latest evidence for that direction.
 
-For either direction, write the hypothesis and validation gate first, run one bounded pilot against a matched control, and require correct paths plus complete-time benefit before expanding seeds and generating a fresh test set. Existing results are sufficient for reporting now; new training is an optional extension, not a prerequisite for an honest research conclusion.
+The next deliverable is a presentation and terminal demonstration that keep expansions, path quality, and runtime separate. Any further learning study should state a new hypothesis and validation rule first, use development data with matched controls, and reserve another untouched test for frozen settings. Existing results are sufficient for reporting now; new training is an optional extension, not a prerequisite for an honest research conclusion.

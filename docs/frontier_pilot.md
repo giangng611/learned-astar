@@ -225,3 +225,24 @@ Run each command after the previous one succeeds:
 ```
 
 Outputs are stored in `outputs/frontier_fresh_test`, including the frozen model copy, protocol, map manifest, exclusion list, environment details, full raw outcomes, and `summary.json`. Existing outputs are not overwritten. The verification command regenerates maps and endpoints from their seeds, checks exclusions and evidence hashes, validates every saved path and repetition, and recomputes the summary without inference or new timing. Send the evaluation summary and verification output. Once inspected, these maps must not be reused to tune the method while still being described as an untouched test.
+
+### Completed fresh-map result
+
+All 120 maps and 9,600 timed executions completed. Verification regenerated the layouts and endpoints, checked separation and hashes, validated every saved path, and recomputed the summary. The fixed model returned a path for all 478 reachable queries and correctly reported the two unreachable queries. No training or model selection used these results.
+
+| Family | Manhattan / learned expansions | Expansion change | Manhattan / learned time (ms) | Learned optimal paths |
+| --- | ---: | ---: | ---: | ---: |
+| Random 32 | 47.66 / 74.51 | +56.3% | 0.0995 / 0.5744 | 119/119 |
+| Random 64 | 124.02 / 250.14 | +101.7% | 0.2475 / 1.6399 | 92/119 |
+| Walls 32 | 214.43 / 161.12 | -24.9% | 0.3765 / 0.7141 | 116/120 |
+| Walls 64 | 965.13 / 717.82 | -25.6% | 1.6086 / 2.5417 | 79/120 |
+
+Percent changes above are ratios of family means. On walls-32, the learned-minus-Manhattan expansion difference was -53.31, with a 95% whole-map bootstrap interval of [-74.00, -34.02]. On walls-64 it was -247.32, with an interval of [-354.63, -155.96]. Both support fewer expansions on these sampled wall families. Complete time was nevertheless 1.90 and 1.58 times Manhattan's time, respectively; both paired time intervals were positive. Random-map expansion and runtime comparisons favored Manhattan at both sizes.
+
+The wall expansion reduction comes with a path-quality tradeoff: mean excess path length was 0.145% on walls-32 and 1.129% on walls-64, with worst cases of 7.41% and 12.24%. In particular, the earlier 96/96 optimal wall development paths did not establish a guarantee: the fresh wall sets returned 116/120 and 79/120 optimal paths. The reduced optimal-path frequency at size 64 limits the transfer claim even though expansions decreased. These comparisons do not establish equal-quality efficiency gains.
+
+All three classical controls had lower mean runtime than the learned method in every family. Weighted A* used fewer expansions on random maps, with lower optimal-path frequency than the learned model. Ordinary BFS used more expansions but remained faster here; this reinforces the need to distinguish expanded cells from total time. This is a per-query BFS comparison, not the earlier reused reverse-BFS policy.
+
+Retain this completed test as evidence and do not tune against it. The supported conclusion is narrower than an overall speedup: the selected CNN reduced expansions on fresh wall layouts, while inference cost, weaker random-map behavior, and reduced path quality at larger sizes prevented it from outperforming the classical controls overall. This one-seed experiment does not isolate the causal contribution of obstacle inputs or establish behavior on new wall generators.
+
+The raw-evidence SHA-256 is `ebc6bd38fa6138ae5e196b6463c98605c3ff03e5d4a070f32ac90d9a8f8a5484`; the model remains `828a44d35fc4b0f40e413547762b5433c7d0e60d35aa084719656acf7eaf1e59`.
